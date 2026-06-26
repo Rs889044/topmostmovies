@@ -1,0 +1,38 @@
+---
+/**
+ * AdSlot.astro — reserved-space ad placeholder. Renders ONLY a fixed-height placeholder
+ * until an AdSense publisher ID is provided (PUBLIC_ADSENSE_CLIENT) — no live ad code yet.
+ * The reserved height prevents layout shift (CLS) once real ads load. See docs/ADSENSE.md.
+ */
+export interface Props {
+  /** Named placement, e.g. "list-top", "movie-inline". */
+  slot: string;
+  class?: string;
+  /** Reserved min-height (px) per the expected ad size. */
+  minHeight?: number;
+}
+
+const { slot, class: className = '', minHeight = 100 } = Astro.props;
+
+// Flip on only when a publisher ID exists AND ads are approved (Phase 8).
+const ADSENSE_CLIENT = import.meta.env.PUBLIC_ADSENSE_CLIENT;
+const live = Boolean(ADSENSE_CLIENT);
+---
+
+<aside
+  class:list={['ad-slot flex items-center justify-center', className]}
+  style={`min-height:${minHeight}px`}
+  data-ad-slot={slot}
+  aria-hidden="true"
+>
+  {
+    live ? (
+      /* Real ad markup is added in Phase 8 once approved; reserved space kept identical. */
+      <div class="w-full" data-adsense-placeholder={ADSENSE_CLIENT} />
+    ) : (
+      <div class="w-full rounded-md border border-dashed border-gray-200 py-6 text-center text-xs uppercase tracking-wide text-gray-300">
+        Advertisement
+      </div>
+    )
+  }
+</aside>

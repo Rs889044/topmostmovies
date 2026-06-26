@@ -1,0 +1,98 @@
+---
+/**
+ * ListLayout.astro — shared "Top 10 …" list page. Used by all six dimension routes.
+ * Renders breadcrumbs, h1 + intro, ranked MovieCards (with per-list blurbs), an optional
+ * FAQ block, and ad slots. Wires ItemList + BreadcrumbList (+ FAQPage) JSON-LD.
+ */
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import MovieCard from '../components/MovieCard.astro';
+import Faq from '../components/Faq.astro';
+import AdSlot from '../components/AdSlot.astro';
+import type { RankedList } from '../lib/lists';
+import { breadcrumbList, itemList, faqPage, type Crumb } from '../lib/jsonld';
+import type { Dimension } from '../lib/taxonomy';
+
+export interface Props {
+  list: RankedList;
+  /** Label for the dimension breadcrumb, e.g. "Genre". */
+  dimensionLabel: string;
+  intro?: string;
+  perMovieBlurb?: Record<string, string>;
+  faq?: { q: string; a: string }[];
+}
+
+const { list, dimensionLabel, intro, perMovieBlurb = {}, faq = [] } = Astro.props;
+const site = Astro.site ?? new URL('https://topmostmovies.com');
+
+const dimensionPathBase: Record<Dimension, string> = {
+  industry: 'industry',
+  country: 'country',
+  language: 'language',
+  genre: 'genre',
+  year: 'year',
+  decade: 'decade',
+};
+
+const crumbs: Crumb[] = [
+  { name: 'Home', path: '/' },
+  { name: dimensionLabel, path: `/${dimensionPathBase[list.dimension]}/${list.value}` },
+  { name: list.name, path: `/${dimensionPathBase[list.dimension]}/${list.value}` },
+];
+
+const movieItems = list.movies.map((m) => ({ name: `${m.title} (${m.year})`, path: `/movie/${m.slug}` }));
+
+const jsonLd: Record<string, unknown>[] = [
+  breadcrumbList(crumbs, site),
+  itemList(list.title, movieItems, site),
+];
+if (faq.length) jsonLd.push(faqPage(faq));
+
+const description =
+  intro?.slice(0, 160) ??
+  `${list.title}: our ranked picks with ratings and age/parental info.`;
+
+const seo = {
+  title: `${list.title} — topmostmovies.com`,
+  description,
+  ogType: 'article' as const,
+  image: list.movies[0]?.backdropUrl ?? list.movies[0]?.posterUrl,
+  jsonLd,
+};
+---
+
+<BaseLayout seo={seo}>
+  <Breadcrumbs crumbs={crumbs.slice(0, 2)} />
+
+  <h1 class="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">{list.title}</h1>
+
+  {
+    intro ? (
+      <p class="mt-3 max-w-prose text-gray-600">{intro}</p>
+    ) : (
+      <p class="mt-3 max-w-prose text-sm text-gray-400">
+        <em>Original intro coming soon (Phase 5). Ranked by rating below.</em>
+      </p>
+    )
+  }
+
+  <AdSlot slot="list-top" class="my-6" />
+
+  {
+    list.movies.length === 0 ? (
+      <p class="mt-6 text-gray-500">No movies in this list yet.</p>
+    ) : (
+      <ol class="mt-6 space-y-4">
+        {list.movies.map((movie, i) => (
+          <li>
+            <MovieCard movie={movie} rank={i + 1} blurb={perMovieBlurb[movie.slug]} />
+          </li>
+        ))}
+      </ol>
+    )
+  }
+
+  {faq.length > 0 && <Faq items={faq} />}
+
+  <AdSlot slot="list-bottom" class="my-8" />
+</BaseLayout>

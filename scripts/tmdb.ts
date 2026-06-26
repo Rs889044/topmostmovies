@@ -109,9 +109,15 @@ export async function getCertification(
     `release_dates ${id}`,
   );
 
+  // "NR"/"Not Rated"/"Unrated" carry no real age guidance — treat them as no cert so the
+  // UI shows the honest "Not rated / data unavailable" rather than a cryptic code.
+  const NON_INFORMATIVE = new Set(['nr', 'not rated', 'unrated', 'ur', 'n/a']);
   const pickFrom = (entry: ReleaseDatesResponse['results'][number]) => {
-    const cert = entry.release_dates.find((r) => r.certification?.trim())?.certification;
-    return cert?.trim() || undefined;
+    for (const r of entry.release_dates) {
+      const cert = r.certification?.trim();
+      if (cert && !NON_INFORMATIVE.has(cert.toLowerCase())) return cert;
+    }
+    return undefined;
   };
 
   const preferred = res.results.find((r) => r.iso_3166_1 === preferredCountry);

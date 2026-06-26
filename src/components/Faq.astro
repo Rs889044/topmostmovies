@@ -1,0 +1,31 @@
+---
+/**
+ * Faq.astro — accessible FAQ block. Emit matching FAQPage JSON-LD via
+ * <Seo jsonLd={faqPage(items)} /> (builder in src/lib/jsonld.ts). See docs/SEO.md.
+ * Uses native <details>/<summary> — no JS, no CLS.
+ */
+export interface Props {
+  items: { q: string; a: string }[];
+  heading?: string;
+}
+
+const { items, heading = 'Frequently asked questions' } = Astro.props;
+---
+
+{
+  items.length > 0 && (
+    <section aria-labelledby="faq-heading" class="mt-10">
+      <h2 id="faq-heading" class="mb-3 text-xl font-semibold">{heading}</h2>
+      <div class="divide-y divide-gray-200 rounded-lg border border-gray-200">
+        {items.map((item) => (
+          <details class="group p-4">
+            <summary class="cursor-pointer list-none font-medium text-gray-800 marker:hidden">
+              {item.q}
+            </summary>
+            <p class="mt-2 text-gray-600">{item.a}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+  )
+}

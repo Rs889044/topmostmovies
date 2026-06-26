@@ -1,0 +1,72 @@
+---
+/**
+ * MovieCard.astro — poster-forward card for list pages. Shows rank badge, poster, title,
+ * year, ratings, certification, and an optional per-list blurb ("why it made the list").
+ * Reserves poster aspect ratio to avoid CLS. See docs/SEO.md.
+ */
+import { Image } from 'astro:assets';
+import type { MovieData } from '../lib/movies';
+
+export interface Props {
+  movie: MovieData;
+  rank?: number;
+  blurb?: string;
+}
+
+const { movie, rank, blurb } = Astro.props;
+const rating = movie.imdbRating ?? movie.tmdbRating;
+const ratingSource = movie.imdbRating ? 'IMDb' : movie.tmdbRating ? 'TMDb' : undefined;
+---
+
+<article class="flex gap-4 rounded-lg border border-gray-200 p-3 transition hover:shadow-sm">
+  {rank !== undefined && (
+    <div aria-hidden="true" class="shrink-0 self-start pt-1 text-2xl font-bold tabular-nums text-gray-300">
+      {rank}
+    </div>
+  )}
+
+  <a href={`/movie/${movie.slug}`} class="shrink-0">
+    {movie.posterUrl ? (
+      <Image
+        src={movie.posterUrl}
+        alt={movie.posterAlt}
+        width={100}
+        height={150}
+        loading="lazy"
+        class="h-[150px] w-[100px] rounded-md bg-gray-100 object-cover"
+        inferSize={false}
+      />
+    ) : (
+      <div class="flex h-[150px] w-[100px] items-center justify-center rounded-md bg-gray-100 text-xs text-gray-400">
+        No poster
+      </div>
+    )}
+  </a>
+
+  <div class="min-w-0 flex-1">
+    <h3 class="font-semibold leading-tight">
+      <a href={`/movie/${movie.slug}`} class="hover:text-brand-700 hover:underline">
+        {movie.title}
+      </a>
+      <span class="font-normal text-gray-400"> ({movie.year})</span>
+    </h3>
+
+    <div class="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-gray-500">
+      {rating !== undefined && (
+        <span class="font-medium text-gray-700">★ {rating.toFixed(1)} <span class="font-normal text-gray-400">{ratingSource}</span></span>
+      )}
+      {movie.certification ? (
+        <span class="rounded border border-gray-200 px-1.5 py-0.5 text-xs">
+          {movie.certification}
+          {movie.certificationCountry && movie.certificationCountry !== 'US' && (
+            <span class="text-gray-400"> ({movie.certificationCountry})</span>
+          )}
+        </span>
+      ) : (
+        <span class="text-xs text-gray-400">Not rated</span>
+      )}
+    </div>
+
+    {blurb && <p class="mt-2 text-sm leading-relaxed text-gray-600">{blurb}</p>}
+  </div>
+</article>

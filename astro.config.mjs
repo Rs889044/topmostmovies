@@ -12,6 +12,10 @@ export default defineConfig({
   site: SITE,
   // Static output: fetch-at-build, zero runtime API calls. See docs/ARCHITECTURE.md.
   output: 'static',
+  // Allow Astro's <Image> to optimize remote TMDb posters/backdrops.
+  image: {
+    remotePatterns: [{ protocol: 'https', hostname: 'image.tmdb.org' }],
+  },
   integrations: [sitemap()],
   vite: {
     // Tailwind v4 via the official Vite plugin (the @astrojs/tailwind integration is

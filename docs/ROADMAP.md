@@ -50,12 +50,23 @@ Legend: 🔲 not started · 🟡 in progress · ✅ done · ⏸️ blocked/waiti
 > `src/data/*.json`) — better fit for Astro's `glob()` content loader. Both APIs verified
 > live. `synopsis`/`blurb`/`parentalNotes`/list overrides come in Phase 5.
 
-## Phase 3 — Lists & tagging  🔲
+## Phase 3 — Lists & tagging  ✅
 
-- [ ] `src/lib/taxonomy.ts`, `src/lib/lists.ts` (filter + rank, override support)
-- [ ] Dynamic routes: industry, country, language, genre, year, decade
-- [ ] `movie/[slug].astro` detail page + "Featured in" section
-- [ ] `MovieCard.astro`, `ListLayout.astro`, `MovieLayout.astro`
+- [x] `src/lib/movies.ts` (load/index collection) + `src/lib/lists.ts` (filter + rank,
+      default sort, editorial override, enumeration, "Featured in" reverse-map)
+- [x] Dynamic routes for all 6 dimensions: industry, country, language, genre, year, decade
+- [x] `movie/[slug].astro` detail page + "Featured in" section (honest cert + parental UI)
+- [x] `MovieCard.astro` (poster-forward, Astro `<Image>`), `ListLayout.astro`, `Faq.astro`,
+      `AdSlot.astro` (reserved-space placeholder — no live code)
+- [x] JSON-LD: `ItemList` (lists), `Movie` (movie pages), `FAQPage`; honesty-gated ratings
+- [x] Sample editorial override `src/content/lists/genre-k-drama.yaml` (intro + pinned rank
+      + per-movie blurbs + FAQ) proving the override system
+- [x] Homepage + header wired to real populated lists; **0 broken internal links**;
+      **69 pages** build green, posters optimized to WebP
+
+> Data-quality fix: TMDb "NR/Unrated" certs are treated as no-cert (fall through to the
+> next country's real rating, with its country noted) — honest age info, never a cryptic
+> code. Known follow-up for Phase 4: exclude `noindex` pages from the sitemap.
 
 ## Phase 4 — SEO  🔲
 
@@ -110,4 +121,11 @@ Legend: 🔲 not started · 🟡 in progress · ✅ done · ⏸️ blocked/waiti
   throttled/cached TMDb + OMDb clients, and the `fetch-data` orchestrator. Fetched **19
   seed movies** with certifications + IMDb ratings → `src/content/movies/*.json`; build
   validates them via Zod (green). Installed `gh` 2.95.0 — **GitHub push pending user
-  `gh auth login`**. **Next: Phase 3 (lists & tagging) — dynamic routes + movie pages.**
+  `gh auth login`**.
+- **2026-06-26** — Pushed all commits to GitHub (`github.com/Rs889044/topmostmovies`,
+  branch `master`). **Phase 3 complete:** built the tagging engine, all 6 dimension routes,
+  movie detail pages with "Featured in", poster cards, list/FAQ/ad components, and JSON-LD
+  (ItemList/Movie/FAQPage). Added a sample editorial override (k-drama). Homepage/header
+  wired to real lists; 69 pages, 0 broken links, build green. Fixed NR-cert handling.
+  **Next: Phase 4 (SEO) — robots/sitemap polish, canonical/OG sweep, structured-data
+  validation, internal-linking pass.**

@@ -1,16 +1,42 @@
 ---
 /**
  * Header.astro — site header + primary navigation.
- * Nav links point to dimension landing pages (some are placeholders until Phase 3).
+ * Nav points to a representative POPULATED list per dimension (picked from real data) so
+ * links never 404. Falls back to home if a dimension has no movies yet.
  */
-const dimensions = [
-  { label: 'Industry', href: '/industry/hollywood' },
-  { label: 'Country', href: '/country/south-korea' },
-  { label: 'Language', href: '/language/korean' },
-  { label: 'Genre', href: '/genre/romance' },
-  { label: 'Year', href: '/year/2026' },
-  { label: 'Decade', href: '/decade/2010s' },
+import { allMovies } from '../lib/movies';
+import { buildList, enumerateLists } from '../lib/lists';
+import type { Dimension } from '../lib/taxonomy';
+
+const movies = await allMovies();
+const refs = await enumerateLists();
+
+const pathBase: Record<Dimension, string> = {
+  industry: 'industry',
+  country: 'country',
+  language: 'language',
+  genre: 'genre',
+  year: 'year',
+  decade: 'decade',
+};
+
+// Most-populated value per dimension = the friendliest entry point.
+function topLink(dimension: Dimension): string {
+  const best = refs
+    .filter((r) => r.dimension === dimension)
+    .map((r) => ({ r, count: buildList(movies, dimension, r.value).total }))
+    .sort((a, b) => b.count - a.count)[0];
+  return best ? `/${pathBase[dimension]}/${best.r.value}` : '/';
+}
+
+const dimensions: { label: string; dimension: Dimension }[] = [
+  { label: 'Genre', dimension: 'genre' },
+  { label: 'Country', dimension: 'country' },
+  { label: 'Language', dimension: 'language' },
+  { label: 'Industry', dimension: 'industry' },
+  { label: 'Decade', dimension: 'decade' },
 ];
+const nav = dimensions.map((d) => ({ label: d.label, href: topLink(d.dimension) }));
 ---
 
 <header class="border-b border-gray-200 bg-white">
@@ -20,7 +46,7 @@ const dimensions = [
     </a>
     <nav aria-label="Primary" class="hidden gap-4 text-sm font-medium text-gray-600 sm:flex">
       {
-        dimensions.map((d) => (
+        nav.map((d) => (
           <a href={d.href} class="hover:text-brand-700">
             {d.label}
           </a>

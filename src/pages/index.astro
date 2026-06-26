@@ -1,18 +1,44 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { website, organization } from '../lib/jsonld';
+import { allMovies } from '../lib/movies';
+import { buildList, enumerateLists } from '../lib/lists';
+import type { Dimension } from '../lib/taxonomy';
 
 const site = Astro.site ?? new URL('https://topmostmovies.com');
 
-// Entry points to every list dimension (targets firmed up in Phase 3).
-const dimensions = [
-  { label: 'By Industry', href: '/industry/hollywood', note: 'Hollywood, Bollywood & more' },
-  { label: 'By Country', href: '/country/south-korea', note: 'South Korea, Japan, France…' },
-  { label: 'By Language', href: '/language/korean', note: 'Korean, Hindi, Spanish…' },
-  { label: 'By Genre', href: '/genre/romance', note: 'Romance, Thriller, K-Drama…' },
-  { label: 'By Year', href: '/year/2026', note: 'The best of each year' },
-  { label: 'By Decade', href: '/decade/2010s', note: '1980s, 1990s, 2010s…' },
+const movies = await allMovies();
+const refs = await enumerateLists();
+
+// Group real (populated) lists by dimension, with a member count + best-rated count.
+const DIMENSION_ORDER: { dimension: Dimension; label: string }[] = [
+  { dimension: 'genre', label: 'By Genre' },
+  { dimension: 'country', label: 'By Country' },
+  { dimension: 'language', label: 'By Language' },
+  { dimension: 'industry', label: 'By Industry' },
+  { dimension: 'year', label: 'By Year' },
+  { dimension: 'decade', label: 'By Decade' },
 ];
+
+const pathBase: Record<Dimension, string> = {
+  industry: 'industry',
+  country: 'country',
+  language: 'language',
+  genre: 'genre',
+  year: 'year',
+  decade: 'decade',
+};
+
+const groups = DIMENSION_ORDER.map(({ dimension, label }) => {
+  const items = refs
+    .filter((r) => r.dimension === dimension)
+    .map((r) => ({
+      ...r,
+      count: buildList(movies, dimension, r.value).total,
+    }))
+    .sort((a, b) => b.count - a.count);
+  return { dimension, label, items };
+}).filter((g) => g.items.length > 0);
 
 const seo = {
   title: 'Top 10 Movie Lists by Genre, Country, Language & Year — topmostmovies.com',
@@ -31,26 +57,30 @@ const seo = {
     <p class="mt-3 max-w-prose text-gray-600">
       Hand-curated Top 10 lists across industries, countries, languages, genres, years and
       decades — each with honest age ratings and parental info so you always know what
-      you're pressing play on. (Lists are being built out; this is the foundation.)
+      you're pressing play on.
     </p>
   </section>
 
-  <section aria-labelledby="browse">
-    <h2 id="browse" class="mb-4 text-xl font-semibold">Browse by…</h2>
-    <ul class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-      {
-        dimensions.map((d) => (
-          <li>
-            <a
-              href={d.href}
-              class="block rounded-lg border border-gray-200 p-4 transition hover:border-brand-500 hover:shadow-sm"
-            >
-              <span class="font-medium text-gray-900">{d.label}</span>
-              <span class="mt-1 block text-sm text-gray-500">{d.note}</span>
-            </a>
-          </li>
-        ))
-      }
-    </ul>
-  </section>
+  {
+    groups.map((group) => (
+      <section aria-labelledby={`dim-${group.dimension}`} class="mb-10">
+        <h2 id={`dim-${group.dimension}`} class="mb-4 text-xl font-semibold">
+          {group.label}
+        </h2>
+        <ul class="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {group.items.map((item) => (
+            <li>
+              <a
+                href={`/${pathBase[group.dimension]}/${item.value}`}
+                class="flex items-center justify-between rounded-lg border border-gray-200 p-3 transition hover:border-brand-500 hover:shadow-sm"
+              >
+                <span class="font-medium text-gray-900">{item.name}</span>
+                <span class="text-sm text-gray-400">{item.count}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))
+  }
 </BaseLayout>

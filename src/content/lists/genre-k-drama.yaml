@@ -1,0 +1,32 @@
+# Editorial override for the K-Drama genre list. Demonstrates the override system:
+# custom intro, pinned ranking, per-movie blurbs, and an FAQ block. Copy here is a
+# Phase-3 sample and will be reviewed against docs/CONTENT-GUIDELINES.md in Phase 5.
+dimension: genre
+value: k-drama
+title: "Top 10 K-Drama Movies"
+intro: >-
+  If the slow-burn romance and emotional gut-punches of Korean dramas are your thing, these
+  films deliver the same feeling in a single sitting. We've gathered the K-drama-style
+  movies worth starting with — heartfelt, beautifully shot, and easy to fall into even if
+  you've never watched a full series.
+rankOverride:
+  - my-sassy-girl-2001
+  - the-classic-2003
+perMovieBlurb:
+  my-sassy-girl-2001: >-
+    The blueprint for modern Korean rom-coms: equal parts slapstick and heartbreak, with a
+    twist ending that launched a thousand imitators.
+  the-classic-2003: >-
+    A dreamy, time-hopping love story that captures the bittersweet nostalgia K-drama fans
+    live for — bring tissues.
+faq:
+  - q: What is the best K-drama movie to start with?
+    a: >-
+      My Sassy Girl (2001) is the classic entry point — it's funny, romantic, and defined
+      the tone of Korean rom-coms that followed. If you prefer a gentler, more nostalgic
+      love story, The Classic (2003) is an easy second watch.
+  - q: Are K-drama movies the same as Korean dramas?
+    a: >-
+      Not exactly. "K-drama" usually means episodic Korean TV series, but these films carry
+      the same romantic, emotional style in a single two-hour story — perfect if you want
+      the feeling without committing to 16 episodes.

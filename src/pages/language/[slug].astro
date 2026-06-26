@@ -1,0 +1,23 @@
+---
+import ListLayout from '../../layouts/ListLayout.astro';
+import { allMovies } from '../../lib/movies';
+import { buildList, listOverride, valuesForDimension } from '../../lib/lists';
+
+export async function getStaticPaths() {
+  const values = await valuesForDimension('language');
+  return values.map((v) => ({ params: { slug: v.value } }));
+}
+
+const { slug } = Astro.params;
+const movies = await allMovies();
+const override = await listOverride('language', slug!);
+const list = buildList(movies, 'language', slug!, override);
+---
+
+<ListLayout
+  list={list}
+  dimensionLabel="Language"
+  intro={override?.intro}
+  perMovieBlurb={override?.perMovieBlurb}
+  faq={override?.faq}
+/>
