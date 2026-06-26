@@ -27,8 +27,8 @@ export const movieSchema = z.object({
   genres: z.array(z.string()).default([]),
 
   // Media
-  posterUrl: z.string().url().optional(),
-  backdropUrl: z.string().url().optional(),
+  posterUrl: z.url().optional(),
+  backdropUrl: z.url().optional(),
   posterAlt: z.string(),
 
   // Content

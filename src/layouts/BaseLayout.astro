@@ -23,7 +23,10 @@ const { seo } = Astro.props;
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffffff" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    {/* Speed up the first poster load (LCP) by connecting to TMDb's image CDN early. */}
+    <link rel="preconnect" href="https://image.tmdb.org" crossorigin />
     <Seo {...seo} />
     <slot name="head" />
   </head>

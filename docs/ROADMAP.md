@@ -80,12 +80,21 @@ Legend: 🔲 not started · 🟡 in progress · ✅ done · ⏸️ blocked/waiti
 - [x] Structured-data validation: `scripts/validate-seo.ts` (`npm run validate-seo`) —
       **all 70 pages pass** (title/h1/meta/canonical/OG + JSON-LD types per page)
 
-## Phase 5 — Content & keywords  🔲
+## Phase 5 — Content & keywords  ✅ (first pass)
 
-- [ ] Validate keywords (volume, US-weighted) → fill in `KEYWORDS.md`
-- [ ] Prioritize lists to build
-- [ ] Write original intros + per-movie blurbs + optional parental notes
-- [ ] FAQ blocks + `FAQPage` schema on key pages (`Faq.astro`)
+- [x] Keywords researched (real SERP research, US-weighted) → `KEYWORDS.md` rewritten with
+      evidence-based priorities + PAA→FAQ seeds (exact volumes still need Search Console)
+- [x] Prioritized lists (k-content first, then Bollywood, Japan/animation, 2010s)
+- [x] **Original synopsis for all 19 movies** + **parental notes** (via
+      `scripts/apply-editorial.ts`) — Movie JSON-LD now carries original `description`
+- [x] List intros for **all populated genre/country/language/industry lists** (flagship
+      ones also have FAQ); k-drama keeps pinned rank + per-movie blurbs
+- [x] FAQ blocks + `FAQPage` schema on flagship lists (`Faq.astro`)
+- [x] Design pass (Web Interface Guidelines): text-wrap balance/pretty, focus-visible,
+      reduced-motion, theme-color, preconnect to TMDb CDN, favicon, redundant-link a11y fix
+
+> Lighter coverage by design (per user). Per-movie blurbs beyond k-drama, deeper FAQ on
+> secondary lists, and tool-verified keyword volumes are future passes.
 
 ## Phase 6 — AdSense & legal  🔲
 
@@ -137,5 +146,14 @@ Legend: 🔲 not started · 🟡 in progress · ✅ done · ⏸️ blocked/waiti
   shared `src/lib/seo.ts`; added `RelatedLists` internal-linking on list pages; built
   `scripts/validate-seo.ts` (`npm run validate-seo`) which passes on all 70 pages. Verified
   JSON-LD honesty gating (no fabricated ratings, no TMDb-overview leak into Movie nodes).
-  Updated `docs/SEO.md`. **Next: Phase 5 (content & keywords) — validate keywords, then
-  write original intros/blurbs/synopses + FAQ blocks.**
+  Updated `docs/SEO.md`. **Next: Phase 5.**
+- **2026-06-26** — **Phase 5 (content) first pass complete.** Installed web-design +
+  astro agent skills (`.agents/`, git-ignored; `skills-lock.json` committed). Added
+  `astro check` (`npm run check`) — it caught 11 latent type errors, fixed by deriving the
+  `Movie` type from `CollectionEntry`. Research-grounded `KEYWORDS.md`. Wrote original
+  synopses + parental notes for all 19 movies (`scripts/apply-editorial.ts`) and intros/FAQ
+  for all populated lists (`scripts/generate-list-intros.ts` + hand-authored flagship YAML).
+  Applied Web Interface Guidelines (focus-visible, text-wrap, reduced-motion, preconnect,
+  theme-color, favicon, a11y link fix). All QA green: `check` 0 errors, build 70 pages,
+  `validate-seo` passes. **Next: Phase 6 (AdSense & legal) — privacy/about/contact copy,
+  cookie-consent banner, ads.txt, ad-slot wiring.**

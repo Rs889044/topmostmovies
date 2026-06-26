@@ -16,8 +16,49 @@
   --color-brand-700: #1e40af;
 }
 
-/* Base resets / global element styles go here as the design system is built out. */
+/* Base resets / global element styles. Informed by the Web Interface Guidelines. */
 html {
   -webkit-text-size-adjust: 100%;
   font-family: var(--font-sans);
+  color-scheme: light; /* keeps form controls/scrollbars consistent (we're light-only for now) */
+  scroll-behavior: smooth;
+}
+
+/* Headings: avoid widows/orphans for cleaner wrapping (WIG typography). */
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+/* Long prose wraps nicely without awkward single-word last lines. */
+p {
+  text-wrap: pretty;
+}
+
+/* Faster, intentional taps on touch devices. */
+a,
+button {
+  touch-action: manipulation;
+}
+
+/* Visible keyboard focus on every interactive element (never bare outline removal). */
+:where(a, button, summary, [tabindex]):focus-visible {
+  outline: 2px solid var(--color-brand-600);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Honor reduced-motion: disable smooth scroll + transitions/animations. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
 }

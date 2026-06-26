@@ -65,8 +65,15 @@ Thriller, K-Drama, Horror…), **Year** (2026, 2011…), **Decade** (1980s, 1990
 npm run dev          # local dev server (astro dev)
 npm run build        # static build → dist/
 npm run preview      # preview the built site
-npm run fetch-data   # build-time fetch of TMDb + OMDb → cached JSON (scripts/)
+npm run check        # astro check (type-check .astro + TS; run this — it catches what build won't)
+npm run fetch-data   # build-time fetch of TMDb + OMDb → src/content/movies/*.json (scripts/)
+npm run validate-seo # post-build SEO/JSON-LD validation over dist/ (scripts/)
 ```
+
+> Node is pinned to 22 via `.nvmrc`; run `nvm use` first. Editorial copy is applied to movie
+> records via `scripts/apply-editorial.ts`; list intros via `scripts/generate-list-intros.ts`.
+> Agent skills (web-design-guidelines, astro) live in `.agents/` (git-ignored; re-install
+> from `skills-lock.json`).
 
 > **Node version note:** Astro requires Node **v22.12+ (even LTS)**; odd versions (v23/v25)
 > are unsupported. Confirm the runtime before relying on `dev`/`build`.
