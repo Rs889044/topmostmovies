@@ -1,0 +1,23 @@
+# Secrets — never commit
+.env
+.env.*
+!.env.example
+
+# Dependencies
+node_modules/
+
+# Astro build output & cache
+dist/
+.astro/
+
+# Build-time API response cache (raw, re-fetchable). The normalized src/data/*.json
+# dataset IS committed for reproducible builds (see docs/ARCHITECTURE.md open question).
+.cache/
+
+# OS / editor
+.DS_Store
+*.log
+npm-debug.log*
+.vscode/*
+!.vscode/extensions.json
+.idea/
