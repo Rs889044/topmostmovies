@@ -1,0 +1,34 @@
+{
+  "id": "tmdb-11178",
+  "slug": "my-sassy-girl-2001",
+  "title": "My Sassy Girl",
+  "originalTitle": "엽기적인 그녀",
+  "year": 2001,
+  "decade": "2000s",
+  "industries": [],
+  "countries": [
+    "south-korea"
+  ],
+  "languages": [
+    "korean",
+    "english"
+  ],
+  "genres": [
+    "drama",
+    "comedy",
+    "romance",
+    "k-drama"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/grFSgOnSt8saknfRUY05wLGVJ7T.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/13uKAt4M87HQi1lMZAwBmsNZRGg.jpg",
+  "posterAlt": "My Sassy Girl (2001) movie poster",
+  "tmdbOverview": "A dweeby, mild-mannered man comes to the aid of a drunk young woman on a subway platform. Little does he know how much trouble he’s in for.",
+  "tmdbRating": 7.52,
+  "tmdbVotes": 659,
+  "imdbRating": 7.9,
+  "imdbId": "tt0293715",
+  "popularity": 2.3647,
+  "certification": "PG",
+  "certificationCountry": "AU",
+  "contentDescriptors": []
+}

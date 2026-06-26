@@ -1,0 +1,32 @@
+{
+  "id": "tmdb-11036",
+  "slug": "the-notebook-2004",
+  "title": "The Notebook",
+  "year": 2004,
+  "decade": "2000s",
+  "industries": [
+    "hollywood"
+  ],
+  "countries": [
+    "united-states"
+  ],
+  "languages": [
+    "english"
+  ],
+  "genres": [
+    "romance",
+    "drama"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/rNzQyW4f8B8cQeg7Dgj3n6eT5k9.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/zdXnJqBaGFVtLoPNuMeKfEYUViZ.jpg",
+  "posterAlt": "The Notebook (2004) movie poster",
+  "tmdbOverview": "An epic love story centered around an older man who reads aloud to a woman with Alzheimer's. From a faded notebook, the old man's words bring to life the story about a couple who is separated by World War II, and is then passionately reunited, seven years later, after they have taken different paths.",
+  "tmdbRating": 7.888,
+  "tmdbVotes": 12604,
+  "imdbRating": 7.8,
+  "imdbId": "tt0332280",
+  "popularity": 22.1658,
+  "certification": "PG-13",
+  "certificationCountry": "US",
+  "contentDescriptors": []
+}

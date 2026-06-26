@@ -1,0 +1,33 @@
+{
+  "id": "tmdb-76341",
+  "slug": "mad-max-fury-road-2015",
+  "title": "Mad Max: Fury Road",
+  "year": 2015,
+  "decade": "2010s",
+  "industries": [
+    "hollywood"
+  ],
+  "countries": [
+    "united-states"
+  ],
+  "languages": [
+    "english"
+  ],
+  "genres": [
+    "action",
+    "adventure",
+    "science-fiction"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/hA2ple9q4qnwxp3hKVNhroipsir.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/uT895WNwm0aIJRtGizcQhrejWUo.jpg",
+  "posterAlt": "Mad Max: Fury Road (2015) movie poster",
+  "tmdbOverview": "An apocalyptic story set in the furthest reaches of our planet, in a stark desert landscape where humanity is broken, and most everyone is crazed fighting for the necessities of life. Within this world exist two rebels on the run who just might be able to restore order.",
+  "tmdbRating": 7.634,
+  "tmdbVotes": 24162,
+  "imdbRating": 8.1,
+  "imdbId": "tt1392190",
+  "popularity": 18.3402,
+  "certification": "R",
+  "certificationCountry": "US",
+  "contentDescriptors": []
+}

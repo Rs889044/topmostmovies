@@ -1,0 +1,33 @@
+{
+  "id": "tmdb-496243",
+  "slug": "parasite-2019",
+  "title": "Parasite",
+  "originalTitle": "기생충",
+  "year": 2019,
+  "decade": "2010s",
+  "industries": [],
+  "countries": [
+    "south-korea"
+  ],
+  "languages": [
+    "korean",
+    "english"
+  ],
+  "genres": [
+    "comedy",
+    "thriller",
+    "drama"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/wCuUKiRaz0wEESsYqmQy005xvTE.jpg",
+  "posterAlt": "Parasite (2019) movie poster",
+  "tmdbOverview": "All unemployed, Ki-taek's family takes peculiar interest in the wealthy and glamorous Parks for their livelihood until they get entangled in an unexpected incident.",
+  "tmdbRating": 8.493,
+  "tmdbVotes": 20779,
+  "imdbRating": 8.5,
+  "imdbId": "tt6751668",
+  "popularity": 34.6826,
+  "certification": "R",
+  "certificationCountry": "US",
+  "contentDescriptors": []
+}

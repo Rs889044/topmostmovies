@@ -1,0 +1,31 @@
+{
+  "id": "tmdb-194",
+  "slug": "amelie-2001",
+  "title": "Amélie",
+  "originalTitle": "Le Fabuleux Destin d'Amélie Poulain",
+  "year": 2001,
+  "decade": "2000s",
+  "industries": [],
+  "countries": [
+    "france"
+  ],
+  "languages": [
+    "french"
+  ],
+  "genres": [
+    "comedy",
+    "romance"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/nSxDa3M9aMvGVLoItzWTepQ5h5d.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/6n53UI4mX9QMfe2S0Pgt8mGebY1.jpg",
+  "posterAlt": "Amélie (2001) movie poster",
+  "tmdbOverview": "At a tiny Parisian café, the adorable yet painfully shy Amélie accidentally discovers a gift for helping others. Soon Amelie is spending her days as a matchmaker, guardian angel, and all-around do-gooder. But when she bumps into a handsome stranger, will she find the courage to become the star of her very own love story?",
+  "tmdbRating": 7.919,
+  "tmdbVotes": 12442,
+  "imdbRating": 8.3,
+  "imdbId": "tt0211915",
+  "popularity": 9.9589,
+  "certification": "R",
+  "certificationCountry": "US",
+  "contentDescriptors": []
+}

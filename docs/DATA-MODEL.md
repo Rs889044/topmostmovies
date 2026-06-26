@@ -124,6 +124,13 @@ by default sort.
 ## Validation
 
 All movie + list + editorial data is validated by **Zod schemas in
-`src/content/config.ts`** at build time. Invalid data (bad slug, missing required field,
-out-of-range rating) **fails the build** rather than shipping. Cached TMDb/OMDb JSON is
-normalized into this shape by the fetch scripts.
+`src/content.config.ts`** at build time (Astro 7 requires this filename at `src/` root —
+not the legacy `src/content/config.ts`). Invalid data (bad slug, missing required field,
+out-of-range rating) **fails the build** rather than shipping. Normalized movie records are
+written by the fetch scripts as **one JSON file per movie** at
+`src/content/movies/<slug>.json` and loaded via Astro's `glob()` loader. Editorial list
+overrides live under `src/content/lists/` (added in Phase 5).
+
+> **Phase 2 status:** schema implemented; 19 seed movies fetched + validated (build green).
+> The `synopsis`, `blurb`, `parentalNotes`, and list overrides are populated in Phase 5;
+> for now `tmdbOverview` is kept for reference only and is never published verbatim.

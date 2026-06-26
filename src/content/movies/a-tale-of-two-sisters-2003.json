@@ -1,0 +1,32 @@
+{
+  "id": "tmdb-4552",
+  "slug": "a-tale-of-two-sisters-2003",
+  "title": "A Tale of Two Sisters",
+  "originalTitle": "장화, 홍련",
+  "year": 2003,
+  "decade": "2000s",
+  "industries": [],
+  "countries": [
+    "south-korea"
+  ],
+  "languages": [
+    "korean"
+  ],
+  "genres": [
+    "drama",
+    "horror",
+    "mystery"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/l3exwhwyGE0NnHJ3lFQ7eXoBSkH.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/syKbZiHVdXw0NcH6NdXWEKZaECv.jpg",
+  "posterAlt": "A Tale of Two Sisters (2003) movie poster",
+  "tmdbOverview": "Two sisters return home after a stay in a mental institution, only to face disturbing events and a strained relationship with their stepmother. As eerie occurrences unfold, dark family secrets begin to surface, blurring the line between reality and nightmare.",
+  "tmdbRating": 7.097,
+  "tmdbVotes": 1349,
+  "imdbRating": 7.1,
+  "imdbId": "tt0365376",
+  "popularity": 4.6939,
+  "certification": "R",
+  "certificationCountry": "US",
+  "contentDescriptors": []
+}

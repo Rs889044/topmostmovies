@@ -1,0 +1,34 @@
+{
+  "id": "tmdb-491625",
+  "slug": "gully-boy-2019",
+  "title": "Gully Boy",
+  "originalTitle": "गल्ली बॉय",
+  "year": 2019,
+  "decade": "2010s",
+  "industries": [
+    "bollywood"
+  ],
+  "countries": [
+    "india"
+  ],
+  "languages": [
+    "hindi",
+    "english"
+  ],
+  "genres": [
+    "drama",
+    "music"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/4RE7TD5TqEXbPKyUHcn7CSeMlrJ.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/gcZbciueHH7WmD03GcVZX7LYqmR.jpg",
+  "posterAlt": "Gully Boy (2019) movie poster",
+  "tmdbOverview": "Murad, an underdog, struggles to convey his views on social issues and life in Dharavi through rapping. His life changes drastically when he meets a local rapper, Shrikant alias MC Sher.",
+  "tmdbRating": 7.353,
+  "tmdbVotes": 217,
+  "imdbRating": 7.9,
+  "imdbId": "tt2395469",
+  "popularity": 2.0166,
+  "certification": "12A",
+  "certificationCountry": "GB",
+  "contentDescriptors": []
+}

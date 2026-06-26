@@ -1,0 +1,32 @@
+{
+  "id": "tmdb-129",
+  "slug": "spirited-away-2001",
+  "title": "Spirited Away",
+  "originalTitle": "千と千尋の神隠し",
+  "year": 2001,
+  "decade": "2000s",
+  "industries": [],
+  "countries": [
+    "japan"
+  ],
+  "languages": [
+    "japanese"
+  ],
+  "genres": [
+    "animation",
+    "family",
+    "fantasy"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/39wmItIWsg5sZMyRUHLkWBcuVCM.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/dyJvKsNs2KP8qQnAXbRwDjblViy.jpg",
+  "posterAlt": "Spirited Away (2001) movie poster",
+  "tmdbOverview": "A young girl, Chihiro, becomes trapped in a strange new world of spirits. When her parents undergo a mysterious transformation, she must call upon the courage she never knew she had to free her family.",
+  "tmdbRating": 8.534,
+  "tmdbVotes": 18451,
+  "imdbRating": 8.6,
+  "imdbId": "tt0245429",
+  "popularity": 35.3963,
+  "certification": "PG",
+  "certificationCountry": "US",
+  "contentDescriptors": []
+}

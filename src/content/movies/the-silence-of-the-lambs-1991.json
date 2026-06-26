@@ -1,0 +1,33 @@
+{
+  "id": "tmdb-274",
+  "slug": "the-silence-of-the-lambs-1991",
+  "title": "The Silence of the Lambs",
+  "year": 1991,
+  "decade": "1990s",
+  "industries": [
+    "hollywood"
+  ],
+  "countries": [
+    "united-states"
+  ],
+  "languages": [
+    "english"
+  ],
+  "genres": [
+    "crime",
+    "thriller",
+    "drama"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/uS9m8OBk1A8eM9I042bx8XXpqAq.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/aYcnDyLMnpKce1FOYUpZrXtgUye.jpg",
+  "posterAlt": "The Silence of the Lambs (1991) movie poster",
+  "tmdbOverview": "Clarice Starling is a top student at the FBI's training academy.  Jack Crawford wants Clarice to interview Dr. Hannibal Lecter, a brilliant psychiatrist who is also a violent psychopath, serving life behind bars for various acts of murder and cannibalism.  Crawford believes that Lecter may have insight into a case and that Starling, as an attractive young woman, may be just the bait to draw him out.",
+  "tmdbRating": 8.345,
+  "tmdbVotes": 18071,
+  "imdbRating": 8.6,
+  "imdbId": "tt0102926",
+  "popularity": 3.9243,
+  "certification": "R",
+  "certificationCountry": "US",
+  "contentDescriptors": []
+}

@@ -1,0 +1,33 @@
+{
+  "id": "tmdb-290098",
+  "slug": "the-handmaiden-2016",
+  "title": "The Handmaiden",
+  "originalTitle": "아가씨",
+  "year": 2016,
+  "decade": "2010s",
+  "industries": [],
+  "countries": [
+    "south-korea"
+  ],
+  "languages": [
+    "korean",
+    "japanese"
+  ],
+  "genres": [
+    "thriller",
+    "drama",
+    "romance"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/dLlH4aNHdnmf62umnInL8xPlPzw.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/3upEZ0ltY7WwOSFVXrtiP34D48p.jpg",
+  "posterAlt": "The Handmaiden (2016) movie poster",
+  "tmdbOverview": "1930s Korea, in the period of Japanese occupation, a new girl, Sook-hee, is hired as a handmaiden to a Japanese heiress, Hideko, who lives a secluded life on a large countryside estate with her domineering Uncle Kouzuki. But the maid has a secret. She is a pickpocket recruited by a swindler posing as a Japanese Count to help him seduce the Lady to steal her fortune.",
+  "tmdbRating": 8.185,
+  "tmdbVotes": 4353,
+  "imdbRating": 8.1,
+  "imdbId": "tt4016934",
+  "popularity": 18.463,
+  "certification": "R",
+  "certificationCountry": "US",
+  "contentDescriptors": []
+}

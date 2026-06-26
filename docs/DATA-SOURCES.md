@@ -69,6 +69,29 @@ Plus the TMDb logo per their branding guidelines where appropriate. This lives i
   this. If data is missing, render **"Not rated / data unavailable"** — not an invented
   value. (Enforced by the schema in [DATA-MODEL.md](DATA-MODEL.md).)
 
+### Certification-country caveat (observed in Phase 2)
+
+`getCertification()` prefers the **US** system but falls back to the first country that has
+a cert, and **records which country** it came from (`certificationCountry`). So a movie may
+show e.g. `R15+` (Japan) or `12A` (UK) when no US cert exists. The UI must always display
+the certification **with its country system** so the value isn't misread as a US rating.
+Phase 5 can add per-country cert handling if needed.
+
+## Implementation notes (Phase 2)
+
+- **Clients**: `scripts/tmdb.ts` (Bearer read token preferred, else `api_key`), and
+  `scripts/omdb.ts` (graceful-degrade: warns + returns `{}` if key missing/invalid — IMDb
+  rating just stays empty; re-run `fetch-data` after activating the key).
+- **Helpers**: `scripts/lib/util.ts` — `RateLimiter`, retry/backoff, on-disk cache
+  (`.cache/`, git-ignored), `slugify`/`movieSlug`. TMDb throttled ~10 req/s; OMDb ~4 req/s.
+- **Orchestrator**: `scripts/fetch-data.ts` reads `scripts/seed-movies.ts`, resolves each
+  title → TMDb id → detail + cert + OMDb rating → normalizes via `src/lib/taxonomy.ts` →
+  writes one JSON per movie to `src/content/movies/<slug>.json`.
+- **Runtime constraint**: scripts run via Node's `--experimental-strip-types`
+  (strip-only). This forbids TS features that need transformation — **no parameter
+  properties, no enums, no namespaces, no decorators**. Use plain fields/`as const`.
+- **Env loading**: `npm run fetch-data` uses Node's `--env-file=.env`.
+
 ## Secrets
 
 - All keys in `.env` (git-ignored). `.env.example` documents the variable names with empty

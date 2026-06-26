@@ -35,14 +35,20 @@ Legend: 🔲 not started · 🟡 in progress · ✅ done · ⏸️ blocked/waiti
 - [x] Placeholder pages: `/`, `/about`, `/contact`, `/privacy-policy`, `404`
       (thin placeholders ship `noindex` until real copy in Phase 6)
 
-## Phase 2 — Data layer  🔲
+## Phase 2 — Data layer  ✅
 
-- [ ] Zod schema in `src/content/config.ts` (movies, lists, editorial overrides)
-- [ ] `scripts/tmdb.ts` (throttle, retry, certifications endpoint)
-- [ ] `scripts/omdb.ts` (IMDb rating)
-- [ ] `scripts/fetch-data.ts` → cached `src/data/*.json`; `npm run fetch-data`
-- [ ] Seed set of movies to develop against
-- [ ] Update `DATA-SOURCES.md` / `DATA-MODEL.md` with any specifics learned
+- [x] Zod schema in `src/content.config.ts` (movies + lists/editorial overrides)
+- [x] `src/lib/taxonomy.ts` (country/language/genre/industry slug maps + custom genres)
+- [x] `scripts/lib/util.ts` (rate limiter, retry/backoff, on-disk cache, slugify)
+- [x] `scripts/tmdb.ts` (Bearer/api_key, detail + **certifications** endpoint)
+- [x] `scripts/omdb.ts` (IMDb rating; graceful degrade if key missing/invalid)
+- [x] `scripts/fetch-data.ts` orchestrator + `scripts/seed-movies.ts`; `npm run fetch-data`
+- [x] Seed set fetched: **19 movies** → `src/content/movies/*.json`, validated (build green)
+- [x] Updated `DATA-SOURCES.md` / `DATA-MODEL.md` with specifics learned
+
+> Movies stored as one JSON per movie under `src/content/movies/` (not a single
+> `src/data/*.json`) — better fit for Astro's `glob()` content loader. Both APIs verified
+> live. `synopsis`/`blurb`/`parentalNotes`/list overrides come in Phase 5.
 
 ## Phase 3 — Lists & tagging  🔲
 
@@ -98,4 +104,10 @@ Legend: 🔲 not started · 🟡 in progress · ✅ done · ⏸️ blocked/waiti
   install` clean (0 vulns); `npm run build` passes (5 pages + sitemap). Phase 1: built
   `Seo`, `Breadcrumbs`, `Header`, `Footer` (TMDb attribution verified in output),
   `BaseLayout`, `src/lib/jsonld.ts`, and placeholder pages (`/`, about, contact, privacy,
-  404). Telemetry disabled. **Next: Phase 2 (data layer) — needs TMDb + OMDb API keys.**
+  404). Telemetry disabled.
+- **2026-06-26** — **Phase 2 complete.** User supplied TMDb + OMDb keys (in git-ignored
+  `.env`; OMDb activated). Built taxonomy, Zod content schema (`src/content.config.ts`),
+  throttled/cached TMDb + OMDb clients, and the `fetch-data` orchestrator. Fetched **19
+  seed movies** with certifications + IMDb ratings → `src/content/movies/*.json`; build
+  validates them via Zod (green). Installed `gh` 2.95.0 — **GitHub push pending user
+  `gh auth login`**. **Next: Phase 3 (lists & tagging) — dynamic routes + movie pages.**

@@ -1,0 +1,34 @@
+{
+  "id": "tmdb-19404",
+  "slug": "dilwale-dulhania-le-jayenge-1995",
+  "title": "Dilwale Dulhania Le Jayenge",
+  "originalTitle": "दिलवाले दुल्हनिया ले जायेंगे",
+  "year": 1995,
+  "decade": "1990s",
+  "industries": [
+    "bollywood"
+  ],
+  "countries": [
+    "india"
+  ],
+  "languages": [
+    "hindi"
+  ],
+  "genres": [
+    "comedy",
+    "drama",
+    "romance"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/tFbfCkS7q6g96wVoAu8kyr93iPm.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/84beTJf26mfhoasUlKSOiNSutyS.jpg",
+  "posterAlt": "Dilwale Dulhania Le Jayenge (1995) movie poster",
+  "tmdbOverview": "Raj is a rich, carefree, happy-go-lucky second generation NRI. Simran is the daughter of Chaudhary Baldev Singh, who in spite of being an NRI is very strict about adherence to Indian values. Simran has left for India to be married to her childhood fiancé. Raj leaves for India with a mission at his hands, to claim his lady love under the noses of her whole family. Thus begins a saga.",
+  "tmdbRating": 8.51,
+  "tmdbVotes": 4598,
+  "imdbRating": 8,
+  "imdbId": "tt0112870",
+  "popularity": 15.3454,
+  "certification": "G",
+  "certificationCountry": "US",
+  "contentDescriptors": []
+}
