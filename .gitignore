@@ -14,6 +14,10 @@ dist/
 # dataset IS committed for reproducible builds (see docs/ARCHITECTURE.md open question).
 .cache/
 
+# Agent skills — installed via `npx skills add`; re-installable from skills-lock.json
+# (committed). Skill bodies are third-party, treated like node_modules.
+.agents/
+
 # OS / editor
 .DS_Store
 *.log

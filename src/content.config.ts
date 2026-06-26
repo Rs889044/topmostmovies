@@ -7,7 +7,7 @@
  * - `lists`   : editorial overrides per (dimension, value) — intro, rank, blurbs, FAQ.
  */
 import { defineCollection, reference, z } from 'astro:content';
-import { glob, file } from 'astro/loaders';
+import { glob } from 'astro/loaders';
 
 /* --------------------------------------------------------------------- movies ------ */
 
@@ -52,7 +52,10 @@ export const movieSchema = z.object({
   blurb: z.string().optional(),
 });
 
-export type Movie = z.infer<typeof movieSchema>;
+// Derive the Movie type from Astro's generated collection entry rather than `z.infer`
+// (astro:content re-exports `z` as a value only, and inferring directly can cross zod
+// major versions). This always tracks the schema and avoids type-namespace pitfalls.
+export type Movie = import('astro:content').CollectionEntry<'movies'>['data'];
 
 const movies = defineCollection({
   // Each movie is one JSON file in src/content/movies/<slug>.json, produced by fetch-data.
