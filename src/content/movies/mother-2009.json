@@ -1,0 +1,35 @@
+{
+  "id": "tmdb-30018",
+  "slug": "mother-2009",
+  "title": "Mother",
+  "originalTitle": "마더",
+  "year": 2009,
+  "decade": "2000s",
+  "industries": [],
+  "countries": [
+    "south-korea"
+  ],
+  "languages": [
+    "korean"
+  ],
+  "genres": [
+    "crime",
+    "drama",
+    "mystery",
+    "k-drama"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/8oBnSkZE6GDVugAbLPO6uJd4GcS.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/mnNkHbs2onvP54zND5c1Ah5Usaa.jpg",
+  "posterAlt": "Mother (2009) movie poster",
+  "tmdbOverview": "A mother lives quietly with her son. One day, a girl is brutally killed, and the boy is charged with the murder. Now, it's his mother's mission to prove him innocent.",
+  "tmdbRating": 7.701,
+  "tmdbVotes": 1688,
+  "imdbRating": 7.7,
+  "imdbId": "tt1216496",
+  "popularity": 3.8292,
+  "certification": "R",
+  "certificationCountry": "US",
+  "contentDescriptors": [],
+  "synopsis": "Mother (2009) is a crime, drama and mystery film from South Korea. It holds a solid 7.7 rating on IMDb. It's one of the titles we feature across our 2000s and genre rankings. It carries a R certification (US rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

@@ -1,55 +1,80 @@
-/* Tailwind CSS v4 — single import (no separate tailwind.config.js needed for v4 defaults).
-   Design tokens are declared in @theme below and become Tailwind utilities + CSS vars.
-   See docs/SEO.md (CWV) and docs/ARCHITECTURE.md. */
+/* Tailwind CSS v4 — single import. Dark, cinematic design system.
+   Tokens in @theme become Tailwind utilities + CSS vars. See docs/SEO.md (CWV). */
 @import "tailwindcss";
 
 @theme {
-  /* Design tokens. Tailwind v4's default gray/neutral palette is kept; we add a `brand`
-     scale used across nav, links, buttons and accents. Refine hues as the brand evolves. */
-  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica,
-    Arial, sans-serif;
+  /* ---- Type ---- */
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif;
 
-  --color-brand-50: #eff6ff;
-  --color-brand-100: #dbeafe;
-  --color-brand-500: #2563eb;
-  --color-brand-600: #1d4ed8;
-  --color-brand-700: #1e40af;
+  /* ---- Surfaces (dark) ---- */
+  --color-ink-950: #07090d; /* page background */
+  --color-ink-900: #0c0f16; /* deep panels */
+  --color-ink-850: #11151f;
+  --color-ink-800: #161b27; /* cards */
+  --color-ink-700: #1f2636; /* card hover */
+  --color-ink-600: #2b3346; /* borders */
+  --color-ink-500: #3b465e;
+
+  /* ---- Text ---- */
+  --color-fg: #eef1f7; /* primary text */
+  --color-fg-muted: #aab2c5; /* secondary text */
+  --color-fg-subtle: #7c8699; /* tertiary / placeholder */
+
+  /* ---- Accent: cinematic amber/gold ---- */
+  --color-accent-300: #ffd479;
+  --color-accent-400: #ffc14d;
+  --color-accent-500: #f5a623; /* primary accent */
+  --color-accent-600: #d9881a;
+
+  /* ---- Rating gold (stars) ---- */
+  --color-star: #f5c518;
 }
 
-/* Base resets / global element styles. Informed by the Web Interface Guidelines. */
+/* ---- Base ---- */
 html {
   -webkit-text-size-adjust: 100%;
   font-family: var(--font-sans);
-  color-scheme: light; /* keeps form controls/scrollbars consistent (we're light-only for now) */
+  color-scheme: dark;
   scroll-behavior: smooth;
+  background-color: var(--color-ink-950);
 }
 
-/* Headings: avoid widows/orphans for cleaner wrapping (WIG typography). */
+body {
+  color: var(--color-fg);
+  background-color: var(--color-ink-950);
+}
+
+/* Headings: avoid widows/orphans (WIG typography). */
 h1,
 h2,
 h3 {
   text-wrap: balance;
+  letter-spacing: -0.01em;
 }
 
-/* Long prose wraps nicely without awkward single-word last lines. */
 p {
   text-wrap: pretty;
 }
 
-/* Faster, intentional taps on touch devices. */
 a,
 button {
   touch-action: manipulation;
 }
 
-/* Visible keyboard focus on every interactive element (never bare outline removal). */
+/* Visible keyboard focus everywhere (never bare outline removal). */
 :where(a, button, summary, [tabindex]):focus-visible {
-  outline: 2px solid var(--color-brand-600);
+  outline: 2px solid var(--color-accent-500);
   outline-offset: 2px;
-  border-radius: 2px;
+  border-radius: 3px;
 }
 
-/* Honor reduced-motion: disable smooth scroll + transitions/animations. */
+/* Subtle scrollbar that fits the dark theme. */
+* {
+  scrollbar-color: var(--color-ink-600) transparent;
+}
+
+/* Honor reduced motion. */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -61,4 +86,21 @@ button {
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
   }
+}
+
+/* ---- Reusable utilities ---- */
+@utility container-page {
+  margin-inline: auto;
+  max-width: 80rem; /* 1280px */
+  padding-inline: 1rem;
+}
+
+/* Gradient overlay used on hero/backdrop imagery for text legibility. */
+@utility overlay-fade {
+  background: linear-gradient(
+    to top,
+    var(--color-ink-950) 0%,
+    color-mix(in srgb, var(--color-ink-950) 70%, transparent) 45%,
+    transparent 100%
+  );
 }

@@ -1,0 +1,35 @@
+{
+  "id": "tmdb-299536",
+  "slug": "avengers-infinity-war-2018",
+  "title": "Avengers: Infinity War",
+  "year": 2018,
+  "decade": "2010s",
+  "industries": [
+    "hollywood"
+  ],
+  "countries": [
+    "united-states"
+  ],
+  "languages": [
+    "english"
+  ],
+  "genres": [
+    "adventure",
+    "action",
+    "science-fiction"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/7WsyChQLEftFiDOVTGkv3hFpyyt.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/mDfJG3LC3Dqb67AZ52x3Z0jU0uB.jpg",
+  "posterAlt": "Avengers: Infinity War (2018) movie poster",
+  "tmdbOverview": "As the Avengers and their allies have continued to protect the world from threats too large for any one hero to handle, a new danger has emerged from the cosmic shadows: Thanos. A despot of intergalactic infamy, his goal is to collect all six Infinity Stones, artifacts of unimaginable power, and use them to inflict his twisted will on all of reality. Everything the Avengers have fought for has led up to this moment - the fate of Earth and existence itself has never been more uncertain.",
+  "tmdbRating": 8.237,
+  "tmdbVotes": 32155,
+  "imdbRating": 8.4,
+  "imdbId": "tt4154756",
+  "popularity": 51.259,
+  "certification": "PG-13",
+  "certificationCountry": "US",
+  "contentDescriptors": [],
+  "synopsis": "Avengers: Infinity War (2018) is a adventure, action and science fiction film from United States. It's highly rated, holding a strong 8.4 on IMDb. It appears on several of our curated Top 10 lists. It carries a PG-13 certification (US rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

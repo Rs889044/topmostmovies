@@ -1,0 +1,35 @@
+{
+  "id": "tmdb-636173",
+  "slug": "dream-2023",
+  "title": "Dream",
+  "originalTitle": "드림",
+  "year": 2023,
+  "decade": "2020s",
+  "industries": [],
+  "countries": [
+    "south-korea"
+  ],
+  "languages": [
+    "korean",
+    "english"
+  ],
+  "genres": [
+    "comedy",
+    "drama",
+    "k-drama"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/11sqMYQRbfafStAoa2JpXDJWrF6.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/uVlT1VdsuAjVHiShBM2LwMee07E.jpg",
+  "posterAlt": "Dream (2023) movie poster",
+  "tmdbOverview": "With hard work and dedication on lock, a group of homeless men trains to compete in a global tournament — despite a cranky coach.",
+  "tmdbRating": 6.898,
+  "tmdbVotes": 128,
+  "imdbRating": 6.5,
+  "imdbId": "tt13814704",
+  "popularity": 4.16,
+  "certification": "+13",
+  "certificationCountry": "AR",
+  "contentDescriptors": [],
+  "synopsis": "Dream is a 2023 comedy, drama and k-drama film from South Korea. It carries a 6.5 rating on IMDb. A standout of 2020s cinema, it earns its spot on our lists. It carries a +13 certification (AR rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

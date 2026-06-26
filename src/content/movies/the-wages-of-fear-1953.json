@@ -1,0 +1,36 @@
+{
+  "id": "tmdb-204",
+  "slug": "the-wages-of-fear-1953",
+  "title": "The Wages of Fear",
+  "originalTitle": "Le Salaire de la peur",
+  "year": 1953,
+  "decade": "1950s",
+  "industries": [],
+  "countries": [
+    "france"
+  ],
+  "languages": [
+    "french",
+    "english",
+    "spanish"
+  ],
+  "genres": [
+    "drama",
+    "thriller",
+    "adventure"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/sNOvIp4X0fmCMfgEs2ww5IyMgFm.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/hTP6H7sNlWXdGxAciXQSjNJ1ob7.jpg",
+  "posterAlt": "The Wages of Fear (1953) movie poster",
+  "tmdbOverview": "In a run-down South American town, four men are paid to drive trucks loaded with nitroglycerin into the jungle through to the oil field. Friendships are tested and rivalries develop as they embark upon the perilous journey.",
+  "tmdbRating": 8.005,
+  "tmdbVotes": 1097,
+  "imdbRating": 8.1,
+  "imdbId": "tt0046268",
+  "popularity": 3.1705,
+  "certification": "PG-13",
+  "certificationCountry": "US",
+  "contentDescriptors": [],
+  "synopsis": "The Wages of Fear is a 1953 drama, thriller and adventure film from France. It's highly rated, holding a strong 8.1 on IMDb. It appears on several of our curated Top 10 lists. It carries a PG-13 certification (US rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

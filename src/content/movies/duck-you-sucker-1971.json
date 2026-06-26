@@ -1,0 +1,33 @@
+{
+  "id": "tmdb-336",
+  "slug": "duck-you-sucker-1971",
+  "title": "Duck, You Sucker",
+  "originalTitle": "Giù la testa",
+  "year": 1971,
+  "decade": "1970s",
+  "industries": [],
+  "countries": [
+    "spain",
+    "united-states"
+  ],
+  "languages": [
+    "spanish"
+  ],
+  "genres": [
+    "western"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/nWmAtZf83qpOai0fzehf7Hn1S3R.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/tXjtTg1TcpqUePNgdFrBg56hMUC.jpg",
+  "posterAlt": "Duck, You Sucker (1971) movie poster",
+  "tmdbOverview": "At the beginning of the 1913 Mexican Revolution, greedy bandit Juan Miranda and idealist John H. Mallory, an Irish Republican Army explosives expert on the lam from the British, fall in with a band of revolutionaries plotting to strike a national bank. When it turns out that the government has been using the bank as a hiding place for illegally detained political prisoners -- who are freed by the blast -- Miranda becomes a revolutionary hero against his will.",
+  "tmdbRating": 7.674,
+  "tmdbVotes": 1188,
+  "imdbRating": 7.5,
+  "imdbId": "tt0067140",
+  "popularity": 3.2427,
+  "certification": "PG",
+  "certificationCountry": "US",
+  "contentDescriptors": [],
+  "synopsis": "Released in 1971, Duck, You Sucker is a western film from Spain and United States. It holds a solid 7.5 rating on IMDb. It appears on several of our curated Top 10 lists. It carries a PG certification (US rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

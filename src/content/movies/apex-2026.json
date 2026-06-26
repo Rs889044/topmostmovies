@@ -1,0 +1,34 @@
+{
+  "id": "tmdb-1318447",
+  "slug": "apex-2026",
+  "title": "Apex",
+  "year": 2026,
+  "decade": "2020s",
+  "industries": [
+    "hollywood"
+  ],
+  "countries": [
+    "united-states"
+  ],
+  "languages": [
+    "english"
+  ],
+  "genres": [
+    "action",
+    "thriller"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/eTp7gSPkSF3Aw79mNx1NkBP1PZT.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/9nzfyiYbmTUXWC4B2kwjl4NAlqO.jpg",
+  "posterAlt": "Apex (2026) movie poster",
+  "tmdbOverview": "A grieving woman pushing her limits on a solo adventure in the Australian wild is ensnared in a twisted game with a cunning killer who thinks she's prey.",
+  "tmdbRating": 6.817,
+  "tmdbVotes": 1524,
+  "imdbRating": 6.1,
+  "imdbId": "tt16431404",
+  "popularity": 66.4945,
+  "certification": "R",
+  "certificationCountry": "US",
+  "contentDescriptors": [],
+  "synopsis": "Apex (2026) is a action and thriller film from United States. It carries a 6.1 rating on IMDb. It appears on several of our curated Top 10 lists. It carries a R certification (US rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

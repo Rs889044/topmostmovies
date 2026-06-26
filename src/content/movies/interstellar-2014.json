@@ -1,0 +1,36 @@
+{
+  "id": "tmdb-157336",
+  "slug": "interstellar-2014",
+  "title": "Interstellar",
+  "year": 2014,
+  "decade": "2010s",
+  "industries": [
+    "hollywood"
+  ],
+  "countries": [
+    "united-states",
+    "united-kingdom"
+  ],
+  "languages": [
+    "english"
+  ],
+  "genres": [
+    "adventure",
+    "drama",
+    "science-fiction"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/yQvGrMoipbRoddT0ZR8tPoR7NfX.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/2ssWTSVklAEc98frZUQhgtGHx7s.jpg",
+  "posterAlt": "Interstellar (2014) movie poster",
+  "tmdbOverview": "The adventures of a group of explorers who make use of a newly discovered wormhole to surpass the limitations on human space travel and conquer the vast distances involved in an interstellar voyage.",
+  "tmdbRating": 8.479,
+  "tmdbVotes": 40104,
+  "imdbRating": 8.7,
+  "imdbId": "tt0816692",
+  "popularity": 65.3753,
+  "certification": "PG-13",
+  "certificationCountry": "US",
+  "contentDescriptors": [],
+  "synopsis": "Released in 2014, Interstellar is a adventure, drama and science fiction film from United States and United Kingdom. It's highly rated, holding a strong 8.7 on IMDb. A standout of 2010s cinema, it earns its spot on our lists. It carries a PG-13 certification (US rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

@@ -1,0 +1,36 @@
+{
+  "id": "tmdb-585268",
+  "slug": "war-2019",
+  "title": "War",
+  "year": 2019,
+  "decade": "2010s",
+  "industries": [
+    "bollywood"
+  ],
+  "countries": [
+    "india"
+  ],
+  "languages": [
+    "hindi",
+    "english"
+  ],
+  "genres": [
+    "action",
+    "thriller",
+    "adventure"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/yUtaHkL2SDIAZhRApZAyQrAXygn.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/aOSDKvqglKVa3SYy4CPXYUAfDlf.jpg",
+  "posterAlt": "War (2019) movie poster",
+  "tmdbOverview": "Khalid, entrusted with the task of eliminating former soldier turned rogue Kabir, engages in an epic battle with his mentor who taught him everything.",
+  "tmdbRating": 6.759,
+  "tmdbVotes": 384,
+  "imdbRating": 6.6,
+  "imdbId": "tt7430722",
+  "popularity": 5.0085,
+  "certification": "MA 15+",
+  "certificationCountry": "AU",
+  "contentDescriptors": [],
+  "synopsis": "War is a 2019 action, thriller and adventure film from India. It carries a 6.6 rating on IMDb. A standout of 2010s cinema, it earns its spot on our lists. It carries a MA 15+ certification (AU rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

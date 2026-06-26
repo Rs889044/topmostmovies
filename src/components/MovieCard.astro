@@ -1,8 +1,8 @@
 ---
 /**
- * MovieCard.astro — poster-forward card for list pages. Shows rank badge, poster, title,
- * year, ratings, certification, and an optional per-list blurb ("why it made the list").
- * Reserves poster aspect ratio to avoid CLS. See docs/SEO.md.
+ * MovieCard.astro — poster-forward card for list/grid pages. Poster with gradient overlay,
+ * rank badge, rating chip, certification, title + year, and an optional per-list blurb.
+ * Reserves the 2:3 poster aspect ratio to avoid CLS. See docs/SEO.md.
  */
 import { Image } from 'astro:assets';
 import type { MovieData } from '../lib/movies';
@@ -11,70 +11,86 @@ export interface Props {
   movie: MovieData;
   rank?: number;
   blurb?: string;
+  /** Prioritize loading (above-the-fold LCP candidate). */
+  priority?: boolean;
 }
 
-const { movie, rank, blurb } = Astro.props;
+const { movie, rank, blurb, priority = false } = Astro.props;
 const rating = movie.imdbRating ?? movie.tmdbRating;
 const ratingSource = movie.imdbRating ? 'IMDb' : movie.tmdbRating ? 'TMDb' : undefined;
 ---
 
-<article class="flex gap-4 rounded-lg border border-gray-200 p-3 transition hover:shadow-sm">
-  {rank !== undefined && (
-    <div aria-hidden="true" class="shrink-0 self-start pt-1 text-2xl font-bold tabular-nums text-gray-300">
-      {rank}
-    </div>
-  )}
-
-  {/* Poster links to the movie too, but it's a redundant link for AT — the title link
-      below is the primary one, so keep the poster out of the tab order and hidden from
-      screen readers (WIG: avoid redundant adjacent links). */}
+<article class="group relative flex flex-col">
   <a
     href={`/movie/${movie.slug}`}
-    class="shrink-0"
-    tabindex="-1"
-    aria-hidden="true"
+    class="relative block overflow-hidden rounded-xl bg-ink-800 ring-1 ring-ink-700/60 transition duration-300 group-hover:ring-accent-500/60"
   >
-    {movie.posterUrl ? (
-      <Image
-        src={movie.posterUrl}
-        alt=""
-        width={100}
-        height={150}
-        loading="lazy"
-        class="h-[150px] w-[100px] rounded-md bg-gray-100 object-cover"
-        inferSize={false}
-      />
-    ) : (
-      <div class="flex h-[150px] w-[100px] items-center justify-center rounded-md bg-gray-100 text-xs text-gray-400">
-        No poster
+    <div class="relative aspect-[2/3] w-full">
+      {
+        movie.posterUrl ? (
+          <Image
+            src={movie.posterUrl}
+            alt={movie.posterAlt}
+            width={300}
+            height={450}
+            loading={priority ? 'eager' : 'lazy'}
+            class="h-full w-full object-cover transition duration-500 group-hover:scale-[1.04]"
+            inferSize={false}
+          />
+        ) : (
+          <div class="flex h-full w-full items-center justify-center text-xs text-fg-subtle">
+            No poster
+          </div>
+        )
+      }
+
+      {/* Gradient for chip/legibility */}
+      <div
+        class="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-ink-950/90 to-transparent"
+        aria-hidden="true"
+      >
       </div>
-    )}
+
+      {/* Rank badge */}
+      {
+        rank !== undefined && (
+          <span class="absolute left-2 top-2 inline-flex h-7 min-w-7 items-center justify-center rounded-lg bg-ink-950/80 px-1.5 text-sm font-bold tabular-nums text-accent-400 backdrop-blur-sm">
+            {rank}
+          </span>
+        )
+      }
+
+      {/* Rating chip */}
+      {
+        rating !== undefined && (
+          <span class="absolute bottom-2 left-2 inline-flex items-center gap-1 rounded-md bg-ink-950/80 px-1.5 py-0.5 text-xs font-semibold text-fg backdrop-blur-sm">
+            <span class="text-star" aria-hidden="true">
+              ★
+            </span>
+            {rating.toFixed(1)}
+            <span class="font-normal text-fg-subtle">{ratingSource}</span>
+          </span>
+        )
+      }
+
+      {/* Certification chip */}
+      {
+        movie.certification && (
+          <span class="absolute bottom-2 right-2 rounded-md border border-ink-600 bg-ink-950/80 px-1.5 py-0.5 text-[10px] font-medium text-fg-muted backdrop-blur-sm">
+            {movie.certification}
+          </span>
+        )
+      }
+    </div>
   </a>
 
-  <div class="min-w-0 flex-1">
-    <h3 class="font-semibold leading-tight">
-      <a href={`/movie/${movie.slug}`} class="hover:text-brand-700 hover:underline">
+  <div class="mt-2.5 min-w-0">
+    <h3 class="truncate text-sm font-semibold text-fg">
+      <a href={`/movie/${movie.slug}`} class="hover:text-accent-400">
         {movie.title}
       </a>
-      <span class="font-normal text-gray-400"> ({movie.year})</span>
     </h3>
-
-    <div class="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-gray-500">
-      {rating !== undefined && (
-        <span class="font-medium text-gray-700">★ {rating.toFixed(1)} <span class="font-normal text-gray-400">{ratingSource}</span></span>
-      )}
-      {movie.certification ? (
-        <span class="rounded border border-gray-200 px-1.5 py-0.5 text-xs">
-          {movie.certification}
-          {movie.certificationCountry && movie.certificationCountry !== 'US' && (
-            <span class="text-gray-400"> ({movie.certificationCountry})</span>
-          )}
-        </span>
-      ) : (
-        <span class="text-xs text-gray-400">Not rated</span>
-      )}
-    </div>
-
-    {blurb && <p class="mt-2 text-sm leading-relaxed text-gray-600">{blurb}</p>}
+    <p class="text-xs text-fg-subtle">{movie.year}</p>
+    {blurb && <p class="mt-1.5 line-clamp-3 text-xs leading-relaxed text-fg-muted">{blurb}</p>}
   </div>
 </article>

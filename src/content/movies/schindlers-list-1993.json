@@ -1,0 +1,35 @@
+{
+  "id": "tmdb-424",
+  "slug": "schindlers-list-1993",
+  "title": "Schindler's List",
+  "year": 1993,
+  "decade": "1990s",
+  "industries": [
+    "hollywood"
+  ],
+  "countries": [
+    "united-states"
+  ],
+  "languages": [
+    "english"
+  ],
+  "genres": [
+    "drama",
+    "history",
+    "war"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/sF1U4EUQS8YHUYjNl3pMGNIQyr0.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/zb6fM1CX41D9rF9hdgclu0peUmy.jpg",
+  "posterAlt": "Schindler's List (1993) movie poster",
+  "tmdbOverview": "The true story of how businessman Oskar Schindler saved over a thousand Jewish lives from the Nazis while they worked as slaves in his factory during World War II.",
+  "tmdbRating": 8.57,
+  "tmdbVotes": 17542,
+  "imdbRating": 9,
+  "imdbId": "tt0108052",
+  "popularity": 21.5928,
+  "certification": "R",
+  "certificationCountry": "US",
+  "contentDescriptors": [],
+  "synopsis": "Released in 1993, Schindler's List is a drama, history and war film from United States. It's highly rated, holding a strong 9.0 on IMDb. It's one of the titles we feature across our 1990s and genre rankings. It carries a R certification (US rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

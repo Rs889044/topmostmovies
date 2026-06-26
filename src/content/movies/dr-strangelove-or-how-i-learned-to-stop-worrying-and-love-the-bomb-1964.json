@@ -1,0 +1,35 @@
+{
+  "id": "tmdb-935",
+  "slug": "dr-strangelove-or-how-i-learned-to-stop-worrying-and-love-the-bomb-1964",
+  "title": "Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb",
+  "year": 1964,
+  "decade": "1960s",
+  "industries": [
+    "hollywood"
+  ],
+  "countries": [
+    "united-kingdom",
+    "united-states"
+  ],
+  "languages": [
+    "english"
+  ],
+  "genres": [
+    "comedy",
+    "war"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/6x7MzQ6BOMlRzam1StcmPO9v61g.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/7i0L2ee4Iy0aXV6vR5u1ZmblOrx.jpg",
+  "posterAlt": "Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb (1964) movie poster",
+  "tmdbOverview": "After the insane General Jack D. Ripper initiates a nuclear strike on the Soviet Union, a war room full of politicians, generals and a Russian diplomat all frantically try to stop it.",
+  "tmdbRating": 8.118,
+  "tmdbVotes": 6176,
+  "imdbRating": 8.3,
+  "imdbId": "tt0057012",
+  "popularity": 5.4742,
+  "certification": "PG",
+  "certificationCountry": "US",
+  "contentDescriptors": [],
+  "synopsis": "Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb is a 1964 comedy and war film from United Kingdom and United States. It's highly rated, holding a strong 8.3 on IMDb. It's one of the titles we feature across our 1960s and genre rankings. It carries a PG certification (US rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

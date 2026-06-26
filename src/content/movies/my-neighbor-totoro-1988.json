@@ -1,0 +1,34 @@
+{
+  "id": "tmdb-8392",
+  "slug": "my-neighbor-totoro-1988",
+  "title": "My Neighbor Totoro",
+  "originalTitle": "となりのトトロ",
+  "year": 1988,
+  "decade": "1980s",
+  "industries": [],
+  "countries": [
+    "japan"
+  ],
+  "languages": [
+    "japanese"
+  ],
+  "genres": [
+    "fantasy",
+    "animation",
+    "family"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/rtGDOeG9LzoerkDGZF9dnVeLppL.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/zkThiZAaAie8Lw7RAc5yPTOewBV.jpg",
+  "posterAlt": "My Neighbor Totoro (1988) movie poster",
+  "tmdbOverview": "Two sisters move to the country with their father in order to be closer to their hospitalized mother, and discover the surrounding trees are inhabited by Totoros, magical spirits of the forest. When the youngest runs away from home, the older sister seeks help from the spirits to find her.",
+  "tmdbRating": 8.064,
+  "tmdbVotes": 8858,
+  "imdbRating": 8.1,
+  "imdbId": "tt0096283",
+  "popularity": 13.3586,
+  "certification": "G",
+  "certificationCountry": "US",
+  "contentDescriptors": [],
+  "synopsis": "My Neighbor Totoro is a 1988 fantasy, animation and family film from Japan. It's highly rated, holding a strong 8.1 on IMDb. A standout of 1980s cinema, it earns its spot on our lists. It carries a G certification (US rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

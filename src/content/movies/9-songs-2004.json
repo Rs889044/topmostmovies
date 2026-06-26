@@ -1,0 +1,36 @@
+{
+  "id": "tmdb-27",
+  "slug": "9-songs-2004",
+  "title": "9 Songs",
+  "year": 2004,
+  "decade": "2000s",
+  "industries": [
+    "hollywood"
+  ],
+  "countries": [
+    "united-states",
+    "united-kingdom"
+  ],
+  "languages": [
+    "english"
+  ],
+  "genres": [
+    "drama",
+    "music",
+    "romance"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/91O7z0vo7MiNWd5xD2BoivwbQsb.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/qU7tNIMpRqkizIObXfkJY3haTqh.jpg",
+  "posterAlt": "9 Songs (2004) movie poster",
+  "tmdbOverview": "Matt, a young glaciologist, soars across the vast, silent, icebound immensities of the South Pole as he recalls his love affair with Lisa. They meet at a mobbed rock concert in a vast music hall - London's Brixton Academy. They are in bed at night's end. Together, over a period of several months, they pursue a mutual sexual passion whose inevitable stages unfold in counterpoint to nine live-concert songs.",
+  "tmdbRating": 5.537,
+  "tmdbVotes": 582,
+  "imdbRating": 4.7,
+  "imdbId": "tt0411705",
+  "popularity": 31.8328,
+  "certification": "16",
+  "certificationCountry": "AT",
+  "contentDescriptors": [],
+  "synopsis": "9 Songs (2004) is a drama, music and romance film from United States and United Kingdom. It has a 4.7 rating on IMDb. It appears on several of our curated Top 10 lists. It carries a 16 certification (AT rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

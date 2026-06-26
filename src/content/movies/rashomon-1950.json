@@ -1,0 +1,34 @@
+{
+  "id": "tmdb-548",
+  "slug": "rashomon-1950",
+  "title": "Rashomon",
+  "originalTitle": "羅生門",
+  "year": 1950,
+  "decade": "1950s",
+  "industries": [],
+  "countries": [
+    "japan"
+  ],
+  "languages": [
+    "japanese"
+  ],
+  "genres": [
+    "crime",
+    "drama",
+    "mystery"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/vL7Xw04nFMHwnvXRFCmYYAzMUvY.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/tDn1dA52bQH9B85vilHeU7C83W1.jpg",
+  "posterAlt": "Rashomon (1950) movie poster",
+  "tmdbOverview": "Four people recount different versions of the story of a man's murder and the rape of his wife.",
+  "tmdbRating": 8.034,
+  "tmdbVotes": 2531,
+  "imdbRating": 8.1,
+  "imdbId": "tt0042876",
+  "popularity": 7.5198,
+  "certification": "M",
+  "certificationCountry": "AU",
+  "contentDescriptors": [],
+  "synopsis": "Rashomon (1950) is a crime, drama and mystery film from Japan. It's highly rated, holding a strong 8.1 on IMDb. A standout of 1950s cinema, it earns its spot on our lists. It carries a M certification (AU rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

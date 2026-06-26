@@ -1,0 +1,36 @@
+{
+  "id": "tmdb-8681",
+  "slug": "taken-2008",
+  "title": "Taken",
+  "year": 2008,
+  "decade": "2000s",
+  "industries": [
+    "hollywood"
+  ],
+  "countries": [
+    "france",
+    "united-states"
+  ],
+  "languages": [
+    "english",
+    "french"
+  ],
+  "genres": [
+    "action",
+    "thriller"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/ognkaUSNgJe1a2pjB4UNdzEo5jT.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/ysCmtf9Y9fLDChZ88PXId5RbLP1.jpg",
+  "posterAlt": "Taken (2008) movie poster",
+  "tmdbOverview": "Bryan Mills, a former government operative, is trying to reconnect with his teenage daughter Kim. After reluctantly agreeing with his ex-wife to let Kim go to Paris on vacation with a friend, his worst nightmare comes true. While on the phone with his daughter shortly after she arrives in Paris, she and her friend are abducted by a gang of human traffickers. Working against the clock, Bryan relies on his extensive training and skills to track down the ruthless gang that abducted her and launch a one-man war to rescue his daughter.",
+  "tmdbRating": 7.407,
+  "tmdbVotes": 12142,
+  "imdbRating": 7.7,
+  "imdbId": "tt0936501",
+  "popularity": 9.715,
+  "certification": "PG-13",
+  "certificationCountry": "US",
+  "contentDescriptors": [],
+  "synopsis": "Taken is a 2008 action and thriller film from France and United States. It holds a solid 7.7 rating on IMDb. It appears on several of our curated Top 10 lists. It carries a PG-13 certification (US rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

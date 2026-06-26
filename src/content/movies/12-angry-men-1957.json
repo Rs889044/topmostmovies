@@ -1,0 +1,33 @@
+{
+  "id": "tmdb-389",
+  "slug": "12-angry-men-1957",
+  "title": "12 Angry Men",
+  "year": 1957,
+  "decade": "1950s",
+  "industries": [
+    "hollywood"
+  ],
+  "countries": [
+    "united-states"
+  ],
+  "languages": [
+    "english"
+  ],
+  "genres": [
+    "drama"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/zhG3vKWyDRaZYoaww1UVAi29T9h.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/qqHQsStV6exghCM7zbObuYBiYxw.jpg",
+  "posterAlt": "12 Angry Men (1957) movie poster",
+  "tmdbOverview": "The defense and the prosecution have rested and the jury is filing into the jury room to decide if a young Spanish-American is guilty or innocent of murdering his father. What begins as an open and shut case soon becomes a mini-drama of each of the jurors' prejudices and preconceptions about the trial, the accused, and each other.",
+  "tmdbRating": 8.563,
+  "tmdbVotes": 10064,
+  "imdbRating": 9,
+  "imdbId": "tt0050083",
+  "popularity": 20.5981,
+  "certification": "G",
+  "certificationCountry": "AU",
+  "contentDescriptors": [],
+  "synopsis": "Released in 1957, 12 Angry Men is a drama film from United States. It's highly rated, holding a strong 9.0 on IMDb. It's one of the titles we feature across our 1950s and genre rankings. It carries a G certification (AU rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

@@ -73,6 +73,49 @@ interface ReleaseDatesResponse {
   }[];
 }
 
+export interface DiscoverParams {
+  /** ISO-3166-1 origin/production country, e.g. "KR". */
+  country?: string;
+  /** ISO-639-1 original language, e.g. "ko". */
+  language?: string;
+  /** TMDb genre id. */
+  genreId?: number;
+  /** Release year. */
+  year?: number;
+  sortBy?: 'popularity.desc' | 'vote_average.desc' | 'vote_count.desc';
+  /** Minimum vote count (filters out obscure/unrated entries on vote_average sorts). */
+  minVotes?: number;
+  page?: number;
+}
+
+interface DiscoverResult {
+  page: number;
+  total_pages: number;
+  results: { id: number; vote_count: number; vote_average: number; popularity: number }[];
+}
+
+/**
+ * Discover movie ids by filter. Used to build the catalog across dimensions (country,
+ * language, genre, year) rather than a hand-typed list. Returns ids only; details are
+ * fetched per movie afterward. See scripts/fetch-data.ts.
+ */
+export async function discoverMovies(params: DiscoverParams): Promise<number[]> {
+  const q: Record<string, string> = {
+    include_adult: 'false',
+    include_video: 'false',
+    sort_by: params.sortBy ?? 'popularity.desc',
+    page: String(params.page ?? 1),
+    'vote_count.gte': String(params.minVotes ?? 50),
+  };
+  if (params.country) q.with_origin_country = params.country;
+  if (params.language) q.with_original_language = params.language;
+  if (params.genreId) q.with_genres = String(params.genreId);
+  if (params.year) q.primary_release_year = String(params.year);
+
+  const res = await get<DiscoverResult>('/discover/movie', q, 'discover');
+  return res.results.map((r) => r.id);
+}
+
 /** Find a movie by title (+ optional year) → its TMDb id. */
 export async function findMovieId(title: string, year?: number): Promise<number | undefined> {
   const params: Record<string, string> = { query: title, include_adult: 'false' };

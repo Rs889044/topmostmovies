@@ -1,0 +1,38 @@
+{
+  "id": "tmdb-591",
+  "slug": "the-da-vinci-code-2006",
+  "title": "The Da Vinci Code",
+  "year": 2006,
+  "decade": "2000s",
+  "industries": [
+    "hollywood"
+  ],
+  "countries": [
+    "united-states",
+    "france",
+    "united-kingdom"
+  ],
+  "languages": [
+    "english",
+    "french",
+    "spanish"
+  ],
+  "genres": [
+    "thriller",
+    "mystery"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/9ejKfNk0LBhSI9AahH4f9NJNZNM.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/4NsQl44oXVMiuIM9t7ZsVgYzOkv.jpg",
+  "posterAlt": "The Da Vinci Code (2006) movie poster",
+  "tmdbOverview": "A murder in Paris’ Louvre Museum and cryptic clues in some of Leonardo da Vinci’s most famous paintings lead to the discovery of a religious mystery. For 2,000 years a secret society closely guards information that — should it come to light — could rock the very foundations of Christianity.",
+  "tmdbRating": 6.729,
+  "tmdbVotes": 10104,
+  "imdbRating": 6.6,
+  "imdbId": "tt0382625",
+  "popularity": 7.3688,
+  "certification": "PG-13",
+  "certificationCountry": "US",
+  "contentDescriptors": [],
+  "synopsis": "The Da Vinci Code is a 2006 thriller and mystery film from United States and France. It carries a 6.6 rating on IMDb. It's one of the titles we feature across our 2000s and genre rankings. It carries a PG-13 certification (US rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

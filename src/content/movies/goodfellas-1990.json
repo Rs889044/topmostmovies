@@ -1,0 +1,34 @@
+{
+  "id": "tmdb-769",
+  "slug": "goodfellas-1990",
+  "title": "GoodFellas",
+  "year": 1990,
+  "decade": "1990s",
+  "industries": [
+    "hollywood"
+  ],
+  "countries": [
+    "united-states"
+  ],
+  "languages": [
+    "english"
+  ],
+  "genres": [
+    "drama",
+    "crime"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/9OkCLM73MIU2CrKZbqiT8Ln1wY2.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/gILte6Zd7m1YneIr6MVhh30S9pr.jpg",
+  "posterAlt": "GoodFellas (1990) movie poster",
+  "tmdbOverview": "The true story of Henry Hill, a half-Irish, half-Sicilian Brooklyn kid who is adopted by neighbourhood gangsters at an early age and climbs the ranks of a Mafia family under the guidance of Jimmy Conway.",
+  "tmdbRating": 8.455,
+  "tmdbVotes": 14439,
+  "imdbRating": 8.7,
+  "imdbId": "tt0099685",
+  "popularity": 25.8981,
+  "certification": "R",
+  "certificationCountry": "US",
+  "contentDescriptors": [],
+  "synopsis": "GoodFellas (1990) is a drama and crime film from United States. It's highly rated, holding a strong 8.7 on IMDb. It appears on several of our curated Top 10 lists. It carries a R certification (US rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

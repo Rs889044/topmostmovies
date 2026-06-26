@@ -1,0 +1,36 @@
+{
+  "id": "tmdb-301528",
+  "slug": "toy-story-4-2019",
+  "title": "Toy Story 4",
+  "year": 2019,
+  "decade": "2010s",
+  "industries": [
+    "hollywood"
+  ],
+  "countries": [
+    "united-states"
+  ],
+  "languages": [
+    "english"
+  ],
+  "genres": [
+    "family",
+    "comedy",
+    "animation",
+    "adventure"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/w9kR8qbmQ01HwnvK4alvnQ2ca0L.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/q62bpQ67qaXY0u6b2wFEnQYIbPd.jpg",
+  "posterAlt": "Toy Story 4 (2019) movie poster",
+  "tmdbOverview": "Woody has always been confident about his place in the world, devoted to taking care of his kid—whether that's Andy or Bonnie. But after Bonnie creates a reluctant new toy called \"Forky\", a road trip adventure alongside old and new friends challenges everything Woody believes about loyalty, purpose, and what it truly means to be a toy.",
+  "tmdbRating": 7.461,
+  "tmdbVotes": 10627,
+  "imdbRating": 7.6,
+  "imdbId": "tt1979376",
+  "popularity": 121.8379,
+  "certification": "G",
+  "certificationCountry": "US",
+  "contentDescriptors": [],
+  "synopsis": "Toy Story 4 is a 2019 family, comedy and animation film from United States. It holds a solid 7.6 rating on IMDb. It's one of the titles we feature across our 2010s and genre rankings. It carries a G certification (US rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

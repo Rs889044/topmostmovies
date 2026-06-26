@@ -1,0 +1,35 @@
+{
+  "id": "tmdb-235704",
+  "slug": "commitment-2013",
+  "title": "Commitment",
+  "originalTitle": "동창생",
+  "year": 2013,
+  "decade": "2010s",
+  "industries": [],
+  "countries": [
+    "south-korea"
+  ],
+  "languages": [
+    "korean"
+  ],
+  "genres": [
+    "action",
+    "thriller",
+    "drama",
+    "k-drama"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/ybM400b3vesnoNzOlTlAmHeEYPq.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/alo20exRRwPj1vhqrjbmaee9op9.jpg",
+  "posterAlt": "Commitment (2013) movie poster",
+  "tmdbOverview": "The son of a North Korean spy decides to follow in his father's footsteps to protect his little sister.",
+  "tmdbRating": 7.2,
+  "tmdbVotes": 138,
+  "imdbRating": 6.6,
+  "imdbId": "tt3144098",
+  "popularity": 7.8056,
+  "certification": "14A",
+  "certificationCountry": "CA",
+  "contentDescriptors": [],
+  "synopsis": "Commitment is a 2013 action, thriller and drama film from South Korea. It carries a 6.6 rating on IMDb. A standout of 2010s cinema, it earns its spot on our lists. It carries a 14A certification (CA rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

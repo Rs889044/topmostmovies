@@ -32,7 +32,8 @@ export const movieSchema = z.object({
   posterAlt: z.string(),
 
   // Content
-  synopsis: z.string().optional(), // ORIGINAL editorial summary (written in Phase 5)
+  synopsis: z.string().optional(), // ORIGINAL summary — hand-written (flagship) or generated from metadata
+  synopsisAuto: z.boolean().optional(), // true if synopsis was metadata-generated (not hand-written)
   tmdbOverview: z.string().optional(), // raw TMDb overview — reference only, never published verbatim
 
   // Ratings

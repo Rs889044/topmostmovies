@@ -1,0 +1,36 @@
+{
+  "id": "tmdb-1255",
+  "slug": "the-host-2006",
+  "title": "The Host",
+  "originalTitle": "괴물",
+  "year": 2006,
+  "decade": "2000s",
+  "industries": [],
+  "countries": [
+    "south-korea"
+  ],
+  "languages": [
+    "korean",
+    "english"
+  ],
+  "genres": [
+    "horror",
+    "drama",
+    "science-fiction",
+    "k-drama"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/m3OE5bpcGHMWYlPkYvgIrncuuGN.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/m0wczZyNfWpu5q9wNuhFUGGiLxG.jpg",
+  "posterAlt": "The Host (2006) movie poster",
+  "tmdbOverview": "A teenage girl is captured by a giant mutated squid-like creature that appears from Seoul's Han River after toxic waste was dumped in it, prompting her family into a frantic search for her.",
+  "tmdbRating": 6.976,
+  "tmdbVotes": 3142,
+  "imdbRating": 7.1,
+  "imdbId": "tt0468492",
+  "popularity": 6.4338,
+  "certification": "R",
+  "certificationCountry": "US",
+  "contentDescriptors": [],
+  "synopsis": "Released in 2006, The Host is a horror, drama and science fiction film from South Korea. It holds a solid 7.1 rating on IMDb. It's one of the titles we feature across our 2000s and genre rankings. It carries a R certification (US rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

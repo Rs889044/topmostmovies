@@ -1,0 +1,36 @@
+{
+  "id": "tmdb-10193",
+  "slug": "toy-story-3-2010",
+  "title": "Toy Story 3",
+  "year": 2010,
+  "decade": "2010s",
+  "industries": [
+    "hollywood"
+  ],
+  "countries": [
+    "united-states"
+  ],
+  "languages": [
+    "english",
+    "spanish"
+  ],
+  "genres": [
+    "animation",
+    "family",
+    "comedy"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/AbbXspMOwdvwWZgVN0nabZq03Ec.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/uAfhsySkr1UzQg1zdg3dZQRz9Fd.jpg",
+  "posterAlt": "Toy Story 3 (2010) movie poster",
+  "tmdbOverview": "Woody, Buzz, and the rest of Andy's toys haven't been played with in years. With Andy about to go to college, the gang find themselves accidentally left at a nefarious day care center. The toys must band together to escape and return home to Andy.",
+  "tmdbRating": 7.809,
+  "tmdbVotes": 15829,
+  "imdbRating": 8.3,
+  "imdbId": "tt0435761",
+  "popularity": 54.6072,
+  "certification": "G",
+  "certificationCountry": "US",
+  "contentDescriptors": [],
+  "synopsis": "Toy Story 3 (2010) is a animation, family and comedy film from United States. It's highly rated, holding a strong 8.3 on IMDb. A standout of 2010s cinema, it earns its spot on our lists. It carries a G certification (US rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

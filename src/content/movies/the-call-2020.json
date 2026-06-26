@@ -1,0 +1,34 @@
+{
+  "id": "tmdb-575604",
+  "slug": "the-call-2020",
+  "title": "The Call",
+  "originalTitle": "콜",
+  "year": 2020,
+  "decade": "2020s",
+  "industries": [],
+  "countries": [
+    "south-korea"
+  ],
+  "languages": [
+    "korean"
+  ],
+  "genres": [
+    "thriller",
+    "mystery",
+    "science-fiction"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/22olUUiyt5CHWZUgATipg4N9wbn.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/iDw6J49rf7Xlu9QZBWpvmrMqSzI.jpg",
+  "posterAlt": "The Call (2020) movie poster",
+  "tmdbOverview": "Connected by phone in the same home but 20 years apart, a caller puts a woman’s past — and life — on the line to change her own fate.",
+  "tmdbRating": 7.485,
+  "tmdbVotes": 977,
+  "imdbRating": 7.1,
+  "imdbId": "tt10530176",
+  "popularity": 3.5748,
+  "certification": "MA 15+",
+  "certificationCountry": "AU",
+  "contentDescriptors": [],
+  "synopsis": "The Call is a 2020 thriller, mystery and science fiction film from South Korea. It holds a solid 7.1 rating on IMDb. It appears on several of our curated Top 10 lists. It carries a MA 15+ certification (AU rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

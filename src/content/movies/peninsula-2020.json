@@ -1,0 +1,36 @@
+{
+  "id": "tmdb-581392",
+  "slug": "peninsula-2020",
+  "title": "Peninsula",
+  "originalTitle": "반도",
+  "year": 2020,
+  "decade": "2020s",
+  "industries": [],
+  "countries": [
+    "south-korea"
+  ],
+  "languages": [
+    "korean",
+    "english"
+  ],
+  "genres": [
+    "horror",
+    "action",
+    "thriller",
+    "adventure"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/eeqvAzCccAZOhU3RfbvHB3s44S6.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/gEjNlhZhyHeto6Fy5wWy5Uk3A9D.jpg",
+  "posterAlt": "Peninsula (2020) movie poster",
+  "tmdbOverview": "A soldier and his team battle hordes of post-apocalyptic zombies in the wastelands of the Korean Peninsula.",
+  "tmdbRating": 6.718,
+  "tmdbVotes": 2593,
+  "imdbRating": 5.5,
+  "imdbId": "tt8850222",
+  "popularity": 7.3825,
+  "certification": "MA15+",
+  "certificationCountry": "AU",
+  "contentDescriptors": [],
+  "synopsis": "Peninsula (2020) is a horror, action and thriller film from South Korea. It has a 5.5 rating on IMDb. It appears on several of our curated Top 10 lists. It carries a MA15+ certification (AU rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

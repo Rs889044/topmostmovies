@@ -1,0 +1,35 @@
+{
+  "id": "tmdb-675",
+  "slug": "harry-potter-and-the-order-of-the-phoenix-2007",
+  "title": "Harry Potter and the Order of the Phoenix",
+  "year": 2007,
+  "decade": "2000s",
+  "industries": [
+    "hollywood"
+  ],
+  "countries": [
+    "united-kingdom",
+    "united-states"
+  ],
+  "languages": [
+    "english"
+  ],
+  "genres": [
+    "adventure",
+    "fantasy"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/5aOyriWkPec0zUDxmHFP9qMmBaj.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/pkxPkHOPJjOvzfQOclANEBT8OfK.jpg",
+  "posterAlt": "Harry Potter and the Order of the Phoenix (2007) movie poster",
+  "tmdbOverview": "When a new professor's methods leave Hogwarts unprepared to fight the rising tide of evil, Harry teaches students how to defend against the dark arts.",
+  "tmdbRating": 7.673,
+  "tmdbVotes": 20868,
+  "imdbRating": 7.5,
+  "imdbId": "tt0373889",
+  "popularity": 20.0643,
+  "certification": "PG-13",
+  "certificationCountry": "US",
+  "contentDescriptors": [],
+  "synopsis": "Harry Potter and the Order of the Phoenix (2007) is a adventure and fantasy film from United Kingdom and United States. It holds a solid 7.5 rating on IMDb. A standout of 2000s cinema, it earns its spot on our lists. It carries a PG-13 certification (US rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

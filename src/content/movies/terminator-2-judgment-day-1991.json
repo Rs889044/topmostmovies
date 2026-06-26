@@ -1,0 +1,37 @@
+{
+  "id": "tmdb-280",
+  "slug": "terminator-2-judgment-day-1991",
+  "title": "Terminator 2: Judgment Day",
+  "year": 1991,
+  "decade": "1990s",
+  "industries": [
+    "hollywood"
+  ],
+  "countries": [
+    "france",
+    "united-states"
+  ],
+  "languages": [
+    "english",
+    "spanish"
+  ],
+  "genres": [
+    "action",
+    "thriller",
+    "science-fiction"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/jFTVD4XoWQTcg7wdyJKa8PEds5q.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/izkMjmhauFx9DjoBQqM5sM5WAwE.jpg",
+  "posterAlt": "Terminator 2: Judgment Day (1991) movie poster",
+  "tmdbOverview": "Ten years after the events of the original, a reprogrammed T-800 is sent back in time to protect young John Connor from the shape-shifting T-1000. Together with his mother Sarah, he fights to stop Skynet from triggering a nuclear apocalypse.",
+  "tmdbRating": 8.152,
+  "tmdbVotes": 14382,
+  "imdbRating": 8.6,
+  "imdbId": "tt0103064",
+  "popularity": 17.669,
+  "certification": "R",
+  "certificationCountry": "US",
+  "contentDescriptors": [],
+  "synopsis": "Terminator 2: Judgment Day (1991) is a action, thriller and science fiction film from France and United States. It's highly rated, holding a strong 8.6 on IMDb. It's one of the titles we feature across our 1990s and genre rankings. It carries a R certification (US rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

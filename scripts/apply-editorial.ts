@@ -135,24 +135,26 @@ const EDITORIAL: Record<string, Editorial> = {
   },
 };
 
-async function main() {
+/** Merge hand-written editorial copy into existing movie records. Returns count updated.
+ *  Skips silently if a record doesn't exist (catalog may have changed). */
+export async function applyEditorial(): Promise<number> {
   let updated = 0;
   for (const [slug, ed] of Object.entries(EDITORIAL)) {
     const path = join(DIR, `${slug}.json`);
-    if (!existsSync(path)) {
-      console.warn(`  ✗ no record for ${slug} — skipped`);
-      continue;
-    }
+    if (!existsSync(path)) continue;
     const data = JSON.parse(await readFile(path, 'utf8'));
     data.synopsis = ed.synopsis;
     if (ed.parentalNotes) data.parentalNotes = ed.parentalNotes;
     await writeFile(path, JSON.stringify(data, null, 2) + '\n', 'utf8');
     updated += 1;
   }
-  console.log(`Applied editorial copy to ${updated} movie(s).`);
+  return updated;
 }
 
-main().catch((err) => {
-  console.error(err);
-  process.exit(1);
-});
+/** The slugs that have hand-written rich editorial copy (used by the hybrid blurb step). */
+export const EDITORIAL_SLUGS = new Set(Object.keys(EDITORIAL));
+
+// Run standalone: `node --experimental-strip-types scripts/apply-editorial.ts`
+if (import.meta.url === `file://${process.argv[1]}`) {
+  applyEditorial().then((n) => console.log(`Applied editorial copy to ${n} movie(s).`));
+}

@@ -1,0 +1,35 @@
+{
+  "id": "tmdb-781732",
+  "slug": "animal-2023",
+  "title": "Animal",
+  "year": 2023,
+  "decade": "2020s",
+  "industries": [
+    "bollywood"
+  ],
+  "countries": [
+    "india"
+  ],
+  "languages": [
+    "hindi"
+  ],
+  "genres": [
+    "action",
+    "crime",
+    "drama"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/hr9rjR3J0xBBKmlJ4n3gHId9ccx.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/lprsAHkwMxk2iC6VZxNmV0H7g1t.jpg",
+  "posterAlt": "Animal (2023) movie poster",
+  "tmdbOverview": "The hardened son of a powerful industrialist returns home after years abroad and vows to take bloody revenge on those threatening his father's life.",
+  "tmdbRating": 6.1,
+  "tmdbVotes": 194,
+  "imdbRating": 6.2,
+  "imdbId": "tt13751694",
+  "popularity": 15.1941,
+  "certification": "R",
+  "certificationCountry": "US",
+  "contentDescriptors": [],
+  "synopsis": "Animal (2023) is a action, crime and drama film from India. It carries a 6.2 rating on IMDb. It appears on several of our curated Top 10 lists. It carries a R certification (US rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

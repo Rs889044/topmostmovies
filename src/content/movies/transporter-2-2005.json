@@ -1,0 +1,37 @@
+{
+  "id": "tmdb-9335",
+  "slug": "transporter-2-2005",
+  "title": "Transporter 2",
+  "year": 2005,
+  "decade": "2000s",
+  "industries": [
+    "hollywood"
+  ],
+  "countries": [
+    "france",
+    "united-states"
+  ],
+  "languages": [
+    "english",
+    "french"
+  ],
+  "genres": [
+    "action",
+    "thriller",
+    "crime"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/cdm17vK8PxHfTi7ayZf6WKbOgUO.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/lbs1ood36hzj0O0cqW2a8MqptOh.jpg",
+  "posterAlt": "Transporter 2 (2005) movie poster",
+  "tmdbOverview": "Professional driver, and former Special Forces officer, Frank Martin is living in Miami, where he is temporarily filling in for a friend as the chauffeur for a government narcotics control policy director and his family. The young boy in the family is targeted for kidnapping, and Frank immediately becomes involved in protecting the child and exposing the kidnappers.",
+  "tmdbRating": 6.331,
+  "tmdbVotes": 3972,
+  "imdbRating": 6.3,
+  "imdbId": "tt0388482",
+  "popularity": 8.2569,
+  "certification": "PG-13",
+  "certificationCountry": "US",
+  "contentDescriptors": [],
+  "synopsis": "Released in 2005, Transporter 2 is a action, thriller and crime film from France and United States. It carries a 6.3 rating on IMDb. A standout of 2000s cinema, it earns its spot on our lists. It carries a PG-13 certification (US rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

@@ -1,0 +1,36 @@
+{
+  "id": "tmdb-15917",
+  "slug": "devdas-2002",
+  "title": "Devdas",
+  "originalTitle": "देवदास",
+  "year": 2002,
+  "decade": "2000s",
+  "industries": [
+    "bollywood"
+  ],
+  "countries": [
+    "india"
+  ],
+  "languages": [
+    "hindi",
+    "english"
+  ],
+  "genres": [
+    "drama",
+    "romance"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/dUBFi7bnLRfm4WaTh4ZoF2tbBJj.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/iYawbkoQmHCdnyR5bVB9XBQS90j.jpg",
+  "posterAlt": "Devdas (2002) movie poster",
+  "tmdbOverview": "In 1900s India, Calcuttan zamindar Devdas Mukherjee — unable to marry his lover — takes up alcohol and the company of a courtesan to alleviate the pain.",
+  "tmdbRating": 7.493,
+  "tmdbVotes": 383,
+  "imdbRating": 7.5,
+  "imdbId": "tt0238936",
+  "popularity": 3.6677,
+  "certification": "0",
+  "certificationCountry": "CH",
+  "contentDescriptors": [],
+  "synopsis": "Released in 2002, Devdas is a drama and romance film from India. It holds a solid 7.5 rating on IMDb. It appears on several of our curated Top 10 lists. It carries a 0 certification (CH rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

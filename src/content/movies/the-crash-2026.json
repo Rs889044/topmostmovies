@@ -1,0 +1,32 @@
+{
+  "id": "tmdb-1662317",
+  "slug": "the-crash-2026",
+  "title": "The Crash",
+  "year": 2026,
+  "decade": "2020s",
+  "industries": [],
+  "countries": [
+    "united-kingdom"
+  ],
+  "languages": [
+    "english"
+  ],
+  "genres": [
+    "documentary",
+    "crime"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/veskdPx4YUTmkrFrTs6zRJ8VV4E.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/2iqLoDsatVBwAvHTEzI71p3qBe9.jpg",
+  "posterAlt": "The Crash (2026) movie poster",
+  "tmdbOverview": "A teen slams her car into a building, killing her boyfriend and his friend. What seems like a tragic accident becomes a murder case.",
+  "tmdbRating": 6.939,
+  "tmdbVotes": 123,
+  "imdbRating": 6.7,
+  "imdbId": "tt40792117",
+  "popularity": 16.3856,
+  "certification": "R",
+  "certificationCountry": "US",
+  "contentDescriptors": [],
+  "synopsis": "Released in 2026, The Crash is a documentary and crime film from United Kingdom. It carries a 6.7 rating on IMDb. It appears on several of our curated Top 10 lists. It carries a R certification (US rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

@@ -1,8 +1,8 @@
 ---
 /**
- * Header.astro — site header + primary navigation.
- * Nav points to a representative POPULATED list per dimension (picked from real data) so
- * links never 404. Falls back to home if a dimension has no movies yet.
+ * Header.astro — sticky dark site header + primary navigation.
+ * Nav points to a representative POPULATED list per dimension (from real data) so links
+ * never 404.
  */
 import { allMovies } from '../lib/movies';
 import { buildList, enumerateLists } from '../lib/lists';
@@ -20,7 +20,6 @@ const pathBase: Record<Dimension, string> = {
   decade: 'decade',
 };
 
-// Most-populated value per dimension = the friendliest entry point.
 function topLink(dimension: Dimension): string {
   const best = refs
     .filter((r) => r.dimension === dimension)
@@ -30,24 +29,37 @@ function topLink(dimension: Dimension): string {
 }
 
 const dimensions: { label: string; dimension: Dimension }[] = [
-  { label: 'Genre', dimension: 'genre' },
-  { label: 'Country', dimension: 'country' },
-  { label: 'Language', dimension: 'language' },
-  { label: 'Industry', dimension: 'industry' },
-  { label: 'Decade', dimension: 'decade' },
+  { label: 'Genres', dimension: 'genre' },
+  { label: 'Countries', dimension: 'country' },
+  { label: 'Languages', dimension: 'language' },
+  { label: 'Industries', dimension: 'industry' },
+  { label: 'Decades', dimension: 'decade' },
 ];
 const nav = dimensions.map((d) => ({ label: d.label, href: topLink(d.dimension) }));
 ---
 
-<header class="border-b border-gray-200 bg-white">
-  <div class="mx-auto flex max-w-5xl items-center justify-between gap-4 px-4 py-3">
-    <a href="/" class="text-lg font-bold tracking-tight text-gray-900">
-      topmost<span class="text-brand-500">movies</span>
+<header
+  class="sticky top-0 z-50 border-b border-ink-700/60 bg-ink-950/80 backdrop-blur-md"
+>
+  <div class="container-page flex h-16 items-center justify-between gap-4">
+    <a href="/" class="flex items-center gap-2 font-bold tracking-tight">
+      <span
+        class="inline-flex h-7 w-7 items-center justify-center rounded-md bg-accent-500 text-sm font-black text-ink-950"
+        aria-hidden="true">★</span
+      >
+      <span class="text-lg text-fg">topmost<span class="text-accent-500">movies</span></span>
     </a>
-    <nav aria-label="Primary" class="hidden gap-4 text-sm font-medium text-gray-600 sm:flex">
+
+    <nav
+      aria-label="Primary"
+      class="hidden items-center gap-1 text-sm font-medium md:flex"
+    >
       {
         nav.map((d) => (
-          <a href={d.href} class="hover:text-brand-700">
+          <a
+            href={d.href}
+            class="rounded-md px-3 py-2 text-fg-muted transition-colors hover:bg-ink-800 hover:text-fg"
+          >
             {d.label}
           </a>
         ))

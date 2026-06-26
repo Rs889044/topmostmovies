@@ -1,0 +1,35 @@
+{
+  "id": "tmdb-13",
+  "slug": "forrest-gump-1994",
+  "title": "Forrest Gump",
+  "year": 1994,
+  "decade": "1990s",
+  "industries": [
+    "hollywood"
+  ],
+  "countries": [
+    "united-states"
+  ],
+  "languages": [
+    "english"
+  ],
+  "genres": [
+    "comedy",
+    "drama",
+    "romance"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/Cw4hIUIAmSYfK9QfaUW5igp9La.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/66Kn4XWhkuPkJxOJyPEx4U2CUfN.jpg",
+  "posterAlt": "Forrest Gump (1994) movie poster",
+  "tmdbOverview": "A man with a low IQ has accomplished great things in his life and been present during significant historic events—in each case, far exceeding what anyone imagined he could do. But despite all he has achieved, his one true love eludes him.",
+  "tmdbRating": 8.464,
+  "tmdbVotes": 29876,
+  "imdbRating": 8.8,
+  "imdbId": "tt0109830",
+  "popularity": 22.5338,
+  "certification": "PG-13",
+  "certificationCountry": "US",
+  "contentDescriptors": [],
+  "synopsis": "Forrest Gump is a 1994 comedy, drama and romance film from United States. It's highly rated, holding a strong 8.8 on IMDb. It appears on several of our curated Top 10 lists. It carries a PG-13 certification (US rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

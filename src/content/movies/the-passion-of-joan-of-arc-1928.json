@@ -1,0 +1,33 @@
+{
+  "id": "tmdb-780",
+  "slug": "the-passion-of-joan-of-arc-1928",
+  "title": "The Passion of Joan of Arc",
+  "originalTitle": "La Passion de Jeanne d'Arc",
+  "year": 1928,
+  "decade": "1920s",
+  "industries": [],
+  "countries": [
+    "france"
+  ],
+  "languages": [
+    "french"
+  ],
+  "genres": [
+    "drama",
+    "history"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/tAgV9yxY6AC1bsPt3qJJQpD4s8.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/cFgCf2XqnhErS3HmgSOBCe4kL4d.jpg",
+  "posterAlt": "The Passion of Joan of Arc (1928) movie poster",
+  "tmdbOverview": "A classic of the silent age, this film tells the story of the doomed but ultimately canonized 15th-century teenage warrior. On trial for claiming she'd spoken to God, Jeanne d'Arc is subjected to inhumane treatment and scare tactics at the hands of church court officials. Initially bullied into changing her story, Jeanne eventually opts for what she sees as the truth. Her punishment, a famously brutal execution, earns her perpetual martyrdom.",
+  "tmdbRating": 7.962,
+  "tmdbVotes": 1092,
+  "imdbRating": 8.1,
+  "imdbId": "tt0019254",
+  "popularity": 2.2334,
+  "certification": "12",
+  "certificationCountry": "DE",
+  "contentDescriptors": [],
+  "synopsis": "The Passion of Joan of Arc is a 1928 drama and history film from France. It's highly rated, holding a strong 8.1 on IMDb. It appears on several of our curated Top 10 lists. It carries a 12 certification (DE rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

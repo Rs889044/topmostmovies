@@ -1,0 +1,33 @@
+{
+  "id": "tmdb-42044",
+  "slug": "shoah-1985",
+  "title": "Shoah",
+  "year": 1985,
+  "decade": "1980s",
+  "industries": [],
+  "countries": [
+    "france"
+  ],
+  "languages": [
+    "french",
+    "english"
+  ],
+  "genres": [
+    "documentary",
+    "history"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/yvwF7dfSCybFcBOklUzKpE46bHM.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/bJolDsqM8vnlusFJdnCi9rg1nX7.jpg",
+  "posterAlt": "Shoah (1985) movie poster",
+  "tmdbOverview": "Director Claude Lanzmann spent 11 years on this sprawling documentary about the Holocaust, conducting his own interviews and refusing to use a single frame of archival footage. Dividing Holocaust witnesses into three categories – survivors, bystanders, and perpetrators – Lanzmann presents testimonies from survivors of the Chelmno concentration camp, an Auschwitz escapee, and witnesses of the Warsaw Ghetto Uprising, as well as a chilling report of gas chambers from an SS officer at Treblinka.",
+  "tmdbRating": 8.2,
+  "tmdbVotes": 222,
+  "imdbRating": 8.7,
+  "imdbId": "tt0090015",
+  "popularity": 1.0189,
+  "certification": "0",
+  "certificationCountry": "DE",
+  "contentDescriptors": [],
+  "synopsis": "Shoah (1985) is a documentary and history film from France. It's highly rated, holding a strong 8.7 on IMDb. A standout of 1980s cinema, it earns its spot on our lists. It carries a 0 certification (DE rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

@@ -1,0 +1,37 @@
+{
+  "id": "tmdb-864692",
+  "slug": "pathaan-2023",
+  "title": "Pathaan",
+  "originalTitle": "पठान",
+  "year": 2023,
+  "decade": "2020s",
+  "industries": [
+    "bollywood"
+  ],
+  "countries": [
+    "india",
+    "spain"
+  ],
+  "languages": [
+    "hindi"
+  ],
+  "genres": [
+    "action",
+    "adventure",
+    "thriller"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/arf00BkwvXo0CFKbaD9OpqdE4Nu.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/9wRAIQeOv2qzcgpfvA4dYZKeezl.jpg",
+  "posterAlt": "Pathaan (2023) movie poster",
+  "tmdbOverview": "A soldier caught by enemies and presumed dead comes back to complete his mission, accompanied by old companions and foes.",
+  "tmdbRating": 6.426,
+  "tmdbVotes": 258,
+  "imdbRating": 5.8,
+  "imdbId": "tt12844910",
+  "popularity": 4.3756,
+  "certification": "16",
+  "certificationCountry": "DE",
+  "contentDescriptors": [],
+  "synopsis": "Pathaan is a 2023 action, adventure and thriller film from India and Spain. It has a 5.8 rating on IMDb. It's one of the titles we feature across our 2020s and genre rankings. It carries a 16 certification (DE rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

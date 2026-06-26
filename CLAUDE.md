@@ -70,8 +70,12 @@ npm run fetch-data   # build-time fetch of TMDb + OMDb → src/content/movies/*.
 npm run validate-seo # post-build SEO/JSON-LD validation over dist/ (scripts/)
 ```
 
-> Node is pinned to 22 via `.nvmrc`; run `nvm use` first. Editorial copy is applied to movie
-> records via `scripts/apply-editorial.ts`; list intros via `scripts/generate-list-intros.ts`.
+> Node is pinned to 22 via `.nvmrc`; run `nvm use` first. **Catalog (~500 movies)** is built
+> by `fetch-data` from `scripts/discovery-plan.ts` (TMDb discovery across all dimensions).
+> `fetch-data` auto-re-applies hand-written editorial copy (`scripts/apply-editorial.ts`,
+> 12 flagship titles). Non-flagship synopses are original metadata blurbs from
+> `scripts/generate-blurbs.ts` (run after fetch; marked `synopsisAuto`). List intros:
+> `scripts/generate-list-intros.ts`.
 > Agent skills (web-design-guidelines, astro) live in `.agents/` (git-ignored; re-install
 > from `skills-lock.json`).
 

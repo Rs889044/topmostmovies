@@ -1,0 +1,35 @@
+{
+  "id": "tmdb-101",
+  "slug": "leon-the-professional-1994",
+  "title": "Léon: The Professional",
+  "originalTitle": "Léon",
+  "year": 1994,
+  "decade": "1990s",
+  "industries": [],
+  "countries": [
+    "france"
+  ],
+  "languages": [
+    "french",
+    "english"
+  ],
+  "genres": [
+    "crime",
+    "drama",
+    "action"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/bxB2q91nKYp8JNzqE7t7TWBVupB.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/fj0hwDJEOOHllRim2BMt5L7tbjf.jpg",
+  "posterAlt": "Léon: The Professional (1994) movie poster",
+  "tmdbOverview": "Léon, the top hit man in New York, has earned a rep as an effective \"cleaner\". But when his next-door neighbors are wiped out by a loose-cannon DEA agent, he becomes the unwilling custodian of 12-year-old Mathilda. Before long, Mathilda's thoughts turn to revenge, and she considers following in Léon's footsteps.",
+  "tmdbRating": 8.294,
+  "tmdbVotes": 16171,
+  "imdbRating": 8.5,
+  "imdbId": "tt0110413",
+  "popularity": 17.0609,
+  "certification": "R",
+  "certificationCountry": "US",
+  "contentDescriptors": [],
+  "synopsis": "Léon: The Professional (1994) is a crime, drama and action film from France. It's highly rated, holding a strong 8.5 on IMDb. A standout of 1990s cinema, it earns its spot on our lists. It carries a R certification (US rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

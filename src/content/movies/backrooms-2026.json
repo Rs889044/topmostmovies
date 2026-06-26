@@ -1,0 +1,35 @@
+{
+  "id": "tmdb-1083381",
+  "slug": "backrooms-2026",
+  "title": "Backrooms",
+  "year": 2026,
+  "decade": "2020s",
+  "industries": [
+    "hollywood"
+  ],
+  "countries": [
+    "united-states"
+  ],
+  "languages": [
+    "english"
+  ],
+  "genres": [
+    "horror",
+    "mystery",
+    "science-fiction"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/rhGx6E3qRNMgj3i5su2oukNHwIQ.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/oUozq2XHWifwAVOoS1qHU0qfXqM.jpg",
+  "posterAlt": "Backrooms (2026) movie poster",
+  "tmdbOverview": "A strange doorway appears in the basement of a furniture showroom.",
+  "tmdbRating": 6.9,
+  "tmdbVotes": 729,
+  "imdbRating": 7.1,
+  "imdbId": "tt26657236",
+  "popularity": 108.5329,
+  "certification": "R",
+  "certificationCountry": "US",
+  "contentDescriptors": [],
+  "synopsis": "Released in 2026, Backrooms is a horror, mystery and science fiction film from United States. It holds a solid 7.1 rating on IMDb. It appears on several of our curated Top 10 lists. It carries a R certification (US rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

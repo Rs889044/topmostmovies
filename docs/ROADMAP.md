@@ -121,6 +121,30 @@ Legend: 🔲 not started · 🟡 in progress · ✅ done · ⏸️ blocked/waiti
 
 ---
 
+## Major revision (post-Phase-5): catalog scale-up + redesign  ✅
+
+User feedback: too few movies + UI not professional. Addressed both:
+
+- **Catalog: 19 → 500 movies.** Replaced the hand-typed seed list with a TMDb **discovery
+  pipeline** (`scripts/discovery-plan.ts` + rewritten `scripts/fetch-data.ts`): discovers
+  ids across every modeled country/language/genre (popular + top-rated), dedupes, fetches
+  detail + certification + OMDb rating, normalizes. Custom `k-drama` tagging applied by rule
+  (Korean romance/comedy/drama). Healthy coverage: Korean 111, Bollywood 96, Thriller 144,
+  K-Drama 67, etc. **615 pages** total.
+- **Hybrid content (all 500 have a synopsis, none thin):** 12 flagship titles keep
+  hand-written synopses + parental notes (`apply-editorial.ts`, auto-re-applied after
+  fetch); the other 488 get an **original metadata-generated blurb**
+  (`scripts/generate-blurbs.ts`, `synopsisAuto: true`) — composed from facts, never copied
+  from TMDb's overview.
+- **Dark cinematic redesign:** new design system in `global.css` (ink surfaces + amber
+  accent + Inter); redesigned Header (sticky/blur), Footer, MovieCard (poster grid w/
+  rank+rating chips), new `MovieRow` (homepage curated strips), and hero sections on
+  homepage/list/movie pages. Verified visually via headless-Chrome screenshots.
+- QA green: `astro check` 0 errors, build 615 pages, `validate-seo` passes.
+
+> Editorial note: the 488 auto-blurbs are factual/original but lighter than hand-written
+> copy. As traffic data arrives, upgrade high-performing pages to hand-written synopses.
+
 ## Session log
 
 - **2026-06-26** — **Phase 0 + Phase 1 complete.** Wrote `CLAUDE.md` + all `docs/`;
@@ -155,5 +179,9 @@ Legend: 🔲 not started · 🟡 in progress · ✅ done · ⏸️ blocked/waiti
   for all populated lists (`scripts/generate-list-intros.ts` + hand-authored flagship YAML).
   Applied Web Interface Guidelines (focus-visible, text-wrap, reduced-motion, preconnect,
   theme-color, favicon, a11y link fix). All QA green: `check` 0 errors, build 70 pages,
-  `validate-seo` passes. **Next: Phase 6 (AdSense & legal) — privacy/about/contact copy,
-  cookie-consent banner, ads.txt, ad-slot wiring.**
+  `validate-seo` passes. **Next: Phase 6.**
+- **2026-06-26** — **Catalog scale-up + redesign** (user feedback: too few movies, plain
+  UI). 19 → **500 movies** via a TMDb discovery pipeline; hybrid content (12 hand-written +
+  488 original metadata blurbs, no thin pages); full **dark cinematic redesign** of every
+  component/layout (verified with screenshots). 615 pages; check/build/validate-seo all
+  green. **Next: Phase 6 (AdSense & legal).**

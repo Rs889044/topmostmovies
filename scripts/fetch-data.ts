@@ -1,19 +1,20 @@
 /**
- * fetch-data.ts — build-time orchestrator. For each seed title:
- *   resolve TMDb id → fetch detail + certification → fetch OMDb IMDb rating →
- *   normalize to the movie schema (taxonomy slugs) → write src/content/movies/<slug>.json
+ * fetch-data.ts — build-time catalog builder. Runs the discovery plan to collect a broad,
+ * deduplicated set of TMDb movie ids across every dimension, then for each id:
+ *   fetch detail + certification → fetch OMDb IMDb rating → normalize (taxonomy slugs +
+ *   custom-category rules) → write src/content/movies/<slug>.json
  *
- * APIs are never hit at request time — this runs via `npm run fetch-data`. Results are
+ * APIs are never hit at request time — this runs via `npm run fetch-data`. Responses are
  * cached on disk (.cache/, git-ignored) so re-runs are cheap. See docs/DATA-SOURCES.md.
  *
- * Run with: node --experimental-strip-types --env-file=.env scripts/fetch-data.ts
- * (npm script wires this up.)
+ * Editorial copy (hand-written synopses/parental notes) lives in scripts/apply-editorial.ts
+ * and is re-applied automatically at the end so a refetch never wipes it.
  */
 import { mkdir, writeFile, rm } from 'node:fs/promises';
 import { join } from 'node:path';
 import {
   backdropUrl,
-  findMovieId,
+  discoverMovies,
   getCertification,
   getMovie,
   posterUrl,
@@ -21,7 +22,8 @@ import {
 } from './tmdb.ts';
 import { getOmdbRatings } from './omdb.ts';
 import { movieSlug } from './lib/util.ts';
-import { SEED_MOVIES, type SeedEntry } from './seed-movies.ts';
+import { buildPlan } from './discovery-plan.ts';
+import { applyEditorial } from './apply-editorial.ts';
 import {
   COUNTRIES,
   LANGUAGES,
@@ -31,6 +33,7 @@ import {
 } from '../src/lib/taxonomy.ts';
 
 const OUT_DIR = join(process.cwd(), 'src', 'content', 'movies');
+const TARGET_MAX = 500; // safety cap on catalog size
 
 /** Map TMDb country/language/genre ids to our slugs, dropping ones we don't model. */
 function mapCountries(d: TmdbMovieDetail): string[] {
@@ -49,12 +52,12 @@ function mapLanguages(d: TmdbMovieDetail): string[] {
   return [...codes].map((c) => LANGUAGES[c]?.slug).filter((s): s is string => Boolean(s));
 }
 
-function mapGenres(d: TmdbMovieDetail, custom: string[] = []): string[] {
-  const fromTmdb = d.genres
-    .map((g) => GENRES[g.id]?.slug)
-    .filter((s): s is string => Boolean(s));
-  const validCustom = custom.filter((c) => CUSTOM_GENRES[c]);
-  return [...new Set([...fromTmdb, ...validCustom])];
+function mapGenres(d: TmdbMovieDetail): string[] {
+  return [
+    ...new Set(
+      d.genres.map((g) => GENRES[g.id]?.slug).filter((s): s is string => Boolean(s)),
+    ),
+  ];
 }
 
 /**
@@ -72,20 +75,44 @@ function deriveIndustries(countries: string[], languages: string[]): string[] {
   return out;
 }
 
-async function buildMovie(seed: SeedEntry) {
-  const id = await findMovieId(seed.title, seed.year);
-  if (!id) {
-    console.warn(`  ✗ Not found on TMDb: ${seed.title} (${seed.year}) — skipped.`);
-    return undefined;
+/**
+ * Custom (editorial) category rules applied by tag pattern — lets us target long-tail
+ * keywords that aren't TMDb genres. "k-drama" = Korean-language romance/comedy/drama.
+ */
+function deriveCustomGenres(
+  countries: string[],
+  languages: string[],
+  genres: string[],
+): string[] {
+  const out: string[] = [];
+  if (
+    CUSTOM_GENRES['k-drama'] &&
+    languages.includes('korean') &&
+    (genres.includes('romance') || genres.includes('comedy') || genres.includes('drama'))
+  ) {
+    out.push('k-drama');
   }
+  return out;
+}
 
+async function buildMovie(id: number) {
   const detail = await getMovie(id);
-  const year = detail.release_date ? Number(detail.release_date.slice(0, 4)) : seed.year;
+
+  // Skip entries without the essentials for a good page.
+  if (!detail.release_date || !detail.poster_path) return undefined;
+  const year = Number(detail.release_date.slice(0, 4));
+  if (!Number.isFinite(year) || year < 1900) return undefined;
 
   const countries = mapCountries(detail);
   const languages = mapLanguages(detail);
-  const genres = mapGenres(detail, seed.custom);
+  let genres = mapGenres(detail);
   const industries = deriveIndustries(countries, languages);
+  genres = [...new Set([...genres, ...deriveCustomGenres(countries, languages, genres)])];
+
+  // Only keep movies that land in at least one modeled dimension list.
+  if (countries.length === 0 && languages.length === 0 && genres.length === 0) {
+    return undefined;
+  }
 
   const cert = await getCertification(id, 'US');
   const imdbId = detail.imdb_id ?? undefined;
@@ -111,7 +138,8 @@ async function buildMovie(seed: SeedEntry) {
     backdropUrl: backdropUrl(detail.backdrop_path),
     posterAlt: `${detail.title} (${year}) movie poster`,
 
-    // Original synopsis is written in Phase 5; keep TMDb overview for reference only.
+    // TMDb overview kept for reference + as a fallback blurb source (never published as
+    // our "synopsis"; original synopses come from apply-editorial.ts).
     tmdbOverview: detail.overview || undefined,
 
     tmdbRating: detail.vote_average || undefined,
@@ -120,40 +148,71 @@ async function buildMovie(seed: SeedEntry) {
     imdbId,
     popularity: detail.popularity || undefined,
 
-    // Honest parental data only — omit when TMDb has none.
     certification: cert?.certification,
     certificationCountry: cert?.country,
     contentDescriptors: [],
   };
 }
 
-async function main() {
-  console.log(`Fetching ${SEED_MOVIES.length} seed movies from TMDb + OMDb…\n`);
+async function collectIds(): Promise<number[]> {
+  const plan = buildPlan();
+  const ids = new Set<number>();
+  console.log(`Running ${plan.length} discovery queries…`);
 
-  // Fresh output dir so removed seeds don't leave stale files.
+  for (const entry of plan) {
+    for (let page = 1; page <= entry.pages; page++) {
+      try {
+        const pageIds = await discoverMovies({ ...entry.params, page });
+        pageIds.forEach((id) => ids.add(id));
+      } catch (err) {
+        console.warn(`  ⚠ discovery "${entry.label}" p${page}: ${(err as Error).message}`);
+      }
+    }
+    if (ids.size >= TARGET_MAX) break;
+  }
+
+  console.log(`Discovered ${ids.size} unique movie ids.\n`);
+  return [...ids].slice(0, TARGET_MAX);
+}
+
+async function main() {
+  const ids = await collectIds();
+
   await rm(OUT_DIR, { recursive: true, force: true });
   await mkdir(OUT_DIR, { recursive: true });
 
+  const slugsSeen = new Set<string>();
   let ok = 0;
-  for (const seed of SEED_MOVIES) {
+  let i = 0;
+  for (const id of ids) {
+    i++;
     try {
-      const movie = await buildMovie(seed);
+      const movie = await buildMovie(id);
       if (!movie) continue;
+      // Disambiguate rare slug collisions (same title + year).
+      let slug = movie.slug;
+      let n = 2;
+      while (slugsSeen.has(slug)) slug = `${movie.slug}-${n++}`;
+      slugsSeen.add(slug);
+      movie.slug = slug;
+
       await writeFile(
-        join(OUT_DIR, `${movie.slug}.json`),
+        join(OUT_DIR, `${slug}.json`),
         JSON.stringify(movie, null, 2) + '\n',
         'utf8',
       );
-      const imdb = movie.imdbRating ? `IMDb ${movie.imdbRating}` : 'IMDb —';
-      const c = movie.certification ?? 'no cert';
-      console.log(`  ✓ ${movie.slug}  [${c}, ${imdb}]`);
-      ok += 1;
+      ok++;
+      if (ok % 50 === 0) console.log(`  …${ok} movies written (${i}/${ids.length} processed)`);
     } catch (err) {
-      console.error(`  ✗ ${seed.title} (${seed.year}): ${(err as Error).message}`);
+      console.error(`  ✗ id ${id}: ${(err as Error).message}`);
     }
   }
 
-  console.log(`\nDone. Wrote ${ok}/${SEED_MOVIES.length} movies to src/content/movies/.`);
+  console.log(`\nWrote ${ok} movies to src/content/movies/.`);
+
+  // Re-apply hand-written editorial copy so a refetch never loses it.
+  const applied = await applyEditorial();
+  console.log(`Re-applied editorial copy to ${applied} movie(s).`);
 }
 
 main().catch((err) => {

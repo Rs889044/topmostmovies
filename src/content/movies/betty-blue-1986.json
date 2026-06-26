@@ -1,0 +1,33 @@
+{
+  "id": "tmdb-11986",
+  "slug": "betty-blue-1986",
+  "title": "Betty Blue",
+  "originalTitle": "37°2 le matin",
+  "year": 1986,
+  "decade": "1980s",
+  "industries": [],
+  "countries": [
+    "france"
+  ],
+  "languages": [
+    "french"
+  ],
+  "genres": [
+    "drama",
+    "romance"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/dGkxgj2ozlD4yRtsJL35EUXegFv.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/hZVBkgxgezyKEkWIbPVLiWAOsrl.jpg",
+  "posterAlt": "Betty Blue (1986) movie poster",
+  "tmdbOverview": "A lackadaisical handyman and aspiring novelist tries to support his younger girlfriend as she slowly succumbs to madness.",
+  "tmdbRating": 7.2,
+  "tmdbVotes": 467,
+  "imdbRating": 7.3,
+  "imdbId": "tt0090563",
+  "popularity": 14.2714,
+  "certification": "16",
+  "certificationCountry": "DE",
+  "contentDescriptors": [],
+  "synopsis": "Released in 1986, Betty Blue is a drama and romance film from France. It holds a solid 7.3 rating on IMDb. A standout of 1980s cinema, it earns its spot on our lists. It carries a 16 certification (DE rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

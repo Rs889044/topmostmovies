@@ -1,0 +1,36 @@
+{
+  "id": "tmdb-1124",
+  "slug": "the-prestige-2006",
+  "title": "The Prestige",
+  "year": 2006,
+  "decade": "2000s",
+  "industries": [
+    "hollywood"
+  ],
+  "countries": [
+    "united-kingdom",
+    "united-states"
+  ],
+  "languages": [
+    "english"
+  ],
+  "genres": [
+    "drama",
+    "mystery",
+    "science-fiction"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/Ag2B2KHKQPukjH7WutmgnnSNurZ.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/z3br1ub7spqGMkxgjgJSdM4DC21.jpg",
+  "posterAlt": "The Prestige (2006) movie poster",
+  "tmdbOverview": "A mysterious story of two magicians whose intense rivalry leads them on a life-long battle for supremacy -- full of obsession, deceit and jealousy with dangerous and deadly consequences.",
+  "tmdbRating": 8.208,
+  "tmdbVotes": 17663,
+  "imdbRating": 8.5,
+  "imdbId": "tt0482571",
+  "popularity": 12.6088,
+  "certification": "PG-13",
+  "certificationCountry": "US",
+  "contentDescriptors": [],
+  "synopsis": "The Prestige is a 2006 drama, mystery and science fiction film from United Kingdom and United States. It's highly rated, holding a strong 8.5 on IMDb. It's one of the titles we feature across our 2000s and genre rankings. It carries a PG-13 certification (US rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

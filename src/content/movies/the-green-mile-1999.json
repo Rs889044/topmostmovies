@@ -1,0 +1,36 @@
+{
+  "id": "tmdb-497",
+  "slug": "the-green-mile-1999",
+  "title": "The Green Mile",
+  "year": 1999,
+  "decade": "1990s",
+  "industries": [
+    "hollywood"
+  ],
+  "countries": [
+    "united-states"
+  ],
+  "languages": [
+    "english",
+    "french"
+  ],
+  "genres": [
+    "fantasy",
+    "drama",
+    "crime"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/8VG8fDNiy50H4FedGwdSVUPoaJe.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/b6HWTOxn1xevvyHU2K9ICvaRU6g.jpg",
+  "posterAlt": "The Green Mile (1999) movie poster",
+  "tmdbOverview": "A supernatural tale set on death row in a Southern prison, where gentle giant John Coffey possesses the mysterious power to heal people's ailments. When the cell block's head guard, Paul Edgecomb, recognizes Coffey's miraculous gift, he tries desperately to help stave off the condemned man's execution.",
+  "tmdbRating": 8.506,
+  "tmdbVotes": 19357,
+  "imdbRating": 8.6,
+  "imdbId": "tt0120689",
+  "popularity": 26.6886,
+  "certification": "R",
+  "certificationCountry": "US",
+  "contentDescriptors": [],
+  "synopsis": "The Green Mile (1999) is a fantasy, drama and crime film from United States. It's highly rated, holding a strong 8.6 on IMDb. It's one of the titles we feature across our 1990s and genre rankings. It carries a R certification (US rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

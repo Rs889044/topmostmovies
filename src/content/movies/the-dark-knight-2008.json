@@ -1,0 +1,36 @@
+{
+  "id": "tmdb-155",
+  "slug": "the-dark-knight-2008",
+  "title": "The Dark Knight",
+  "year": 2008,
+  "decade": "2000s",
+  "industries": [
+    "hollywood"
+  ],
+  "countries": [
+    "united-states",
+    "united-kingdom"
+  ],
+  "languages": [
+    "english"
+  ],
+  "genres": [
+    "action",
+    "crime",
+    "thriller"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/cfT29Im5VDvjE0RpyKOSdCKZal7.jpg",
+  "posterAlt": "The Dark Knight (2008) movie poster",
+  "tmdbOverview": "Batman raises the stakes in his war on crime. With the help of Lt. Jim Gordon and District Attorney Harvey Dent, Batman sets out to dismantle the remaining criminal organizations that plague the streets. The partnership proves to be effective, but they soon find themselves prey to a reign of chaos unleashed by a rising criminal mastermind known to the terrified citizens of Gotham as the Joker.",
+  "tmdbRating": 8.531,
+  "tmdbVotes": 35959,
+  "imdbRating": 9.1,
+  "imdbId": "tt0468569",
+  "popularity": 48.6339,
+  "certification": "PG-13",
+  "certificationCountry": "US",
+  "contentDescriptors": [],
+  "synopsis": "The Dark Knight is a 2008 action, crime and thriller film from United States and United Kingdom. It's highly rated, holding a strong 9.1 on IMDb. A standout of 2000s cinema, it earns its spot on our lists. It carries a PG-13 certification (US rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

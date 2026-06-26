@@ -1,0 +1,35 @@
+{
+  "id": "tmdb-4977",
+  "slug": "paprika-2006",
+  "title": "Paprika",
+  "originalTitle": "パプリカ",
+  "year": 2006,
+  "decade": "2000s",
+  "industries": [],
+  "countries": [
+    "japan"
+  ],
+  "languages": [
+    "japanese",
+    "english"
+  ],
+  "genres": [
+    "animation",
+    "science-fiction",
+    "thriller"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/bLUUr474Go1DfeN1HLjE3rnZXBq.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/6oXn0037WWw4fTCc3Qczof71lSp.jpg",
+  "posterAlt": "Paprika (2006) movie poster",
+  "tmdbOverview": "When a machine that allows therapists to enter their patient's dreams is stolen, all hell breaks loose. Only a young female therapist can stop it and recover it before damage is done: Paprika.",
+  "tmdbRating": 7.816,
+  "tmdbVotes": 2886,
+  "imdbRating": 7.7,
+  "imdbId": "tt0851578",
+  "popularity": 7.4018,
+  "certification": "R",
+  "certificationCountry": "US",
+  "contentDescriptors": [],
+  "synopsis": "Paprika is a 2006 animation, science fiction and thriller film from Japan. It holds a solid 7.7 rating on IMDb. It appears on several of our curated Top 10 lists. It carries a R certification (US rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

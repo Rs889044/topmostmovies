@@ -1,0 +1,36 @@
+{
+  "id": "tmdb-567646",
+  "slug": "extreme-job-2019",
+  "title": "Extreme Job",
+  "originalTitle": "극한직업",
+  "year": 2019,
+  "decade": "2010s",
+  "industries": [],
+  "countries": [
+    "south-korea"
+  ],
+  "languages": [
+    "korean",
+    "japanese"
+  ],
+  "genres": [
+    "action",
+    "comedy",
+    "crime",
+    "k-drama"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/52oLgq2gEiZyDjpJ7tgkGruoQI0.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/3MUwpoEnsSNinnzVQ6mynvXBw7T.jpg",
+  "posterAlt": "Extreme Job (2019) movie poster",
+  "tmdbOverview": "A drug squad attempts to take down a criminal organization and they must go undercover to do so, so they begin working at a chicken restaurant, that becomes famous for its delicious chicken. Due to the unexpected popularity, the detectives find themselves in a situation they never expected.",
+  "tmdbRating": 7.192,
+  "tmdbVotes": 354,
+  "imdbRating": 7.1,
+  "imdbId": "tt9541602",
+  "popularity": 4.4848,
+  "certification": "12",
+  "certificationCountry": "DE",
+  "contentDescriptors": [],
+  "synopsis": "Extreme Job is a 2019 action, comedy and crime film from South Korea. It holds a solid 7.1 rating on IMDb. It appears on several of our curated Top 10 lists. It carries a 12 certification (DE rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

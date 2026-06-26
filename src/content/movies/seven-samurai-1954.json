@@ -1,0 +1,33 @@
+{
+  "id": "tmdb-346",
+  "slug": "seven-samurai-1954",
+  "title": "Seven Samurai",
+  "originalTitle": "七人の侍",
+  "year": 1954,
+  "decade": "1950s",
+  "industries": [],
+  "countries": [
+    "japan"
+  ],
+  "languages": [
+    "japanese"
+  ],
+  "genres": [
+    "action",
+    "drama"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/lOMGc8bnSwQhS4XyE1S99uH8NXf.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/qvZ91FwMq6O47VViAr8vZNQz3WI.jpg",
+  "posterAlt": "Seven Samurai (1954) movie poster",
+  "tmdbOverview": "A samurai answers a village's request for protection after he falls on hard times. The town needs protection from bandits, so the samurai gathers six others to help him teach the people how to defend themselves, and the villagers provide the soldiers with food.",
+  "tmdbRating": 8.449,
+  "tmdbVotes": 4259,
+  "imdbRating": 8.6,
+  "imdbId": "tt0047478",
+  "popularity": 13.4878,
+  "certification": "PG",
+  "certificationCountry": "AU",
+  "contentDescriptors": [],
+  "synopsis": "Seven Samurai is a 1954 action and drama film from Japan. It's highly rated, holding a strong 8.6 on IMDb. It's one of the titles we feature across our 1950s and genre rankings. It carries a PG certification (AU rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

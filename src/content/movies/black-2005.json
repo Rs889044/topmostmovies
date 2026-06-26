@@ -1,0 +1,34 @@
+{
+  "id": "tmdb-31977",
+  "slug": "black-2005",
+  "title": "Black",
+  "year": 2005,
+  "decade": "2000s",
+  "industries": [
+    "bollywood"
+  ],
+  "countries": [
+    "india"
+  ],
+  "languages": [
+    "hindi",
+    "english"
+  ],
+  "genres": [
+    "drama"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/cFICDU9erHYmlAyCZzbb1adNMgh.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/x2EwZsBJY0NxQl64JeNXI0xPLgQ.jpg",
+  "posterAlt": "Black (2005) movie poster",
+  "tmdbOverview": "Unable to see, hear, or speak after a childhood illness, a young woman grows up prone to violent outbursts until an eccentric tutor changes her life.",
+  "tmdbRating": 7.662,
+  "tmdbVotes": 234,
+  "imdbRating": 8.1,
+  "imdbId": "tt0375611",
+  "popularity": 1.4604,
+  "certification": "PG-13",
+  "certificationCountry": "US",
+  "contentDescriptors": [],
+  "synopsis": "Black (2005) is a drama film from India. It's highly rated, holding a strong 8.1 on IMDb. It appears on several of our curated Top 10 lists. It carries a PG-13 certification (US rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

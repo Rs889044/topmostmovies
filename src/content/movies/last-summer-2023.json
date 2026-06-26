@@ -1,0 +1,32 @@
+{
+  "id": "tmdb-812037",
+  "slug": "last-summer-2023",
+  "title": "Last Summer",
+  "originalTitle": "L'Été dernier",
+  "year": 2023,
+  "decade": "2020s",
+  "industries": [],
+  "countries": [
+    "france"
+  ],
+  "languages": [
+    "french"
+  ],
+  "genres": [
+    "drama"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/a94IHwd6t2oXKy5KWTvaEnAs6Ux.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/wVg8Fndzwq3ts3zedhW3Vn9aC4B.jpg",
+  "posterAlt": "Last Summer (2023) movie poster",
+  "tmdbOverview": "One summer, a French teenager who has been living with his mother in the city moves in with his estranged father’s family in the countryside, where he clashes with his stepmother.",
+  "tmdbRating": 6.095,
+  "tmdbVotes": 247,
+  "imdbRating": 6.3,
+  "imdbId": "tt14550346",
+  "popularity": 10.255,
+  "certification": "MA 15+",
+  "certificationCountry": "AU",
+  "contentDescriptors": [],
+  "synopsis": "Released in 2023, Last Summer is a drama film from France. It carries a 6.3 rating on IMDb. A standout of 2020s cinema, it earns its spot on our lists. It carries a MA 15+ certification (AU rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

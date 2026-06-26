@@ -1,0 +1,37 @@
+{
+  "id": "tmdb-680",
+  "slug": "pulp-fiction-1994",
+  "title": "Pulp Fiction",
+  "year": 1994,
+  "decade": "1990s",
+  "industries": [
+    "hollywood"
+  ],
+  "countries": [
+    "united-states"
+  ],
+  "languages": [
+    "english",
+    "spanish",
+    "french"
+  ],
+  "genres": [
+    "thriller",
+    "crime",
+    "comedy"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/vQWk5YBFWF4bZaofAbv0tShwBvQ.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/suaEOtk1N1sgg2MTM7oZd2cfVp3.jpg",
+  "posterAlt": "Pulp Fiction (1994) movie poster",
+  "tmdbOverview": "A burger-loving hit man, his philosophical partner, a drug-addled gangster's moll and a washed-up boxer converge in this sprawling, comedic crime caper. Their adventures unfurl in three stories that ingeniously trip back and forth in time.",
+  "tmdbRating": 8.5,
+  "tmdbVotes": 30327,
+  "imdbRating": 8.8,
+  "imdbId": "tt0110912",
+  "popularity": 37.9801,
+  "certification": "R",
+  "certificationCountry": "US",
+  "contentDescriptors": [],
+  "synopsis": "Pulp Fiction is a 1994 thriller, crime and comedy film from United States. It's highly rated, holding a strong 8.8 on IMDb. A standout of 1990s cinema, it earns its spot on our lists. It carries a R certification (US rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

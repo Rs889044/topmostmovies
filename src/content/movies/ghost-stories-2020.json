@@ -1,0 +1,34 @@
+{
+  "id": "tmdb-601643",
+  "slug": "ghost-stories-2020",
+  "title": "Ghost Stories",
+  "year": 2020,
+  "decade": "2020s",
+  "industries": [
+    "bollywood"
+  ],
+  "countries": [
+    "india"
+  ],
+  "languages": [
+    "hindi",
+    "english"
+  ],
+  "genres": [
+    "horror"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/wszWo7WJwh8AdTZjK7yfljejjBU.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/dKSykSoV8eGWYqgmVJwBpBvTPzz.jpg",
+  "posterAlt": "Ghost Stories (2020) movie poster",
+  "tmdbOverview": "An anthology of four short horror tales.",
+  "tmdbRating": 5.2,
+  "tmdbVotes": 87,
+  "imdbRating": 4.4,
+  "imdbId": "tt10230404",
+  "popularity": 1.9265,
+  "certification": "15",
+  "certificationCountry": "GB",
+  "contentDescriptors": [],
+  "synopsis": "Ghost Stories (2020) is a horror film from India. It has a 4.4 rating on IMDb. It's one of the titles we feature across our 2020s and genre rankings. It carries a 15 certification (GB rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

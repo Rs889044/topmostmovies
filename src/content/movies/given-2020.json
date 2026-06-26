@@ -1,0 +1,35 @@
+{
+  "id": "tmdb-632632",
+  "slug": "given-2020",
+  "title": "Given",
+  "originalTitle": "映画 ギヴン",
+  "year": 2020,
+  "decade": "2020s",
+  "industries": [],
+  "countries": [
+    "japan"
+  ],
+  "languages": [
+    "japanese"
+  ],
+  "genres": [
+    "animation",
+    "drama",
+    "music",
+    "romance"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/pegCub2zdYD5As43AOmGsIctuKc.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/9Xz0bzUFTVgDZd4WZz1cJDQjLkB.jpg",
+  "posterAlt": "Given (2020) movie poster",
+  "tmdbOverview": "Haruki secretly had feelings for Akihiko for years, but Akihiko was still in a relationship with his roommate, the violinist Ugetsu Murata. Haruki, Akihiko, and Ugetsu's love clashes and starts to move forward.",
+  "tmdbRating": 8.2,
+  "tmdbVotes": 422,
+  "imdbRating": 7.7,
+  "imdbId": "tt11802992",
+  "popularity": 3.0228,
+  "certification": "PG",
+  "certificationCountry": "AU",
+  "contentDescriptors": [],
+  "synopsis": "Given (2020) is a animation, drama and music film from Japan. It holds a solid 7.7 rating on IMDb. It appears on several of our curated Top 10 lists. It carries a PG certification (AU rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

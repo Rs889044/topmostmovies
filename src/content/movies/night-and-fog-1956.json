@@ -1,0 +1,33 @@
+{
+  "id": "tmdb-803",
+  "slug": "night-and-fog-1956",
+  "title": "Night and Fog",
+  "originalTitle": "Nuit et Brouillard",
+  "year": 1956,
+  "decade": "1950s",
+  "industries": [],
+  "countries": [
+    "france"
+  ],
+  "languages": [
+    "french"
+  ],
+  "genres": [
+    "documentary",
+    "history"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/2iWYQia8enOai7QEO3TvenleD7r.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/cnl95VtUon66J1PLRPpsgYgwHF7.jpg",
+  "posterAlt": "Night and Fog (1956) movie poster",
+  "tmdbOverview": "Filmmaker Alain Resnais documents the atrocities behind the walls of Hitler's concentration camps.",
+  "tmdbRating": 8.268,
+  "tmdbVotes": 568,
+  "imdbRating": 8.6,
+  "imdbId": "tt0048434",
+  "popularity": 4.0038,
+  "certification": "M",
+  "certificationCountry": "AU",
+  "contentDescriptors": [],
+  "synopsis": "Night and Fog (1956) is a documentary and history film from France. It's highly rated, holding a strong 8.6 on IMDb. It appears on several of our curated Top 10 lists. It carries a M certification (AU rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

@@ -1,0 +1,35 @@
+{
+  "id": "tmdb-1273221",
+  "slug": "scary-movie-2026",
+  "title": "Scary Movie",
+  "year": 2026,
+  "decade": "2020s",
+  "industries": [
+    "hollywood"
+  ],
+  "countries": [
+    "united-states"
+  ],
+  "languages": [
+    "english",
+    "korean"
+  ],
+  "genres": [
+    "comedy",
+    "horror",
+    "k-drama"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/reZ8NInXjMkkaOpUHcI3Pn7iaRN.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/xWBiXclrRmTggQHMRsIn84YHavs.jpg",
+  "posterAlt": "Scary Movie (2026) movie poster",
+  "tmdbOverview": "Twenty-six years after outrunning a suspiciously familiar masked killer, the Core Four are back in the killer's crosshairs and no horror movie IP is safe.",
+  "tmdbRating": 5.5,
+  "tmdbVotes": 352,
+  "imdbId": "tt32093575",
+  "popularity": 63.3615,
+  "certification": "R",
+  "certificationCountry": "US",
+  "contentDescriptors": [],
+  "synopsis": "Released in 2026, Scary Movie is a comedy, horror and k-drama film from United States. It has a 5.5 rating on TMDb. A standout of 2020s cinema, it earns its spot on our lists. It carries a R certification (US rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

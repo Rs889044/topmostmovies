@@ -1,0 +1,32 @@
+{
+  "id": "tmdb-949229",
+  "slug": "leo-2023",
+  "title": "Leo",
+  "originalTitle": "லியோ",
+  "year": 2023,
+  "decade": "2020s",
+  "industries": [],
+  "countries": [
+    "india"
+  ],
+  "languages": [],
+  "genres": [
+    "action",
+    "crime",
+    "thriller"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/2XUHC4lp3tDsgfFLFygNZ2x2Um9.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/MSNYxWe4u4en9vQ3oZIKQWKYHu.jpg",
+  "posterAlt": "Leo (2023) movie poster",
+  "tmdbOverview": "Parthiban, a cafe owner, lives with his family in Himachal Pradesh. Things take an absurd turn for him when he gets in the way of a drug cartel.",
+  "tmdbRating": 6.902,
+  "tmdbVotes": 128,
+  "imdbRating": 7.2,
+  "imdbId": "tt15654328",
+  "popularity": 4.8159,
+  "certification": "15",
+  "certificationCountry": "GB",
+  "contentDescriptors": [],
+  "synopsis": "Released in 2023, Leo is a action, crime and thriller film from India. It holds a solid 7.2 rating on IMDb. A standout of 2020s cinema, it earns its spot on our lists. It carries a 15 certification (GB rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

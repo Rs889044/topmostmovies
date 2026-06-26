@@ -1,0 +1,33 @@
+{
+  "id": "tmdb-255709",
+  "slug": "hope-2013",
+  "title": "Hope",
+  "originalTitle": "소원",
+  "year": 2013,
+  "decade": "2010s",
+  "industries": [],
+  "countries": [
+    "south-korea"
+  ],
+  "languages": [
+    "korean"
+  ],
+  "genres": [
+    "drama",
+    "k-drama"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/x9yjkm9gIz5qI5fJMUTfBnWiB2o.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/4Nx40jwpoTHPjCWNGoaZ6kaoGxa.jpg",
+  "posterAlt": "Hope (2013) movie poster",
+  "tmdbOverview": "After 8-year-old So-won narrowly survives a brutal sexual assault, her family labors to help her heal while coping with their own rage and grief.",
+  "tmdbRating": 8.402,
+  "tmdbVotes": 864,
+  "imdbRating": 8.2,
+  "imdbId": "tt3153634",
+  "popularity": 10.1375,
+  "certification": "G",
+  "certificationCountry": "JP",
+  "contentDescriptors": [],
+  "synopsis": "Hope (2013) is a drama and k-drama film from South Korea. It's highly rated, holding a strong 8.2 on IMDb. It appears on several of our curated Top 10 lists. It carries a G certification (JP rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

@@ -1,0 +1,36 @@
+{
+  "id": "tmdb-191726",
+  "slug": "ugly-2013",
+  "title": "Ugly",
+  "year": 2013,
+  "decade": "2010s",
+  "industries": [
+    "bollywood"
+  ],
+  "countries": [
+    "india"
+  ],
+  "languages": [
+    "hindi"
+  ],
+  "genres": [
+    "thriller",
+    "drama",
+    "mystery",
+    "crime"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/7hsSumOuh6OO7PgsH7A58I46j8.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/viPf6kTYU0LyryNPhGfQExxGbcd.jpg",
+  "posterAlt": "Ugly (2013) movie poster",
+  "tmdbOverview": "When a 10-year old girl goes missing, her stepfather races against time to investigate the kidnapping. Can he find her before it's too late?",
+  "tmdbRating": 7.026,
+  "tmdbVotes": 133,
+  "imdbRating": 7.9,
+  "imdbId": "tt2882328",
+  "popularity": 1.1236,
+  "certification": "A",
+  "certificationCountry": "IN",
+  "contentDescriptors": [],
+  "synopsis": "Ugly (2013) is a thriller, drama and mystery film from India. It holds a solid 7.9 rating on IMDb. It appears on several of our curated Top 10 lists. It carries a A certification (IN rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

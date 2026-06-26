@@ -1,0 +1,34 @@
+{
+  "id": "tmdb-303451",
+  "slug": "strings-2013",
+  "title": "Strings",
+  "originalTitle": "Cuerdas",
+  "year": 2013,
+  "decade": "2010s",
+  "industries": [],
+  "countries": [
+    "spain"
+  ],
+  "languages": [
+    "spanish"
+  ],
+  "genres": [
+    "animation",
+    "drama",
+    "family"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/4E8xmnY7ipl04hcKgRvCYBMtXQ0.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/sATm0ugYIXojJehHOJie7F80jGu.jpg",
+  "posterAlt": "Strings (2013) movie poster",
+  "tmdbOverview": "María's routine at school is altered by the arrival of a very special child. Soon, they become close friends.",
+  "tmdbRating": 8,
+  "tmdbVotes": 225,
+  "imdbRating": 7.9,
+  "imdbId": "tt3381028",
+  "popularity": 0.4443,
+  "certification": "PG",
+  "certificationCountry": "US",
+  "contentDescriptors": [],
+  "synopsis": "Strings is a 2013 animation, drama and family film from Spain. It holds a solid 7.9 rating on IMDb. A standout of 2010s cinema, it earns its spot on our lists. It carries a PG certification (US rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

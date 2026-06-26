@@ -1,0 +1,33 @@
+{
+  "id": "tmdb-147",
+  "slug": "the-400-blows-1959",
+  "title": "The 400 Blows",
+  "originalTitle": "Les Quatre Cents Coups",
+  "year": 1959,
+  "decade": "1950s",
+  "industries": [],
+  "countries": [
+    "france"
+  ],
+  "languages": [
+    "french",
+    "english"
+  ],
+  "genres": [
+    "drama"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/12PuU23kkDLvTd0nb8hMlE3oShB.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/cy7ymUaMEWRoig7LWXpfzaaw2vv.jpg",
+  "posterAlt": "The 400 Blows (1959) movie poster",
+  "tmdbOverview": "For young Parisian boy Antoine Doinel, life is one difficult situation after another. Surrounded by inconsiderate adults, including his neglectful parents, Antoine spends his days with his best friend, Rene, trying to plan for a better life. When one of their schemes goes awry, Antoine ends up in trouble with the law, leading to even more conflicts with unsympathetic authority figures.",
+  "tmdbRating": 8.004,
+  "tmdbVotes": 2341,
+  "imdbRating": 8,
+  "imdbId": "tt0053198",
+  "popularity": 3.0365,
+  "certification": "PG",
+  "certificationCountry": "AU",
+  "contentDescriptors": [],
+  "synopsis": "The 400 Blows (1959) is a drama film from France. It's highly rated, holding a strong 8.0 on IMDb. It appears on several of our curated Top 10 lists. It carries a PG certification (AU rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

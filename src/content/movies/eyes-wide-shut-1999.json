@@ -1,0 +1,36 @@
+{
+  "id": "tmdb-345",
+  "slug": "eyes-wide-shut-1999",
+  "title": "Eyes Wide Shut",
+  "year": 1999,
+  "decade": "1990s",
+  "industries": [
+    "hollywood"
+  ],
+  "countries": [
+    "united-kingdom",
+    "united-states"
+  ],
+  "languages": [
+    "english"
+  ],
+  "genres": [
+    "drama",
+    "thriller",
+    "mystery"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/knEIz1eNGl5MQDbrEAVWA7iRqF9.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/aC6wW62V6b0csr5iUnbOjYAqfhg.jpg",
+  "posterAlt": "Eyes Wide Shut (1999) movie poster",
+  "tmdbOverview": "After Dr. Bill Harford's wife, Alice, admits to having sexual fantasies about a man she met, Bill becomes obsessed with having a sexual encounter. He discovers an underground sexual group and attends one of their meetings -- and quickly discovers that he is in over his head.",
+  "tmdbRating": 7.5,
+  "tmdbVotes": 7079,
+  "imdbRating": 7.5,
+  "imdbId": "tt0120663",
+  "popularity": 14.6655,
+  "certification": "R",
+  "certificationCountry": "US",
+  "contentDescriptors": [],
+  "synopsis": "Released in 1999, Eyes Wide Shut is a drama, thriller and mystery film from United Kingdom and United States. It holds a solid 7.5 rating on IMDb. It appears on several of our curated Top 10 lists. It carries a R certification (US rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

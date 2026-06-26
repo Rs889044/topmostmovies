@@ -1,0 +1,32 @@
+{
+  "id": "tmdb-12104",
+  "slug": "pink-floyd-the-wall-1982",
+  "title": "Pink Floyd: The Wall",
+  "year": 1982,
+  "decade": "1980s",
+  "industries": [],
+  "countries": [
+    "united-kingdom"
+  ],
+  "languages": [
+    "english"
+  ],
+  "genres": [
+    "music",
+    "drama"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/aElHyIdF5jmctFGhlhhaPFsbBJC.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/Ag4eANWzHEwC7rQVyvcGsL34ieP.jpg",
+  "posterAlt": "Pink Floyd: The Wall (1982) movie poster",
+  "tmdbOverview": "A troubled rock star descends into madness in the midst of his physical and social isolation from everyone.",
+  "tmdbRating": 7.929,
+  "tmdbVotes": 1659,
+  "imdbRating": 8,
+  "imdbId": "tt0084503",
+  "popularity": 13.9396,
+  "certification": "R",
+  "certificationCountry": "US",
+  "contentDescriptors": [],
+  "synopsis": "Released in 1982, Pink Floyd: The Wall is a music and drama film from United Kingdom. It's highly rated, holding a strong 8.0 on IMDb. It appears on several of our curated Top 10 lists. It carries a R certification (US rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

@@ -1,0 +1,31 @@
+{
+  "id": "tmdb-406",
+  "slug": "la-haine-1995",
+  "title": "La Haine",
+  "year": 1995,
+  "decade": "1990s",
+  "industries": [],
+  "countries": [
+    "france"
+  ],
+  "languages": [
+    "french"
+  ],
+  "genres": [
+    "drama"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/hY4exng4s29RzDbtQInjx9MA3PZ.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/viGCwLxupyoaLsa6hrnu1gYrB0B.jpg",
+  "posterAlt": "La Haine (1995) movie poster",
+  "tmdbOverview": "After a chaotic night of rioting in a marginal suburb of Paris, three young friends, Vinz, Hubert and Saïd, wander around unoccupied waiting for news about the state of health of a mutual friend who has been seriously injured when confronting the police.",
+  "tmdbRating": 8.083,
+  "tmdbVotes": 4584,
+  "imdbRating": 8.1,
+  "imdbId": "tt0113247",
+  "popularity": 6.7597,
+  "certification": "MA15+",
+  "certificationCountry": "AU",
+  "contentDescriptors": [],
+  "synopsis": "La Haine is a 1995 drama film from France. It's highly rated, holding a strong 8.1 on IMDb. It appears on several of our curated Top 10 lists. It carries a MA15+ certification (AU rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

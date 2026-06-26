@@ -1,0 +1,35 @@
+{
+  "id": "tmdb-350",
+  "slug": "the-devil-wears-prada-2006",
+  "title": "The Devil Wears Prada",
+  "year": 2006,
+  "decade": "2000s",
+  "industries": [
+    "hollywood"
+  ],
+  "countries": [
+    "united-states"
+  ],
+  "languages": [
+    "english",
+    "french"
+  ],
+  "genres": [
+    "drama",
+    "comedy"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/8912AsVuS7Sj915apArUFbv6F9L.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/gkh6Nt8DtY1XT4gQsyFq9XAVJlJ.jpg",
+  "posterAlt": "The Devil Wears Prada (2006) movie poster",
+  "tmdbOverview": "A young woman from the Midwest gets more than she bargained for when she moves to New York to become a writer and ends up as the assistant to the tyrannical, larger-than-life editor-in-chief of a major fashion magazine.",
+  "tmdbRating": 7.435,
+  "tmdbVotes": 13776,
+  "imdbRating": 7,
+  "imdbId": "tt0458352",
+  "popularity": 55.7876,
+  "certification": "PG-13",
+  "certificationCountry": "US",
+  "contentDescriptors": [],
+  "synopsis": "Released in 2006, The Devil Wears Prada is a drama and comedy film from United States. It holds a solid 7.0 rating on IMDb. It appears on several of our curated Top 10 lists. It carries a PG-13 certification (US rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

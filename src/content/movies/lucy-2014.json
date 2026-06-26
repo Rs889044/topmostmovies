@@ -1,0 +1,35 @@
+{
+  "id": "tmdb-240832",
+  "slug": "lucy-2014",
+  "title": "Lucy",
+  "year": 2014,
+  "decade": "2010s",
+  "industries": [],
+  "countries": [
+    "france"
+  ],
+  "languages": [
+    "english",
+    "french",
+    "spanish",
+    "korean"
+  ],
+  "genres": [
+    "action",
+    "science-fiction"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/kRbpUTRNm6QbLQFPFWUcNC4czEm.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/1hzH1Wu2xhXBNOWzw3RMwNTJX5q.jpg",
+  "posterAlt": "Lucy (2014) movie poster",
+  "tmdbOverview": "A woman, accidentally caught in a dark deal, turns the tables on her captors and transforms into a merciless warrior evolved beyond human logic.",
+  "tmdbRating": 6.474,
+  "tmdbVotes": 17116,
+  "imdbRating": 6.4,
+  "imdbId": "tt2872732",
+  "popularity": 9.8763,
+  "certification": "R",
+  "certificationCountry": "US",
+  "contentDescriptors": [],
+  "synopsis": "Lucy is a 2014 action and science fiction film from France. It carries a 6.4 rating on IMDb. A standout of 2010s cinema, it earns its spot on our lists. It carries a R certification (US rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

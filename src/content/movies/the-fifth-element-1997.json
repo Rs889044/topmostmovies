@@ -1,0 +1,35 @@
+{
+  "id": "tmdb-18",
+  "slug": "the-fifth-element-1997",
+  "title": "The Fifth Element",
+  "originalTitle": "Le Cinquième Élément",
+  "year": 1997,
+  "decade": "1990s",
+  "industries": [],
+  "countries": [
+    "france"
+  ],
+  "languages": [
+    "french",
+    "english"
+  ],
+  "genres": [
+    "science-fiction",
+    "action",
+    "adventure"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/fPtlCO1yQtnoLHOwKtWz7db6RGU.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/jW21PoKwqs79wk6bfiYezox63mK.jpg",
+  "posterAlt": "The Fifth Element (1997) movie poster",
+  "tmdbOverview": "In 2257, a taxi driver is unintentionally given the task of saving a young girl who is part of the key that will ensure the survival of humanity.",
+  "tmdbRating": 7.585,
+  "tmdbVotes": 11813,
+  "imdbRating": 7.6,
+  "imdbId": "tt0119116",
+  "popularity": 19.4252,
+  "certification": "PG-13",
+  "certificationCountry": "US",
+  "contentDescriptors": [],
+  "synopsis": "The Fifth Element (1997) is a science fiction, action and adventure film from France. It holds a solid 7.6 rating on IMDb. It's one of the titles we feature across our 1990s and genre rankings. It carries a PG-13 certification (US rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

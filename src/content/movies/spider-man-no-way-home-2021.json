@@ -1,0 +1,35 @@
+{
+  "id": "tmdb-634649",
+  "slug": "spider-man-no-way-home-2021",
+  "title": "Spider-Man: No Way Home",
+  "year": 2021,
+  "decade": "2020s",
+  "industries": [
+    "hollywood"
+  ],
+  "countries": [
+    "united-states"
+  ],
+  "languages": [
+    "english"
+  ],
+  "genres": [
+    "action",
+    "adventure",
+    "science-fiction"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/AeK2MPOpYrOOgZNfFnfwp0L8tNn.jpg",
+  "posterAlt": "Spider-Man: No Way Home (2021) movie poster",
+  "tmdbOverview": "Peter Parker is unmasked and no longer able to separate his normal life from the high-stakes of being a super-hero. When he asks for help from Doctor Strange the stakes become even more dangerous, forcing him to discover what it truly means to be Spider-Man.",
+  "tmdbRating": 7.9,
+  "tmdbVotes": 22114,
+  "imdbRating": 8.1,
+  "imdbId": "tt10872600",
+  "popularity": 49.8939,
+  "certification": "PG-13",
+  "certificationCountry": "US",
+  "contentDescriptors": [],
+  "synopsis": "Spider-Man: No Way Home is a 2021 action, adventure and science fiction film from United States. It's highly rated, holding a strong 8.1 on IMDb. A standout of 2020s cinema, it earns its spot on our lists. It carries a PG-13 certification (US rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

@@ -1,0 +1,35 @@
+{
+  "id": "tmdb-673",
+  "slug": "harry-potter-and-the-prisoner-of-azkaban-2004",
+  "title": "Harry Potter and the Prisoner of Azkaban",
+  "year": 2004,
+  "decade": "2000s",
+  "industries": [
+    "hollywood"
+  ],
+  "countries": [
+    "united-kingdom",
+    "united-states"
+  ],
+  "languages": [
+    "english"
+  ],
+  "genres": [
+    "adventure",
+    "fantasy"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/aWxwnYoe8p2d2fcxOqtvAtJ72Rw.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/htmYEfH7TQgzsXHCnNXxmoYKQtL.jpg",
+  "posterAlt": "Harry Potter and the Prisoner of Azkaban (2004) movie poster",
+  "tmdbOverview": "Harry Potter's life is in danger once more as dangerous wizard Sirius Black has escaped from Azkaban Prison and is heading to Hogwarts.",
+  "tmdbRating": 8.009,
+  "tmdbVotes": 23235,
+  "imdbRating": 7.9,
+  "imdbId": "tt0304141",
+  "popularity": 23.8309,
+  "certification": "PG",
+  "certificationCountry": "US",
+  "contentDescriptors": [],
+  "synopsis": "Released in 2004, Harry Potter and the Prisoner of Azkaban is a adventure and fantasy film from United Kingdom and United States. It holds a solid 7.9 rating on IMDb. It's one of the titles we feature across our 2000s and genre rankings. It carries a PG certification (US rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

@@ -1,0 +1,36 @@
+{
+  "id": "tmdb-10515",
+  "slug": "castle-in-the-sky-1986",
+  "title": "Castle in the Sky",
+  "originalTitle": "天空の城ラピュタ",
+  "year": 1986,
+  "decade": "1980s",
+  "industries": [],
+  "countries": [
+    "japan"
+  ],
+  "languages": [
+    "japanese"
+  ],
+  "genres": [
+    "adventure",
+    "fantasy",
+    "animation",
+    "action",
+    "family"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/41XxSsJc5OrulP0m7TrrUeO2hoz.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/z6OZ2Q4FYELeGoBj9tVDWCvevkj.jpg",
+  "posterAlt": "Castle in the Sky (1986) movie poster",
+  "tmdbOverview": "A young boy and a girl with a magic crystal must race against pirates and foreign agents in a search for a legendary floating castle.",
+  "tmdbRating": 7.969,
+  "tmdbVotes": 4703,
+  "imdbRating": 8,
+  "imdbId": "tt0092067",
+  "popularity": 7.6018,
+  "certification": "PG",
+  "certificationCountry": "US",
+  "contentDescriptors": [],
+  "synopsis": "Castle in the Sky is a 1986 adventure, fantasy and animation film from Japan. It's highly rated, holding a strong 8.0 on IMDb. It's one of the titles we feature across our 1980s and genre rankings. It carries a PG certification (US rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

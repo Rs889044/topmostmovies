@@ -1,0 +1,37 @@
+{
+  "id": "tmdb-49026",
+  "slug": "the-dark-knight-rises-2012",
+  "title": "The Dark Knight Rises",
+  "year": 2012,
+  "decade": "2010s",
+  "industries": [
+    "hollywood"
+  ],
+  "countries": [
+    "united-kingdom",
+    "united-states"
+  ],
+  "languages": [
+    "english"
+  ],
+  "genres": [
+    "action",
+    "crime",
+    "drama",
+    "thriller"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/hr0L2aueqlP2BYUblTTjmtn0hw4.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/y2DB71C4nyIdMrANijz8mzvQtk6.jpg",
+  "posterAlt": "The Dark Knight Rises (2012) movie poster",
+  "tmdbOverview": "Following the death of District Attorney Harvey Dent, Batman assumes responsibility for Dent's crimes to protect the late attorney's reputation and is subsequently hunted by the Gotham City Police Department. Eight years later, Batman encounters the mysterious Selina Kyle and the villainous Bane, a new terrorist leader who overwhelms Gotham's finest. The Dark Knight resurfaces to protect a city that has branded him an enemy.",
+  "tmdbRating": 7.795,
+  "tmdbVotes": 24454,
+  "imdbRating": 8.4,
+  "imdbId": "tt1345836",
+  "popularity": 15.6324,
+  "certification": "PG-13",
+  "certificationCountry": "US",
+  "contentDescriptors": [],
+  "synopsis": "Released in 2012, The Dark Knight Rises is a action, crime and drama film from United Kingdom and United States. It's highly rated, holding a strong 8.4 on IMDb. A standout of 2010s cinema, it earns its spot on our lists. It carries a PG-13 certification (US rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

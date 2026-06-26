@@ -1,0 +1,33 @@
+{
+  "id": "tmdb-947",
+  "slug": "lawrence-of-arabia-1962",
+  "title": "Lawrence of Arabia",
+  "year": 1962,
+  "decade": "1960s",
+  "industries": [],
+  "countries": [
+    "united-kingdom"
+  ],
+  "languages": [
+    "english"
+  ],
+  "genres": [
+    "adventure",
+    "history",
+    "war"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/AiAm0EtDvyGqNpVoieRw4u65vD1.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/z30x999Uku15xcFbe5s3hLvQPDl.jpg",
+  "posterAlt": "Lawrence of Arabia (1962) movie poster",
+  "tmdbOverview": "During World War I, English officer Thomas Edward 'T.E.' Lawrence sets out to unite and lead the diverse, often warring, Arab tribes to fight the Turks.",
+  "tmdbRating": 7.995,
+  "tmdbVotes": 3443,
+  "imdbRating": 8.3,
+  "imdbId": "tt0056172",
+  "popularity": 7.2611,
+  "certification": "PG",
+  "certificationCountry": "US",
+  "contentDescriptors": [],
+  "synopsis": "Released in 1962, Lawrence of Arabia is a adventure, history and war film from United Kingdom. It's highly rated, holding a strong 8.3 on IMDb. It's one of the titles we feature across our 1960s and genre rankings. It carries a PG certification (US rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

@@ -1,0 +1,33 @@
+{
+  "id": "tmdb-8329",
+  "slug": "rec-2007",
+  "title": "[REC]",
+  "year": 2007,
+  "decade": "2000s",
+  "industries": [],
+  "countries": [
+    "spain"
+  ],
+  "languages": [
+    "spanish",
+    "japanese"
+  ],
+  "genres": [
+    "horror",
+    "mystery"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/hgyJR4sgMsee6xMFM3xYiG6cDCh.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/xfrguTH6maYiGsC8FXiQ9N3lZXw.jpg",
+  "posterAlt": "[REC] (2007) movie poster",
+  "tmdbOverview": "A television reporter and cameraman follow emergency workers into a dark apartment building and are quickly locked inside with something terrifying.",
+  "tmdbRating": 7.233,
+  "tmdbVotes": 4890,
+  "imdbRating": 7.4,
+  "imdbId": "tt1038988",
+  "popularity": 7.2038,
+  "certification": "R",
+  "certificationCountry": "US",
+  "contentDescriptors": [],
+  "synopsis": "Released in 2007, [REC] is a horror and mystery film from Spain. It holds a solid 7.4 rating on IMDb. It's one of the titles we feature across our 2000s and genre rankings. It carries a R certification (US rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

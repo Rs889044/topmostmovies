@@ -1,0 +1,34 @@
+{
+  "id": "tmdb-1050035",
+  "slug": "monster-2023",
+  "title": "Monster",
+  "originalTitle": "怪物",
+  "year": 2023,
+  "decade": "2020s",
+  "industries": [],
+  "countries": [
+    "japan"
+  ],
+  "languages": [
+    "japanese"
+  ],
+  "genres": [
+    "mystery",
+    "thriller",
+    "drama"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/kvUJUyUGOhEoiWWNH04IXoExPE2.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/dZJcOyRonN0Kb7kJR3DE3esGn16.jpg",
+  "posterAlt": "Monster (2023) movie poster",
+  "tmdbOverview": "After an outburst at school involving her son, a concerned single mother demands answers, triggering a sequence of deepening suspicion and turmoil.",
+  "tmdbRating": 7.931,
+  "tmdbVotes": 902,
+  "imdbRating": 7.8,
+  "imdbId": "tt23736044",
+  "popularity": 7.5861,
+  "certification": "PG-13",
+  "certificationCountry": "US",
+  "contentDescriptors": [],
+  "synopsis": "Monster (2023) is a mystery, thriller and drama film from Japan. It holds a solid 7.8 rating on IMDb. It appears on several of our curated Top 10 lists. It carries a PG-13 certification (US rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

@@ -1,0 +1,35 @@
+{
+  "id": "tmdb-1297842",
+  "slug": "goat-2026",
+  "title": "GOAT",
+  "year": 2026,
+  "decade": "2020s",
+  "industries": [
+    "hollywood"
+  ],
+  "countries": [
+    "united-states"
+  ],
+  "languages": [
+    "english"
+  ],
+  "genres": [
+    "animation",
+    "comedy",
+    "family"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/wfuqMlaExcoYiUEvKfVpUTt1v4u.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/tq3h43fZy0H80vzf47MAY7R9Mxo.jpg",
+  "posterAlt": "GOAT (2026) movie poster",
+  "tmdbOverview": "A small goat with big dreams gets a once-in-a-lifetime shot to join the pros and play roarball, a high-intensity, co-ed, full-contact sport dominated by the fastest, fiercest animals in the world.",
+  "tmdbRating": 8.116,
+  "tmdbVotes": 835,
+  "imdbRating": 6.7,
+  "imdbId": "tt27613895",
+  "popularity": 62.7357,
+  "certification": "PG",
+  "certificationCountry": "US",
+  "contentDescriptors": [],
+  "synopsis": "GOAT is a 2026 animation, comedy and family film from United States. It carries a 6.7 rating on IMDb. It appears on several of our curated Top 10 lists. It carries a PG certification (US rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

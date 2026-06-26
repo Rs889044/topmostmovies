@@ -1,0 +1,35 @@
+{
+  "id": "tmdb-9323",
+  "slug": "ghost-in-the-shell-1995",
+  "title": "Ghost in the Shell",
+  "originalTitle": "GHOST IN THE SHELL",
+  "year": 1995,
+  "decade": "1990s",
+  "industries": [],
+  "countries": [
+    "japan",
+    "united-kingdom"
+  ],
+  "languages": [
+    "japanese"
+  ],
+  "genres": [
+    "action",
+    "animation",
+    "science-fiction"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/9gC88zYUBARRSThcG93MvW14sqx.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/gTRXgigmgKpeJjW07iq686HZyBD.jpg",
+  "posterAlt": "Ghost in the Shell (1995) movie poster",
+  "tmdbOverview": "In the year 2029, the barriers of our world have been broken down by the net and by cybernetics, but this brings new vulnerability to humans in the form of brain-hacking. When a highly-wanted hacker known as 'The Puppetmaster' begins involving them in politics, Section 9, a group of cybernetically enhanced cops, are called in to investigate and stop the Puppetmaster.",
+  "tmdbRating": 7.921,
+  "tmdbVotes": 3904,
+  "imdbRating": 7.9,
+  "imdbId": "tt0113568",
+  "popularity": 8.3353,
+  "certification": "R",
+  "certificationCountry": "US",
+  "contentDescriptors": [],
+  "synopsis": "Ghost in the Shell (1995) is a action, animation and science fiction film from Japan and United Kingdom. It holds a solid 7.9 rating on IMDb. It appears on several of our curated Top 10 lists. It carries a R certification (US rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

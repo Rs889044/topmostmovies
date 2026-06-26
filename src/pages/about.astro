@@ -19,17 +19,19 @@ const seo = {
 ---
 
 <BaseLayout seo={seo}>
-  <Breadcrumbs crumbs={crumbs} />
-  <h1 class="mt-4 text-3xl font-bold tracking-tight">About</h1>
-  <div class="mt-4 max-w-prose space-y-4 text-gray-600">
-    <p>
-      <em>Placeholder — real copy lands in Phase 6.</em> topmostmovies.com publishes
-      curated Top 10 movie lists across industries, countries, languages, genres, years and
-      decades, with honest age ratings and parental info.
-    </p>
-    <p>
-      Movie data and images come from The Movie Database (TMDb); IMDb ratings are sourced
-      via the OMDb API.
-    </p>
+  <div class="container-page py-10">
+    <Breadcrumbs crumbs={crumbs} />
+    <h1 class="mt-4 text-3xl font-extrabold tracking-tight sm:text-4xl">About</h1>
+    <div class="mt-4 max-w-prose space-y-4 leading-relaxed text-fg-muted">
+      <p>
+        <em>Placeholder — real copy lands in Phase 6.</em> topmostmovies.com publishes
+        curated Top 10 movie lists across industries, countries, languages, genres, years and
+        decades, with honest age ratings and parental info.
+      </p>
+      <p>
+        Movie data and images come from The Movie Database (TMDb); IMDb ratings are sourced
+        via the OMDb API.
+      </p>
+    </div>
   </div>
 </BaseLayout>

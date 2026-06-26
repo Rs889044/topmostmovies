@@ -1,0 +1,34 @@
+{
+  "id": "tmdb-4935",
+  "slug": "howls-moving-castle-2004",
+  "title": "Howl's Moving Castle",
+  "originalTitle": "ハウルの動く城",
+  "year": 2004,
+  "decade": "2000s",
+  "industries": [],
+  "countries": [
+    "japan"
+  ],
+  "languages": [
+    "japanese"
+  ],
+  "genres": [
+    "fantasy",
+    "animation",
+    "adventure"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/13kOl2v0nD2OLbVSHnHk8GUFEhO.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/nv5wwZou159v5OC61i4ElR7OqyY.jpg",
+  "posterAlt": "Howl's Moving Castle (2004) movie poster",
+  "tmdbOverview": "Sophie, a young milliner, is turned into an elderly woman by a witch who enters her shop and curses her. She encounters a wizard named Howl and gets caught up in his resistance to fighting for the king.",
+  "tmdbRating": 8.387,
+  "tmdbVotes": 11149,
+  "imdbRating": 8.2,
+  "imdbId": "tt0347149",
+  "popularity": 24.0256,
+  "certification": "PG",
+  "certificationCountry": "US",
+  "contentDescriptors": [],
+  "synopsis": "Howl's Moving Castle is a 2004 fantasy, animation and adventure film from Japan. It's highly rated, holding a strong 8.2 on IMDb. It's one of the titles we feature across our 2000s and genre rankings. It carries a PG certification (US rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

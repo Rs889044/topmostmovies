@@ -1,0 +1,37 @@
+{
+  "id": "tmdb-11012",
+  "slug": "damage-1992",
+  "title": "Damage",
+  "year": 1992,
+  "decade": "1990s",
+  "industries": [
+    "hollywood"
+  ],
+  "countries": [
+    "united-kingdom",
+    "united-states",
+    "france"
+  ],
+  "languages": [
+    "english",
+    "french"
+  ],
+  "genres": [
+    "drama",
+    "romance"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/alf3JOPP7EYP0iO24gwe5YfRnqo.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/krhj4Fhb0G3QCmyBtEADxgFFmRX.jpg",
+  "posterAlt": "Damage (1992) movie poster",
+  "tmdbOverview": "The life of a respected British politician at the height of his career crumbles when he becomes obsessed with his son's lover.",
+  "tmdbRating": 6.582,
+  "tmdbVotes": 695,
+  "imdbRating": 6.7,
+  "imdbId": "tt0104237",
+  "popularity": 175.0195,
+  "certification": "R",
+  "certificationCountry": "US",
+  "contentDescriptors": [],
+  "synopsis": "Damage (1992) is a drama and romance film from United Kingdom and United States. It carries a 6.7 rating on IMDb. A standout of 1990s cinema, it earns its spot on our lists. It carries a R certification (US rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

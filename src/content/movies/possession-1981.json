@@ -1,0 +1,32 @@
+{
+  "id": "tmdb-21484",
+  "slug": "possession-1981",
+  "title": "Possession",
+  "year": 1981,
+  "decade": "1980s",
+  "industries": [],
+  "countries": [
+    "france"
+  ],
+  "languages": [
+    "english",
+    "french"
+  ],
+  "genres": [
+    "horror"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/A9bnRn05riOKWftvQlLKa2gl51n.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/zfw3fcF7d4KcWYEvps4zUfl303b.jpg",
+  "posterAlt": "Possession (1981) movie poster",
+  "tmdbOverview": "A young woman left her family for an unspecified reason. The husband determines to find out the truth and starts following his wife. At first, he suspects that a man is involved. But gradually, he finds out more and more strange behaviors and bizarre incidents that indicate something more than a possessed love affair.",
+  "tmdbRating": 7.3,
+  "tmdbVotes": 1336,
+  "imdbRating": 7.2,
+  "imdbId": "tt0082933",
+  "popularity": 8.083,
+  "certification": "R",
+  "certificationCountry": "US",
+  "contentDescriptors": [],
+  "synopsis": "Possession (1981) is a horror film from France. It holds a solid 7.2 rating on IMDb. It appears on several of our curated Top 10 lists. It carries a R certification (US rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

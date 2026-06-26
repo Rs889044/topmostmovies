@@ -1,0 +1,36 @@
+{
+  "id": "tmdb-389868",
+  "slug": "seoul-station-2016",
+  "title": "Seoul Station",
+  "originalTitle": "서울역",
+  "year": 2016,
+  "decade": "2010s",
+  "industries": [],
+  "countries": [
+    "south-korea"
+  ],
+  "languages": [
+    "korean"
+  ],
+  "genres": [
+    "animation",
+    "horror",
+    "science-fiction",
+    "action",
+    "thriller"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/vJgRo5EJMYPzBcljlIlUxBAlucL.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/x4Am9WtOSxEsfeBqU216n7ZA7G.jpg",
+  "posterAlt": "Seoul Station (2016) movie poster",
+  "tmdbOverview": "In this animated prequel to \"Train to Busan,\" a group of survivors deals with a zombie pandemic that unleashes itself in downtown Seoul.",
+  "tmdbRating": 6.552,
+  "tmdbVotes": 493,
+  "imdbRating": 6.1,
+  "imdbId": "tt3845670",
+  "popularity": 1.7827,
+  "certification": "16",
+  "certificationCountry": "CH",
+  "contentDescriptors": [],
+  "synopsis": "Seoul Station is a 2016 animation, horror and science fiction film from South Korea. It carries a 6.1 rating on IMDb. It's one of the titles we feature across our 2010s and genre rankings. It carries a 16 certification (CH rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

@@ -1,0 +1,33 @@
+{
+  "id": "tmdb-423",
+  "slug": "the-pianist-2002",
+  "title": "The Pianist",
+  "year": 2002,
+  "decade": "2000s",
+  "industries": [],
+  "countries": [
+    "united-kingdom",
+    "france"
+  ],
+  "languages": [
+    "english"
+  ],
+  "genres": [
+    "drama",
+    "war"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/2hFvxCCWrTmCYwfy7yum0GKRi3Y.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/c0fB9xk7D1aVb3Bg2rk2SVJcGn.jpg",
+  "posterAlt": "The Pianist (2002) movie poster",
+  "tmdbOverview": "The true story of pianist Władysław Szpilman's experiences in Warsaw during the Nazi occupation. When the Jews of the city find themselves forced into a ghetto, Szpilman finds work playing in a café; and when his family is deported in 1942, he stays behind, works for a while as a laborer, and eventually goes into hiding in the ruins of the war-torn city.",
+  "tmdbRating": 8.373,
+  "tmdbVotes": 10180,
+  "imdbRating": 8.5,
+  "imdbId": "tt0253474",
+  "popularity": 12.9415,
+  "certification": "R",
+  "certificationCountry": "US",
+  "contentDescriptors": [],
+  "synopsis": "Released in 2002, The Pianist is a drama and war film from United Kingdom and France. It's highly rated, holding a strong 8.5 on IMDb. It's one of the titles we feature across our 2000s and genre rankings. It carries a R certification (US rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}

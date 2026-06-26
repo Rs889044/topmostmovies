@@ -1,0 +1,36 @@
+{
+  "id": "tmdb-783",
+  "slug": "gandhi-1982",
+  "title": "Gandhi",
+  "year": 1982,
+  "decade": "1980s",
+  "industries": [
+    "bollywood"
+  ],
+  "countries": [
+    "united-kingdom",
+    "india"
+  ],
+  "languages": [
+    "english",
+    "hindi"
+  ],
+  "genres": [
+    "drama",
+    "history"
+  ],
+  "posterUrl": "https://image.tmdb.org/t/p/w500/rOXftt7SluxskrFrvU7qFJa5zeN.jpg",
+  "backdropUrl": "https://image.tmdb.org/t/p/w1280/AsXHPS2U58MDAkoEJUT7Vlxndfu.jpg",
+  "posterAlt": "Gandhi (1982) movie poster",
+  "tmdbOverview": "In the early years of the 20th century, Mohandas K. Gandhi, a British-trained lawyer, forsakes all worldly possessions to take up the cause of Indian independence. Faced with armed resistance from the British government, Gandhi adopts a policy of 'passive resistance', endeavouring to win freedom for his people without resorting to bloodshed.",
+  "tmdbRating": 7.558,
+  "tmdbVotes": 2512,
+  "imdbRating": 8,
+  "imdbId": "tt0083987",
+  "popularity": 3.2909,
+  "certification": "PG",
+  "certificationCountry": "US",
+  "contentDescriptors": [],
+  "synopsis": "Released in 1982, Gandhi is a drama and history film from United Kingdom and India. It's highly rated, holding a strong 8.0 on IMDb. It appears on several of our curated Top 10 lists. It carries a PG certification (US rating system) — see the film's page for parental details.",
+  "synopsisAuto": true
+}
