@@ -68,12 +68,17 @@ Legend: 🔲 not started · 🟡 in progress · ✅ done · ⏸️ blocked/waiti
 > next country's real rating, with its country noted) — honest age info, never a cryptic
 > code. Known follow-up for Phase 4: exclude `noindex` pages from the sitemap.
 
-## Phase 4 — SEO  🔲
+## Phase 4 — SEO  ✅
 
-- [ ] `src/lib/jsonld.ts` builders; wire JSON-LD per page type
-- [ ] `@astrojs/sitemap` output verified; `robots.txt`; custom 404
-- [ ] OG/canonical on all pages; internal linking pass
-- [ ] Validate structured data (Rich Results / schema validator)
+- [x] `src/lib/jsonld.ts` builders wired per page type (ItemList/Movie/FAQPage/Breadcrumb/
+      WebSite/Organization), with honesty-gated ratings/contentRating (verified no leaks)
+- [x] `@astrojs/sitemap` filtered via `src/lib/seo.ts` `NOINDEX_PATHS` → 66 indexable URLs,
+      about/contact/privacy + 404 excluded; `robots.txt` → `sitemap-index.xml`; custom 404
+- [x] OG/canonical/Twitter on all pages (audited)
+- [x] Internal-linking pass: `RelatedLists.astro` (sibling + cross-dimension) on lists;
+      "Featured in" on movie pages; homepage/header link real lists
+- [x] Structured-data validation: `scripts/validate-seo.ts` (`npm run validate-seo`) —
+      **all 70 pages pass** (title/h1/meta/canonical/OG + JSON-LD types per page)
 
 ## Phase 5 — Content & keywords  🔲
 
@@ -127,5 +132,10 @@ Legend: 🔲 not started · 🟡 in progress · ✅ done · ⏸️ blocked/waiti
   movie detail pages with "Featured in", poster cards, list/FAQ/ad components, and JSON-LD
   (ItemList/Movie/FAQPage). Added a sample editorial override (k-drama). Homepage/header
   wired to real lists; 69 pages, 0 broken links, build green. Fixed NR-cert handling.
-  **Next: Phase 4 (SEO) — robots/sitemap polish, canonical/OG sweep, structured-data
-  validation, internal-linking pass.**
+  **Next: Phase 4.**
+- **2026-06-26** — **Phase 4 (SEO) complete.** Filtered noindex pages from the sitemap via
+  shared `src/lib/seo.ts`; added `RelatedLists` internal-linking on list pages; built
+  `scripts/validate-seo.ts` (`npm run validate-seo`) which passes on all 70 pages. Verified
+  JSON-LD honesty gating (no fabricated ratings, no TMDb-overview leak into Movie nodes).
+  Updated `docs/SEO.md`. **Next: Phase 5 (content & keywords) — validate keywords, then
+  write original intros/blurbs/synopses + FAQ blocks.**

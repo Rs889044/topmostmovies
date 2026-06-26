@@ -12,7 +12,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "fetch-data": "node --experimental-strip-types --env-file=.env scripts/fetch-data.ts"
+    "fetch-data": "node --experimental-strip-types --env-file=.env scripts/fetch-data.ts",
+    "validate-seo": "node --experimental-strip-types scripts/validate-seo.ts"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",

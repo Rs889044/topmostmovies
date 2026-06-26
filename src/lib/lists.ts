@@ -151,6 +151,101 @@ export async function valuesForDimension(dimension: Dimension): Promise<ListRef[
   return (await enumerateLists()).filter((r) => r.dimension === dimension);
 }
 
+/* --------------------------------------------------------------- related lists ---- */
+
+export interface RelatedLink {
+  dimension: Dimension;
+  value: string;
+  name: string;
+  path: string;
+  count: number;
+}
+
+const PATH_BASE: Record<Dimension, string> = {
+  industry: 'industry',
+  country: 'country',
+  language: 'language',
+  genre: 'genre',
+  year: 'year',
+  decade: 'decade',
+};
+
+/**
+ * Related lists for internal linking on a list page: sibling lists in the SAME dimension
+ * (most-populated first), plus a few cross-dimension lists drawn from the movies in THIS
+ * list (e.g. a genre list surfaces the countries/languages its films come from). Strengthens
+ * topical internal linking for long-tail SEO. See docs/SEO.md.
+ */
+export function relatedLists(
+  allMoviesData: MovieData[],
+  dimension: Dimension,
+  value: string,
+  members: MovieData[],
+  limit = 8,
+): RelatedLink[] {
+  const out: RelatedLink[] = [];
+  const seen = new Set<string>([`${dimension}:${value}`]);
+
+  const add = (dim: Dimension, val: string) => {
+    const key = `${dim}:${val}`;
+    if (seen.has(key)) return;
+    const count = allMoviesData.filter((m) => isMember(m, dim, val)).length;
+    if (count === 0) return;
+    seen.add(key);
+    out.push({
+      dimension: dim,
+      value: val,
+      name: nameForSlug(dim, val) ?? val,
+      path: `/${PATH_BASE[dim]}/${val}`,
+      count,
+    });
+  };
+
+  // 1) Siblings in the same dimension, ranked by how populated they are.
+  const siblingValues = new Set<string>();
+  for (const m of allMoviesData) {
+    const vals = membersValues(m, dimension);
+    vals.forEach((v) => siblingValues.add(v));
+  }
+  [...siblingValues]
+    .filter((v) => v !== value)
+    .map((v) => ({ v, count: allMoviesData.filter((m) => isMember(m, dimension, v)).length }))
+    .sort((a, b) => b.count - a.count)
+    .forEach(({ v }) => add(dimension, v));
+
+  // 2) Cross-dimension lists derived from this list's own movies (most common first).
+  const crossDims: Dimension[] = ['genre', 'country', 'language', 'decade'].filter(
+    (d) => d !== dimension,
+  ) as Dimension[];
+  for (const dim of crossDims) {
+    const freq = new Map<string, number>();
+    for (const m of members) {
+      for (const v of membersValues(m, dim)) freq.set(v, (freq.get(v) ?? 0) + 1);
+    }
+    [...freq.entries()].sort((a, b) => b[1] - a[1]).forEach(([v]) => add(dim, v));
+  }
+
+  return out.slice(0, limit);
+}
+
+/** The taxonomy values a movie has for a given dimension. */
+function membersValues(m: MovieData, dimension: Dimension): string[] {
+  switch (dimension) {
+    case 'industry':
+      return m.industries;
+    case 'country':
+      return m.countries;
+    case 'language':
+      return m.languages;
+    case 'genre':
+      return m.genres;
+    case 'year':
+      return [String(m.year)];
+    case 'decade':
+      return [m.decade];
+  }
+}
+
 /* --------------------------------------------------------------- featured in ------- */
 
 /**

@@ -9,7 +9,10 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 import MovieCard from '../components/MovieCard.astro';
 import Faq from '../components/Faq.astro';
 import AdSlot from '../components/AdSlot.astro';
+import RelatedLists from '../components/RelatedLists.astro';
 import type { RankedList } from '../lib/lists';
+import { allMovies } from '../lib/movies';
+import { isMember, relatedLists } from '../lib/lists';
 import { breadcrumbList, itemList, faqPage, type Crumb } from '../lib/jsonld';
 import type { Dimension } from '../lib/taxonomy';
 
@@ -24,6 +27,11 @@ export interface Props {
 
 const { list, dimensionLabel, intro, perMovieBlurb = {}, faq = [] } = Astro.props;
 const site = Astro.site ?? new URL('https://topmostmovies.com');
+
+// Related lists for internal linking (computed from the full movie set + this list's members).
+const everyMovie = await allMovies();
+const members = everyMovie.filter((m) => isMember(m, list.dimension, list.value));
+const related = relatedLists(everyMovie, list.dimension, list.value, members);
 
 const dimensionPathBase: Record<Dimension, string> = {
   industry: 'industry',
@@ -93,6 +101,8 @@ const seo = {
   }
 
   {faq.length > 0 && <Faq items={faq} />}
+
+  <RelatedLists links={related} />
 
   <AdSlot slot="list-bottom" class="my-8" />
 </BaseLayout>

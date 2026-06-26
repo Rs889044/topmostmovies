@@ -75,6 +75,41 @@ Builders live in `src/lib/jsonld.ts`.
 - Homepage links to top entry points for each dimension.
 - This dense, tag-driven internal linking is a primary ranking lever for long-tail combos.
 
+## Validation (`npm run validate-seo`)
+
+After `npm run build`, run **`npm run validate-seo`** (`scripts/validate-seo.ts`). It crawls
+`dist/` and fails (non-zero exit) on any of:
+
+- not exactly one `<title>` or one `<h1>` per page (404 exempt),
+- missing meta description / canonical / `og:title` / `twitter:card`,
+- JSON-LD that doesn't parse or lacks `@context`/`@type`,
+- wrong structured-data types per page type (home → `WebSite`+`Organization`; list →
+  `ItemList`+`BreadcrumbList`; movie → `Movie`+`BreadcrumbList`).
+
+This is our standing structured-data check (complements Google's Rich Results Test, which
+can be run manually on the deployed URLs in Phase 8). **Status:** all pages pass.
+
+### Honesty gating in JSON-LD (verified)
+
+`Movie` nodes emit `aggregateRating` / `contentRating` **only when real values exist**, and
+**never** emit a `description` built from TMDb's overview — `description` is populated only
+from our original `synopsis` (Phase 5). Confirmed: zero overview leaks across movie pages.
+
+## Sitemap & noindex (single source of truth)
+
+`src/lib/seo.ts` defines `NOINDEX_PATHS` (`/about`, `/contact`, `/privacy-policy` — thin
+placeholders until Phase 6). The page `<Seo noindex>` flag and the `@astrojs/sitemap`
+`filter` both derive from it, so the sitemap lists only indexable pages (66 URLs currently;
+404 is auto-excluded by the integration).
+
+## Internal linking (implemented)
+
+- List pages render a **"Explore related lists"** block (`RelatedLists.astro`,
+  `relatedLists()` in `src/lib/lists.ts`): sibling lists in the same dimension plus
+  cross-dimension lists derived from the list's own movies.
+- Movie pages render **"Featured in"** linking every list the movie belongs to.
+- Homepage + header link to real populated lists. Net: dense, tag-driven internal linking.
+
 ## Core Web Vitals
 
 - Static HTML, minimal JS (Astro islands only where needed; consent banner is the main
