@@ -42,10 +42,12 @@ const dimensionPathBase: Record<Dimension, string> = {
   decade: 'decade',
 };
 
+const listPath = `/${dimensionPathBase[list.dimension]}/${list.value}`;
+const hubPath = `/${dimensionPathBase[list.dimension]}`;
 const crumbs: Crumb[] = [
   { name: 'Home', path: '/' },
-  { name: dimensionLabel, path: `/${dimensionPathBase[list.dimension]}/${list.value}` },
-  { name: list.name, path: `/${dimensionPathBase[list.dimension]}/${list.value}` },
+  { name: dimensionLabel, path: hubPath }, // dimension crumb → hub/index page
+  { name: list.name, path: listPath },
 ];
 
 const movieItems = list.movies.map((m) => ({ name: `${m.title} (${m.year})`, path: `/movie/${m.slug}` }));

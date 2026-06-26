@@ -22,11 +22,21 @@ const year = new Date().getFullYear();
         </p>
       </div>
 
-      <nav aria-label="Footer" class="flex flex-wrap gap-x-6 gap-y-2 text-sm">
-        <a href="/about" class="text-fg-muted hover:text-accent-400">About</a>
-        <a href="/contact" class="text-fg-muted hover:text-accent-400">Contact</a>
-        <a href="/privacy-policy" class="text-fg-muted hover:text-accent-400">Privacy Policy</a>
-      </nav>
+      <div class="flex flex-col gap-6 sm:flex-row sm:gap-12">
+        <nav aria-label="Browse" class="flex flex-col gap-2 text-sm">
+          <span class="font-semibold text-fg-subtle">Browse</span>
+          <a href="/genre" class="text-fg-muted hover:text-accent-400">Genres</a>
+          <a href="/country" class="text-fg-muted hover:text-accent-400">Countries</a>
+          <a href="/language" class="text-fg-muted hover:text-accent-400">Languages</a>
+          <a href="/decade" class="text-fg-muted hover:text-accent-400">Decades</a>
+        </nav>
+        <nav aria-label="Site" class="flex flex-col gap-2 text-sm">
+          <span class="font-semibold text-fg-subtle">Site</span>
+          <a href="/about" class="text-fg-muted hover:text-accent-400">About</a>
+          <a href="/contact" class="text-fg-muted hover:text-accent-400">Contact</a>
+          <a href="/privacy-policy" class="text-fg-muted hover:text-accent-400">Privacy Policy</a>
+        </nav>
+      </div>
     </div>
 
     {/* TMDb attribution — required by the TMDb API terms. */}

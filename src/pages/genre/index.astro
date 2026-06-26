@@ -1,0 +1,14 @@
+---
+import HubLayout from '../../layouts/HubLayout.astro';
+import { hubEntries } from '../../lib/lists';
+
+const entries = await hubEntries('genre');
+---
+
+<HubLayout
+  title="Browse Movies by Genre"
+  basePath="/genre"
+  label="Genres"
+  intro="Find your next watch by genre — from romance and thrillers to horror, K-drama, animation and more. Each genre opens a curated Top 10 with honest ratings and age info."
+  entries={entries}
+/>

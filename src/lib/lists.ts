@@ -151,6 +151,38 @@ export async function valuesForDimension(dimension: Dimension): Promise<ListRef[
   return (await enumerateLists()).filter((r) => r.dimension === dimension);
 }
 
+export interface HubEntry {
+  value: string;
+  name: string;
+  path: string;
+  count: number;
+  /** Poster of the top-ranked movie in this list (for the hub card thumbnail). */
+  posterUrl?: string;
+  posterAlt?: string;
+}
+
+/**
+ * Every populated value in a dimension, with count + a representative poster — used to
+ * render the dimension hub/index page (e.g. /genre lists all genres). Sorted by count desc.
+ */
+export async function hubEntries(dimension: Dimension): Promise<HubEntry[]> {
+  const movies = await allMovies();
+  const values = (await valuesForDimension(dimension)).map((r) => r.value);
+  const entries: HubEntry[] = values.map((value) => {
+    const list = buildList(movies, dimension, value, undefined, 1);
+    const top = list.movies[0];
+    return {
+      value,
+      name: nameForSlug(dimension, value) ?? value,
+      path: `/${PATH_BASE[dimension]}/${value}`,
+      count: list.total,
+      posterUrl: top?.posterUrl,
+      posterAlt: top?.posterAlt,
+    };
+  });
+  return entries.sort((a, b) => b.count - a.count);
+}
+
 /* --------------------------------------------------------------- related lists ---- */
 
 export interface RelatedLink {

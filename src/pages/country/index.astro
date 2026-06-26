@@ -1,0 +1,14 @@
+---
+import HubLayout from '../../layouts/HubLayout.astro';
+import { hubEntries } from '../../lib/lists';
+
+const entries = await hubEntries('country');
+---
+
+<HubLayout
+  title="Browse Movies by Country"
+  basePath="/country"
+  label="Countries"
+  intro="Explore the best films country by country — South Korea, India, Japan, France and more. Each opens a curated Top 10 with honest ratings and age information."
+  entries={entries}
+/>

@@ -109,6 +109,31 @@ export function movie(input: MovieJsonLdInput, site: URL) {
   return node;
 }
 
+/** CollectionPage — dimension hub/index pages (e.g. /genre listing all genres). */
+export function collectionPage(
+  name: string,
+  path: string,
+  items: { name: string; path: string }[],
+  site: URL,
+) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name,
+    url: abs(path, site),
+    mainEntity: {
+      '@type': 'ItemList',
+      numberOfItems: items.length,
+      itemListElement: items.map((it, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        url: abs(it.path, site),
+        name: it.name,
+      })),
+    },
+  };
+}
+
 /** FAQPage — pages with an FAQ block. */
 export function faqPage(faq: { q: string; a: string }[]) {
   return {

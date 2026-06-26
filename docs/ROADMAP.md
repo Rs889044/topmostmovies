@@ -145,6 +145,21 @@ User feedback: too few movies + UI not professional. Addressed both:
 > Editorial note: the 488 auto-blurbs are factual/original but lighter than hand-written
 > copy. As traffic data arrives, upgrade high-performing pages to hand-written synopses.
 
+## Fix: dimension hub/index pages  ✅
+
+User reported the header nav (Genres/Countries/Languages/Industries/Decades) didn't lead
+anywhere useful. Root cause: only `[slug].astro` list routes existed — `/genre`, `/country`
+etc. **404'd**, and the header pointed at arbitrary single lists. Fixed by adding proper
+**hub/index pages**:
+
+- `HubLayout.astro` + `hubEntries()` (`src/lib/lists.ts`) + `collectionPage()` JSON-LD.
+- New routes: `/genre`, `/country`, `/language`, `/industry`, `/decade`, `/year` — each
+  lists every populated value with a poster thumbnail + count, linking to its Top 10.
+- Header nav → the hubs (added "Years"); Footer gains a Browse column; list-page breadcrumb
+  "dimension" crumb now links to the hub.
+- `validate-seo` extended to assert `CollectionPage`+`BreadcrumbList` on hubs.
+- 621 pages, **0 broken internal links**, check/build/validate-seo green.
+
 ## Session log
 
 - **2026-06-26** — **Phase 0 + Phase 1 complete.** Wrote `CLAUDE.md` + all `docs/`;

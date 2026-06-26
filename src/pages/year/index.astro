@@ -1,0 +1,15 @@
+---
+import HubLayout from '../../layouts/HubLayout.astro';
+import { hubEntries } from '../../lib/lists';
+
+// Years can be numerous; HubLayout already sorts by count desc.
+const entries = await hubEntries('year');
+---
+
+<HubLayout
+  title="Browse Movies by Year"
+  basePath="/year"
+  label="Years"
+  intro="Find the best movies from any year — each year opens a curated Top 10 with honest ratings and age information."
+  entries={entries}
+/>
