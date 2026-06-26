@@ -4,13 +4,16 @@
 @import "tailwindcss";
 
 @theme {
-  /* Placeholder design tokens — refined in Phase 1 (Foundations). */
+  /* Design tokens. Tailwind v4's default gray/neutral palette is kept; we add a `brand`
+     scale used across nav, links, buttons and accents. Refine hues as the brand evolves. */
   --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica,
     Arial, sans-serif;
 
-  --color-brand-50: #eef6ff;
+  --color-brand-50: #eff6ff;
+  --color-brand-100: #dbeafe;
   --color-brand-500: #2563eb;
-  --color-brand-700: #1d4ed8;
+  --color-brand-600: #1d4ed8;
+  --color-brand-700: #1e40af;
 }
 
 /* Base resets / global element styles go here as the design system is built out. */

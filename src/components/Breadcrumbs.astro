@@ -1,0 +1,38 @@
+---
+/**
+ * Breadcrumbs.astro — visible breadcrumb trail for interior pages.
+ * Emit the matching BreadcrumbList JSON-LD via <Seo jsonLd={breadcrumbList(...)} />
+ * (builder in src/lib/jsonld.ts). See docs/SEO.md.
+ */
+import type { Crumb } from '../lib/jsonld';
+
+export interface Props {
+  crumbs: Crumb[];
+}
+
+const { crumbs } = Astro.props;
+---
+
+<nav aria-label="Breadcrumb" class="text-sm text-gray-500">
+  <ol class="flex flex-wrap items-center gap-1">
+    {
+      crumbs.map((c, i) => {
+        const isLast = i === crumbs.length - 1;
+        return (
+          <li class="flex items-center gap-1">
+            {isLast ? (
+              <span aria-current="page" class="text-gray-700">
+                {c.name}
+              </span>
+            ) : (
+              <a href={c.path} class="hover:text-brand-700 hover:underline">
+                {c.name}
+              </a>
+            )}
+            {!isLast && <span aria-hidden="true" class="text-gray-300">/</span>}
+          </li>
+        );
+      })
+    }
+  </ol>
+</nav>

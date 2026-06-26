@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { breadcrumbList } from '../lib/jsonld';
+
+const site = Astro.site ?? new URL('https://topmostmovies.com');
+const crumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Privacy Policy', path: '/privacy-policy' },
+];
+
+const seo = {
+  title: 'Privacy Policy — topmostmovies.com',
+  description: 'How topmostmovies.com handles data, cookies, advertising and analytics.',
+  noindex: true,
+  jsonLd: breadcrumbList(crumbs, site),
+};
+---
+
+<BaseLayout seo={seo}>
+  <Breadcrumbs crumbs={crumbs} />
+  <h1 class="mt-4 text-3xl font-bold tracking-tight">Privacy Policy</h1>
+  <div class="mt-4 max-w-prose space-y-4 text-gray-600">
+    <p>
+      <em>Placeholder — the full policy (cookies, AdSense, analytics, your choices) is
+      written in Phase 6, alongside the cookie-consent banner.</em>
+    </p>
+  </div>
+</BaseLayout>

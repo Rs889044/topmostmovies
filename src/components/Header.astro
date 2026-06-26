@@ -1,0 +1,31 @@
+---
+/**
+ * Header.astro — site header + primary navigation.
+ * Nav links point to dimension landing pages (some are placeholders until Phase 3).
+ */
+const dimensions = [
+  { label: 'Industry', href: '/industry/hollywood' },
+  { label: 'Country', href: '/country/south-korea' },
+  { label: 'Language', href: '/language/korean' },
+  { label: 'Genre', href: '/genre/romance' },
+  { label: 'Year', href: '/year/2026' },
+  { label: 'Decade', href: '/decade/2010s' },
+];
+---
+
+<header class="border-b border-gray-200 bg-white">
+  <div class="mx-auto flex max-w-5xl items-center justify-between gap-4 px-4 py-3">
+    <a href="/" class="text-lg font-bold tracking-tight text-gray-900">
+      topmost<span class="text-brand-500">movies</span>
+    </a>
+    <nav aria-label="Primary" class="hidden gap-4 text-sm font-medium text-gray-600 sm:flex">
+      {
+        dimensions.map((d) => (
+          <a href={d.href} class="hover:text-brand-700">
+            {d.label}
+          </a>
+        ))
+      }
+    </nav>
+  </div>
+</header>

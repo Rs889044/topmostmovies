@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { breadcrumbList } from '../lib/jsonld';
+
+const site = Astro.site ?? new URL('https://topmostmovies.com');
+const crumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Contact', path: '/contact' },
+];
+
+const seo = {
+  title: 'Contact — topmostmovies.com',
+  description: 'Get in touch with topmostmovies.com.',
+  noindex: true,
+  jsonLd: breadcrumbList(crumbs, site),
+};
+---
+
+<BaseLayout seo={seo}>
+  <Breadcrumbs crumbs={crumbs} />
+  <h1 class="mt-4 text-3xl font-bold tracking-tight">Contact</h1>
+  <div class="mt-4 max-w-prose space-y-4 text-gray-600">
+    <p>
+      <em>Placeholder — a contact method (form or email) is added in Phase 6.</em>
+    </p>
+  </div>
+</BaseLayout>

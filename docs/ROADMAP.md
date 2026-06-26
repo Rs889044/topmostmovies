@@ -7,42 +7,33 @@ Legend: 🔲 not started · 🟡 in progress · ✅ done · ⏸️ blocked/waiti
 
 ---
 
-## Phase 0 — Docs & setup  🟡 (awaiting user approval to proceed)
+## Phase 0 — Docs & setup  ✅
 
-- [x] `CLAUDE.md` created
-- [x] `docs/PRD.md`
-- [x] `docs/ARCHITECTURE.md`
-- [x] `docs/DATA-MODEL.md`
-- [x] `docs/DATA-SOURCES.md`
-- [x] `docs/SEO.md`
-- [x] `docs/ADSENSE.md`
-- [x] `docs/CONTENT-GUIDELINES.md`
-- [x] `docs/KEYWORDS.md` (seed framework; validation deferred to Phase 5)
-- [x] `docs/ROADMAP.md` (this file)
-- [ ] Astro + TypeScript project scaffolded (`package.json`, `astro.config.mjs`,
-      `tsconfig.json`, `src/styles/global.css`)
-- [ ] Tailwind v4 via `@tailwindcss/vite` wired
-- [ ] `@astrojs/sitemap` configured
-- [ ] `.env.example` + `.gitignore`
-- [ ] git repo initialized
-- [ ] **Dependencies installed + `dev`/`build` verified** ⏸️ (needs LTS Node + user OK)
-- [ ] **STOP: confirm folder structure, routes, and movie schema with user** ⏸️
+- [x] `CLAUDE.md` + all `docs/` (PRD, ARCHITECTURE, DATA-MODEL, DATA-SOURCES, SEO,
+      ADSENSE, CONTENT-GUIDELINES, KEYWORDS seed, ROADMAP)
+- [x] Astro 7 + TypeScript scaffolded (`package.json`, `astro.config.mjs`, `tsconfig.json`,
+      `src/styles/global.css`)
+- [x] Tailwind v4 via `@tailwindcss/vite` wired
+- [x] `@astrojs/sitemap` configured
+- [x] `.env.example` + `.gitignore`
+- [x] git repo initialized
+- [x] Node 22 LTS via nvm (`.nvmrc`); dependencies installed; `build` verified ✅
+- [x] User approved folder structure / routes / schema
 
-> **Open items for the user (see chat):**
-> 1. Node runtime — system has v25 (unsupported by Astro; needs v22.12+ LTS).
-> 2. Approve proposed folder structure / routes / schema before Phase 1.
-> 3. TMDb + OMDb API keys (needed in Phase 2, not before).
+> **Remaining open item for the user:**
+> - TMDb + OMDb API keys (needed in Phase 2, not before).
 
 ---
 
-## Phase 1 — Foundations  🔲
+## Phase 1 — Foundations  ✅
 
-- [ ] `BaseLayout.astro` (html shell, global.css, header/footer, consent mount)
-- [ ] Design system / tokens in `global.css` (colors, type scale, spacing)
-- [ ] `Header.astro` + nav; `Footer.astro` **with TMDb attribution**
-- [ ] `Seo.astro` shared component (title/meta/canonical/OG/Twitter/JSON-LD)
-- [ ] `Breadcrumbs.astro`
-- [ ] Placeholder pages: `/`, `/about`, `/contact`, `/privacy-policy`, `404`
+- [x] `BaseLayout.astro` (html shell, global.css, header/footer; consent mount in Phase 6)
+- [x] Design tokens in `global.css` (brand color scale, font stack)
+- [x] `Header.astro` + nav; `Footer.astro` **with TMDb attribution** (verified in build)
+- [x] `Seo.astro` shared component (title/meta/canonical/OG/Twitter/JSON-LD)
+- [x] `Breadcrumbs.astro` + `src/lib/jsonld.ts` (Breadcrumb/WebSite/Organization builders)
+- [x] Placeholder pages: `/`, `/about`, `/contact`, `/privacy-policy`, `404`
+      (thin placeholders ship `noindex` until real copy in Phase 6)
 
 ## Phase 2 — Data layer  🔲
 
@@ -101,9 +92,10 @@ Legend: 🔲 not started · 🟡 in progress · ✅ done · ⏸️ blocked/waiti
 
 ## Session log
 
-- **2026-06-26** — Phase 0: wrote `CLAUDE.md` + all `docs/`; scaffolded project config
-  (`package.json`, `astro.config.mjs`, `tsconfig.json`, `global.css`, `.env.example`,
-  `.gitignore`, `robots.txt`, `ads.txt` placeholder). Verified current versions on npm:
-  **Astro 7.0.3, Tailwind 4.3.1, @astrojs/sitemap 3.7.3**; Tailwind wired via
-  `@tailwindcss/vite`. Flagged Node v25 (unsupported by Astro; needs v22.12+ LTS) — deps
-  NOT yet installed. Awaiting user approval of structure/routes/schema before Phase 1.
+- **2026-06-26** — **Phase 0 + Phase 1 complete.** Wrote `CLAUDE.md` + all `docs/`;
+  scaffolded project (Astro 7.0.3, Tailwind 4.3.1 via `@tailwindcss/vite`, sitemap 3.7.3).
+  Installed **Node 22.23.1 via nvm** (`.nvmrc`) after flagging v25 as unsupported; `npm
+  install` clean (0 vulns); `npm run build` passes (5 pages + sitemap). Phase 1: built
+  `Seo`, `Breadcrumbs`, `Header`, `Footer` (TMDb attribution verified in output),
+  `BaseLayout`, `src/lib/jsonld.ts`, and placeholder pages (`/`, about, contact, privacy,
+  404). Telemetry disabled. **Next: Phase 2 (data layer) — needs TMDb + OMDb API keys.**

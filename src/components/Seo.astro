@@ -1,0 +1,64 @@
+---
+/**
+ * Seo.astro — single source of per-page <head> metadata.
+ * Rendered once per page (via BaseLayout). See docs/SEO.md for usage + conventions.
+ */
+export interface Props {
+  title: string;
+  description: string;
+  /** Absolute or site-relative canonical URL; defaults to the current page URL. */
+  canonical?: string;
+  ogType?: 'website' | 'article' | 'video.movie';
+  /** OG/Twitter image (absolute or site-relative). Falls back to the site default. */
+  image?: string;
+  noindex?: boolean;
+  /** JSON-LD structured data block(s) for this page. */
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+}
+
+const {
+  title,
+  description,
+  canonical,
+  ogType = 'website',
+  image,
+  noindex = false,
+  jsonLd,
+} = Astro.props;
+
+const siteUrl = Astro.site ?? new URL('https://topmostmovies.com');
+const SITE_NAME = 'topmostmovies.com';
+const DEFAULT_IMAGE = '/og-default.png';
+
+// Resolve URLs against the configured site so output is always absolute.
+const canonicalUrl = new URL(canonical ?? Astro.url.pathname, siteUrl).href;
+const imageUrl = new URL(image ?? DEFAULT_IMAGE, siteUrl).href;
+
+const jsonLdBlocks = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
+---
+
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonicalUrl} />
+{noindex && <meta name="robots" content="noindex, nofollow" />}
+
+{/* Open Graph */}
+<meta property="og:type" content={ogType} />
+<meta property="og:site_name" content={SITE_NAME} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:image" content={imageUrl} />
+
+{/* Twitter */}
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={imageUrl} />
+
+{/* JSON-LD structured data (builders live in src/lib/jsonld.ts) */}
+{
+  jsonLdBlocks.map((block) => (
+    <script type="application/ld+json" set:html={JSON.stringify(block)} />
+  ))
+}
