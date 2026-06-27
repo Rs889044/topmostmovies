@@ -14,8 +14,9 @@
   Referrer-Policy: strict-origin-when-cross-origin
   X-Frame-Options: SAMEORIGIN
   Permissions-Policy: geolocation=(), microphone=(), camera=()
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
 
-# NOTE: The *.pages.dev preview URL is kept out of Google's index to avoid duplicate
-# content. A static _headers file can't target the preview host only, so this is done
-# with a Cloudflare Pages "Transform Rule" that adds `X-Robots-Tag: noindex` when the
-# Host ends in `.pages.dev`. Steps are in docs/OPERATIONS.md (Phase 8).
+# NOTE: Duplicate content from the *.pages.dev preview is handled by (a) every page's
+# canonical pointing to the .com, and (b) preview deployments being disabled on the
+# Cloudflare Pages project (Settings → Build → preview branch: None). A static _headers
+# file can't target the preview host only, so we don't use X-Robots-Tag here.
