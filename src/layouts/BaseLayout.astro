@@ -9,6 +9,9 @@ import '../styles/global.css';
 import Seo from '../components/Seo.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import CookieConsent from '../components/CookieConsent.astro';
+import Analytics from '../components/Analytics.astro';
+import AdSenseLoader from '../components/AdSenseLoader.astro';
 import type { Props as SeoProps } from '../components/Seo.astro';
 
 export interface Props {
@@ -16,6 +19,7 @@ export interface Props {
 }
 
 const { seo } = Astro.props;
+const ADSENSE_CLIENT = import.meta.env.PUBLIC_ADSENSE_CLIENT;
 ---
 
 <!doctype html>
@@ -34,8 +38,13 @@ const { seo } = Astro.props;
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
     />
+    {/* AdSense site-verification meta (only when a publisher ID is configured). */}
+    {ADSENSE_CLIENT && <meta name="google-adsense-account" content={ADSENSE_CLIENT} />}
     <Seo {...seo} />
     <slot name="head" />
+    {/* Gated loaders: render nothing unless their ID is set + consent granted. */}
+    <Analytics />
+    <AdSenseLoader />
   </head>
   <body class="flex min-h-screen flex-col bg-ink-950 text-fg antialiased">
     <Header />
@@ -43,5 +52,6 @@ const { seo } = Astro.props;
       <slot />
     </main>
     <Footer />
+    <CookieConsent />
   </body>
 </html>

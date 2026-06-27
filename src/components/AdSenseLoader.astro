@@ -1,0 +1,41 @@
+---
+/**
+ * AdSenseLoader.astro — loads the Google AdSense library, GATED two ways:
+ *   1) renders nothing unless PUBLIC_ADSENSE_CLIENT is set, and
+ *   2) loads adsbygoogle.js only AFTER consent (tm:consent-granted).
+ * Individual <AdSlot> units render their <ins> markup + push() when this is active.
+ * No ad code ships until you provide a publisher ID. See docs/ADSENSE.md / OPERATIONS.md.
+ *
+ * NOTE: AdSense must be ENABLED on your account and the site APPROVED before ads serve.
+ * Until then this loads the library but no ads fill — which is expected during review.
+ */
+const CLIENT = import.meta.env.PUBLIC_ADSENSE_CLIENT;
+---
+
+{
+  CLIENT && (
+    <script is:inline define:vars={{ CLIENT }}>
+      (function () {
+        let loaded = false;
+        function loadAds() {
+          if (loaded) return;
+          loaded = true;
+          const s = document.createElement('script');
+          s.async = true;
+          s.crossOrigin = 'anonymous';
+          s.src =
+            'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + CLIENT;
+          document.head.appendChild(s);
+          // Render any AdSlot units already on the page.
+          document.querySelectorAll('ins.adsbygoogle').forEach(function () {
+            try {
+              (window.adsbygoogle = window.adsbygoogle || []).push({});
+            } catch (e) {}
+          });
+        }
+        if (localStorage.getItem('tm-consent') === 'granted') loadAds();
+        document.addEventListener('tm:consent-granted', loadAds);
+      })();
+    </script>
+  )
+}

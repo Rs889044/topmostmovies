@@ -96,12 +96,22 @@ Legend: 🔲 not started · 🟡 in progress · ✅ done · ⏸️ blocked/waiti
 > Lighter coverage by design (per user). Per-movie blurbs beyond k-drama, deeper FAQ on
 > secondary lists, and tool-verified keyword volumes are future passes.
 
-## Phase 6 — AdSense & legal  🔲
+## Phase 6 — AdSense & legal  ✅
 
-- [ ] Privacy Policy / About / Contact real copy
-- [ ] `CookieConsent.astro` (GDPR/CCPA) gating non-essential cookies
-- [ ] `public/ads.txt` (placeholder until publisher ID)
-- [ ] `AdSlot.astro` reserved-space placeholders (no live code)
+- [x] Real **Privacy Policy / About / Contact** copy (now indexable, in sitemap) +
+      **Cookie Policy** page
+- [x] `CookieConsent.astro` (GDPR/CCPA) — Accept/Decline, stored choice, "Cookie settings"
+      re-open link in footer; dispatches `tm:consent-granted`
+- [x] **Gated** `Analytics.astro` (GA4) + `AdSenseLoader.astro` — load only after consent
+      AND only if their env ID is set (zero code ships otherwise)
+- [x] `AdSlot.astro` → reserved-space placeholder with no ID; real AdSense `<ins>` unit when
+      `PUBLIC_ADSENSE_CLIENT` set (placements: list-top, list-bottom, movie-inline)
+- [x] Dynamic **`/ads.txt`** (`src/pages/ads.txt.ts`) from publisher ID; AdSense
+      verification `<meta>` when ID set
+- [x] **`docs/OPERATIONS.md`** runbook (domain, deploy, GA, Search Console, AdSense, revenue
+      tracking) with a clear YOUR-action checklist
+
+> Nothing live until you set `PUBLIC_GA_ID` / `PUBLIC_ADSENSE_CLIENT` — see OPERATIONS.md.
 
 ## Phase 7 — Performance & QA  🔲
 
@@ -109,15 +119,23 @@ Legend: 🔲 not started · 🟡 in progress · ✅ done · ⏸️ blocked/waiti
 - [ ] Run Lighthouse (Perf/A11y/SEO/Best-Practices); fix flagged issues (target 90+)
 - [ ] Cross-browser + real mobile testing
 
-## Phase 8 — Deploy & go-live  🔲
+## Phase 8 — Deploy & go-live  🔲  → **full runbook in [OPERATIONS.md](OPERATIONS.md)**
 
-- [ ] Push to GitHub; connect Cloudflare Pages (CI/CD on push)
-- [ ] Connect custom domain (nameservers at registrar)
-- [ ] `public/_headers`: `noindex` on `*.pages.dev` preview
-- [ ] Real `ads.txt`; GA tag (placeholder until GA ID; load after consent)
-- [ ] Submit to Google Search Console + Bing Webmaster; submit sitemap; request indexing
-- [ ] Apply to AdSense once quality pages + ~10+ daily users; add verification script;
-      enable ads after approval
+Detailed steps + which need the USER vs. me are in OPERATIONS.md. Summary checklist:
+
+- [ ] 🔵 **Buy domain** `topmostmovies.com` (Cloudflare Registrar easiest) — NOT done yet
+- [ ] 🔵 Connect GitHub repo → **Cloudflare Pages** (CI/CD); set build env vars (incl.
+      `NODE_VERSION=22`, TMDb/OMDb keys for the build-time fetch)
+- [ ] ⚙️ Add `public/_headers`: `noindex` on `*.pages.dev` preview (avoid duplicate content)
+- [ ] 🔵 Point domain / confirm HTTPS
+- [ ] 🔵 **GA4** property → set `PUBLIC_GA_ID` (page tracking; gated by consent — built)
+- [ ] 🔵 **Google Search Console** + **Bing**: verify, submit `sitemap-index.xml`, request
+      indexing; watch Performance + Core Web Vitals
+- [ ] 🔵 Run **PageSpeed Insights** on live URL → ⚙️ I fix flags (ties into Phase 7)
+- [ ] 🔵 Grow to ~10+ daily users, then **apply to AdSense** → set `PUBLIC_ADSENSE_CLIENT`
+      (auto-enables ads.txt, verification meta, ad units after consent)
+- [ ] 🔵 After approval: create ad units / Auto ads; add payment + address PIN; track revenue
+      in AdSense (link AdSense↔GA4 for per-page revenue)
 
 ---
 
@@ -159,6 +177,14 @@ etc. **404'd**, and the header pointed at arbitrary single lists. Fixed by addin
   "dimension" crumb now links to the hub.
 - `validate-seo` extended to assert `CollectionPage`+`BreadcrumbList` on hubs.
 - 621 pages, **0 broken internal links**, check/build/validate-seo green.
+
+## Phase 6 + ops  ✅ (2026-06-27)
+
+Built the full monetization/legal layer (all gated): consent banner, Cookie Policy, real
+Privacy/About/Contact, gated GA4 + AdSense loaders, AdSlot ad units, dynamic ads.txt,
+verification meta. Added **docs/OPERATIONS.md** — the go-live runbook covering domain
+purchase, Cloudflare Pages CI/CD, GA4, Search Console/Bing, PageSpeed, and AdSense revenue
+tracking, each marked 🔵 (user) / ⚙️ (me). 622 pages; check/build/validate-seo green.
 
 ## Session log
 

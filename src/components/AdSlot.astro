@@ -1,30 +1,44 @@
 ---
 /**
- * AdSlot.astro — reserved-space ad placeholder (dark theme). Renders ONLY a fixed-height
- * placeholder until an AdSense publisher ID is provided (PUBLIC_ADSENSE_CLIENT) — no live
- * ad code yet. Reserved height prevents layout shift (CLS). See docs/ADSENSE.md.
+ * AdSlot.astro — reserved-space ad unit (dark theme).
+ *  - No publisher ID  → renders a fixed-height placeholder (no ad code, just reserved space).
+ *  - Publisher ID set → renders the AdSense <ins> unit (filled by AdSenseLoader after consent
+ *    and once your account/site is approved). Reserved height prevents layout shift (CLS).
+ * See docs/ADSENSE.md.
+ *
+ * Provide an ad-unit `adSlot` id (from AdSense) per placement once you create units.
  */
 export interface Props {
+  /** Internal placement name, e.g. "list-top". */
   slot: string;
+  /** AdSense ad-unit id (data-ad-slot) for this placement; optional until units exist. */
+  adSlot?: string;
   class?: string;
   minHeight?: number;
 }
 
-const { slot, class: className = '', minHeight = 100 } = Astro.props;
+const { slot, adSlot, class: className = '', minHeight = 100 } = Astro.props;
 
-const ADSENSE_CLIENT = import.meta.env.PUBLIC_ADSENSE_CLIENT;
-const live = Boolean(ADSENSE_CLIENT);
+const CLIENT = import.meta.env.PUBLIC_ADSENSE_CLIENT;
+const live = Boolean(CLIENT);
 ---
 
 <aside
   class:list={['ad-slot flex items-center justify-center', className]}
   style={`min-height:${minHeight}px`}
   data-ad-slot={slot}
-  aria-hidden="true"
+  aria-label="Advertisement"
 >
   {
     live ? (
-      <div class="w-full" data-adsense-placeholder={ADSENSE_CLIENT} />
+      <ins
+        class="adsbygoogle block w-full"
+        style={`display:block;min-height:${minHeight}px`}
+        data-ad-client={CLIENT}
+        data-ad-slot={adSlot}
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+      />
     ) : (
       <div class="w-full rounded-lg border border-dashed border-ink-700 py-6 text-center text-xs uppercase tracking-widest text-ink-600">
         Advertisement

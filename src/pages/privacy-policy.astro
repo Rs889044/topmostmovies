@@ -9,10 +9,14 @@ const crumbs = [
   { name: 'Privacy Policy', path: '/privacy-policy' },
 ];
 
+const email = import.meta.env.PUBLIC_CONTACT_EMAIL ?? 'hello@topmostmovies.com';
+// Update when the policy materially changes.
+const lastUpdated = 'June 27, 2026';
+
 const seo = {
   title: 'Privacy Policy — topmostmovies.com',
-  description: 'How topmostmovies.com handles data, cookies, advertising and analytics.',
-  noindex: true,
+  description:
+    'How topmostmovies.com handles data, cookies, advertising (Google AdSense), analytics and your privacy choices under GDPR and CCPA.',
   jsonLd: breadcrumbList(crumbs, site),
 };
 ---
@@ -21,10 +25,99 @@ const seo = {
   <div class="container-page py-10">
     <Breadcrumbs crumbs={crumbs} />
     <h1 class="mt-4 text-3xl font-extrabold tracking-tight sm:text-4xl">Privacy Policy</h1>
-    <div class="mt-4 max-w-prose space-y-4 leading-relaxed text-fg-muted">
+    <p class="mt-2 text-sm text-fg-subtle">Last updated: {lastUpdated}</p>
+
+    <div class="mt-6 max-w-prose space-y-5 leading-relaxed text-fg-muted">
       <p>
-        <em>Placeholder — the full policy (cookies, AdSense, analytics, your choices) is
-        written in Phase 6, alongside the cookie-consent banner.</em>
+        This Privacy Policy explains how <strong class="text-fg">topmostmovies.com</strong>
+        ("we", "us") collects, uses and protects information when you visit our website. We
+        keep things minimal: we don't ask you to create an account, and we don't sell your
+        personal information.
+      </p>
+
+      <h2 class="pt-2 text-xl font-bold text-fg">Information we collect</h2>
+      <p>
+        We do not collect personal information directly (there are no accounts, logins or
+        forms that store data). When you contact us by email, we receive whatever you choose
+        to send. Like most websites, certain information may be collected automatically by the
+        third-party services below, such as your IP address, browser type, device, and the
+        pages you visit.
+      </p>
+
+      <h2 class="pt-2 text-xl font-bold text-fg">Cookies and similar technologies</h2>
+      <p>
+        Cookies are small files stored on your device. We use two categories:
+      </p>
+      <ul class="list-disc space-y-2 pl-6">
+        <li>
+          <strong class="text-fg">Essential</strong> — a small preference that remembers your
+          cookie-consent choice so we don't ask again. This is always active and stores no
+          personal data.
+        </li>
+        <li>
+          <strong class="text-fg">Advertising &amp; analytics (optional)</strong> — set only
+          after you consent, by the third-party services below.
+        </li>
+      </ul>
+
+      <h2 class="pt-2 text-xl font-bold text-fg">Advertising — Google AdSense</h2>
+      <p>
+        We may display ads served by <strong class="text-fg">Google AdSense</strong>. Third-party
+        vendors, including Google, use cookies to serve ads based on your prior visits to this
+        and other websites. Google's use of advertising cookies enables it and its partners to
+        serve ads based on your visit to our site and/or other sites on the internet.
+      </p>
+      <p>
+        You can opt out of personalized advertising by visiting
+        <a href="https://www.google.com/settings/ads" rel="noopener" class="text-accent-400 hover:text-accent-300">Google Ads Settings</a>,
+        or opt out of some third-party vendors' use of cookies for personalized advertising at
+        <a href="https://www.aboutads.info/choices/" rel="noopener" class="text-accent-400 hover:text-accent-300">aboutads.info/choices</a>.
+        For users in the EEA/UK, ad personalization is gated behind your consent choice on this
+        site.
+      </p>
+
+      <h2 class="pt-2 text-xl font-bold text-fg">Analytics</h2>
+      <p>
+        We may use <strong class="text-fg">Google Analytics</strong> to understand, in aggregate,
+        how the site is used (for example, which lists are popular). Analytics cookies are set
+        only after you consent. You can learn more from
+        <a href="https://policies.google.com/privacy" rel="noopener" class="text-accent-400 hover:text-accent-300">Google's Privacy Policy</a>.
+      </p>
+
+      <h2 class="pt-2 text-xl font-bold text-fg">Your choices and rights</h2>
+      <p>
+        When you first visit, a banner lets you accept or decline non-essential (advertising
+        and analytics) cookies. You can change your choice at any time using the
+        "Cookie settings" link in the site footer. Depending on where you live, you may have
+        rights under the <strong class="text-fg">GDPR</strong> (EEA/UK) or
+        <strong class="text-fg">CCPA</strong> (California), including the right to access,
+        delete, or opt out of the "sale" or sharing of personal information. We honor these
+        requests — contact us at the address below.
+      </p>
+
+      <h2 class="pt-2 text-xl font-bold text-fg">Third-party data sources</h2>
+      <p>
+        Movie data and images are provided by The Movie Database (TMDb) and IMDb ratings via
+        the OMDb API. This product uses the TMDb API but is not endorsed or certified by TMDb.
+        Their use of data is governed by their own policies.
+      </p>
+
+      <h2 class="pt-2 text-xl font-bold text-fg">Children's privacy</h2>
+      <p>
+        This site is intended for a general audience and is not directed at children under 13.
+        We do not knowingly collect personal information from children.
+      </p>
+
+      <h2 class="pt-2 text-xl font-bold text-fg">Changes to this policy</h2>
+      <p>
+        We may update this policy from time to time. When we do, we'll revise the "last updated"
+        date above.
+      </p>
+
+      <h2 class="pt-2 text-xl font-bold text-fg">Contact</h2>
+      <p>
+        Questions about this policy? Email us at
+        <a href={`mailto:${email}`} class="text-accent-400 hover:text-accent-300">{email}</a>.
       </p>
     </div>
   </div>

@@ -102,6 +102,8 @@ npm run validate-seo # post-build SEO/JSON-LD validation over dist/ (scripts/)
 - [docs/DATA-SOURCES.md](docs/DATA-SOURCES.md) — TMDb/OMDb usage, attribution, limits.
 - [docs/SEO.md](docs/SEO.md) — SEO conventions + per-page checklist.
 - [docs/ADSENSE.md](docs/ADSENSE.md) — monetization-readiness + launch gating.
+- [docs/OPERATIONS.md](docs/OPERATIONS.md) — go-live runbook: domain, deploy, GA, Search
+  Console, AdSense + revenue tracking, with user-vs-me action items.
 - [docs/CONTENT-GUIDELINES.md](docs/CONTENT-GUIDELINES.md) — how original copy is written.
 - [docs/KEYWORDS.md](docs/KEYWORDS.md) — target keywords + PAA questions per category.
 - [docs/ROADMAP.md](docs/ROADMAP.md) — phased plan + live status checklist (update each session).

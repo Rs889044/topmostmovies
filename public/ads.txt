@@ -1,3 +1,0 @@
-# ads.txt — placeholder. Replace with the real AdSense line once the user provides a
-# publisher ID (Phase 6/8). Example format:
-# google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0

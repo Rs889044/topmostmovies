@@ -9,10 +9,13 @@ const crumbs = [
   { name: 'Contact', path: '/contact' },
 ];
 
+// Contact email — set PUBLIC_CONTACT_EMAIL in .env. Falls back to a sensible default.
+const email = import.meta.env.PUBLIC_CONTACT_EMAIL ?? 'hello@topmostmovies.com';
+
 const seo = {
-  title: 'Contact — topmostmovies.com',
-  description: 'Get in touch with topmostmovies.com.',
-  noindex: true,
+  title: 'Contact topmostmovies.com',
+  description:
+    'Get in touch with topmostmovies.com — suggestions, corrections, list ideas, or anything else.',
   jsonLd: breadcrumbList(crumbs, site),
 };
 ---
@@ -20,10 +23,35 @@ const seo = {
 <BaseLayout seo={seo}>
   <div class="container-page py-10">
     <Breadcrumbs crumbs={crumbs} />
-    <h1 class="mt-4 text-3xl font-extrabold tracking-tight sm:text-4xl">Contact</h1>
-    <div class="mt-4 max-w-prose space-y-4 leading-relaxed text-fg-muted">
+    <h1 class="mt-4 text-3xl font-extrabold tracking-tight sm:text-4xl">Contact us</h1>
+
+    <div class="mt-6 max-w-prose space-y-5 leading-relaxed text-fg-muted">
       <p>
-        <em>Placeholder — a contact method (form or email) is added in Phase 6.</em>
+        We'd love to hear from you. Whether you've spotted an error, want to suggest a film
+        or a list, or have a general question, the best way to reach us is by email:
+      </p>
+
+      <p>
+        <a
+          href={`mailto:${email}`}
+          class="inline-block rounded-lg bg-accent-500 px-5 py-2.5 font-semibold text-ink-950 transition hover:bg-accent-400"
+        >
+          {email}
+        </a>
+      </p>
+
+      <p>
+        We read every message and aim to reply within a few days. For corrections to a film's
+        rating or age certification, please include the movie title and a link to the page so
+        we can look into it quickly.
+      </p>
+
+      <h2 class="pt-2 text-xl font-bold text-fg">About the data on this site</h2>
+      <p>
+        Ratings and certifications come from third-party sources (TMDb and OMDb) and can
+        occasionally be incomplete or out of date. If something looks wrong, let us know and
+        we'll review it. See our <a href="/about" class="text-accent-400 hover:text-accent-300">about page</a>
+        for more on how the site works.
       </p>
     </div>
   </div>

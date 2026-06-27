@@ -3,8 +3,10 @@
  * the page `<Seo noindex>` flag and the sitemap filter never drift. See docs/SEO.md.
  */
 
-/** Site-relative paths that should be excluded from indexing AND the sitemap. */
-export const NOINDEX_PATHS = ['/about', '/contact', '/privacy-policy'] as const;
+/** Site-relative paths excluded from indexing AND the sitemap. About/Contact/Privacy/
+ *  Cookies now carry real content and ARE indexed (AdSense needs them crawlable). Keep this
+ *  list available for any genuinely thin/utility routes added later. */
+export const NOINDEX_PATHS: readonly string[] = [];
 
 /** True if a full URL or pathname corresponds to a noindex route. */
 export function isNoindexPath(urlOrPath: string): boolean {

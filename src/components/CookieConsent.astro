@@ -1,0 +1,85 @@
+---
+/**
+ * CookieConsent.astro — GDPR/CCPA consent banner. Gates non-essential (advertising +
+ * analytics) cookies behind an explicit choice, stored in localStorage. Only essential
+ * preference storage runs before consent. When the user accepts, it sets a flag and
+ * dispatches a `tm:consent-granted` event that the analytics/AdSense loaders listen for.
+ * A footer "Cookie settings" link (data-cookie-settings) re-opens the banner.
+ * See docs/ADSENSE.md.
+ *
+ * No personal data is stored — just the consent choice ("granted" | "denied").
+ */
+---
+
+<div
+  id="cookie-consent"
+  hidden
+  role="dialog"
+  aria-live="polite"
+  aria-label="Cookie consent"
+  class="fixed inset-x-0 bottom-0 z-[100] border-t border-ink-700 bg-ink-900/95 backdrop-blur-md"
+>
+  <div class="container-page flex flex-col gap-4 py-4 sm:flex-row sm:items-center sm:justify-between">
+    <p class="max-w-2xl text-sm text-fg-muted">
+      We use cookies for essential site functions and, with your consent, for advertising and
+      analytics. See our
+      <a href="/privacy-policy" class="text-accent-400 hover:text-accent-300">Privacy Policy</a> and
+      <a href="/cookie-policy" class="text-accent-400 hover:text-accent-300">Cookie Policy</a>.
+    </p>
+    <div class="flex shrink-0 gap-2">
+      <button
+        type="button"
+        data-consent="denied"
+        class="rounded-lg border border-ink-600 px-4 py-2 text-sm font-medium text-fg transition hover:bg-ink-800"
+      >
+        Decline
+      </button>
+      <button
+        type="button"
+        data-consent="granted"
+        class="rounded-lg bg-accent-500 px-4 py-2 text-sm font-semibold text-ink-950 transition hover:bg-accent-400"
+      >
+        Accept all
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const KEY = 'tm-consent'; // "granted" | "denied"
+  const banner = document.getElementById('cookie-consent');
+
+  function apply(choice: string) {
+    localStorage.setItem(KEY, choice);
+    if (banner) banner.hidden = true;
+    if (choice === 'granted') {
+      // Notify gated loaders (analytics, ads) that they may initialize.
+      document.dispatchEvent(new CustomEvent('tm:consent-granted'));
+    }
+  }
+
+  function show() {
+    if (banner) banner.hidden = false;
+  }
+
+  // First visit → show banner. Returning visitor with a granted choice → re-grant so
+  // loaders fire on this page load too.
+  const existing = localStorage.getItem(KEY);
+  if (existing === 'granted') {
+    document.dispatchEvent(new CustomEvent('tm:consent-granted'));
+  } else if (existing !== 'denied') {
+    show();
+  }
+
+  banner?.querySelectorAll('[data-consent]').forEach((btn) => {
+    btn.addEventListener('click', () => apply((btn as HTMLElement).dataset.consent!));
+  });
+
+  // Footer "Cookie settings" link re-opens the banner to change the choice.
+  document.querySelectorAll('[data-cookie-settings]').forEach((el) => {
+    el.addEventListener('click', (e) => {
+      e.preventDefault();
+      show();
+    });
+  });
+</script>

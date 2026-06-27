@@ -1,0 +1,38 @@
+---
+/**
+ * Analytics.astro — Google Analytics 4 (page tracking), GATED two ways:
+ *   1) renders nothing unless PUBLIC_GA_ID is set (no ID yet = no code shipped), and
+ *   2) loads gtag.js only AFTER the user grants consent (tm:consent-granted).
+ * This keeps us compliant (no analytics cookies before consent) and is a no-op until you
+ * provide a GA ID. See docs/ADSENSE.md and docs/OPERATIONS.md.
+ */
+const GA_ID = import.meta.env.PUBLIC_GA_ID;
+---
+
+{
+  GA_ID && (
+    <script is:inline define:vars={{ GA_ID }}>
+      (function () {
+        let loaded = false;
+        function loadGA() {
+          if (loaded) return;
+          loaded = true;
+          const s = document.createElement('script');
+          s.async = true;
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+          document.head.appendChild(s);
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            window.dataLayer.push(arguments);
+          }
+          window.gtag = gtag;
+          gtag('js', new Date());
+          // IP anonymization on; cookies only after consent (we already gate the load).
+          gtag('config', GA_ID, { anonymize_ip: true });
+        }
+        if (localStorage.getItem('tm-consent') === 'granted') loadGA();
+        document.addEventListener('tm:consent-granted', loadGA);
+      })();
+    </script>
+  )
+}

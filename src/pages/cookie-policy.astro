@@ -1,0 +1,83 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { breadcrumbList } from '../lib/jsonld';
+
+const site = Astro.site ?? new URL('https://topmostmovies.com');
+const crumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Cookie Policy', path: '/cookie-policy' },
+];
+const lastUpdated = 'June 27, 2026';
+
+const seo = {
+  title: 'Cookie Policy — topmostmovies.com',
+  description:
+    'What cookies topmostmovies.com uses, why, and how to control them — including advertising (Google AdSense) and analytics cookies.',
+  jsonLd: breadcrumbList(crumbs, site),
+};
+---
+
+<BaseLayout seo={seo}>
+  <div class="container-page py-10">
+    <Breadcrumbs crumbs={crumbs} />
+    <h1 class="mt-4 text-3xl font-extrabold tracking-tight sm:text-4xl">Cookie Policy</h1>
+    <p class="mt-2 text-sm text-fg-subtle">Last updated: {lastUpdated}</p>
+
+    <div class="mt-6 max-w-prose space-y-5 leading-relaxed text-fg-muted">
+      <p>
+        This Cookie Policy explains what cookies are, which ones we use, and how you can
+        control them. For more on how we handle data generally, see our
+        <a href="/privacy-policy" class="text-accent-400 hover:text-accent-300">Privacy Policy</a>.
+      </p>
+
+      <h2 class="pt-2 text-xl font-bold text-fg">What are cookies?</h2>
+      <p>
+        Cookies are small text files placed on your device when you visit a website. They're
+        widely used to make sites work, remember preferences, and measure or personalize
+        advertising.
+      </p>
+
+      <h2 class="pt-2 text-xl font-bold text-fg">Cookies we use</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full border-collapse text-sm">
+          <thead>
+            <tr class="border-b border-ink-700 text-left text-fg">
+              <th class="py-2 pr-4 font-semibold">Type</th>
+              <th class="py-2 pr-4 font-semibold">Purpose</th>
+              <th class="py-2 font-semibold">Set when</th>
+            </tr>
+          </thead>
+          <tbody class="text-fg-muted">
+            <tr class="border-b border-ink-800">
+              <td class="py-2 pr-4">Essential (consent preference)</td>
+              <td class="py-2 pr-4">Remembers your cookie choice so we don't ask again. No personal data.</td>
+              <td class="py-2">Always</td>
+            </tr>
+            <tr class="border-b border-ink-800">
+              <td class="py-2 pr-4">Analytics (Google Analytics)</td>
+              <td class="py-2 pr-4">Aggregate, anonymized usage measurement (popular pages, traffic).</td>
+              <td class="py-2">After you consent</td>
+            </tr>
+            <tr class="border-b border-ink-800">
+              <td class="py-2 pr-4">Advertising (Google AdSense)</td>
+              <td class="py-2 pr-4">Serving and measuring ads, including personalized ads where permitted.</td>
+              <td class="py-2">After you consent</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 class="pt-2 text-xl font-bold text-fg">Managing your choices</h2>
+      <p>
+        When you first visit, a banner lets you accept or decline non-essential cookies. You
+        can change your choice anytime via
+        <a href="#" data-cookie-settings class="text-accent-400 hover:text-accent-300">Cookie settings</a>
+        (also in the footer). You can also block or delete cookies in your browser settings,
+        and opt out of personalized ads at
+        <a href="https://www.google.com/settings/ads" rel="noopener" class="text-accent-400 hover:text-accent-300">Google Ads Settings</a>
+        or <a href="https://www.aboutads.info/choices/" rel="noopener" class="text-accent-400 hover:text-accent-300">aboutads.info/choices</a>.
+      </p>
+    </div>
+  </div>
+</BaseLayout>

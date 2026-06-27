@@ -10,10 +10,9 @@ const crumbs = [
 ];
 
 const seo = {
-  title: 'About — topmostmovies.com',
-  description: 'What topmostmovies.com is, how we curate Top 10 lists, and where our movie data comes from.',
-  // Placeholder copy ships noindex until real content lands in Phase 6.
-  noindex: true,
+  title: 'About topmostmovies.com — Curated Top 10 Movie Lists',
+  description:
+    'topmostmovies.com publishes curated Top 10 movie lists across genres, countries, languages and decades, with honest age ratings and parental info for every film.',
   jsonLd: breadcrumbList(crumbs, site),
 };
 ---
@@ -21,16 +20,43 @@ const seo = {
 <BaseLayout seo={seo}>
   <div class="container-page py-10">
     <Breadcrumbs crumbs={crumbs} />
-    <h1 class="mt-4 text-3xl font-extrabold tracking-tight sm:text-4xl">About</h1>
-    <div class="mt-4 max-w-prose space-y-4 leading-relaxed text-fg-muted">
+    <h1 class="mt-4 text-3xl font-extrabold tracking-tight sm:text-4xl">About topmostmovies</h1>
+
+    <div class="mt-6 max-w-prose space-y-5 leading-relaxed text-fg-muted">
       <p>
-        <em>Placeholder — real copy lands in Phase 6.</em> topmostmovies.com publishes
-        curated Top 10 movie lists across industries, countries, languages, genres, years and
-        decades, with honest age ratings and parental info.
+        <strong class="text-fg">topmostmovies.com</strong> is a movie-discovery site built
+        around one simple idea: the best way to find your next watch is a good, honest list.
+        We publish curated <strong class="text-fg">Top 10</strong> lists sliced across many
+        dimensions — by genre, country, language, film industry, year and decade — so whether
+        you're in the mood for a Korean thriller, a Bollywood romance, or the best animated
+        films of the 2010s, there's a list for it.
       </p>
+
+      <h2 class="pt-2 text-xl font-bold text-fg">What makes us different</h2>
       <p>
-        Movie data and images come from The Movie Database (TMDb); IMDb ratings are sourced
-        via the OMDb API.
+        Most "top movies" lists stop at the title and a star rating. We go further in two
+        ways. First, our <strong class="text-fg">multi-dimensional approach</strong> means a
+        single film appears across every list it belongs to, making it easy to explore by the
+        exact mood or category you care about. Second, every movie page includes
+        <strong class="text-fg">honest age and parental information</strong> — the official
+        certification (with the country's rating system noted) so families and viewers always
+        know what they're pressing play on.
+      </p>
+
+      <h2 class="pt-2 text-xl font-bold text-fg">How we source our data</h2>
+      <p>
+        Movie data, posters and certifications come from
+        <a href="https://www.themoviedb.org/" rel="noopener" class="text-accent-400 hover:text-accent-300">The Movie Database (TMDb)</a>,
+        and IMDb rating numbers are sourced via the OMDb API. We rank lists using a blend of
+        IMDb and TMDb ratings together with editorial judgment. The written summaries and list
+        introductions on this site are our own original content. We never fabricate ratings or
+        parental details — if data isn't available for a film, we say so plainly.
+      </p>
+
+      <h2 class="pt-2 text-xl font-bold text-fg">Get in touch</h2>
+      <p>
+        Have a suggestion, correction, or a list you'd love to see? We'd genuinely like to
+        hear it — head to our <a href="/contact" class="text-accent-400 hover:text-accent-300">contact page</a>.
       </p>
     </div>
   </div>
