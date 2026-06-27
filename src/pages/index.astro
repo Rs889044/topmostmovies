@@ -100,13 +100,24 @@ const seo = {
         </a>
       </div>
       {/* Quick picks — links to the highest-intent destination pages. */}
-      <nav aria-label="Quick picks" class="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-sm text-fg-muted">
-        <a href="/best-movies" class="hover:text-accent-400">Best movies ever</a>
-        <a href="/popular" class="hover:text-accent-400">Most watched</a>
-        <a href="/genre/thriller" class="hover:text-accent-400">Thrillers</a>
-        <a href="/language/korean" class="hover:text-accent-400">Korean</a>
-        <a href="/industry/bollywood" class="hover:text-accent-400">Bollywood</a>
-        <a href="/mature" class="hover:text-accent-400">Mature / R-rated</a>
+      <nav aria-label="Quick picks" class="mt-6 flex flex-wrap gap-2">
+        {
+          [
+            { label: 'Best movies ever', href: '/best-movies' },
+            { label: 'Most watched', href: '/popular' },
+            { label: 'Thrillers', href: '/genre/thriller' },
+            { label: 'Korean', href: '/language/korean' },
+            { label: 'Bollywood', href: '/industry/bollywood' },
+            { label: 'Mature / R-rated', href: '/mature' },
+          ].map((p) => (
+            <a
+              href={p.href}
+              class="rounded-full border border-ink-600 bg-ink-900/60 px-4 py-1.5 text-sm font-medium text-fg-muted backdrop-blur-sm transition-colors hover:border-accent-500/60 hover:text-fg"
+            >
+              {p.label}
+            </a>
+          ))
+        }
       </nav>
     </div>
   </section>
