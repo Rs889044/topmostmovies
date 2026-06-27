@@ -5,7 +5,6 @@
   "year": 2010,
   "decade": "2010s",
   "industries": [
-    "hollywood",
     "bollywood"
   ],
   "countries": [
@@ -13,8 +12,7 @@
     "united-states"
   ],
   "languages": [
-    "hindi",
-    "english"
+    "hindi"
   ],
   "genres": [
     "drama",

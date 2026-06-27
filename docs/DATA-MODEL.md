@@ -76,6 +76,26 @@ dimension + value:
 **Custom categories** (e.g. `k-drama`) are just genre slugs we assign editorially; they
 need not map 1:1 to TMDb genres. This is how we hit long-tail keywords.
 
+### How each tag is derived (and why some overlap, some don't)
+
+Set in `scripts/fetch-data.ts`:
+
+- **`languages`** — from TMDb **`original_language` only** (the language the film was made
+  in). Effectively single-valued. We deliberately **exclude `spoken_languages`**, which
+  lists every language heard in any scene — that wrongly tagged English films as French/
+  Spanish from a line or two of dialogue (e.g. Pulp Fiction landing on the French list).
+- **`countries`** — from TMDb **`origin_country`**. **Can legitimately be multiple**:
+  international co-productions are real (e.g. Terminator 2 is recorded as a FR/US
+  co-production). This overlap is accurate and kept.
+- **`genres`** — TMDb genres (+ editorial custom slugs). Legitimately multiple.
+- **`industries`** — derived from country + language (Hollywood = US English; Bollywood =
+  India Hindi). Tightens automatically with the language rule above.
+- **`year` / `decade`** — exactly one each; `decade` is derived from `year`. **Mutually
+  exclusive by construction** — a film can't be in two years or two decades.
+
+So overlap across genres/countries is expected and correct; language is single; year/decade
+can never overlap. (Fixed 2026-06 after an audit found inflated language tags.)
+
 **"Featured in"** (movie page): reverse-map — for a given movie, every (dimension, value)
 in its tag arrays becomes a link to that list. Powers internal linking + SEO.
 

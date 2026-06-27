@@ -45,11 +45,12 @@ function mapCountries(d: TmdbMovieDetail): string[] {
 }
 
 function mapLanguages(d: TmdbMovieDetail): string[] {
-  const codes = new Set<string>([
-    d.original_language,
-    ...d.spoken_languages.map((l) => l.iso_639_1),
-  ]);
-  return [...codes].map((c) => LANGUAGES[c]?.slug).filter((s): s is string => Boolean(s));
+  // Use ONLY the original language — the language the film was made in. Including
+  // `spoken_languages` wrongly tagged English films as French/Spanish from a few lines of
+  // dialogue (e.g. Pulp Fiction appearing on the French list). A movie's language is
+  // effectively single. See docs/DATA-MODEL.md.
+  const slug = LANGUAGES[d.original_language]?.slug;
+  return slug ? [slug] : [];
 }
 
 function mapGenres(d: TmdbMovieDetail): string[] {

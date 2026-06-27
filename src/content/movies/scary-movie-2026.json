@@ -11,13 +11,11 @@
     "united-states"
   ],
   "languages": [
-    "english",
-    "korean"
+    "english"
   ],
   "genres": [
     "comedy",
-    "horror",
-    "k-drama"
+    "horror"
   ],
   "posterUrl": "https://image.tmdb.org/t/p/w500/reZ8NInXjMkkaOpUHcI3Pn7iaRN.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/xWBiXclrRmTggQHMRsIn84YHavs.jpg",
@@ -30,6 +28,6 @@
   "certification": "R",
   "certificationCountry": "US",
   "contentDescriptors": [],
-  "synopsis": "Released in 2026, Scary Movie is a comedy, horror and k-drama film from United States. It has a 5.5 rating on TMDb. A standout of 2020s cinema, it earns its spot on our lists. It carries a R certification (US rating system) — see the film's page for parental details.",
+  "synopsis": "Released in 2026, Scary Movie is a comedy and horror film from United States. It has a 5.5 rating on TMDb. A standout of 2020s cinema, it earns its spot on our lists. It carries a R certification (US rating system) — see the film's page for parental details.",
   "synopsisAuto": true
 }
