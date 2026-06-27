@@ -4,6 +4,8 @@
  * Nav points to the dimension HUB/index pages (e.g. /genre lists every genre), which are
  * real destinations rather than arbitrary single lists.
  */
+import Logo from './Logo.astro';
+
 const nav = [
   { label: 'Genres', href: '/genre' },
   { label: 'Studios', href: '/studio' },
@@ -18,13 +20,7 @@ const nav = [
   class="sticky top-0 z-50 border-b border-ink-700/60 bg-ink-950/80 backdrop-blur-md"
 >
   <div class="container-page flex h-16 items-center justify-between gap-4">
-    <a href="/" class="flex items-center gap-2 font-bold tracking-tight">
-      <span
-        class="inline-flex h-7 w-7 items-center justify-center rounded-md bg-accent-500 text-sm font-black text-ink-950"
-        aria-hidden="true">★</span
-      >
-      <span class="text-lg text-fg">topmost<span class="text-accent-500">movies</span></span>
-    </a>
+    <Logo size="md" />
 
     <nav
       aria-label="Primary"

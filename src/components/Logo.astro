@@ -1,0 +1,39 @@
+---
+/**
+ * Logo.astro — the site wordmark. Single source of truth so header, footer (and anywhere
+ * else) stay consistent. A refined badge mark + "Topmost Movies" (capital T), premium
+ * two-tone treatment. Pass `size` to scale.
+ */
+export interface Props {
+  size?: 'sm' | 'md';
+  class?: string;
+}
+const { size = 'md', class: className = '' } = Astro.props;
+
+const mark = size === 'sm' ? 'h-7 w-7' : 'h-8 w-8';
+const text = size === 'sm' ? 'text-base' : 'text-xl';
+---
+
+<a
+  href="/"
+  class:list={['group flex items-center gap-2.5', className]}
+  aria-label="Topmost Movies — home"
+>
+  {/* Mark: rounded amber badge with a star, subtle depth. */}
+  <span
+    class:list={[
+      mark,
+      'relative inline-flex shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-accent-400 to-accent-600 shadow-sm ring-1 ring-accent-300/30 transition-transform duration-300 group-hover:scale-105',
+    ]}
+    aria-hidden="true"
+  >
+    <svg viewBox="0 0 24 24" class="h-1/2 w-1/2 text-ink-950" fill="currentColor" aria-hidden="true">
+      <path d="M12 2.5l2.59 5.78 6.16.62-4.6 4.2 1.27 6.06L12 16.1l-5.42 3.06 1.27-6.06-4.6-4.2 6.16-.62z" />
+    </svg>
+  </span>
+
+  {/* Wordmark: capital T, tight tracking, two-tone. */}
+  <span class:list={[text, 'font-extrabold leading-none tracking-tight text-fg']}>
+    Topmost<span class="text-accent-500">&nbsp;Movies</span>
+  </span>
+</a>

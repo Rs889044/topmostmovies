@@ -3,6 +3,8 @@
  * Footer.astro — dark site footer.
  * REQUIRED: TMDb attribution on every page (see docs/DATA-SOURCES.md). Do not remove.
  */
+import Logo from './Logo.astro';
+
 const year = new Date().getFullYear();
 ---
 
@@ -10,13 +12,7 @@ const year = new Date().getFullYear();
   <div class="container-page py-10">
     <div class="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
       <div>
-        <a href="/" class="flex items-center gap-2 font-bold tracking-tight">
-          <span
-            class="inline-flex h-6 w-6 items-center justify-center rounded bg-accent-500 text-xs font-black text-ink-950"
-            aria-hidden="true">★</span
-          >
-          <span class="text-fg">topmost<span class="text-accent-500">movies</span></span>
-        </a>
+        <Logo size="sm" />
         <p class="mt-2 max-w-xs text-sm text-fg-subtle">
           Curated Top 10 movie lists with honest ratings and parental info.
         </p>
