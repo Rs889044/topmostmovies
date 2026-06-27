@@ -113,11 +113,28 @@ Legend: 🔲 not started · 🟡 in progress · ✅ done · ⏸️ blocked/waiti
 
 > Nothing live until you set `PUBLIC_GA_ID` / `PUBLIC_ADSENSE_CLIENT` — see OPERATIONS.md.
 
-## Phase 7 — Performance & QA  🔲
+## Phase 7 — Performance & QA  ✅ (local; field data after deploy)
 
-- [ ] Image/CSS optimization pass
-- [ ] Run Lighthouse (Perf/A11y/SEO/Best-Practices); fix flagged issues (target 90+)
-- [ ] Cross-browser + real mobile testing
+Lighthouse (mobile, throttled) across home / hub / list / movie / static:
+
+| Category | Score |
+|----------|-------|
+| Performance | 98–100 |
+| Accessibility | 96–100 (96 = flaky near-threshold contrast; tokens meet AA) |
+| Best Practices | 100 |
+| SEO | 100 |
+| CLS | **0** everywhere · LCP ~1.2–2.4s |
+
+- [x] **Self-hosted Inter** (`@fontsource-variable/inter`, latin subset) + **woff2 preload**
+      → eliminated the font-swap layout shift (CLS 0.199 → 0 sitewide)
+- [x] Metric-adjusted fallback font; smaller hero backdrops (w1280→w780) + explicit
+      `width/height` + `fetchpriority=high` → LCP ~2s
+- [x] A11y: AA-contrast text tokens, **skip-to-content** link, fixed heading order
+      (sr-only `<h2>` before grids), all interactive focus-visible
+- [x] SEO hardening: branded **1200×630 OG image**, `og:locale`/`og:image:alt`,
+      `robots: max-image-preview:large, max-snippet:-1`, self-canonical everywhere
+- [x] `public/_headers`: immutable caching for hashed assets + security headers
+- [ ] Field CWV + real-device/cross-browser pass → after deploy (PageSpeed on live URL)
 
 ## Phase 8 — Deploy & go-live  🔲  → **full runbook in [OPERATIONS.md](OPERATIONS.md)**
 
@@ -185,6 +202,15 @@ Privacy/About/Contact, gated GA4 + AdSense loaders, AdSlot ad units, dynamic ads
 verification meta. Added **docs/OPERATIONS.md** — the go-live runbook covering domain
 purchase, Cloudflare Pages CI/CD, GA4, Search Console/Bing, PageSpeed, and AdSense revenue
 tracking, each marked 🔵 (user) / ⚙️ (me). 622 pages; check/build/validate-seo green.
+
+## Phase 7 (performance/SEO/a11y) + deploy prep  ✅ (2026-06-27)
+
+Lighthouse-driven pass: self-hosted Inter + font preload killed CLS (→0 sitewide); smaller
+hero backdrops + img dims dropped LCP to ~2s; AA contrast tokens, skip link, heading-order
+fix; OG image + richer meta. Scores 96–100 across all four categories on every page type.
+Added `public/_headers` (caching + security) and documented the preview-`noindex` transform
+rule in OPERATIONS.md. check/build/validate-seo green. Phase 8 (go-live) still pending your
+domain + accounts.
 
 ## Session log
 

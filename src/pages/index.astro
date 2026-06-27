@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import MovieRow from '../components/MovieRow.astro';
 import { website, organization } from '../lib/jsonld';
-import { allMovies } from '../lib/movies';
+import { allMovies, heroBackdrop } from '../lib/movies';
 import { buildList, enumerateLists } from '../lib/lists';
 import type { Dimension } from '../lib/taxonomy';
 
@@ -66,7 +66,7 @@ const seo = {
     {
       heroMovie?.backdropUrl && (
         <div class="absolute inset-0 -z-10" aria-hidden="true">
-          <img src={heroMovie.backdropUrl} alt="" class="h-full w-full object-cover object-top opacity-30" loading="eager" />
+          <img src={heroBackdrop(heroMovie.backdropUrl)} alt="" width="780" height="439" fetchpriority="high" class="h-full w-full object-cover object-top opacity-30" loading="eager" />
           <div class="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/85 to-ink-950/60" />
         </div>
       )

@@ -40,21 +40,34 @@ const jsonLdBlocks = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
 <title>{title}</title>
 <meta name="description" content={description} />
 <link rel="canonical" href={canonicalUrl} />
-{noindex && <meta name="robots" content="noindex, nofollow" />}
+{
+  noindex ? (
+    <meta name="robots" content="noindex, nofollow" />
+  ) : (
+    /* Allow full rich-result previews (image/snippet) for indexable pages. */
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+  )
+}
 
 {/* Open Graph */}
 <meta property="og:type" content={ogType} />
 <meta property="og:site_name" content={SITE_NAME} />
+<meta property="og:locale" content="en_US" />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:url" content={canonicalUrl} />
 <meta property="og:image" content={imageUrl} />
+<meta property="og:image:alt" content={title} />
 
 {/* Twitter */}
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={imageUrl} />
+<meta name="twitter:image:alt" content={title} />
 
 {/* JSON-LD structured data (builders live in src/lib/jsonld.ts) */}
 {

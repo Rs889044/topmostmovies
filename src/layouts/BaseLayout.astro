@@ -6,6 +6,9 @@
  * CookieConsent banner is mounted here in Phase 6.
  */
 import '../styles/global.css';
+// Resolve the hashed URL of the latin Inter woff2 so we can preload it (English needs only
+// this subset). Preloading prevents the font-swap layout shift on big hero text (CLS).
+import interLatin from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url';
 import Seo from '../components/Seo.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
@@ -29,15 +32,10 @@ const ADSENSE_CLIENT = import.meta.env.PUBLIC_ADSENSE_CLIENT;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#07090d" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    {/* Speed up first poster load (LCP). */}
+    {/* Speed up first poster load (LCP). Inter is self-hosted (bundled) — no font CDN. */}
     <link rel="preconnect" href="https://image.tmdb.org" crossorigin />
-    {/* Inter font, swap to avoid invisible text (WIG perf). */}
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-    />
+    {/* Preload the latin Inter subset so hero text renders in Inter immediately (no swap → no CLS). */}
+    <link rel="preload" href={interLatin} as="font" type="font/woff2" crossorigin />
     {/* AdSense site-verification meta (only when a publisher ID is configured). */}
     {ADSENSE_CLIENT && <meta name="google-adsense-account" content={ADSENSE_CLIENT} />}
     <Seo {...seo} />
@@ -47,8 +45,14 @@ const ADSENSE_CLIENT = import.meta.env.PUBLIC_ADSENSE_CLIENT;
     <AdSenseLoader />
   </head>
   <body class="flex min-h-screen flex-col bg-ink-950 text-fg antialiased">
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[200] focus:rounded-lg focus:bg-accent-500 focus:px-4 focus:py-2 focus:font-semibold focus:text-ink-950"
+    >
+      Skip to content
+    </a>
     <Header />
-    <main class="flex-1">
+    <main id="main" class="flex-1">
       <slot />
     </main>
     <Footer />

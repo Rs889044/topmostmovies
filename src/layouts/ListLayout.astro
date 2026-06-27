@@ -11,7 +11,7 @@ import Faq from '../components/Faq.astro';
 import AdSlot from '../components/AdSlot.astro';
 import RelatedLists from '../components/RelatedLists.astro';
 import type { RankedList } from '../lib/lists';
-import { allMovies } from '../lib/movies';
+import { allMovies, heroBackdrop } from '../lib/movies';
 import { isMember, relatedLists } from '../lib/lists';
 import { breadcrumbList, itemList, faqPage, type Crumb } from '../lib/jsonld';
 import type { Dimension } from '../lib/taxonomy';
@@ -70,20 +70,23 @@ const seo = {
   jsonLd,
 };
 
-const heroBackdrop = list.movies.find((m) => m.backdropUrl)?.backdropUrl;
+const heroImg = heroBackdrop(list.movies.find((m) => m.backdropUrl)?.backdropUrl);
 ---
 
 <BaseLayout seo={seo}>
   {/* Cinematic hero */}
   <section class="relative isolate overflow-hidden border-b border-ink-700/60">
     {
-      heroBackdrop && (
+      heroImg && (
         <div class="absolute inset-0 -z-10" aria-hidden="true">
           <img
-            src={heroBackdrop}
+            src={heroImg}
             alt=""
+            width="780"
+            height="439"
             class="h-full w-full object-cover object-top opacity-30"
             loading="eager"
+            fetchpriority="high"
           />
           <div class="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/80 to-ink-950/40" />
         </div>
@@ -109,6 +112,9 @@ const heroBackdrop = list.movies.find((m) => m.backdropUrl)?.backdropUrl;
 
   <div class="container-page py-8">
     <AdSlot slot="list-top" class="mb-8" />
+
+    {/* Visually-hidden heading keeps a logical h1 → h2 → h3 order for the ranked grid. */}
+    <h2 class="sr-only">Ranked movies</h2>
 
     {
       list.movies.length === 0 ? (

@@ -19,3 +19,16 @@ export async function movieBySlug(): Promise<Map<string, MovieData>> {
   const movies = await allMovies();
   return new Map(movies.map((m) => [m.slug, m]));
 }
+
+/**
+ * Smaller TMDb backdrop for decorative hero images (they sit at low opacity behind text, so
+ * a lighter file improves LCP without visible quality loss). Swaps the `/w1280/` size
+ * segment for a smaller one; safe no-op for non-TMDb URLs.
+ */
+export function heroBackdrop(
+  url: string | undefined,
+  size: 'w780' | 'w300' = 'w780',
+): string | undefined {
+  if (!url) return undefined;
+  return url.replace(/\/t\/p\/w\d+\//, `/t/p/${size}/`);
+}

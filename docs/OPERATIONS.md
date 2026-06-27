@@ -64,8 +64,11 @@ The repo is already on GitHub (`github.com/Rs889044/topmostmovies`). To get auto
    - `PUBLIC_CONTACT_EMAIL = ...`
    - Later: `PUBLIC_GA_ID`, `PUBLIC_ADSENSE_CLIENT` (see below).
 4. Every push to `master` now auto-builds and deploys. Preview URL: `*.pages.dev`.
-5. ⚙️ I'll add a `public/_headers` rule to `noindex` the `*.pages.dev` preview so only the
-   `.com` is indexed (avoids duplicate-content). *(Done in Phase 8 task.)*
+5. **Preview `noindex`** (avoid duplicate content with the `.com`). `public/_headers` ships
+   caching + security headers, but a static file can't target only the preview host. So in
+   **Cloudflare → your Pages project → (Domains/Rules) → Transform Rules → Modify Response
+   Header**, add a rule: *If* `Hostname ends with .pages.dev` *then set* `X-Robots-Tag` =
+   `noindex`. 🔵 (one-time, 2 min). This keeps Google indexing only `topmostmovies.com`.
 
 ---
 

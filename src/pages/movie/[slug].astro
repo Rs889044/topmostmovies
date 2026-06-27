@@ -3,7 +3,7 @@ import { Image } from 'astro:assets';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import AdSlot from '../../components/AdSlot.astro';
-import { allMovies } from '../../lib/movies';
+import { allMovies, heroBackdrop } from '../../lib/movies';
 import { featuredIn } from '../../lib/lists';
 import { breadcrumbList, movie as movieJsonLd, type Crumb } from '../../lib/jsonld';
 import { nameForSlug } from '../../lib/taxonomy';
@@ -64,8 +64,11 @@ const seo = {
       movie.backdropUrl && (
         <div class="absolute inset-0 -z-10" aria-hidden="true">
           <img
-            src={movie.backdropUrl}
+            src={heroBackdrop(movie.backdropUrl)}
             alt=""
+            width="780"
+            height="439"
+            fetchpriority="high"
             class="h-full w-full object-cover object-top opacity-25"
             loading="eager"
           />
