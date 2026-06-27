@@ -19,6 +19,10 @@
     "drama",
     "romance"
   ],
+  "studios": [
+    "focus-features"
+  ],
+  "themes": [],
   "posterUrl": "https://image.tmdb.org/t/p/w500/o8UhmEbWPHmTUxP0lMuCoqNkbB3.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/1Onam6oWyFAUCcoxtdWkACtEiNr.jpg",
   "posterAlt": "Pride & Prejudice (2005) movie poster",

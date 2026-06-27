@@ -17,6 +17,10 @@
     "family",
     "fantasy"
   ],
+  "studios": [
+    "studio-ghibli"
+  ],
+  "themes": [],
   "posterUrl": "https://image.tmdb.org/t/p/w500/39wmItIWsg5sZMyRUHLkWBcuVCM.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/dyJvKsNs2KP8qQnAXbRwDjblViy.jpg",
   "posterAlt": "Spirited Away (2001) movie poster",

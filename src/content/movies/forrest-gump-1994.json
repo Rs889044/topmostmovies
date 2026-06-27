@@ -18,6 +18,12 @@
     "drama",
     "romance"
   ],
+  "studios": [
+    "paramount"
+  ],
+  "themes": [
+    "feel-good"
+  ],
   "posterUrl": "https://image.tmdb.org/t/p/w500/Cw4hIUIAmSYfK9QfaUW5igp9La.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/66Kn4XWhkuPkJxOJyPEx4U2CUfN.jpg",
   "posterAlt": "Forrest Gump (1994) movie poster",

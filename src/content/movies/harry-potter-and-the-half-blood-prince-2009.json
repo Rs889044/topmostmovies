@@ -18,6 +18,12 @@
     "adventure",
     "fantasy"
   ],
+  "studios": [
+    "warner-bros"
+  ],
+  "themes": [
+    "teen"
+  ],
   "posterUrl": "https://image.tmdb.org/t/p/w500/z7uo9zmQdQwU5ZJHFpv2Upl30i1.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/urDWNffjwmNi5IQaezw9GwqkUXa.jpg",
   "posterAlt": "Harry Potter and the Half-Blood Prince (2009) movie poster",

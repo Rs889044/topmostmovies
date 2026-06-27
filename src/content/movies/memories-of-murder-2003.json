@@ -18,6 +18,10 @@
     "thriller",
     "k-drama"
   ],
+  "studios": [],
+  "themes": [
+    "true-story"
+  ],
   "posterUrl": "https://image.tmdb.org/t/p/w500/jcgUjx1QcupGzjntTVlnQ15lHqy.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/6Kn6qW3an3DkPl3MahWemTzrjCt.jpg",
   "posterAlt": "Memories of Murder (2003) movie poster",

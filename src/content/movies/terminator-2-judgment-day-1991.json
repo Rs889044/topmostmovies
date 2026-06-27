@@ -19,6 +19,12 @@
     "thriller",
     "science-fiction"
   ],
+  "studios": [],
+  "themes": [
+    "dystopian",
+    "time-travel",
+    "teen"
+  ],
   "posterUrl": "https://image.tmdb.org/t/p/w500/jFTVD4XoWQTcg7wdyJKa8PEds5q.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/izkMjmhauFx9DjoBQqM5sM5WAwE.jpg",
   "posterAlt": "Terminator 2: Judgment Day (1991) movie poster",

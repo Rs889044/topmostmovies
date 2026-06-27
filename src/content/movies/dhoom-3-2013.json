@@ -18,6 +18,10 @@
     "action",
     "crime"
   ],
+  "studios": [],
+  "themes": [
+    "heist"
+  ],
   "posterUrl": "https://image.tmdb.org/t/p/w500/rUVTM5EQUQ2I0fcfE46AkvBYWae.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/m715Fj5VVCXfwzqbCZFhmJBH8S9.jpg",
   "posterAlt": "Dhoom 3 (2013) movie poster",

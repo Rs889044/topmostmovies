@@ -17,6 +17,10 @@
     "fantasy",
     "family"
   ],
+  "studios": [
+    "studio-ghibli"
+  ],
+  "themes": [],
   "posterUrl": "https://image.tmdb.org/t/p/w500/yp8vEZflGynlEylxEesbYasc06i.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/shqLeIkqPAAXM8iT6wVDiXUYz1p.jpg",
   "posterAlt": "Ponyo (2008) movie poster",

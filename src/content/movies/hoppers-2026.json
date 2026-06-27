@@ -20,6 +20,10 @@
     "family",
     "science-fiction"
   ],
+  "studios": [
+    "pixar"
+  ],
+  "themes": [],
   "posterUrl": "https://image.tmdb.org/t/p/w500/xjtWQ2CL1mpmMNwuU5HeS4Iuwuu.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/u53UYu5XG2hNgWGvs3xGhAVzypl.jpg",
   "posterAlt": "Hoppers (2026) movie poster",

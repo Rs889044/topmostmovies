@@ -19,6 +19,10 @@
     "drama",
     "science-fiction"
   ],
+  "studios": [],
+  "themes": [
+    "time-travel"
+  ],
   "posterUrl": "https://image.tmdb.org/t/p/w500/2O2tOyS4kvO9GtFPHpWmbXvfRQv.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/4ZZiOP4Imzv6ULF9QczvfQ1VdEO.jpg",
   "posterAlt": "Scarlet (2025) movie poster",

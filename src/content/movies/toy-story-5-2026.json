@@ -19,6 +19,10 @@
     "comedy",
     "adventure"
   ],
+  "studios": [
+    "pixar"
+  ],
+  "themes": [],
   "posterUrl": "https://image.tmdb.org/t/p/w500/a6H2U7pjibMia41TwyFVd1PVQw3.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/qjTqY5coNiz6sVtPng40IzltsoN.jpg",
   "posterAlt": "Toy Story 5 (2026) movie poster",

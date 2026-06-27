@@ -18,6 +18,13 @@
     "adventure",
     "fantasy"
   ],
+  "studios": [
+    "warner-bros"
+  ],
+  "themes": [
+    "time-travel",
+    "teen"
+  ],
   "posterUrl": "https://image.tmdb.org/t/p/w500/aWxwnYoe8p2d2fcxOqtvAtJ72Rw.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/htmYEfH7TQgzsXHCnNXxmoYKQtL.jpg",
   "posterAlt": "Harry Potter and the Prisoner of Azkaban (2004) movie poster",

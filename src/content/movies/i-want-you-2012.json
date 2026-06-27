@@ -16,6 +16,10 @@
     "drama",
     "romance"
   ],
+  "studios": [
+    "warner-bros"
+  ],
+  "themes": [],
   "posterUrl": "https://image.tmdb.org/t/p/w500/m7JUNQu5zRsmFeUWZrGoV0fTp0B.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/e74H6yfw9qh8uEJP3yVUfWlMvxe.jpg",
   "posterAlt": "I Want You (2012) movie poster",

@@ -16,6 +16,10 @@
     "romance",
     "drama"
   ],
+  "studios": [
+    "warner-bros"
+  ],
+  "themes": [],
   "posterUrl": "https://image.tmdb.org/t/p/w500/yZXYCiZQPB7Ui6D5206W1zDKv8P.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/kHJlXiwxcMAf9R934f0ncEBAMXg.jpg",
   "posterAlt": "Tell Me What You Want (2024) movie poster",

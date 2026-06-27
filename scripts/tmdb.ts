@@ -62,6 +62,7 @@ export interface TmdbMovieDetail {
   genres: { id: number; name: string }[];
   origin_country?: string[];
   production_countries: { iso_3166_1: string; name: string }[];
+  production_companies?: { id: number; name: string }[];
   spoken_languages: { iso_639_1: string }[];
   imdb_id?: string | null;
 }
@@ -126,6 +127,16 @@ export async function findMovieId(title: string, year?: number): Promise<number 
     `search "${title}"`,
   );
   return res.results[0]?.id;
+}
+
+/** Keyword names for a movie (used to derive audience/subject themes). */
+export async function getKeywords(id: number): Promise<string[]> {
+  const res = await get<{ keywords?: { id: number; name: string }[] }>(
+    `/movie/${id}/keywords`,
+    {},
+    `keywords ${id}`,
+  );
+  return (res.keywords ?? []).map((k) => k.name);
 }
 
 /** Full movie detail, with external_ids appended (for imdb_id). */

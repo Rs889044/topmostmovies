@@ -16,6 +16,10 @@
     "drama",
     "war"
   ],
+  "studios": [],
+  "themes": [
+    "true-story"
+  ],
   "posterUrl": "https://image.tmdb.org/t/p/w500/2hFvxCCWrTmCYwfy7yum0GKRi3Y.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/c0fB9xk7D1aVb3Bg2rk2SVJcGn.jpg",
   "posterAlt": "The Pianist (2002) movie poster",

@@ -16,6 +16,10 @@
     "drama",
     "k-drama"
   ],
+  "studios": [],
+  "themes": [
+    "true-story"
+  ],
   "posterUrl": "https://image.tmdb.org/t/p/w500/mbMp0oIFmYnw0i5gzRoKt8cH5ve.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/e5MvOQIIouSgQcBHCMNA6Rsbwnd.jpg",
   "posterAlt": "Silenced (2011) movie poster",

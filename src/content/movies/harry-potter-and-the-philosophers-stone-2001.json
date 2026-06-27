@@ -18,6 +18,12 @@
     "adventure",
     "fantasy"
   ],
+  "studios": [
+    "warner-bros"
+  ],
+  "themes": [
+    "teen"
+  ],
   "posterUrl": "https://image.tmdb.org/t/p/w500/wuMc08IPKEatf9rnMNXvIDxqP4W.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/1XAC6RPT01UX9EQGy2JVn5c8pgy.jpg",
   "posterAlt": "Harry Potter and the Philosopher's Stone (2001) movie poster",

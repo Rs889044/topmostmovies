@@ -18,6 +18,10 @@
     "thriller",
     "science-fiction"
   ],
+  "studios": [
+    "warner-bros"
+  ],
+  "themes": [],
   "posterUrl": "https://image.tmdb.org/t/p/w500/9YTuscJXmr9Iua62amCgGSU8PDW.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/iryef4LKiPQkvhNJS1EtLlay3br.jpg",
   "posterAlt": "The Witch: Part 2. The Other One (2022) movie poster",

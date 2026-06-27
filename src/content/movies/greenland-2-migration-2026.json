@@ -19,6 +19,10 @@
     "thriller",
     "science-fiction"
   ],
+  "studios": [
+    "lionsgate"
+  ],
+  "themes": [],
   "posterUrl": "https://image.tmdb.org/t/p/w500/z2tqCJLsw6uEJ8nJV8BsQXGa3dr.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/cLFbDVfhllIMybpo2fkGNzehiQG.jpg",
   "posterAlt": "Greenland 2: Migration (2026) movie poster",

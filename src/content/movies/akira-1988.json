@@ -17,6 +17,10 @@
     "science-fiction",
     "action"
   ],
+  "studios": [],
+  "themes": [
+    "dystopian"
+  ],
   "posterUrl": "https://image.tmdb.org/t/p/w500/neZ0ykEsPqxamsX6o5QNUFILQrz.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/fK40VGYIm7hmKrLJ26fgPQU0qRG.jpg",
   "posterAlt": "Akira (1988) movie poster",

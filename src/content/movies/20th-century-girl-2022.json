@@ -17,6 +17,10 @@
     "drama",
     "k-drama"
   ],
+  "studios": [],
+  "themes": [
+    "coming-of-age"
+  ],
   "posterUrl": "https://image.tmdb.org/t/p/w500/od22ftNnyag0TTxcnJhlsu3aLoU.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/37y53Jt8K6MvN6s4zJVFa61luO2.jpg",
   "posterAlt": "20th Century Girl (2022) movie poster",

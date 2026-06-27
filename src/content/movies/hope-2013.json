@@ -16,6 +16,10 @@
     "drama",
     "k-drama"
   ],
+  "studios": [],
+  "themes": [
+    "true-story"
+  ],
   "posterUrl": "https://image.tmdb.org/t/p/w500/x9yjkm9gIz5qI5fJMUTfBnWiB2o.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/4Nx40jwpoTHPjCWNGoaZ6kaoGxa.jpg",
   "posterAlt": "Hope (2013) movie poster",

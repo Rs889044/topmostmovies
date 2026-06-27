@@ -18,6 +18,10 @@
     "music",
     "romance"
   ],
+  "studios": [],
+  "themes": [
+    "teen"
+  ],
   "posterUrl": "https://image.tmdb.org/t/p/w500/pegCub2zdYD5As43AOmGsIctuKc.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/9Xz0bzUFTVgDZd4WZz1cJDQjLkB.jpg",
   "posterAlt": "Given (2020) movie poster",

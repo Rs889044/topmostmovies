@@ -16,6 +16,10 @@
   "genres": [
     "drama"
   ],
+  "studios": [],
+  "themes": [
+    "true-story"
+  ],
   "posterUrl": "https://image.tmdb.org/t/p/w500/mQW1JJKCUg02cmWBzr9JFu9vM1V.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/7XmDhCTkce5GH8KCdbMoTZdxn1p.jpg",
   "posterAlt": "The Sea Inside (2004) movie poster",

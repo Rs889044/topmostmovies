@@ -18,6 +18,10 @@
     "fantasy",
     "science-fiction"
   ],
+  "studios": [],
+  "themes": [
+    "superhero"
+  ],
   "posterUrl": "https://image.tmdb.org/t/p/w500/3YMd9Ogae4rDKLWuAZFuse9xhc5.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/piV2OnzTZCyGBP9JCjlHIgKGlfo.jpg",
   "posterAlt": "Masters of the Universe (2026) movie poster",

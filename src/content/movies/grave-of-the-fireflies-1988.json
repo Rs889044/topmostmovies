@@ -17,6 +17,12 @@
     "drama",
     "war"
   ],
+  "studios": [
+    "studio-ghibli"
+  ],
+  "themes": [
+    "true-story"
+  ],
   "posterUrl": "https://image.tmdb.org/t/p/w500/k9tv1rXZbOhH7eiCk378x61kNQ1.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/aHaqZpOL7UyVu0nKqp3SMz0o2E1.jpg",
   "posterAlt": "Grave of the Fireflies (1988) movie poster",

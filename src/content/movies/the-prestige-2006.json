@@ -19,6 +19,10 @@
     "mystery",
     "science-fiction"
   ],
+  "studios": [
+    "warner-bros"
+  ],
+  "themes": [],
   "posterUrl": "https://image.tmdb.org/t/p/w500/Ag2B2KHKQPukjH7WutmgnnSNurZ.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/z3br1ub7spqGMkxgjgJSdM4DC21.jpg",
   "posterAlt": "The Prestige (2006) movie poster",

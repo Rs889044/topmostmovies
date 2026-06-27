@@ -17,6 +17,10 @@
     "drama",
     "crime"
   ],
+  "studios": [
+    "paramount"
+  ],
+  "themes": [],
   "posterUrl": "https://image.tmdb.org/t/p/w500/hek3koDUyRQk7FIhPXsa6mT2Zc3.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/kGzFbGhp99zva6oZODW5atUtnqi.jpg",
   "posterAlt": "The Godfather Part II (1974) movie poster",

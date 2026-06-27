@@ -19,6 +19,10 @@
     "action",
     "fantasy"
   ],
+  "studios": [
+    "disney"
+  ],
+  "themes": [],
   "posterUrl": "https://image.tmdb.org/t/p/w500/keGfSvCmYj7CvdRx36OdVrAEibE.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/uzIGtyS6bbnJzGsPL93WCF1FWm8.jpg",
   "posterAlt": "Pirates of the Caribbean: On Stranger Tides (2011) movie poster",

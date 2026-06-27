@@ -17,6 +17,10 @@
     "drama",
     "romance"
   ],
+  "studios": [],
+  "themes": [
+    "true-story"
+  ],
   "posterUrl": "https://image.tmdb.org/t/p/w500/AiFQbgjgSXWPfbi9iIYT39iXWMW.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/g3L6tOvJIRWSkxnhmoEW1SKEvW3.jpg",
   "posterAlt": "In the Realm of the Senses (1976) movie poster",

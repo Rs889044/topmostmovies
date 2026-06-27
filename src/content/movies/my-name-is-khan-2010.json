@@ -18,6 +18,10 @@
     "drama",
     "romance"
   ],
+  "studios": [],
+  "themes": [
+    "true-story"
+  ],
   "posterUrl": "https://image.tmdb.org/t/p/w500/5Y36lCiNyyV71mjq6LavgiggbhT.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/zGCnIADWwpjGllYv8DgT8HIuIQl.jpg",
   "posterAlt": "My Name Is Khan (2010) movie poster",

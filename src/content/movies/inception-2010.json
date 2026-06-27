@@ -19,6 +19,12 @@
     "science-fiction",
     "adventure"
   ],
+  "studios": [
+    "warner-bros"
+  ],
+  "themes": [
+    "heist"
+  ],
   "posterUrl": "https://image.tmdb.org/t/p/w500/xlaY2zyzMfkhk0HSC5VUwzoZPU1.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/8ZTVqvKDQ8emSGUEMjsS4yHAwrp.jpg",
   "posterAlt": "Inception (2010) movie poster",

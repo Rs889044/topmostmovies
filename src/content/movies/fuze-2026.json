@@ -17,6 +17,10 @@
     "drama",
     "thriller"
   ],
+  "studios": [],
+  "themes": [
+    "heist"
+  ],
   "posterUrl": "https://image.tmdb.org/t/p/w500/oMFdQE5hMJ9JjhNORegwTo0GKmh.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/8wIaBCeGv3UhIn5CJOWQGHT1Cif.jpg",
   "posterAlt": "Fuze (2026) movie poster",

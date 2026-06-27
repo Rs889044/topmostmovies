@@ -8,7 +8,15 @@
  * import from here so the two never drift.
  */
 
-export type Dimension = 'industry' | 'country' | 'language' | 'genre' | 'year' | 'decade';
+export type Dimension =
+  | 'industry'
+  | 'country'
+  | 'language'
+  | 'genre'
+  | 'year'
+  | 'decade'
+  | 'studio'
+  | 'theme';
 
 export interface TaxonomyEntry {
   slug: string;
@@ -78,6 +86,91 @@ export const CUSTOM_GENRES: Record<string, TaxonomyEntry> = {
 
 /* ------------------------------------------------------------------- helpers ------- */
 
+/* ---------------------------------------------------- studios (production) --------- */
+// Well-known, searchable studios. A film's studio is a PERMANENT property (unlike streaming
+// availability), so these lists never go stale. Matched against TMDb production_companies
+// by name pattern (TMDb has many company-name variants per studio).
+export const STUDIOS: Record<string, TaxonomyEntry> = {
+  pixar: { slug: 'pixar', name: 'Pixar' },
+  'studio-ghibli': { slug: 'studio-ghibli', name: 'Studio Ghibli' },
+  'marvel-studios': { slug: 'marvel-studios', name: 'Marvel Studios' },
+  dreamworks: { slug: 'dreamworks', name: 'DreamWorks' },
+  a24: { slug: 'a24', name: 'A24' },
+  disney: { slug: 'disney', name: 'Walt Disney' },
+  'warner-bros': { slug: 'warner-bros', name: 'Warner Bros.' },
+  universal: { slug: 'universal', name: 'Universal Pictures' },
+  paramount: { slug: 'paramount', name: 'Paramount' },
+  columbia: { slug: 'columbia', name: 'Columbia Pictures' },
+  lionsgate: { slug: 'lionsgate', name: 'Lionsgate' },
+  'new-line': { slug: 'new-line', name: 'New Line Cinema' },
+  'focus-features': { slug: 'focus-features', name: 'Focus Features' },
+};
+
+// name-pattern → studio slug. Order matters: more specific first.
+const STUDIO_PATTERNS: { re: RegExp; slug: string }[] = [
+  { re: /\bpixar\b/i, slug: 'pixar' },
+  { re: /studio ghibli/i, slug: 'studio-ghibli' },
+  { re: /marvel studios/i, slug: 'marvel-studios' },
+  { re: /dreamworks/i, slug: 'dreamworks' },
+  { re: /\bA24\b/, slug: 'a24' },
+  { re: /walt disney (pictures|animation|productions)/i, slug: 'disney' },
+  { re: /new line cinema/i, slug: 'new-line' },
+  { re: /warner bros/i, slug: 'warner-bros' },
+  { re: /universal pictures/i, slug: 'universal' },
+  { re: /paramount pictures/i, slug: 'paramount' },
+  { re: /columbia pictures/i, slug: 'columbia' },
+  { re: /lions ?gate/i, slug: 'lionsgate' },
+  { re: /focus features/i, slug: 'focus-features' },
+];
+
+/** Map a movie's TMDb production-company names to our studio slugs. */
+export function studioSlugsFor(companyNames: string[]): string[] {
+  const out = new Set<string>();
+  for (const name of companyNames) {
+    for (const { re, slug } of STUDIO_PATTERNS) {
+      if (re.test(name)) out.add(slug);
+    }
+  }
+  return [...out];
+}
+
+/* ---------------------------------------------------- themes (audience/subject) ---- */
+// Evergreen audience/subject themes from TMDb keywords. Safe, high-demand search intents
+// ("best coming-of-age movies", "movies based on a true story"). NOTE: no "adult" theme —
+// AdSense risk. Matched against TMDb keyword names by pattern.
+export const THEMES: Record<string, TaxonomyEntry> = {
+  'coming-of-age': { slug: 'coming-of-age', name: 'Coming-of-Age' },
+  teen: { slug: 'teen', name: 'Teen' },
+  'true-story': { slug: 'true-story', name: 'Based on a True Story' },
+  'feel-good': { slug: 'feel-good', name: 'Feel-Good' },
+  dystopian: { slug: 'dystopian', name: 'Dystopian' },
+  heist: { slug: 'heist', name: 'Heist' },
+  'time-travel': { slug: 'time-travel', name: 'Time Travel' },
+  superhero: { slug: 'superhero', name: 'Superhero' },
+};
+
+const THEME_PATTERNS: { re: RegExp; slug: string }[] = [
+  { re: /coming.of.age/i, slug: 'coming-of-age' },
+  { re: /\b(high school|teenager|teen)\b/i, slug: 'teen' },
+  { re: /based on (a )?true (story|event)|biography|biographical/i, slug: 'true-story' },
+  { re: /feel.good/i, slug: 'feel-good' },
+  { re: /dystopia/i, slug: 'dystopian' },
+  { re: /\bheist\b/i, slug: 'heist' },
+  { re: /time travel/i, slug: 'time-travel' },
+  { re: /superhero/i, slug: 'superhero' },
+];
+
+/** Map a movie's TMDb keyword names to our theme slugs. */
+export function themeSlugsFor(keywordNames: string[]): string[] {
+  const out = new Set<string>();
+  for (const name of keywordNames) {
+    for (const { re, slug } of THEME_PATTERNS) {
+      if (re.test(name)) out.add(slug);
+    }
+  }
+  return [...out];
+}
+
 export function countryEntry(isoCode: string): TaxonomyEntry | undefined {
   return COUNTRIES[isoCode];
 }
@@ -97,6 +190,8 @@ export function nameForSlug(dimension: Dimension, slug: string): string | undefi
     country: Object.values(COUNTRIES),
     language: Object.values(LANGUAGES),
     genre: [...Object.values(GENRES), ...Object.values(CUSTOM_GENRES)],
+    studio: Object.values(STUDIOS),
+    theme: Object.values(THEMES),
   };
   if (dimension === 'year') return slug;
   if (dimension === 'decade') return slug;

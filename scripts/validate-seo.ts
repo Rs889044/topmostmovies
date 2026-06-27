@@ -106,10 +106,10 @@ async function main() {
     } else if (page.startsWith('/movie/')) {
       if (!t.includes('Movie')) warn(page, 'movie page missing Movie JSON-LD');
       if (!t.includes('BreadcrumbList')) warn(page, 'movie page missing BreadcrumbList');
-    } else if (/^\/(industry|country|language|genre|year|decade)\/.+/.test(page) || /^\/best\/.+/.test(page)) {
+    } else if (/^\/(industry|country|language|genre|studio|theme|year|decade)\/.+/.test(page) || /^\/best\/.+/.test(page)) {
       if (!t.includes('ItemList')) warn(page, 'list page missing ItemList JSON-LD');
       if (!t.includes('BreadcrumbList')) warn(page, 'list page missing BreadcrumbList');
-    } else if (/^\/(industry|country|language|genre|year|decade)$/.test(page)) {
+    } else if (/^\/(industry|country|language|genre|studio|theme|year|decade)$/.test(page)) {
       // Dimension hub/index pages.
       if (!t.includes('CollectionPage')) warn(page, 'hub page missing CollectionPage JSON-LD');
       if (!t.includes('BreadcrumbList')) warn(page, 'hub page missing BreadcrumbList');

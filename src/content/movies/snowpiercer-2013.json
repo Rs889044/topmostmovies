@@ -18,6 +18,10 @@
     "drama",
     "k-drama"
   ],
+  "studios": [],
+  "themes": [
+    "dystopian"
+  ],
   "posterUrl": "https://image.tmdb.org/t/p/w500/kw6YQudA0TMcNmGUGy5XIw7zbnV.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/tBIRtMCELcA5PxO7z7OiuCHJdFO.jpg",
   "posterAlt": "Snowpiercer (2013) movie poster",

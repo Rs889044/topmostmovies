@@ -19,6 +19,10 @@
     "drama",
     "history"
   ],
+  "studios": [],
+  "themes": [
+    "true-story"
+  ],
   "posterUrl": "https://image.tmdb.org/t/p/w500/wHPEKlzg7CaJFCjWlMdZKpCRIDl.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/zUioX7v6GBZm2TKySkpxitQuPtx.jpg",
   "posterAlt": "Gangubai Kathiawadi (2022) movie poster",

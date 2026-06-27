@@ -18,6 +18,10 @@
     "drama",
     "crime"
   ],
+  "studios": [
+    "marvel-studios"
+  ],
+  "themes": [],
   "posterUrl": "https://image.tmdb.org/t/p/w500/qQclTgLMDvGBuUBFGHRipxkEwWR.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/qO55CD8tgVL1T4WKn6zYFFiD6lL.jpg",
   "posterAlt": "The Punisher: One Last Kill (2026) movie poster",

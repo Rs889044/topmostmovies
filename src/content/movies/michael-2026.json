@@ -17,6 +17,12 @@
     "music",
     "drama"
   ],
+  "studios": [
+    "lionsgate"
+  ],
+  "themes": [
+    "true-story"
+  ],
   "posterUrl": "https://image.tmdb.org/t/p/w500/zm0KAbOjlt9eR5y7vDiL2dEOwMl.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/ufSwlnECLoUbBjPrFqEQcWBzHwc.jpg",
   "posterAlt": "Michael (2026) movie poster",

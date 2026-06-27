@@ -17,6 +17,12 @@
     "drama",
     "crime"
   ],
+  "studios": [
+    "warner-bros"
+  ],
+  "themes": [
+    "true-story"
+  ],
   "posterUrl": "https://image.tmdb.org/t/p/w500/9OkCLM73MIU2CrKZbqiT8Ln1wY2.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/gILte6Zd7m1YneIr6MVhh30S9pr.jpg",
   "posterAlt": "GoodFellas (1990) movie poster",

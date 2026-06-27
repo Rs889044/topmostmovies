@@ -16,6 +16,10 @@
     "thriller",
     "action"
   ],
+  "studios": [],
+  "themes": [
+    "dystopian"
+  ],
   "posterUrl": "https://image.tmdb.org/t/p/w500/4l68KHxnPSow8MvnGUpjqLzJtLJ.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/57Nn5HRpMiDY2ODKSI4VAOiuyJg.jpg",
   "posterAlt": "Concrete Utopia (2023) movie poster",

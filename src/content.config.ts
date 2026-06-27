@@ -25,6 +25,8 @@ export const movieSchema = z.object({
   countries: z.array(z.string()).default([]),
   languages: z.array(z.string()).default([]),
   genres: z.array(z.string()).default([]),
+  studios: z.array(z.string()).default([]), // production studios (Pixar, Ghibli…) — permanent
+  themes: z.array(z.string()).default([]), // audience/subject themes (coming-of-age, true-story…)
 
   // Media
   posterUrl: z.url().optional(),

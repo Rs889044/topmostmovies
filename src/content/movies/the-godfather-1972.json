@@ -17,6 +17,10 @@
     "drama",
     "crime"
   ],
+  "studios": [
+    "paramount"
+  ],
+  "themes": [],
   "posterUrl": "https://image.tmdb.org/t/p/w500/3bhkrj58Vtu7enYsRolD1fZdja1.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/ejdD20cdHNFAYAN2DlqPToXKyzx.jpg",
   "posterAlt": "The Godfather (1972) movie poster",

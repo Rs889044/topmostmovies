@@ -14,6 +14,10 @@
     "comedy",
     "romance"
   ],
+  "studios": [],
+  "themes": [
+    "teen"
+  ],
   "posterUrl": "https://image.tmdb.org/t/p/w500/yDwDiovi6qLcluB4EI3bJp1zOwa.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/h23pHmUwv7JEpDGwHr5ogR8bpQX.jpg",
   "posterAlt": "Misfit (2021) movie poster",

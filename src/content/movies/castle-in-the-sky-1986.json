@@ -19,6 +19,10 @@
     "action",
     "family"
   ],
+  "studios": [
+    "studio-ghibli"
+  ],
+  "themes": [],
   "posterUrl": "https://image.tmdb.org/t/p/w500/41XxSsJc5OrulP0m7TrrUeO2hoz.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/z6OZ2Q4FYELeGoBj9tVDWCvevkj.jpg",
   "posterAlt": "Castle in the Sky (1986) movie poster",

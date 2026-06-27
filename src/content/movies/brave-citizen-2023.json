@@ -18,6 +18,10 @@
     "comedy",
     "k-drama"
   ],
+  "studios": [],
+  "themes": [
+    "superhero"
+  ],
   "posterUrl": "https://image.tmdb.org/t/p/w500/ixQoOExnnvIxYvnqGgfhaWqXeXc.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/fJRrRn60YzI1hVt4X1BIo6hsM0g.jpg",
   "posterAlt": "Brave Citizen (2023) movie poster",

@@ -16,6 +16,10 @@
     "fantasy",
     "science-fiction"
   ],
+  "studios": [],
+  "themes": [
+    "dystopian"
+  ],
   "posterUrl": "https://image.tmdb.org/t/p/w500/rstcAnBeCkxNQjNp3YXrF6IP1tW.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/o8XSR1SONnjcsv84NRu6Mwsl5io.jpg",
   "posterAlt": "Kalki 2898-AD (2024) movie poster",

@@ -17,6 +17,10 @@
     "action",
     "adventure"
   ],
+  "studios": [],
+  "themes": [
+    "dystopian"
+  ],
   "posterUrl": "https://image.tmdb.org/t/p/w500/fPtlCO1yQtnoLHOwKtWz7db6RGU.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/jW21PoKwqs79wk6bfiYezox63mK.jpg",
   "posterAlt": "The Fifth Element (1997) movie poster",

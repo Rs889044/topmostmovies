@@ -17,6 +17,10 @@
     "animation",
     "adventure"
   ],
+  "studios": [
+    "studio-ghibli"
+  ],
+  "themes": [],
   "posterUrl": "https://image.tmdb.org/t/p/w500/13kOl2v0nD2OLbVSHnHk8GUFEhO.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/nv5wwZou159v5OC61i4ElR7OqyY.jpg",
   "posterAlt": "Howl's Moving Castle (2004) movie poster",

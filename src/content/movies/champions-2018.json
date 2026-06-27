@@ -17,6 +17,10 @@
     "family",
     "drama"
   ],
+  "studios": [
+    "universal"
+  ],
+  "themes": [],
   "posterUrl": "https://image.tmdb.org/t/p/w500/m5z4Ud6Ya5EY3Eg3OBbVBaDKWK.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/8s231Ufkl9jF2JVnoZtQUxPXsSl.jpg",
   "posterAlt": "Champions (2018) movie poster",

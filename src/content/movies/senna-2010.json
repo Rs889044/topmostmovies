@@ -18,6 +18,12 @@
   "genres": [
     "documentary"
   ],
+  "studios": [
+    "universal"
+  ],
+  "themes": [
+    "true-story"
+  ],
   "posterUrl": "https://image.tmdb.org/t/p/w500/nZbLCbRoP6iJq5sr8daHQzjnzFh.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/sS3jaC2SXoeYmjAuqPeoeelPZqP.jpg",
   "posterAlt": "Senna (2010) movie poster",

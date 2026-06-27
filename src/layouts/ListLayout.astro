@@ -12,7 +12,7 @@ import AdSlot from '../components/AdSlot.astro';
 import RelatedLists from '../components/RelatedLists.astro';
 import type { RankedList } from '../lib/lists';
 import { allMovies, heroBackdrop } from '../lib/movies';
-import { isMember, relatedLists, combosFor } from '../lib/lists';
+import { isMember, relatedLists, combosFor, liveValueSet } from '../lib/lists';
 import { breadcrumbList, itemList, faqPage, type Crumb } from '../lib/jsonld';
 import type { Dimension } from '../lib/taxonomy';
 
@@ -31,7 +31,7 @@ const site = Astro.site ?? new URL('https://topmostmovies.com');
 // Related lists for internal linking (computed from the full movie set + this list's members).
 const everyMovie = await allMovies();
 const members = everyMovie.filter((m) => isMember(m, list.dimension, list.value));
-const related = relatedLists(everyMovie, list.dimension, list.value, members);
+const related = relatedLists(everyMovie, list.dimension, list.value, members, 8, await liveValueSet());
 
 // Long-tail combo lists involving this genre/language (e.g. on /genre/thriller, link to
 // /best/korean-thriller). Surfaces + internally links our highest-value long-tail pages.
@@ -42,6 +42,8 @@ const dimensionPathBase: Record<Dimension, string> = {
   country: 'country',
   language: 'language',
   genre: 'genre',
+  studio: 'studio',
+  theme: 'theme',
   year: 'year',
   decade: 'decade',
 };

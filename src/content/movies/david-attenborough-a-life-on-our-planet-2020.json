@@ -15,6 +15,10 @@
     "documentary",
     "drama"
   ],
+  "studios": [],
+  "themes": [
+    "true-story"
+  ],
   "posterUrl": "https://image.tmdb.org/t/p/w500/zSKwyUDKDHiFU5syTTvQRDcGBPS.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/hHL4pwGzYS4njLpXhIjfc9skAQJ.jpg",
   "posterAlt": "David Attenborough: A Life on Our Planet (2020) movie poster",

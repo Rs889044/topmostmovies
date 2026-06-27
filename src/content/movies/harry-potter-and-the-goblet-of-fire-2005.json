@@ -18,6 +18,12 @@
     "adventure",
     "fantasy"
   ],
+  "studios": [
+    "warner-bros"
+  ],
+  "themes": [
+    "teen"
+  ],
   "posterUrl": "https://image.tmdb.org/t/p/w500/fECBtHlr0RB3foNHDiCBXeg9Bv9.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/1OV7hau4D3rWGS5bu8sqBYeVpe.jpg",
   "posterAlt": "Harry Potter and the Goblet of Fire (2005) movie poster",

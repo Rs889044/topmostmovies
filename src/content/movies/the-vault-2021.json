@@ -18,6 +18,10 @@
     "action",
     "thriller"
   ],
+  "studios": [],
+  "themes": [
+    "heist"
+  ],
   "posterUrl": "https://image.tmdb.org/t/p/w500/kWhXubAiIcHW0xn5GThflqaKZqh.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/s1ohP4iE2Lg2TVBJILOkbTsGGgu.jpg",
   "posterAlt": "The Vault (2021) movie poster",

@@ -17,6 +17,10 @@
     "drama",
     "comedy"
   ],
+  "studios": [],
+  "themes": [
+    "teen"
+  ],
   "posterUrl": "https://image.tmdb.org/t/p/w500/jmkpZvMVIRrMFevxzOubSBfG0s0.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/4rsomWxlqnHt3muGYK06auhOib6.jpg",
   "posterAlt": "Through My Window (2022) movie poster",

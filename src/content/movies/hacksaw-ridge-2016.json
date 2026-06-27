@@ -19,6 +19,12 @@
     "history",
     "war"
   ],
+  "studios": [
+    "lionsgate"
+  ],
+  "themes": [
+    "true-story"
+  ],
   "posterUrl": "https://image.tmdb.org/t/p/w500/fnOMP6mjmOmZwmlC1n0K7ivrzt1.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/vDKRMZGFTKP9nQolzeSB1rB1w6p.jpg",
   "posterAlt": "Hacksaw Ridge (2016) movie poster",

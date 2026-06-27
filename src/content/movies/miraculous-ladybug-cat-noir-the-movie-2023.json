@@ -19,6 +19,11 @@
     "romance",
     "family"
   ],
+  "studios": [],
+  "themes": [
+    "superhero",
+    "teen"
+  ],
   "posterUrl": "https://image.tmdb.org/t/p/w500/dQNJ8SdCMn3zWwHzzQD2xrphR1X.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/iEFuHjqrE059SmflBva1JzDJutE.jpg",
   "posterAlt": "Miraculous: Ladybug & Cat Noir, The Movie (2023) movie poster",

@@ -19,6 +19,10 @@
     "animation",
     "adventure"
   ],
+  "studios": [
+    "pixar"
+  ],
+  "themes": [],
   "posterUrl": "https://image.tmdb.org/t/p/w500/uXDfjJbdP4ijW5hWSBrPrlKpxab.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/3Rfvhy1Nl6sSGJwyjb0QiZzZYlB.jpg",
   "posterAlt": "Toy Story (1995) movie poster",

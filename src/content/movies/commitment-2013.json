@@ -18,6 +18,10 @@
     "drama",
     "k-drama"
   ],
+  "studios": [],
+  "themes": [
+    "teen"
+  ],
   "posterUrl": "https://image.tmdb.org/t/p/w500/ybM400b3vesnoNzOlTlAmHeEYPq.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/alo20exRRwPj1vhqrjbmaee9op9.jpg",
   "posterAlt": "Commitment (2013) movie poster",

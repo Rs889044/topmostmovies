@@ -19,6 +19,10 @@
     "drama",
     "romance"
   ],
+  "studios": [
+    "new-line"
+  ],
+  "themes": [],
   "posterUrl": "https://image.tmdb.org/t/p/w500/alf3JOPP7EYP0iO24gwe5YfRnqo.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/krhj4Fhb0G3QCmyBtEADxgFFmRX.jpg",
   "posterAlt": "Damage (1992) movie poster",

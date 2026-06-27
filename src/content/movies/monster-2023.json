@@ -17,6 +17,10 @@
     "thriller",
     "drama"
   ],
+  "studios": [],
+  "themes": [
+    "coming-of-age"
+  ],
   "posterUrl": "https://image.tmdb.org/t/p/w500/kvUJUyUGOhEoiWWNH04IXoExPE2.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/dZJcOyRonN0Kb7kJR3DE3esGn16.jpg",
   "posterAlt": "Monster (2023) movie poster",

@@ -17,6 +17,10 @@
     "mystery",
     "thriller"
   ],
+  "studios": [
+    "lionsgate"
+  ],
+  "themes": [],
   "posterUrl": "https://image.tmdb.org/t/p/w500/cWsBscZzwu5brg9YjNkGewRUvJX.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/zTnAnYIn0Iv3cn0ZHlzLhou3ybm.jpg",
   "posterAlt": "The Housemaid (2025) movie poster",

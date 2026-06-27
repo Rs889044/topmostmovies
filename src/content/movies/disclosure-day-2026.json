@@ -17,6 +17,10 @@
     "science-fiction",
     "thriller"
   ],
+  "studios": [
+    "universal"
+  ],
+  "themes": [],
   "posterUrl": "https://image.tmdb.org/t/p/w500/3o5YPjDGDTcTDL5ftDA9NwN9dLd.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/s6ly8laenkHWlIBRkLSfIuEMLC6.jpg",
   "posterAlt": "Disclosure Day (2026) movie poster",

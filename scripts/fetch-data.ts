@@ -16,6 +16,7 @@ import {
   backdropUrl,
   discoverMovies,
   getCertification,
+  getKeywords,
   getMovie,
   posterUrl,
   type TmdbMovieDetail,
@@ -30,6 +31,8 @@ import {
   GENRES,
   CUSTOM_GENRES,
   decadeForYear,
+  studioSlugsFor,
+  themeSlugsFor,
 } from '../src/lib/taxonomy.ts';
 
 const OUT_DIR = join(process.cwd(), 'src', 'content', 'movies');
@@ -81,7 +84,6 @@ function deriveIndustries(countries: string[], languages: string[]): string[] {
  * keywords that aren't TMDb genres. "k-drama" = Korean-language romance/comedy/drama.
  */
 function deriveCustomGenres(
-  countries: string[],
   languages: string[],
   genres: string[],
 ): string[] {
@@ -108,7 +110,7 @@ async function buildMovie(id: number) {
   const languages = mapLanguages(detail);
   let genres = mapGenres(detail);
   const industries = deriveIndustries(countries, languages);
-  genres = [...new Set([...genres, ...deriveCustomGenres(countries, languages, genres)])];
+  genres = [...new Set([...genres, ...deriveCustomGenres(languages, genres)])];
 
   // Only keep movies that land in at least one modeled dimension list.
   if (countries.length === 0 && languages.length === 0 && genres.length === 0) {
@@ -118,6 +120,11 @@ async function buildMovie(id: number) {
   const cert = await getCertification(id, 'US');
   const imdbId = detail.imdb_id ?? undefined;
   const omdb = await getOmdbRatings(imdbId);
+
+  // Studios (from cached detail — permanent) + themes (from keywords endpoint).
+  const studios = studioSlugsFor((detail.production_companies ?? []).map((c) => c.name));
+  const keywords = await getKeywords(id);
+  const themes = themeSlugsFor(keywords);
 
   const slug = movieSlug(detail.title, year);
 
@@ -134,6 +141,8 @@ async function buildMovie(id: number) {
     countries,
     languages,
     genres,
+    studios,
+    themes,
 
     posterUrl: posterUrl(detail.poster_path),
     backdropUrl: backdropUrl(detail.backdrop_path),

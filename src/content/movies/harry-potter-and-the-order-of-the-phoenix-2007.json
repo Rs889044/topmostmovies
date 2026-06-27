@@ -18,6 +18,13 @@
     "adventure",
     "fantasy"
   ],
+  "studios": [
+    "warner-bros"
+  ],
+  "themes": [
+    "coming-of-age",
+    "teen"
+  ],
   "posterUrl": "https://image.tmdb.org/t/p/w500/5aOyriWkPec0zUDxmHFP9qMmBaj.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/pkxPkHOPJjOvzfQOclANEBT8OfK.jpg",
   "posterAlt": "Harry Potter and the Order of the Phoenix (2007) movie poster",

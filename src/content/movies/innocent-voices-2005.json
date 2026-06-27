@@ -16,6 +16,10 @@
     "drama",
     "war"
   ],
+  "studios": [
+    "lionsgate"
+  ],
+  "themes": [],
   "posterUrl": "https://image.tmdb.org/t/p/w500/hvwB4LdMCLzqXsk5ZjR77vzPkGk.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/oaUWMPGxpb4OsVCrppmlhQA2bwb.jpg",
   "posterAlt": "Innocent Voices (2005) movie poster",

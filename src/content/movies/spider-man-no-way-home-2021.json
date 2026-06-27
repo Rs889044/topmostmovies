@@ -18,6 +18,14 @@
     "adventure",
     "science-fiction"
   ],
+  "studios": [
+    "marvel-studios",
+    "columbia"
+  ],
+  "themes": [
+    "superhero",
+    "teen"
+  ],
   "posterUrl": "https://image.tmdb.org/t/p/w500/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/AeK2MPOpYrOOgZNfFnfwp0L8tNn.jpg",
   "posterAlt": "Spider-Man: No Way Home (2021) movie poster",

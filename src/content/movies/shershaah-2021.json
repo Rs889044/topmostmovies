@@ -20,6 +20,10 @@
     "thriller",
     "war"
   ],
+  "studios": [],
+  "themes": [
+    "true-story"
+  ],
   "posterUrl": "https://image.tmdb.org/t/p/w500/zGvFnwoXJKrYnKhoVPytqkqCJ8V.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/AguDwIJdqUFEUXlmXyixotE0WnT.jpg",
   "posterAlt": "Shershaah (2021) movie poster",

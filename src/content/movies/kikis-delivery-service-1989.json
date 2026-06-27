@@ -17,6 +17,12 @@
     "family",
     "fantasy"
   ],
+  "studios": [
+    "studio-ghibli"
+  ],
+  "themes": [
+    "coming-of-age"
+  ],
   "posterUrl": "https://image.tmdb.org/t/p/w500/Aufa4YdZIv4AXpR9rznwVA5SEfd.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/h5pAEVma835u8xoE60kmLVopLct.jpg",
   "posterAlt": "Kiki's Delivery Service (1989) movie poster",

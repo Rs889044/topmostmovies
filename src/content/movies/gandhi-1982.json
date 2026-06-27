@@ -16,6 +16,10 @@
     "drama",
     "history"
   ],
+  "studios": [],
+  "themes": [
+    "true-story"
+  ],
   "posterUrl": "https://image.tmdb.org/t/p/w500/rOXftt7SluxskrFrvU7qFJa5zeN.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/AsXHPS2U58MDAkoEJUT7Vlxndfu.jpg",
   "posterAlt": "Gandhi (1982) movie poster",

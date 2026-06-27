@@ -24,6 +24,10 @@ export function isMember(movie: MovieData, dimension: Dimension, value: string):
       return movie.languages.includes(value);
     case 'genre':
       return movie.genres.includes(value);
+    case 'studio':
+      return movie.studios.includes(value);
+    case 'theme':
+      return movie.themes.includes(value);
     case 'year':
       return String(movie.year) === value;
     case 'decade':
@@ -94,6 +98,10 @@ function listTitle(dimension: Dimension, name: string, count: number): string {
       return `Top ${n} ${name}-Language Movies`;
     case 'country':
       return `Top ${n} Movies from ${name}`;
+    case 'studio':
+      return `Top ${n} ${name} Movies`;
+    case 'theme':
+      return `Top ${n} ${name} Movies`;
     case 'industry':
     case 'genre':
       return `Top ${n} ${name} Movies`;
@@ -174,15 +182,41 @@ export async function enumerateLists(): Promise<ListRef[]> {
     m.countries.forEach((v) => add('country', v));
     m.languages.forEach((v) => add('language', v));
     m.genres.forEach((v) => add('genre', v));
+    m.studios.forEach((v) => add('studio', v));
+    m.themes.forEach((v) => add('theme', v));
     add('year', String(m.year));
     add('decade', m.decade);
   }
   return refs;
 }
 
+// Minimum eligible movies for a list to be generated. Studio/theme are niche, so we
+// require enough films for a credible Top list (avoids thin "Top 2" pages). Others: any
+// populated value. Keep getStaticPaths, hubs, and internal links in sync via liveValueSet().
+const DIMENSION_MIN: Record<Dimension, number> = {
+  industry: 1, country: 1, language: 1, genre: 1, year: 1, decade: 1,
+  studio: 5, theme: 5,
+};
+
+/** Set of "dimension:value" lists that actually get generated (meet DIMENSION_MIN).
+ *  Single source of truth so internal links never point to a non-existent page. */
+export async function liveValueSet(): Promise<Set<string>> {
+  const refs = await enumerateLists();
+  const movies = await allMovies();
+  const set = new Set<string>();
+  for (const r of refs) {
+    const n = movies.filter((m) => isMember(m, r.dimension, r.value) && isEligible(m)).length;
+    if (n >= DIMENSION_MIN[r.dimension]) set.add(`${r.dimension}:${r.value}`);
+  }
+  return set;
+}
+
 /** Enumerate the values for one dimension (for that dimension's getStaticPaths). */
 export async function valuesForDimension(dimension: Dimension): Promise<ListRef[]> {
-  return (await enumerateLists()).filter((r) => r.dimension === dimension);
+  const live = await liveValueSet();
+  return (await enumerateLists()).filter(
+    (r) => r.dimension === dimension && live.has(`${r.dimension}:${r.value}`),
+  );
 }
 
 export interface HubEntry {
@@ -190,31 +224,47 @@ export interface HubEntry {
   name: string;
   path: string;
   count: number;
-  /** Poster of the top-ranked movie in this list (for the hub card thumbnail). */
+  /** A representative backdrop for the hub card (de-duplicated across the page). */
   posterUrl?: string;
   posterAlt?: string;
 }
 
 /**
- * Every populated value in a dimension, with count + a representative poster — used to
+ * Every populated value in a dimension, with count + a representative image — used to
  * render the dimension hub/index page (e.g. /genre lists all genres). Sorted by count desc.
+ *
+ * Picks a DISTINCT backdrop per card: the same top movie often heads several lists (e.g.
+ * The Dark Knight tops Action + Thriller), so we greedily choose the highest-ranked movie
+ * whose image isn't already used on this page — avoiding repeated thumbnails.
  */
 export async function hubEntries(dimension: Dimension): Promise<HubEntry[]> {
   const movies = await allMovies();
   const values = (await valuesForDimension(dimension)).map((r) => r.value);
-  const entries: HubEntry[] = values.map((value) => {
-    const list = buildList(movies, dimension, value, undefined, 1);
-    const top = list.movies[0];
+
+  // Sort by count desc first so the most important lists get first dibs on their top image.
+  const ranked = values
+    .map((value) => ({ value, list: buildList(movies, dimension, value, undefined, 8) }))
+    .sort((a, b) => b.list.total - a.list.total);
+
+  const usedImages = new Set<string>();
+  const entries: HubEntry[] = ranked.map(({ value, list }) => {
+    // Prefer a backdrop not yet used on this page; fall back to the top movie.
+    const pick =
+      list.movies.find((m) => m.backdropUrl && !usedImages.has(m.backdropUrl)) ??
+      list.movies.find((m) => m.posterUrl && !usedImages.has(m.posterUrl)) ??
+      list.movies[0];
+    const img = pick?.backdropUrl ?? pick?.posterUrl;
+    if (img) usedImages.add(img);
     return {
       value,
       name: nameForSlug(dimension, value) ?? value,
       path: `/${PATH_BASE[dimension]}/${value}`,
       count: list.total,
-      posterUrl: top?.posterUrl,
-      posterAlt: top?.posterAlt,
+      posterUrl: img,
+      posterAlt: pick ? `${pick.title} (${pick.year})` : undefined,
     };
   });
-  return entries.sort((a, b) => b.count - a.count);
+  return entries;
 }
 
 /* ------------------------------------------------------ combo lists (genre×language) */
@@ -330,6 +380,8 @@ const PATH_BASE: Record<Dimension, string> = {
   country: 'country',
   language: 'language',
   genre: 'genre',
+  studio: 'studio',
+  theme: 'theme',
   year: 'year',
   decade: 'decade',
 };
@@ -346,6 +398,7 @@ export function relatedLists(
   value: string,
   members: MovieData[],
   limit = 8,
+  live?: Set<string>,
 ): RelatedLink[] {
   const out: RelatedLink[] = [];
   const seen = new Set<string>([`${dimension}:${value}`]);
@@ -353,6 +406,8 @@ export function relatedLists(
   const add = (dim: Dimension, val: string) => {
     const key = `${dim}:${val}`;
     if (seen.has(key)) return;
+    // Only link to lists that are actually generated (when a live set is provided).
+    if (live && !live.has(key)) return;
     const count = allMoviesData.filter((m) => isMember(m, dim, val)).length;
     if (count === 0) return;
     seen.add(key);
@@ -403,6 +458,10 @@ function membersValues(m: MovieData, dimension: Dimension): string[] {
       return m.languages;
     case 'genre':
       return m.genres;
+    case 'studio':
+      return m.studios;
+    case 'theme':
+      return m.themes;
     case 'year':
       return [String(m.year)];
     case 'decade':
@@ -416,9 +475,14 @@ function membersValues(m: MovieData, dimension: Dimension): string[] {
  * For a movie, every list it belongs to — powers the "Featured in" section + internal
  * linking on the movie page. Returns links with display names + paths.
  */
-export function featuredIn(movie: MovieData): { dimension: Dimension; name: string; path: string }[] {
+export function featuredIn(
+  movie: MovieData,
+  live?: Set<string>,
+): { dimension: Dimension; name: string; path: string }[] {
   const out: { dimension: Dimension; name: string; path: string }[] = [];
   const push = (dimension: Dimension, value: string, base: string) => {
+    // Only link to lists that are actually generated (live set), when provided.
+    if (live && !live.has(`${dimension}:${value}`)) return;
     out.push({
       dimension,
       name: nameForSlug(dimension, value) ?? value,
@@ -429,6 +493,8 @@ export function featuredIn(movie: MovieData): { dimension: Dimension; name: stri
   movie.countries.forEach((v) => push('country', v, 'country'));
   movie.languages.forEach((v) => push('language', v, 'language'));
   movie.genres.forEach((v) => push('genre', v, 'genre'));
+  movie.studios.forEach((v) => push('studio', v, 'studio'));
+  movie.themes.forEach((v) => push('theme', v, 'theme'));
   push('year', String(movie.year), 'year');
   push('decade', movie.decade, 'decade');
   return out;

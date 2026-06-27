@@ -17,6 +17,13 @@
     "fantasy",
     "drama"
   ],
+  "studios": [
+    "studio-ghibli"
+  ],
+  "themes": [
+    "coming-of-age",
+    "true-story"
+  ],
   "posterUrl": "https://image.tmdb.org/t/p/w500/f4oZTcfGrVTXKTWg157AwikXqmP.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/75nSb1fbWooipwcSU5bUttiOriI.jpg",
   "posterAlt": "The Boy and the Heron (2023) movie poster",

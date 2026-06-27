@@ -17,6 +17,10 @@
     "science-fiction",
     "thriller"
   ],
+  "studios": [
+    "universal"
+  ],
+  "themes": [],
   "posterUrl": "https://image.tmdb.org/t/p/w500/yvirUYrva23IudARHn3mMGVxWqM.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/iZLqwEwUViJdSkGVjePGhxYzbDb.jpg",
   "posterAlt": "War of the Worlds (2025) movie poster",

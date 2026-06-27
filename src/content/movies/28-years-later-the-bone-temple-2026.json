@@ -19,6 +19,10 @@
     "thriller",
     "science-fiction"
   ],
+  "studios": [
+    "columbia"
+  ],
+  "themes": [],
   "posterUrl": "https://image.tmdb.org/t/p/w500/kK1BGkG3KAvWB0WMV1DfOx9yTMZ.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/hHDNOlATHhre4eZ7aYz5cdyJLik.jpg",
   "posterAlt": "28 Years Later: The Bone Temple (2026) movie poster",

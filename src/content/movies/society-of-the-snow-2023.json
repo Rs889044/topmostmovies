@@ -17,6 +17,10 @@
     "drama",
     "history"
   ],
+  "studios": [],
+  "themes": [
+    "true-story"
+  ],
   "posterUrl": "https://image.tmdb.org/t/p/w500/2e853FDVSIso600RqAMunPxiZjq.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/md848EEPm3dHZOqwGxxTVwH2vu5.jpg",
   "posterAlt": "Society of the Snow (2023) movie poster",

@@ -18,6 +18,10 @@
     "family",
     "comedy"
   ],
+  "studios": [
+    "pixar"
+  ],
+  "themes": [],
   "posterUrl": "https://image.tmdb.org/t/p/w500/AbbXspMOwdvwWZgVN0nabZq03Ec.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/uAfhsySkr1UzQg1zdg3dZQRz9Fd.jpg",
   "posterAlt": "Toy Story 3 (2010) movie poster",

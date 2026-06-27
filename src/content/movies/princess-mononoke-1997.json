@@ -17,6 +17,10 @@
     "fantasy",
     "animation"
   ],
+  "studios": [
+    "studio-ghibli"
+  ],
+  "themes": [],
   "posterUrl": "https://image.tmdb.org/t/p/w500/cMYCDADoLKLbB83g4WnJegaZimC.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/gl0jzn4BupSbL2qMVeqrjKkF9Js.jpg",
   "posterAlt": "Princess Mononoke (1997) movie poster",

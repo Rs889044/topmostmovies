@@ -1,0 +1,14 @@
+---
+import HubLayout from '../../layouts/HubLayout.astro';
+import { hubEntries } from '../../lib/lists';
+
+const entries = await hubEntries('theme');
+---
+
+<HubLayout
+  title="Browse Movies by Theme"
+  basePath="/theme"
+  label="Themes"
+  intro="Find movies by what they're really about — coming-of-age stories, true stories, heists, time travel and more. Each theme opens a curated Top 10 with honest ratings and age info."
+  entries={entries}
+/>

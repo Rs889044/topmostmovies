@@ -15,6 +15,11 @@
   "genres": [
     "drama"
   ],
+  "studios": [],
+  "themes": [
+    "coming-of-age",
+    "true-story"
+  ],
   "posterUrl": "https://image.tmdb.org/t/p/w500/12PuU23kkDLvTd0nb8hMlE3oShB.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/cy7ymUaMEWRoig7LWXpfzaaw2vv.jpg",
   "posterAlt": "The 400 Blows (1959) movie poster",

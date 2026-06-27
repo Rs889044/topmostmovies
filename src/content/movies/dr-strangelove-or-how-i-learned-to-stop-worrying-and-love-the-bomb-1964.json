@@ -18,6 +18,10 @@
     "comedy",
     "war"
   ],
+  "studios": [
+    "columbia"
+  ],
+  "themes": [],
   "posterUrl": "https://image.tmdb.org/t/p/w500/6x7MzQ6BOMlRzam1StcmPO9v61g.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/7i0L2ee4Iy0aXV6vR5u1ZmblOrx.jpg",
   "posterAlt": "Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb (1964) movie poster",

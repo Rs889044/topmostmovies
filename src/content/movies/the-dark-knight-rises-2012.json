@@ -20,6 +20,12 @@
     "drama",
     "thriller"
   ],
+  "studios": [
+    "warner-bros"
+  ],
+  "themes": [
+    "superhero"
+  ],
   "posterUrl": "https://image.tmdb.org/t/p/w500/hr0L2aueqlP2BYUblTTjmtn0hw4.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/y2DB71C4nyIdMrANijz8mzvQtk6.jpg",
   "posterAlt": "The Dark Knight Rises (2012) movie poster",

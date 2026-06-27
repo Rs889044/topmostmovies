@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import MovieRow from '../components/MovieRow.astro';
 import { website, organization } from '../lib/jsonld';
 import { allMovies, heroBackdrop } from '../lib/movies';
-import { buildList, enumerateLists, enumerateCombos } from '../lib/lists';
+import { buildList, enumerateLists, enumerateCombos, liveValueSet } from '../lib/lists';
 import type { Dimension } from '../lib/taxonomy';
 
 const site = Astro.site ?? new URL('https://topmostmovies.com');
@@ -25,7 +25,7 @@ const FEATURED: { dimension: Dimension; value: string; title: string }[] = [
 
 const pathBase: Record<Dimension, string> = {
   industry: 'industry', country: 'country', language: 'language',
-  genre: 'genre', year: 'year', decade: 'decade',
+  genre: 'genre', studio: 'studio', theme: 'theme', year: 'year', decade: 'decade',
 };
 
 const featuredRows = FEATURED.map((f) => {
@@ -36,13 +36,18 @@ const featuredRows = FEATURED.map((f) => {
 // Browse-by-dimension groups (populated values only, most-populated first).
 const DIMENSION_ORDER: { dimension: Dimension; label: string }[] = [
   { dimension: 'genre', label: 'Genres' },
+  { dimension: 'theme', label: 'Themes' },
+  { dimension: 'studio', label: 'Studios' },
   { dimension: 'country', label: 'Countries' },
   { dimension: 'language', label: 'Languages' },
   { dimension: 'decade', label: 'Decades' },
 ];
+// Only link to lists that are actually generated (live set) — prevents links to thin
+// studio/theme values that don't get a page.
+const live = await liveValueSet();
 const groups = DIMENSION_ORDER.map(({ dimension, label }) => {
   const items = refs
-    .filter((r) => r.dimension === dimension)
+    .filter((r) => r.dimension === dimension && live.has(`${r.dimension}:${r.value}`))
     .map((r) => ({ ...r, count: buildList(movies, dimension, r.value).total }))
     .sort((a, b) => b.count - a.count);
   return { dimension, label, items };

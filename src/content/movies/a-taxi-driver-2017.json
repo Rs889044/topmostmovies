@@ -17,6 +17,10 @@
     "history",
     "k-drama"
   ],
+  "studios": [],
+  "themes": [
+    "true-story"
+  ],
   "posterUrl": "https://image.tmdb.org/t/p/w500/iXVaWbxmyPk4KZGZk5GGDGFieMX.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/5l2kTFOC9QicBxOVpocy5pSu4i8.jpg",
   "posterAlt": "A Taxi Driver (2017) movie poster",

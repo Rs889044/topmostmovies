@@ -19,6 +19,10 @@
     "thriller",
     "mystery"
   ],
+  "studios": [
+    "warner-bros"
+  ],
+  "themes": [],
   "posterUrl": "https://image.tmdb.org/t/p/w500/knEIz1eNGl5MQDbrEAVWA7iRqF9.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/aC6wW62V6b0csr5iUnbOjYAqfhg.jpg",
   "posterAlt": "Eyes Wide Shut (1999) movie poster",

@@ -20,6 +20,10 @@
     "adventure",
     "thriller"
   ],
+  "studios": [
+    "warner-bros"
+  ],
+  "themes": [],
   "posterUrl": "https://image.tmdb.org/t/p/w500/ipJ4mgqse6uoTRsDyU3TXmva1rt.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/44Yi72Ut3NchXewQzx814ViE2dy.jpg",
   "posterAlt": "Ninja Assassin (2009) movie poster",

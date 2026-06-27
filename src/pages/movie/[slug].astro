@@ -4,7 +4,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import AdSlot from '../../components/AdSlot.astro';
 import { allMovies, heroBackdrop } from '../../lib/movies';
-import { featuredIn } from '../../lib/lists';
+import { featuredIn, liveValueSet } from '../../lib/lists';
 import { breadcrumbList, movie as movieJsonLd, type Crumb } from '../../lib/jsonld';
 import { nameForSlug } from '../../lib/taxonomy';
 
@@ -16,7 +16,7 @@ export async function getStaticPaths() {
 const { movie } = Astro.props;
 const site = Astro.site ?? new URL('https://topmostmovies.com');
 
-const lists = featuredIn(movie);
+const lists = featuredIn(movie, await liveValueSet());
 const genreNames = movie.genres
   .map((g) => nameForSlug('genre', g))
   .filter((n): n is string => Boolean(n));
@@ -195,6 +195,24 @@ const seo = {
                 <p class="mt-2 max-w-prose text-fg-muted">{movie.parentalNotes}</p>
               )
             }
+          </section>
+
+          {/* Where to watch — links to JustWatch (live, region-aware) rather than a stale
+              "on Netflix" claim. Streaming availability changes + varies by country, so we
+              don't cache it; we send users to the always-current source. */}
+          <section class="mt-6" aria-labelledby="watch-heading">
+            <h2 id="watch-heading" class="text-lg font-bold">Where to watch</h2>
+            <p class="mt-2 text-fg-muted">
+              Streaming options change often and vary by country. Check current availability
+              on
+              <a
+                href={`https://www.justwatch.com/us/search?q=${encodeURIComponent(movie.title)}`}
+                rel="noopener nofollow"
+                target="_blank"
+                class="text-accent-400 hover:text-accent-300"
+              >
+                JustWatch</a>.
+            </p>
           </section>
         </div>
       </article>

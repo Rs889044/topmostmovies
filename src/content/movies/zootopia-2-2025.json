@@ -20,6 +20,10 @@
     "mystery",
     "family"
   ],
+  "studios": [
+    "disney"
+  ],
+  "themes": [],
   "posterUrl": "https://image.tmdb.org/t/p/w500/oJ7g2CifqpStmoYQyaLQgEU32qO.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/lgotja3xMoJZbynwHfcQcJAEMWH.jpg",
   "posterAlt": "Zootopia 2 (2025) movie poster",

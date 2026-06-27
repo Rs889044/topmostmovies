@@ -20,6 +20,10 @@
     "action",
     "adventure"
   ],
+  "studios": [],
+  "themes": [
+    "superhero"
+  ],
   "posterUrl": "https://image.tmdb.org/t/p/w500/9YbyvcrHmY2SVbdfXpb8mC4Fy0g.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/2BZ7PC9aISswNXV2tugmjGiriaB.jpg",
   "posterAlt": "Miraculous World: New York, United HeroeZ (2020) movie poster",

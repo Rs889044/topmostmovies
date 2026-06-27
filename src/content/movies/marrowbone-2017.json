@@ -18,6 +18,11 @@
     "horror",
     "mystery"
   ],
+  "studios": [
+    "universal",
+    "lionsgate"
+  ],
+  "themes": [],
   "posterUrl": "https://image.tmdb.org/t/p/w500/iX77zMSqUv2Qt7ToEnN2mmEudEf.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/mc7w3y83wQU9YAIAmP1hoxqQped.jpg",
   "posterAlt": "Marrowbone (2017) movie poster",

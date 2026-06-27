@@ -16,6 +16,11 @@
     "drama",
     "comedy"
   ],
+  "studios": [],
+  "themes": [
+    "true-story",
+    "feel-good"
+  ],
   "posterUrl": "https://image.tmdb.org/t/p/w500/1QU7HKgsQbGpzsJbJK4pAVQV9F5.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/cK070s3Qdn1Ib7Gq8RgIyJKgvu3.jpg",
   "posterAlt": "The Intouchables (2011) movie poster",

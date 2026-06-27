@@ -19,6 +19,12 @@
     "crime",
     "thriller"
   ],
+  "studios": [
+    "warner-bros"
+  ],
+  "themes": [
+    "superhero"
+  ],
   "posterUrl": "https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/cfT29Im5VDvjE0RpyKOSdCKZal7.jpg",
   "posterAlt": "The Dark Knight (2008) movie poster",

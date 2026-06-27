@@ -16,6 +16,10 @@
   "genres": [
     "documentary"
   ],
+  "studios": [],
+  "themes": [
+    "true-story"
+  ],
   "posterUrl": "https://image.tmdb.org/t/p/w500/wbMkjkNX8VylPVLmQ2Dp6i5iayY.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/Amp8FamnKw8jUFptKHOXRL4VseU.jpg",
   "posterAlt": "Everybody’s Everything (2019) movie poster",

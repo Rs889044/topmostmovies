@@ -18,6 +18,10 @@
     "crime",
     "thriller"
   ],
+  "studios": [],
+  "themes": [
+    "heist"
+  ],
   "posterUrl": "https://image.tmdb.org/t/p/w500/tVvpFIoteRHNnoZMhdnwIVwJpCA.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/kKF4gEiBDArhONlCcunHVgBp3bA.jpg",
   "posterAlt": "Crime 101 (2026) movie poster",

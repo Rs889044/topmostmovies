@@ -19,6 +19,11 @@
     "drama",
     "science-fiction"
   ],
+  "studios": [],
+  "themes": [
+    "dystopian",
+    "time-travel"
+  ],
   "posterUrl": "https://image.tmdb.org/t/p/w500/yQvGrMoipbRoddT0ZR8tPoR7NfX.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/2ssWTSVklAEc98frZUQhgtGHx7s.jpg",
   "posterAlt": "Interstellar (2014) movie poster",

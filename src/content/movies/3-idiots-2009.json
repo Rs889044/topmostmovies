@@ -17,6 +17,10 @@
     "drama",
     "comedy"
   ],
+  "studios": [],
+  "themes": [
+    "coming-of-age"
+  ],
   "posterUrl": "https://image.tmdb.org/t/p/w500/66A9MqXOyVFCssoloscw79z8Tew.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/8gT3UKtglLVpu0YfccwbmXZ5Eis.jpg",
   "posterAlt": "3 Idiots (2009) movie poster",

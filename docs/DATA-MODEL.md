@@ -70,8 +70,11 @@ dimension + value:
 | `/country/south-korea` | `countries` includes `"south-korea"` |
 | `/language/korean` | `languages` includes `"korean"` |
 | `/genre/romance` | `genres` includes `"romance"` |
+| `/studio/pixar` | `studios` includes `"pixar"` |
+| `/theme/coming-of-age` | `themes` includes `"coming-of-age"` |
 | `/year/2024` | `year === 2024` |
 | `/decade/2010s` | `decade === "2010s"` |
+| `/best/korean-thriller` | `languages` ∋ `"korean"` AND `genres` ∋ `"thriller"` (combo) |
 
 **Custom categories** (e.g. `k-drama`) are just genre slugs we assign editorially; they
 need not map 1:1 to TMDb genres. This is how we hit long-tail keywords.
@@ -90,8 +93,23 @@ Set in `scripts/fetch-data.ts`:
 - **`genres`** — TMDb genres (+ editorial custom slugs). Legitimately multiple.
 - **`industries`** — derived from country + language (Hollywood = US English; Bollywood =
   India Hindi). Tightens automatically with the language rule above.
+- **`studios`** — production studios (Pixar, Studio Ghibli, Marvel, A24…) matched from TMDb
+  `production_companies` by name pattern (`studioSlugsFor`). **Permanent** — a film's studio
+  never changes (unlike streaming availability, which we deliberately do NOT list — it's
+  region-specific + volatile, a static-site trap). Can be multiple.
+- **`themes`** — audience/subject themes (coming-of-age, true-story, teen, heist…) matched
+  from TMDb keywords (`themeSlugsFor`). **No "adult" theme** (AdSense risk). Can be multiple.
 - **`year` / `decade`** — exactly one each; `decade` is derived from `year`. **Mutually
   exclusive by construction** — a film can't be in two years or two decades.
+
+> **List minimums:** studio/theme lists generate only with **≥5 eligible movies**
+> (`DIMENSION_MIN` in lists.ts) to avoid thin niche pages; combo (genre×language) lists need
+> **≥8**. `liveValueSet()` is the single source of truth for which lists exist, so internal
+> links (hubs, related, "Featured in") never point to an ungenerated page.
+
+> **Streaming "where to watch":** movie pages link out to **JustWatch** (live, region-aware)
+> rather than caching a stale "on Netflix" claim — availability changes constantly and
+> varies by country. See the where-to-watch section on `/movie/[slug]`.
 
 So overlap across genres/countries is expected and correct; language is single; year/decade
 can never overlap. (Fixed 2026-06 after an audit found inflated language tags.)

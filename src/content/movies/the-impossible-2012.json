@@ -19,6 +19,10 @@
     "thriller",
     "history"
   ],
+  "studios": [],
+  "themes": [
+    "true-story"
+  ],
   "posterUrl": "https://image.tmdb.org/t/p/w500/k0DLCiDbnYywOHiISALbl2EH2NE.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/3NfM0sRwVLnsQkCd5YBPGvM9a5v.jpg",
   "posterAlt": "The Impossible (2012) movie poster",

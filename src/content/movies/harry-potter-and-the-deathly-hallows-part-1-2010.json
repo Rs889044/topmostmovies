@@ -18,6 +18,12 @@
     "adventure",
     "fantasy"
   ],
+  "studios": [
+    "warner-bros"
+  ],
+  "themes": [
+    "teen"
+  ],
   "posterUrl": "https://image.tmdb.org/t/p/w500/iGoXIpQb7Pot00EEdwpwPajheZ5.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/vcrgU0KaNj5mKUCIQSUdiQwTE9y.jpg",
   "posterAlt": "Harry Potter and the Deathly Hallows: Part 1 (2010) movie poster",

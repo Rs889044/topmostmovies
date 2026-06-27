@@ -18,6 +18,10 @@
     "comedy",
     "family"
   ],
+  "studios": [
+    "pixar"
+  ],
+  "themes": [],
   "posterUrl": "https://image.tmdb.org/t/p/w500/4rbcp3ng8n1MKHjpeqW0L7Fnpzz.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/7iUDfakacY1HpajP1DtHrCuDB95.jpg",
   "posterAlt": "Toy Story 2 (1999) movie poster",

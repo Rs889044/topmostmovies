@@ -16,6 +16,10 @@
     "romance",
     "drama"
   ],
+  "studios": [],
+  "themes": [
+    "teen"
+  ],
   "posterUrl": "https://image.tmdb.org/t/p/w500/173FD4a0rpSF30z4CoWx6qdx8Ry.jpg",
   "backdropUrl": "https://image.tmdb.org/t/p/w1280/i0c2rE6x1RCXktYk4Bv4NBWh5gO.jpg",
   "posterAlt": "Drawing Closer (2024) movie poster",
