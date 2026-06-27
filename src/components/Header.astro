@@ -1,18 +1,22 @@
 ---
 /**
  * Header.astro — sticky dark site header + primary navigation.
- * Nav points to the dimension HUB/index pages (e.g. /genre lists every genre), which are
- * real destinations rather than arbitrary single lists.
+ * Desktop: inline nav. Mobile: hamburger → slide-out drawer (no framework, accessible).
+ * Nav points to the dimension HUB/index pages + the site-wide "best" / "popular" lists.
  */
 import Logo from './Logo.astro';
 
+// Primary nav. `short` is used inline on desktop (space is tight); `label` (the fuller,
+// clearer name) is used in the mobile drawer.
 const nav = [
-  { label: 'Genres', href: '/genre' },
-  { label: 'Studios', href: '/studio' },
-  { label: 'Themes', href: '/theme' },
-  { label: 'Countries', href: '/country' },
-  { label: 'Languages', href: '/language' },
-  { label: 'Decades', href: '/decade' },
+  { label: 'Greatest of all time', short: 'Greatest', href: '/best-movies' },
+  { label: 'Most popular', short: 'Popular', href: '/popular' },
+  { label: 'Genres', short: 'Genres', href: '/genre' },
+  { label: 'Studios', short: 'Studios', href: '/studio' },
+  { label: 'Themes', short: 'Themes', href: '/theme' },
+  { label: 'Countries', short: 'Countries', href: '/country' },
+  { label: 'Languages', short: 'Languages', href: '/language' },
+  { label: 'Decades', short: 'Decades', href: '/decade' },
 ];
 ---
 
@@ -22,20 +26,102 @@ const nav = [
   <div class="container-page flex h-16 items-center justify-between gap-4">
     <Logo size="md" />
 
-    <nav
-      aria-label="Primary"
-      class="hidden items-center gap-1 text-sm font-medium md:flex"
-    >
+    {/* Desktop nav (inline). Hidden below lg to avoid crowding. */}
+    <nav aria-label="Primary" class="hidden items-center gap-0.5 text-sm font-medium lg:flex">
       {
         nav.map((d) => (
           <a
             href={d.href}
             class="rounded-md px-3 py-2 text-fg-muted transition-colors hover:bg-ink-800 hover:text-fg"
           >
-            {d.label}
+            {d.short}
           </a>
         ))
       }
     </nav>
+
+    {/* Mobile menu button */}
+    <button
+      type="button"
+      id="menu-open"
+      class="inline-flex h-10 w-10 items-center justify-center rounded-lg text-fg-muted transition-colors hover:bg-ink-800 hover:text-fg lg:hidden"
+      aria-label="Open menu"
+      aria-controls="mobile-drawer"
+      aria-expanded="false"
+    >
+      <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16" />
+      </svg>
+    </button>
   </div>
 </header>
+
+{/* Mobile drawer + overlay (hidden by default; toggled by the script below). */}
+<div id="mobile-drawer" class="fixed inset-0 z-[60] lg:hidden" hidden>
+  <div id="drawer-overlay" class="absolute inset-0 bg-ink-950/70 backdrop-blur-sm"></div>
+  <nav
+    aria-label="Mobile"
+    class="absolute right-0 top-0 flex h-full w-72 max-w-[80vw] translate-x-full flex-col border-l border-ink-700/60 bg-ink-900 shadow-2xl transition-transform duration-300 ease-out"
+    id="drawer-panel"
+  >
+    <div class="flex h-16 items-center justify-between border-b border-ink-700/60 px-4">
+      <span class="text-sm font-semibold text-fg-subtle">Browse</span>
+      <button
+        type="button"
+        id="menu-close"
+        class="inline-flex h-10 w-10 items-center justify-center rounded-lg text-fg-muted transition-colors hover:bg-ink-800 hover:text-fg"
+        aria-label="Close menu"
+      >
+        <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path stroke-linecap="round" d="M6 6l12 12M18 6L6 18" />
+        </svg>
+      </button>
+    </div>
+    <div class="flex flex-col gap-1 overflow-y-auto p-3">
+      {
+        nav.map((d) => (
+          <a
+            href={d.href}
+            class="rounded-lg px-3 py-2.5 text-[15px] font-medium text-fg-muted transition-colors hover:bg-ink-800 hover:text-fg"
+          >
+            {d.label}
+          </a>
+        ))
+      }
+    </div>
+  </nav>
+</div>
+
+<script>
+  const drawer = document.getElementById('mobile-drawer');
+  const panel = document.getElementById('drawer-panel');
+  const openBtn = document.getElementById('menu-open');
+  const closeBtn = document.getElementById('menu-close');
+  const overlay = document.getElementById('drawer-overlay');
+
+  function openMenu() {
+    if (!drawer || !panel) return;
+    drawer.hidden = false;
+    // next frame → slide in
+    requestAnimationFrame(() => panel.classList.remove('translate-x-full'));
+    openBtn?.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMenu() {
+    if (!drawer || !panel) return;
+    panel.classList.add('translate-x-full');
+    openBtn?.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+    // wait for the slide-out transition before hiding
+    setTimeout(() => {
+      drawer.hidden = true;
+    }, 300);
+  }
+
+  openBtn?.addEventListener('click', openMenu);
+  closeBtn?.addEventListener('click', closeMenu);
+  overlay?.addEventListener('click', closeMenu);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && drawer && !drawer.hidden) closeMenu();
+  });
+</script>
