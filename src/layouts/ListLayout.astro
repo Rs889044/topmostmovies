@@ -12,7 +12,7 @@ import AdSlot from '../components/AdSlot.astro';
 import RelatedLists from '../components/RelatedLists.astro';
 import type { RankedList } from '../lib/lists';
 import { allMovies, heroBackdrop } from '../lib/movies';
-import { isMember, relatedLists } from '../lib/lists';
+import { isMember, relatedLists, combosFor } from '../lib/lists';
 import { breadcrumbList, itemList, faqPage, type Crumb } from '../lib/jsonld';
 import type { Dimension } from '../lib/taxonomy';
 
@@ -32,6 +32,10 @@ const site = Astro.site ?? new URL('https://topmostmovies.com');
 const everyMovie = await allMovies();
 const members = everyMovie.filter((m) => isMember(m, list.dimension, list.value));
 const related = relatedLists(everyMovie, list.dimension, list.value, members);
+
+// Long-tail combo lists involving this genre/language (e.g. on /genre/thriller, link to
+// /best/korean-thriller). Surfaces + internally links our highest-value long-tail pages.
+const combos = await combosFor(list.dimension, list.value);
 
 const dimensionPathBase: Record<Dimension, string> = {
   industry: 'industry',
@@ -136,6 +140,28 @@ const heroImg = heroBackdrop(list.movies.find((m) => m.backdropUrl)?.backdropUrl
     }
 
     {faq.length > 0 && <Faq items={faq} />}
+
+    {/* Long-tail combo lists (e.g. "Korean Thriller") — internal links to our best pages. */}
+    {
+      combos.length > 0 && (
+        <nav aria-labelledby="combos-heading" class="mt-12">
+          <h2 id="combos-heading" class="mb-4 text-2xl font-bold">Narrow it down</h2>
+          <ul class="flex flex-wrap gap-2">
+            {combos.map((c) => (
+              <li>
+                <a
+                  href={c.path}
+                  class="inline-flex items-center gap-1.5 rounded-full border border-ink-600 bg-ink-800 px-3.5 py-1.5 text-sm text-fg-muted transition-colors hover:border-accent-500/60 hover:text-fg"
+                >
+                  Best {c.label}
+                  <span class="text-fg-subtle">{c.count}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      )
+    }
 
     <RelatedLists links={related} />
 

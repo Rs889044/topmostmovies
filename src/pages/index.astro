@@ -3,12 +3,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import MovieRow from '../components/MovieRow.astro';
 import { website, organization } from '../lib/jsonld';
 import { allMovies, heroBackdrop } from '../lib/movies';
-import { buildList, enumerateLists } from '../lib/lists';
+import { buildList, enumerateLists, enumerateCombos } from '../lib/lists';
 import type { Dimension } from '../lib/taxonomy';
 
 const site = Astro.site ?? new URL('https://topmostmovies.com');
 const movies = await allMovies();
 const refs = await enumerateLists();
+
+// Popular long-tail combos (genre×language) to surface + internally link from the homepage.
+const combos = (await enumerateCombos()).slice(0, 18);
 
 // Curated featured rows (flagship lists from KEYWORDS.md priorities).
 const FEATURED: { dimension: Dimension; value: string; title: string }[] = [
@@ -118,6 +121,31 @@ const seo = {
           </ul>
         </section>
       ))
+    }
+
+    {/* Popular long-tail combos — the site's differentiator + internal links to /best/* */}
+    {
+      combos.length > 0 && (
+        <section aria-labelledby="combos" class="mb-10">
+          <h2 id="combos" class="mb-1 text-2xl font-bold">Popular combinations</h2>
+          <p class="mb-4 text-sm text-fg-subtle">
+            The specific lists other sites don't make — by language and genre.
+          </p>
+          <ul class="flex flex-wrap gap-2">
+            {combos.map((c) => (
+              <li>
+                <a
+                  href={`/best/${c.language}-${c.genre}`}
+                  class="inline-flex items-center gap-1.5 rounded-full border border-ink-600 bg-ink-800 px-3.5 py-1.5 text-sm text-fg-muted transition-colors hover:border-accent-500/60 hover:text-fg"
+                >
+                  Best {c.languageName} {c.genreName}
+                  <span class="text-fg-subtle">{c.count}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )
     }
   </div>
 </BaseLayout>

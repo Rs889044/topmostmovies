@@ -217,6 +217,104 @@ export async function hubEntries(dimension: Dimension): Promise<HubEntry[]> {
   return entries.sort((a, b) => b.count - a.count);
 }
 
+/* ------------------------------------------------------ combo lists (genre×language) */
+
+// Min eligible movies for a combo page to be worth generating (keeps quality high and
+// avoids thin pages). Only combos with real depth become pages.
+const COMBO_MIN = 8;
+
+// Languages + genres we generate combos for. Targets validated long-tail keywords
+// ("best korean thriller movies", "best japanese animated movies") — see docs/KEYWORDS.md.
+const COMBO_LANGUAGES = ['korean', 'hindi', 'japanese', 'spanish', 'french'] as const;
+const COMBO_GENRES = [
+  'romance', 'thriller', 'horror', 'action', 'drama', 'comedy', 'crime', 'animation', 'mystery',
+] as const;
+
+export interface ComboRef {
+  genre: string;
+  language: string;
+  genreName: string;
+  languageName: string;
+  count: number;
+}
+
+/** Eligible movies in a genre×language combo. */
+function comboMembers(movies: MovieData[], genre: string, language: string): MovieData[] {
+  return movies.filter(
+    (m) => m.genres.includes(genre) && m.languages.includes(language) && isEligible(m),
+  );
+}
+
+/** Every viable genre×language combo (≥ COMBO_MIN eligible movies) — for getStaticPaths. */
+export async function enumerateCombos(): Promise<ComboRef[]> {
+  const movies = await allMovies();
+  const out: ComboRef[] = [];
+  for (const language of COMBO_LANGUAGES) {
+    for (const genre of COMBO_GENRES) {
+      const count = comboMembers(movies, genre, language).length;
+      if (count >= COMBO_MIN) {
+        out.push({
+          genre,
+          language,
+          genreName: nameForSlug('genre', genre) ?? genre,
+          languageName: nameForSlug('language', language) ?? language,
+          count,
+        });
+      }
+    }
+  }
+  return out.sort((a, b) => b.count - a.count);
+}
+
+export interface ComboList {
+  genre: string;
+  language: string;
+  title: string; // "Top 10 Korean Thriller Movies"
+  genreName: string;
+  languageName: string;
+  movies: MovieData[];
+  total: number;
+}
+
+/** Build a ranked combo list (genre×language), weighted-ranked + eligibility-filtered. */
+export function buildCombo(
+  movies: MovieData[],
+  genre: string,
+  language: string,
+  topN = DEFAULT_TOP_N,
+): ComboList {
+  const members = comboMembers(movies, genre, language).sort(
+    (a, b) => defaultScore(b) - defaultScore(a),
+  );
+  const genreName = nameForSlug('genre', genre) ?? genre;
+  const languageName = nameForSlug('language', language) ?? language;
+  return {
+    genre,
+    language,
+    genreName,
+    languageName,
+    title: `Top ${Math.min(members.length, topN)} ${languageName} ${genreName} Movies`,
+    movies: members.slice(0, topN),
+    total: members.length,
+  };
+}
+
+/** Combos that involve a given (dimension,value) — for cross-linking from parent lists. */
+export async function combosFor(
+  dimension: Dimension,
+  value: string,
+): Promise<{ path: string; label: string; count: number }[]> {
+  if (dimension !== 'genre' && dimension !== 'language') return [];
+  const combos = await enumerateCombos();
+  return combos
+    .filter((c) => (dimension === 'genre' ? c.genre === value : c.language === value))
+    .map((c) => ({
+      path: `/best/${c.language}-${c.genre}`,
+      label: `${c.languageName} ${c.genreName}`,
+      count: c.count,
+    }));
+}
+
 /* --------------------------------------------------------------- related lists ---- */
 
 export interface RelatedLink {

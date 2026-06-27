@@ -1,0 +1,101 @@
+---
+/**
+ * /best/[language]-[genre] — long-tail combo lists (e.g. /best/korean-thriller →
+ * "Top 10 Korean Thriller Movies"). Targets low-competition, high-intent keywords that
+ * single-dimension lists can't (see docs/KEYWORDS.md). Generated only for combos with
+ * enough quality movies (enumerateCombos).
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import MovieCard from '../../components/MovieCard.astro';
+import AdSlot from '../../components/AdSlot.astro';
+import RelatedLists from '../../components/RelatedLists.astro';
+import Faq from '../../components/Faq.astro';
+import { allMovies, heroBackdrop } from '../../lib/movies';
+import { enumerateCombos, buildCombo, type RelatedLink } from '../../lib/lists';
+import { breadcrumbList, itemList, faqPage, type Crumb } from '../../lib/jsonld';
+import { COMBO_EDITORIAL } from '../../lib/combo-editorial';
+
+export async function getStaticPaths() {
+  const combos = await enumerateCombos();
+  return combos.map((c) => ({
+    params: { combo: `${c.language}-${c.genre}` },
+    props: { genre: c.genre, language: c.language },
+  }));
+}
+
+const { genre, language } = Astro.props;
+const site = Astro.site ?? new URL('https://topmostmovies.com');
+
+const movies = await allMovies();
+const list = buildCombo(movies, genre, language);
+const top = list.movies[0];
+
+// Hand-written editorial (intro + FAQ) for flagship combos; else an original auto-intro.
+const editorial = COMBO_EDITORIAL[`${language}-${genre}`] ?? {};
+const intro =
+  editorial.intro ??
+  `Looking for the best ${list.languageName.toLowerCase()} ${list.genreName.toLowerCase()} movies? We've ranked the standouts by rating — led by ${top ? `${top.title} (${top.year})` : 'our top pick'} — so you can find your next watch fast. Every title includes its rating and honest age certification.`;
+const faq = editorial.faq ?? [];
+
+const crumbs: Crumb[] = [
+  { name: 'Home', path: '/' },
+  { name: list.languageName, path: `/language/${language}` },
+  { name: `${list.genreName} movies`, path: `/best/${language}-${genre}` },
+];
+
+const movieItems = list.movies.map((m) => ({ name: `${m.title} (${m.year})`, path: `/movie/${m.slug}` }));
+
+// Cross-link back to the parent single-dimension lists + sibling combos.
+const related: RelatedLink[] = [
+  { dimension: 'language', value: language, name: `All ${list.languageName} movies`, path: `/language/${language}`, count: 0 },
+  { dimension: 'genre', value: genre, name: `All ${list.genreName} movies`, path: `/genre/${genre}`, count: 0 },
+];
+
+const jsonLd: Record<string, unknown>[] = [
+  breadcrumbList(crumbs, site),
+  itemList(list.title, movieItems, site),
+];
+if (faq.length) jsonLd.push(faqPage(faq));
+
+const seo = {
+  title: `${list.title} — topmostmovies.com`,
+  description: intro.slice(0, 160),
+  ogType: 'article' as const,
+  image: top?.backdropUrl ?? top?.posterUrl,
+  jsonLd,
+};
+
+const heroImg = heroBackdrop(top?.backdropUrl);
+---
+
+<BaseLayout seo={seo}>
+  <section class="relative isolate overflow-hidden border-b border-ink-700/60">
+    {
+      heroImg && (
+        <div class="absolute inset-0 -z-10" aria-hidden="true">
+          <img src={heroImg} alt="" width="780" height="439" fetchpriority="high" class="h-full w-full object-cover object-top opacity-30" loading="eager" />
+          <div class="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/80 to-ink-950/40" />
+        </div>
+      )
+    }
+    <div class="container-page py-10 sm:py-14">
+      <Breadcrumbs crumbs={crumbs.slice(0, 2)} />
+      <h1 class="mt-4 max-w-3xl text-3xl font-extrabold tracking-tight sm:text-5xl">{list.title}</h1>
+      <p class="mt-4 max-w-2xl text-base leading-relaxed text-fg-muted sm:text-lg">{intro}</p>
+      <p class="mt-4 text-sm text-fg-subtle">{list.total} {list.total === 1 ? 'movie' : 'movies'} · ranked by rating</p>
+    </div>
+  </section>
+
+  <div class="container-page py-8">
+    <AdSlot slot="list-top" class="mb-8" />
+    <ol class="grid grid-cols-2 gap-x-4 gap-y-7 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
+      {list.movies.map((movie, i) => (
+        <li><MovieCard movie={movie} rank={i + 1} priority={i < 6} /></li>
+      ))}
+    </ol>
+    {faq.length > 0 && <Faq items={faq} />}
+    <RelatedLists links={related} heading="Explore more" />
+    <AdSlot slot="list-bottom" class="mt-10" />
+  </div>
+</BaseLayout>
