@@ -33,15 +33,44 @@ export function isMember(movie: MovieData, dimension: Dimension, value: string):
 
 /* -------------------------------------------------------------------- ranking ------ */
 
+// --- Ranking constants (see docs/DATA-MODEL.md "Ranking") ---
+// Bayesian weighted rating (IMDb Top-250 style) pulls low-vote films toward the catalog
+// mean so a high score from a few hundred votes can't beat a slightly lower score from tens
+// of thousands. Tuned against the current catalog.
+const RATING_PRIOR = 7.1; // C: catalog mean of (IMDb||TMDb) ratings
+const VOTE_PRIOR = 3000; // m: votes needed before a film's own rating dominates the prior
+const CURRENT_YEAR = 2026;
+
+// True concert films / making-of specials / event broadcasts — not "movies" for our lists.
+// Anchored phrases only, so legitimate films ("… : The Movie") are NOT excluded.
+const NON_FILM_TITLE =
+  /(world tour|love yourself in|bring the soul|burn the stage|: making|making season|concert film|live in concert)/i;
+
 /**
- * Default ranking signal: IMDb rating when present, else TMDb rating, then popularity as
- * a tiebreaker. Returns a sortable number (higher = better). See docs/DATA-MODEL.md.
+ * Eligibility for ranked lists. Filters out entries that would mislead a "best of" list:
+ *  - too few votes to be a reliable signal,
+ *  - unreleased/future films, and current-year films that are barely rated yet,
+ *  - concert/making-of/event titles (not feature films).
+ * Everything here is about list QUALITY — the movie pages still exist and are linked.
+ */
+export function isEligible(m: MovieData): boolean {
+  const votes = m.tmdbVotes ?? 0;
+  if (votes < 100) return false;
+  if (m.year > CURRENT_YEAR) return false;
+  if (m.year === CURRENT_YEAR && votes < 800) return false;
+  if (NON_FILM_TITLE.test(m.title)) return false;
+  if ((m.imdbRating ?? m.tmdbRating) === undefined) return false;
+  return true;
+}
+
+/**
+ * Bayesian weighted rating: (v/(v+m))·R + (m/(v+m))·C. Higher = better. Uses the IMDb
+ * rating when present (else TMDb) as R, and TMDb vote count as v. See docs/DATA-MODEL.md.
  */
 function defaultScore(m: MovieData): number {
-  const rating = m.imdbRating ?? m.tmdbRating ?? 0;
-  const pop = m.popularity ?? 0;
-  // Rating dominates; popularity only breaks ties (scaled tiny).
-  return rating * 1000 + Math.min(pop, 999);
+  const R = m.imdbRating ?? m.tmdbRating ?? 0;
+  const v = m.tmdbVotes ?? 0;
+  return (v / (v + VOTE_PRIOR)) * R + (VOTE_PRIOR / (v + VOTE_PRIOR)) * RATING_PRIOR;
 }
 
 export interface RankedList {
@@ -85,6 +114,8 @@ export function buildList(
 ): RankedList {
   const members = movies.filter((m) => isMember(m, dimension, value));
 
+  // Editorial picks (rankOverride) are pinned to the top in order and bypass eligibility —
+  // a human explicitly chose them.
   const pinned: MovieData[] = [];
   const pinnedSlugs = new Set(overrides?.rankOverride ?? []);
   if (pinnedSlugs.size > 0) {
@@ -95,20 +126,23 @@ export function buildList(
     }
   }
 
+  // The rest are filtered for list quality (eligibility) then ranked by weighted rating.
   const rest = members
-    .filter((m) => !pinnedSlugs.has(m.slug))
+    .filter((m) => !pinnedSlugs.has(m.slug) && isEligible(m))
     .sort((a, b) => defaultScore(b) - defaultScore(a));
 
   const ranked = [...pinned, ...rest].slice(0, topN);
   const name = nameForSlug(dimension, value) ?? value;
+  // Honest count: films actually eligible to appear (pinned + eligible rest).
+  const eligibleCount = pinned.length + rest.length;
 
   return {
     dimension,
     value,
     name,
-    title: overrides?.title ?? listTitle(dimension, name, members.length),
+    title: overrides?.title ?? listTitle(dimension, name, eligibleCount),
     movies: ranked,
-    total: members.length,
+    total: eligibleCount,
   };
 }
 

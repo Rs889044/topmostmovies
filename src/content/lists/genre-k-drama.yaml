@@ -1,32 +1,35 @@
-# Editorial override for the K-Drama genre list. Demonstrates the override system:
-# custom intro, pinned ranking, per-movie blurbs, and an FAQ block. Copy here is a
-# Phase-3 sample and will be reviewed against docs/CONTENT-GUIDELINES.md in Phase 5.
+# Editorial override for the K-Drama genre list. Pins + blurbs reference films that exist
+# in the catalog (see docs/CONTENT-GUIDELINES.md). The k-drama tag collects emotionally
+# resonant Korean dramas — the cinematic cousins of the K-drama TV style.
 dimension: genre
 value: k-drama
 title: "Top 10 K-Drama Movies"
 intro: >-
-  If the slow-burn romance and emotional gut-punches of Korean dramas are your thing, these
-  films deliver the same feeling in a single sitting. We've gathered the K-drama-style
-  movies worth starting with — heartfelt, beautifully shot, and easy to fall into even if
-  you've never watched a full series.
+  If the emotional gut-punches and tender storytelling of Korean dramas are your thing,
+  these films deliver that same feeling in a single sitting. We've gathered the most
+  heartfelt Korean dramas worth starting with — moving, beautifully shot, and easy to fall
+  into even if you've never watched a full TV series.
 rankOverride:
-  - my-sassy-girl-2001
-  - the-classic-2003
+  - miracle-in-cell-no-7-2013
+  - hope-2013
+  - be-with-you-2018
 perMovieBlurb:
-  my-sassy-girl-2001: >-
-    The blueprint for modern Korean rom-coms: equal parts slapstick and heartbreak, with a
-    twist ending that launched a thousand imitators.
-  the-classic-2003: >-
-    A dreamy, time-hopping love story that captures the bittersweet nostalgia K-drama fans
-    live for — bring tissues.
+  miracle-in-cell-no-7-2013: >-
+    A tear-jerking crowd-pleaser about a wrongly imprisoned father and his little daughter —
+    one of Korea's most beloved emotional dramas.
+  hope-2013: >-
+    A delicate, deeply moving story of a family healing after tragedy; not an easy watch,
+    but an unforgettable one.
+  be-with-you-2018: >-
+    A gentle fantasy romance about love, memory and second chances — pure K-drama warmth.
 faq:
   - q: What is the best K-drama movie to start with?
     a: >-
-      My Sassy Girl (2001) is the classic entry point — it's funny, romantic, and defined
-      the tone of Korean rom-coms that followed. If you prefer a gentler, more nostalgic
-      love story, The Classic (2003) is an easy second watch.
+      Miracle in Cell No. 7 is the easiest entry point — funny, devastating, and hugely
+      popular. For something gentler, Be With You is a lovely fantasy romance, while Hope is
+      a more serious, powerful drama.
   - q: Are K-drama movies the same as Korean dramas?
     a: >-
       Not exactly. "K-drama" usually means episodic Korean TV series, but these films carry
-      the same romantic, emotional style in a single two-hour story — perfect if you want
-      the feeling without committing to 16 episodes.
+      the same emotional, character-driven style in a single two-hour story — perfect if you
+      want the feeling without committing to 16 episodes.

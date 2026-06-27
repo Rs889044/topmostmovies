@@ -81,16 +81,31 @@ in its tag arrays becomes a link to that list. Powers internal linking + SEO.
 
 ## List definition & ranking
 
-A list is defined by `(dimension, value)`. Building a list:
+A list is defined by `(dimension, value)`. Building a list (`src/lib/lists.ts`):
 
 1. **Filter** movies by the membership test above.
-2. **Rank**:
-   - If an **editorial rank override** exists for this `(dimension, value)`, use it
-     (manual curation — "Top 10" is editorial).
-   - Else **default sort**: by a composite signal — primarily `imdbRating` when present,
-     falling back to `tmdbRating`, then `popularity` as a tiebreaker. (Exact weighting
-     finalized in `src/lib/lists.ts`; documented there.)
-3. **Truncate** to the top N (default 10).
+2. **Eligibility filter** (`isEligible`) — keeps lists trustworthy by dropping entries that
+   would mislead a "best of" ranking:
+   - `tmdbVotes < 100` (too little signal to trust a rating),
+   - `year > 2026` (unreleased) and current-year films with `< 800` votes (unproven),
+   - concert films / making-of specials / event broadcasts (matched by anchored title
+     phrases — not feature films),
+   - no rating at all.
+   *Editorial `rankOverride` picks bypass this — a human explicitly chose them.*
+3. **Rank**:
+   - Editorial `rankOverride` slugs pin to the top in order; then
+   - the rest by **Bayesian weighted rating** (IMDb Top-250 style):
+     `weighted = (v/(v+m))·R + (m/(v+m))·C`, where `R` = `imdbRating ?? tmdbRating`,
+     `v` = `tmdbVotes`, `m` = `VOTE_PRIOR` (3000), `C` = `RATING_PRIOR` (catalog mean ≈7.1).
+     This pulls low-vote films toward the mean so a high score from a few hundred votes
+     can't beat a slightly lower score from tens of thousands. Constants live in `lists.ts`.
+4. **Truncate** to the top N (default 10). The displayed count + "Top N" title reflect the
+   **eligible** member count, so they're honest (a 2-film category shows "Top 2").
+
+> **Why weighted, not raw rating?** Audit (2026-06) found raw-rating sort let obscure,
+> low-vote and concert titles outrank classics (e.g. a BTS concert doc above Parasite on the
+> Korean list). The weighted rating + eligibility filter fixed this; verified across genres,
+> countries, languages and decades.
 
 Editorial overrides live in content collections, e.g. a `lists` entry:
 
