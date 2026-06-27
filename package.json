@@ -1,7 +1,7 @@
 {
   "name": "topmostmovies",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "private": true,
   "description": "Fast, SEO-first Top 10 movie discovery site (Astro + Tailwind v4), monetized with AdSense.",
   "engines": {
