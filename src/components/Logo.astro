@@ -1,8 +1,8 @@
 ---
 /**
  * Logo.astro — the site wordmark. Single source of truth so header, footer (and anywhere
- * else) stay consistent. A refined badge mark + "Topmost Movies" (capital T), premium
- * two-tone treatment. Pass `size` to scale.
+ * else) stay consistent. A bright gradient-gold badge mark + "Top Most Movies" (three
+ * words, capital T) in a bright gold→amber gradient. Pass `size` to scale.
  */
 export interface Props {
   size?: 'sm' | 'md';
@@ -12,19 +12,23 @@ const { size = 'md', class: className = '' } = Astro.props;
 
 const mark = size === 'sm' ? 'h-7 w-7' : 'h-8 w-8';
 const text = size === 'sm' ? 'text-base' : 'text-xl';
+
+// Bright gold → amber sheen (matches the site's amber accents, just brighter at the top).
+const goldGradient = 'linear-gradient(100deg, #ffd24d 0%, #f5a623 100%)';
 ---
 
 <a
   href="/"
   class:list={['group flex items-center gap-2.5', className]}
-  aria-label="Topmost Movies — home"
+  aria-label="Top Most Movies — home"
 >
-  {/* Mark: rounded amber badge with a star, subtle depth. */}
+  {/* Mark: rounded gradient-gold badge with a star, subtle depth. */}
   <span
     class:list={[
       mark,
-      'relative inline-flex shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-accent-400 to-accent-600 shadow-sm ring-1 ring-accent-300/30 transition-transform duration-300 group-hover:scale-105',
+      'relative inline-flex shrink-0 items-center justify-center rounded-lg shadow-sm ring-1 ring-accent-300/30 transition-transform duration-300 group-hover:scale-105',
     ]}
+    style={`background-image:${goldGradient}`}
     aria-hidden="true"
   >
     <svg viewBox="0 0 24 24" class="h-1/2 w-1/2 text-ink-950" fill="currentColor" aria-hidden="true">
@@ -32,8 +36,11 @@ const text = size === 'sm' ? 'text-base' : 'text-xl';
     </svg>
   </span>
 
-  {/* Wordmark: capital T, tight tracking, two-tone. */}
-  <span class:list={[text, 'font-extrabold leading-none tracking-tight text-fg']}>
-    Topmost<span class="text-accent-500">&nbsp;Movies</span>
+  {/* Wordmark: "Top Most Movies" — three words, bright gold→amber gradient text. */}
+  <span
+    class:list={[text, 'bg-clip-text font-extrabold leading-none tracking-tight text-transparent']}
+    style={`background-image:${goldGradient}`}
+  >
+    Top&nbsp;Most&nbsp;Movies
   </span>
 </a>
