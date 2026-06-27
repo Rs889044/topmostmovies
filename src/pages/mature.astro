@@ -1,0 +1,28 @@
+---
+import SpecialListLayout from '../layouts/SpecialListLayout.astro';
+import { allMovies } from '../lib/movies';
+import { topMature } from '../lib/lists';
+
+const movies = await allMovies();
+const ranked = topMature(movies, 30);
+
+// Mature = adult-AUDIENCE films (R / 18 / A certified) — serious, intense cinema for grown-up
+// viewers. NOT explicit content. See docs/CONTENT-GUIDELINES.md.
+const intro = `The best mature, adult-audience movies — powerful R-rated dramas, thrillers and crime films made for grown-up viewers. These are intense, serious, often unflinching films carrying an adult certification (R, 18 or equivalent). We note each film's official age rating so you always know what you're in for.`;
+
+const faq = [
+  { q: 'What counts as a "mature" movie here?', a: 'Films carrying an official adult certification (R, 18, A or equivalent) for mature themes, language or violence — serious cinema made for grown-up audiences. Every film shows its official age rating.' },
+  { q: 'Are these movies appropriate for teens?', a: 'No — these carry adult certifications (R / 18 / A) precisely because they\'re intended for mature viewers. Check each film\'s rating and our parental notes before watching with younger audiences.' },
+];
+---
+
+<SpecialListLayout
+  title="Best Mature & R-Rated Movies"
+  metaTitle="Best Mature & R-Rated Movies for Adults"
+  path="/mature"
+  crumbLabel="Mature"
+  intro={intro}
+  movies={ranked}
+  total={ranked.length}
+  faq={faq}
+/>

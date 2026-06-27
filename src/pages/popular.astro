@@ -1,0 +1,26 @@
+---
+import SpecialListLayout from '../layouts/SpecialListLayout.astro';
+import { allMovies } from '../lib/movies';
+import { mostPopular } from '../lib/lists';
+
+const movies = await allMovies();
+const ranked = mostPopular(movies, 30);
+
+const intro = `The most popular and most-watched movies right now, ranked by what audiences are searching for and streaming. If you want to know what everyone's talking about — the trending titles people can't stop watching — start here. Each pick includes its rating and honest age info.`;
+
+const faq = [
+  { q: 'What are the most popular movies right now?', a: 'This list ranks films by current audience popularity, so the titles at the top are the ones people are watching and searching for most. It updates whenever we refresh our catalog.' },
+  { q: 'What\'s the difference between "popular" and "best" movies?', a: 'Popular means most-watched and most talked-about right now; "best" means highest-rated by critics and audiences over time. For the all-time greats, see our Greatest Movies of All Time list.' },
+];
+---
+
+<SpecialListLayout
+  title="Most Popular Movies"
+  metaTitle="Most Popular Movies — Most Watched & Trending Films"
+  path="/popular"
+  crumbLabel="Most Popular"
+  intro={intro}
+  movies={ranked}
+  total={ranked.length}
+  faq={faq}
+/>

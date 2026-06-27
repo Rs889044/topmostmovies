@@ -1,9 +1,11 @@
 ---
 /**
- * /best/[language]-[genre] — long-tail combo lists (e.g. /best/korean-thriller →
- * "Top 10 Korean Thriller Movies"). Targets low-competition, high-intent keywords that
- * single-dimension lists can't (see docs/KEYWORDS.md). Generated only for combos with
- * enough quality movies (enumerateCombos).
+ * /best/<primaryValue>-<genre> — long-tail combo lists pairing a primary dimension
+ * (language / industry / decade) with a genre, e.g.:
+ *   /best/korean-thriller   → "Top 10 Korean Thriller Movies"
+ *   /best/bollywood-action  → "Top 10 Bollywood Action Movies"
+ *   /best/2010s-horror      → "Top 10 2010s Horror Movies"
+ * Targets low-competition long-tail keywords single-dimension lists can't (docs/KEYWORDS.md).
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
@@ -15,40 +17,47 @@ import { allMovies, heroBackdrop } from '../../lib/movies';
 import { enumerateCombos, buildCombo, type RelatedLink } from '../../lib/lists';
 import { breadcrumbList, itemList, faqPage, type Crumb } from '../../lib/jsonld';
 import { COMBO_EDITORIAL } from '../../lib/combo-editorial';
+import type { Dimension } from '../../lib/taxonomy';
 
 export async function getStaticPaths() {
   const combos = await enumerateCombos();
   return combos.map((c) => ({
-    params: { combo: `${c.language}-${c.genre}` },
-    props: { genre: c.genre, language: c.language },
+    params: { combo: `${c.primaryValue}-${c.genre}` },
+    props: { primary: c.primary, primaryValue: c.primaryValue, genre: c.genre },
   }));
 }
 
-const { genre, language } = Astro.props;
+interface Props {
+  primary: Dimension;
+  primaryValue: string;
+  genre: string;
+}
+const { primary, primaryValue, genre } = Astro.props as Props;
 const site = Astro.site ?? new URL('https://topmostmovies.com');
 
 const movies = await allMovies();
-const list = buildCombo(movies, genre, language);
+const list = buildCombo(movies, primary, primaryValue, genre);
 const top = list.movies[0];
 
 // Hand-written editorial (intro + FAQ) for flagship combos; else an original auto-intro.
-const editorial = COMBO_EDITORIAL[`${language}-${genre}`] ?? {};
+const editorial = COMBO_EDITORIAL[`${primaryValue}-${genre}`] ?? {};
 const intro =
   editorial.intro ??
-  `Looking for the best ${list.languageName.toLowerCase()} ${list.genreName.toLowerCase()} movies? We've ranked the standouts by rating — led by ${top ? `${top.title} (${top.year})` : 'our top pick'} — so you can find your next watch fast. Every title includes its rating and honest age certification.`;
+  `Looking for the best ${list.primaryName.toLowerCase()} ${list.genreName.toLowerCase()} movies? We've ranked the standouts by rating — led by ${top ? `${top.title} (${top.year})` : 'our top pick'} — so you can find your next watch fast. Every title includes its rating and honest age certification.`;
 const faq = editorial.faq ?? [];
 
+const primaryBase = primary; // 'language' | 'industry' | 'decade'
 const crumbs: Crumb[] = [
   { name: 'Home', path: '/' },
-  { name: list.languageName, path: `/language/${language}` },
-  { name: `${list.genreName} movies`, path: `/best/${language}-${genre}` },
+  { name: list.primaryName, path: `/${primaryBase}/${primaryValue}` },
+  { name: `${list.genreName} movies`, path: `/best/${primaryValue}-${genre}` },
 ];
 
 const movieItems = list.movies.map((m) => ({ name: `${m.title} (${m.year})`, path: `/movie/${m.slug}` }));
 
-// Cross-link back to the parent single-dimension lists + sibling combos.
+// Cross-link back to the parent single-dimension lists.
 const related: RelatedLink[] = [
-  { dimension: 'language', value: language, name: `All ${list.languageName} movies`, path: `/language/${language}`, count: 0 },
+  { dimension: primary, value: primaryValue, name: `All ${list.primaryName} movies`, path: `/${primaryBase}/${primaryValue}`, count: 0 },
   { dimension: 'genre', value: genre, name: `All ${list.genreName} movies`, path: `/genre/${genre}`, count: 0 },
 ];
 

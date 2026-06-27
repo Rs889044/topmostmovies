@@ -74,7 +74,12 @@ dimension + value:
 | `/theme/coming-of-age` | `themes` includes `"coming-of-age"` |
 | `/year/2024` | `year === 2024` |
 | `/decade/2010s` | `decade === "2010s"` |
-| `/best/korean-thriller` | `languages` ∋ `"korean"` AND `genres` ∋ `"thriller"` (combo) |
+| `/best/korean-thriller` | combo: `languages` ∋ korean AND `genres` ∋ thriller |
+| `/best/bollywood-action` | combo: `industries` ∋ bollywood AND `genres` ∋ action |
+| `/best/2010s-thriller` | combo: `decade` = 2010s AND `genres` ∋ thriller |
+| `/best-movies` | site-wide: all eligible, weighted-ranked (greatest of all time) |
+| `/popular` | site-wide: by TMDb popularity (most watched / trending) |
+| `/mature` | site-wide: films with an adult cert (R/18/A) — NOT explicit content |
 
 **Custom categories** (e.g. `k-drama`) are just genre slugs we assign editorially; they
 need not map 1:1 to TMDb genres. This is how we hit long-tail keywords.

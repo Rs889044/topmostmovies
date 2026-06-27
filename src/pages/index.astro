@@ -92,13 +92,22 @@ const seo = {
         you're pressing play on.
       </p>
       <div class="mt-7 flex flex-wrap gap-3">
-        <a href="/language/korean" class="rounded-lg bg-accent-500 px-5 py-2.5 font-semibold text-ink-950 transition hover:bg-accent-400">
-          Explore Korean cinema
+        <a href="/best-movies" class="rounded-lg bg-accent-500 px-5 py-2.5 font-semibold text-ink-950 transition hover:bg-accent-400">
+          Greatest of all time
         </a>
-        <a href="/genre/thriller" class="rounded-lg border border-ink-600 px-5 py-2.5 font-semibold text-fg transition hover:bg-ink-800">
-          Browse thrillers
+        <a href="/popular" class="rounded-lg border border-ink-600 px-5 py-2.5 font-semibold text-fg transition hover:bg-ink-800">
+          Most popular
         </a>
       </div>
+      {/* Quick picks — links to the highest-intent destination pages. */}
+      <nav aria-label="Quick picks" class="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-sm text-fg-muted">
+        <a href="/best-movies" class="hover:text-accent-400">Best movies ever</a>
+        <a href="/popular" class="hover:text-accent-400">Most watched</a>
+        <a href="/genre/thriller" class="hover:text-accent-400">Thrillers</a>
+        <a href="/language/korean" class="hover:text-accent-400">Korean</a>
+        <a href="/industry/bollywood" class="hover:text-accent-400">Bollywood</a>
+        <a href="/mature" class="hover:text-accent-400">Mature / R-rated</a>
+      </nav>
     </div>
   </section>
 
@@ -140,10 +149,10 @@ const seo = {
             {combos.map((c) => (
               <li>
                 <a
-                  href={`/best/${c.language}-${c.genre}`}
+                  href={`/best/${c.primaryValue}-${c.genre}`}
                   class="inline-flex items-center gap-1.5 rounded-full border border-ink-600 bg-ink-800 px-3.5 py-1.5 text-sm text-fg-muted transition-colors hover:border-accent-500/60 hover:text-fg"
                 >
-                  Best {c.languageName} {c.genreName}
+                  Best {c.primaryName} {c.genreName}
                   <span class="text-fg-subtle">{c.count}</span>
                 </a>
               </li>

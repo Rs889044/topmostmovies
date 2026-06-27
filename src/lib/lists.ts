@@ -71,10 +71,34 @@ export function isEligible(m: MovieData): boolean {
  * Bayesian weighted rating: (v/(v+m))·R + (m/(v+m))·C. Higher = better. Uses the IMDb
  * rating when present (else TMDb) as R, and TMDb vote count as v. See docs/DATA-MODEL.md.
  */
-function defaultScore(m: MovieData): number {
+export function defaultScore(m: MovieData): number {
   const R = m.imdbRating ?? m.tmdbRating ?? 0;
   const v = m.tmdbVotes ?? 0;
   return (v / (v + VOTE_PRIOR)) * R + (VOTE_PRIOR / (v + VOTE_PRIOR)) * RATING_PRIOR;
+}
+
+/* ------------------------------------------------ site-wide special lists ---------- */
+
+/** Greatest of all time — all eligible movies ranked by weighted rating. */
+export function topRated(movies: MovieData[], topN = DEFAULT_TOP_N): MovieData[] {
+  return movies.filter(isEligible).sort((a, b) => defaultScore(b) - defaultScore(a)).slice(0, topN);
+}
+
+/** Most popular / most watched — by TMDb popularity (with an eligibility floor). */
+export function mostPopular(movies: MovieData[], topN = DEFAULT_TOP_N): MovieData[] {
+  return movies
+    .filter(isEligible)
+    .sort((a, b) => (b.popularity ?? 0) - (a.popularity ?? 0))
+    .slice(0, topN);
+}
+
+/** Best mature / R-rated films (adult-audience, NOT explicit). Ranked by weighted rating. */
+export function topMature(movies: MovieData[], topN = DEFAULT_TOP_N): MovieData[] {
+  const MATURE = /^(R|NC-17|MA ?15\+|R ?18\+|18A?|19|TV-MA|A|\+16|16|U\/A 16\+)$/i;
+  return movies
+    .filter((m) => isEligible(m) && m.certification && MATURE.test(m.certification.trim()))
+    .sort((a, b) => defaultScore(b) - defaultScore(a))
+    .slice(0, topN);
 }
 
 export interface RankedList {
@@ -267,83 +291,124 @@ export async function hubEntries(dimension: Dimension): Promise<HubEntry[]> {
   return entries;
 }
 
-/* ------------------------------------------------------ combo lists (genre×language) */
+/* ------------------------------------------------------- combo lists (2-dimension) */
+// Long-tail pages pairing two dimensions: language×genre ("Korean Thriller"),
+// industry×genre ("Bollywood Thriller"), decade×genre ("2010s Thriller"). URL form
+// /best/<a>-<b> where the SECOND value is always a genre. Targets validated long-tail
+// keywords (see docs/KEYWORDS.md). Only combos with enough quality films become pages.
 
-// Min eligible movies for a combo page to be worth generating (keeps quality high and
-// avoids thin pages). Only combos with real depth become pages.
 const COMBO_MIN = 8;
 
-// Languages + genres we generate combos for. Targets validated long-tail keywords
-// ("best korean thriller movies", "best japanese animated movies") — see docs/KEYWORDS.md.
-const COMBO_LANGUAGES = ['korean', 'hindi', 'japanese', 'spanish', 'french'] as const;
 const COMBO_GENRES = [
   'romance', 'thriller', 'horror', 'action', 'drama', 'comedy', 'crime', 'animation', 'mystery',
 ] as const;
+const COMBO_LANGUAGES = ['korean', 'hindi', 'japanese', 'spanish', 'french'] as const;
+const COMBO_INDUSTRIES = ['hollywood', 'bollywood'] as const;
+const COMBO_DECADES = ['1990s', '2000s', '2010s', '2020s'] as const;
 
+/** A combo couples a primary dimension (language/industry/decade) with a genre. */
 export interface ComboRef {
+  primary: Dimension; // 'language' | 'industry' | 'decade'
+  primaryValue: string;
   genre: string;
-  language: string;
+  primaryName: string;
   genreName: string;
-  languageName: string;
   count: number;
 }
 
-/** Eligible movies in a genre×language combo. */
-function comboMembers(movies: MovieData[], genre: string, language: string): MovieData[] {
+function comboMembers(
+  movies: MovieData[],
+  primary: Dimension,
+  primaryValue: string,
+  genre: string,
+): MovieData[] {
   return movies.filter(
-    (m) => m.genres.includes(genre) && m.languages.includes(language) && isEligible(m),
+    (m) => isMember(m, primary, primaryValue) && m.genres.includes(genre) && isEligible(m),
   );
 }
 
-/** Every viable genre×language combo (≥ COMBO_MIN eligible movies) — for getStaticPaths. */
+const COMBO_SOURCES: { primary: Dimension; values: readonly string[] }[] = [
+  { primary: 'language', values: COMBO_LANGUAGES },
+  { primary: 'industry', values: COMBO_INDUSTRIES },
+  { primary: 'decade', values: COMBO_DECADES },
+];
+
+/** Every viable combo (≥ COMBO_MIN eligible movies) — for getStaticPaths + linking. */
 export async function enumerateCombos(): Promise<ComboRef[]> {
   const movies = await allMovies();
   const out: ComboRef[] = [];
-  for (const language of COMBO_LANGUAGES) {
-    for (const genre of COMBO_GENRES) {
-      const count = comboMembers(movies, genre, language).length;
-      if (count >= COMBO_MIN) {
-        out.push({
-          genre,
-          language,
-          genreName: nameForSlug('genre', genre) ?? genre,
-          languageName: nameForSlug('language', language) ?? language,
-          count,
-        });
+  for (const { primary, values } of COMBO_SOURCES) {
+    for (const primaryValue of values) {
+      for (const genre of COMBO_GENRES) {
+        const count = comboMembers(movies, primary, primaryValue, genre).length;
+        if (count >= COMBO_MIN) {
+          out.push({
+            primary,
+            primaryValue,
+            genre,
+            primaryName: nameForSlug(primary, primaryValue) ?? primaryValue,
+            genreName: nameForSlug('genre', genre) ?? genre,
+            count,
+          });
+        }
       }
     }
   }
   return out.sort((a, b) => b.count - a.count);
 }
 
+/** Parse a /best/<slug> param back into (primary, primaryValue, genre). */
+export function parseComboSlug(
+  slug: string,
+): { primary: Dimension; primaryValue: string; genre: string } | undefined {
+  // slug is "<primaryValue>-<genre>"; genre is the trailing known genre token.
+  for (const genre of COMBO_GENRES) {
+    const suffix = `-${genre}`;
+    if (slug.endsWith(suffix)) {
+      const primaryValue = slug.slice(0, -suffix.length);
+      for (const { primary, values } of COMBO_SOURCES) {
+        if ((values as readonly string[]).includes(primaryValue)) {
+          return { primary, primaryValue, genre };
+        }
+      }
+    }
+  }
+  return undefined;
+}
+
 export interface ComboList {
+  primary: Dimension;
+  primaryValue: string;
   genre: string;
-  language: string;
-  title: string; // "Top 10 Korean Thriller Movies"
+  primaryName: string;
   genreName: string;
-  languageName: string;
+  title: string; // "Top 10 Korean Thriller Movies"
   movies: MovieData[];
   total: number;
 }
 
-/** Build a ranked combo list (genre×language), weighted-ranked + eligibility-filtered. */
+/** Build a ranked combo list, weighted-ranked + eligibility-filtered. */
 export function buildCombo(
   movies: MovieData[],
+  primary: Dimension,
+  primaryValue: string,
   genre: string,
-  language: string,
   topN = DEFAULT_TOP_N,
 ): ComboList {
-  const members = comboMembers(movies, genre, language).sort(
+  const members = comboMembers(movies, primary, primaryValue, genre).sort(
     (a, b) => defaultScore(b) - defaultScore(a),
   );
+  const primaryName = nameForSlug(primary, primaryValue) ?? primaryValue;
   const genreName = nameForSlug('genre', genre) ?? genre;
-  const languageName = nameForSlug('language', language) ?? language;
+  // "Top 10 1990s Thriller Movies" / "Top 10 Korean Thriller Movies".
+  const label = primary === 'decade' ? `${primaryName} ${genreName}` : `${primaryName} ${genreName}`;
   return {
+    primary,
+    primaryValue,
     genre,
-    language,
+    primaryName,
     genreName,
-    languageName,
-    title: `Top ${Math.min(members.length, topN)} ${languageName} ${genreName} Movies`,
+    title: `Top ${Math.min(members.length, topN)} ${label} Movies`,
     movies: members.slice(0, topN),
     total: members.length,
   };
@@ -354,13 +419,14 @@ export async function combosFor(
   dimension: Dimension,
   value: string,
 ): Promise<{ path: string; label: string; count: number }[]> {
-  if (dimension !== 'genre' && dimension !== 'language') return [];
   const combos = await enumerateCombos();
   return combos
-    .filter((c) => (dimension === 'genre' ? c.genre === value : c.language === value))
+    .filter((c) =>
+      dimension === 'genre' ? c.genre === value : c.primary === dimension && c.primaryValue === value,
+    )
     .map((c) => ({
-      path: `/best/${c.language}-${c.genre}`,
-      label: `${c.languageName} ${c.genreName}`,
+      path: `/best/${c.primaryValue}-${c.genre}`,
+      label: `${c.primaryName} ${c.genreName}`,
       count: c.count,
     }));
 }

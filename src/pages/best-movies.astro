@@ -1,0 +1,27 @@
+---
+import SpecialListLayout from '../layouts/SpecialListLayout.astro';
+import { allMovies } from '../lib/movies';
+import { topRated } from '../lib/lists';
+
+const movies = await allMovies();
+const ranked = topRated(movies, 30);
+const top = ranked[0];
+
+const intro = `The greatest movies of all time, ranked. We've weighed IMDb and TMDb ratings against vote counts so the all-time classics rise to the top${top ? `, led by ${top.title} (${top.year})` : ''}. From timeless dramas to genre-defining masterpieces, these are the films worth watching at least once in your life.`;
+
+const faq = [
+  { q: 'What is the greatest movie of all time?', a: top ? `By our weighted rating of IMDb and TMDb scores, ${top.title} (${top.year}) tops the list — but classics like The Shawshank Redemption, The Godfather and The Dark Knight are perennial contenders.` : 'The all-time greats include The Shawshank Redemption, The Godfather and The Dark Knight.' },
+  { q: 'How is this "greatest movies" list ranked?', a: 'We use a Bayesian weighted rating that blends IMDb and TMDb scores with how many people voted — so a film with a high score from millions of viewers ranks above one with a slightly higher score from only a few hundred.' },
+];
+---
+
+<SpecialListLayout
+  title="The Greatest Movies of All Time"
+  metaTitle="Greatest Movies of All Time — Top 30 Best Movies Ever"
+  path="/best-movies"
+  crumbLabel="Best Movies"
+  intro={intro}
+  movies={ranked}
+  total={ranked.length}
+  faq={faq}
+/>

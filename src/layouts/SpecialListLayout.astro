@@ -1,0 +1,81 @@
+---
+/**
+ * SpecialListLayout.astro — site-wide "special" ranked lists that aren't a single taxonomy
+ * dimension (Greatest of All Time, Most Popular, Best Mature). Cinematic hero + poster grid
+ * + ItemList/Breadcrumb JSON-LD + FAQ. Used by /best-movies, /popular, /mature.
+ */
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import MovieCard from '../components/MovieCard.astro';
+import Faq from '../components/Faq.astro';
+import AdSlot from '../components/AdSlot.astro';
+import RelatedLists from '../components/RelatedLists.astro';
+import { heroBackdrop, type MovieData } from '../lib/movies';
+import { breadcrumbList, itemList, faqPage, type Crumb } from '../lib/jsonld';
+import type { RelatedLink } from '../lib/lists';
+
+export interface Props {
+  title: string;
+  path: string; // e.g. "/best-movies"
+  crumbLabel: string; // breadcrumb label
+  intro: string;
+  movies: MovieData[];
+  total: number;
+  faq?: { q: string; a: string }[];
+  related?: RelatedLink[];
+  metaTitle?: string;
+}
+
+const { title, path, crumbLabel, intro, movies, total, faq = [], related = [], metaTitle } =
+  Astro.props;
+const site = Astro.site ?? new URL('https://topmostmovies.com');
+
+const crumbs: Crumb[] = [
+  { name: 'Home', path: '/' },
+  { name: crumbLabel, path },
+];
+
+const movieItems = movies.map((m) => ({ name: `${m.title} (${m.year})`, path: `/movie/${m.slug}` }));
+const jsonLd: Record<string, unknown>[] = [breadcrumbList(crumbs, site), itemList(title, movieItems, site)];
+if (faq.length) jsonLd.push(faqPage(faq));
+
+const seo = {
+  title: `${metaTitle ?? title} — topmostmovies.com`,
+  description: intro.slice(0, 160),
+  ogType: 'article' as const,
+  image: movies[0]?.backdropUrl ?? movies[0]?.posterUrl,
+  jsonLd,
+};
+const heroImg = heroBackdrop(movies.find((m) => m.backdropUrl)?.backdropUrl);
+---
+
+<BaseLayout seo={seo}>
+  <section class="relative isolate overflow-hidden border-b border-ink-700/60">
+    {
+      heroImg && (
+        <div class="absolute inset-0 -z-10" aria-hidden="true">
+          <img src={heroImg} alt="" width="780" height="439" fetchpriority="high" class="h-full w-full object-cover object-top opacity-30" loading="eager" />
+          <div class="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/80 to-ink-950/40" />
+        </div>
+      )
+    }
+    <div class="container-page py-10 sm:py-14">
+      <Breadcrumbs crumbs={crumbs} />
+      <h1 class="mt-4 max-w-3xl text-3xl font-extrabold tracking-tight sm:text-5xl">{title}</h1>
+      <p class="mt-4 max-w-2xl text-base leading-relaxed text-fg-muted sm:text-lg">{intro}</p>
+      <p class="mt-4 text-sm text-fg-subtle">{total} movies · ranked</p>
+    </div>
+  </section>
+
+  <div class="container-page py-8">
+    <AdSlot slot="list-top" class="mb-8" />
+    <ol class="grid grid-cols-2 gap-x-4 gap-y-7 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
+      {movies.map((movie, i) => (
+        <li><MovieCard movie={movie} rank={i + 1} priority={i < 6} /></li>
+      ))}
+    </ol>
+    {faq.length > 0 && <Faq items={faq} />}
+    {related.length > 0 && <RelatedLists links={related} />}
+    <AdSlot slot="list-bottom" class="mt-10" />
+  </div>
+</BaseLayout>
