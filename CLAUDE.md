@@ -111,5 +111,7 @@ npm run validate-seo # post-build SEO/JSON-LD validation over dist/ (scripts/)
 - [docs/GROWTH.md](docs/GROWTH.md) — traffic playbook: promotion channels, backlinks,
   weekly routine to reach the AdSense traffic threshold.
 - [docs/CONTENT-GUIDELINES.md](docs/CONTENT-GUIDELINES.md) — how original copy is written.
+- [docs/BLOG-GUIDELINES.md](docs/BLOG-GUIDELINES.md) — how to write a blog post (rules,
+  template, SEO + performance gates). Template: `src/content/blog/_TEMPLATE.md`.
 - [docs/KEYWORDS.md](docs/KEYWORDS.md) — target keywords + PAA questions per category.
 - [docs/ROADMAP.md](docs/ROADMAP.md) — phased plan + live status checklist (update each session).

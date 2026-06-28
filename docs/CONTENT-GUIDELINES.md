@@ -15,6 +15,7 @@ data alone is "thin content." Every page must add real human value.
 |------|-------------------|
 | List page | Intro paragraph (context for the list) + a "why it made the list" blurb per movie + FAQ answers |
 | Movie page | Synopsis (rewritten, not copied) + optional parental notes |
+| Blog post | Full original article — see [BLOG-GUIDELINES.md](BLOG-GUIDELINES.md) |
 | Static pages | About / Contact / Privacy — genuine, specific copy |
 
 ## Tone & voice

@@ -139,7 +139,8 @@ const blogSchema = z.object({
 });
 
 const blog = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/blog' }),
+  // Underscore-prefixed files (e.g. _TEMPLATE.md) are authoring scaffolds, not posts.
+  loader: glob({ pattern: ['**/*.md', '!**/_*.md'], base: './src/content/blog' }),
   schema: blogSchema,
 });
 
