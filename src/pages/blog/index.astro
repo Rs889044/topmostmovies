@@ -1,0 +1,101 @@
+---
+/**
+ * /blog — the blog landing page. Lists every published post (newest first) as cards, with a
+ * featured lead post. Internal-links each post + emits CollectionPage + BreadcrumbList
+ * JSON-LD. See docs/SEO.md.
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AdSlot from '../../components/AdSlot.astro';
+import { allPosts, formatPostDate } from '../../lib/blog';
+import { breadcrumbList, collectionPage, type Crumb } from '../../lib/jsonld';
+
+const site = Astro.site ?? new URL('https://topmostmovies.com');
+const posts = await allPosts();
+
+const crumbs: Crumb[] = [
+  { name: 'Home', path: '/' },
+  { name: 'Blog', path: '/blog' },
+];
+
+const items = posts.map((p) => ({ name: p.data.title, path: `/blog/${p.id}` }));
+
+const seo = {
+  title: 'Movie Guides & Recommendations — topmostmovies.com Blog',
+  description:
+    'In-depth movie guides and recommendations: the best films by genre, language, country, decade and studio — with honest ratings and curated Top 10 lists.',
+  ogType: 'website' as const,
+  jsonLd: [breadcrumbList(crumbs, site), collectionPage('topmostmovies.com Blog', '/blog', items, site)],
+};
+---
+
+<BaseLayout seo={seo}>
+  <section class="border-b border-ink-700/60">
+    <div class="container-page py-10 sm:py-14">
+      <Breadcrumbs crumbs={crumbs.slice(0, 1)} />
+      <h1 class="mt-4 max-w-3xl text-3xl font-extrabold tracking-tight sm:text-5xl">
+        Movie guides &amp; recommendations
+      </h1>
+      <p class="mt-4 max-w-2xl text-base leading-relaxed text-fg-muted sm:text-lg">
+        Deep dives into the best movies across genres, languages, countries, decades and studios —
+        each one pointing you to a curated Top 10 with honest ratings and age info.
+      </p>
+    </div>
+  </section>
+
+  <div class="container-page py-8">
+    <AdSlot slot="list-top" class="mb-8" />
+
+    {
+      posts.length === 0 ? (
+        <p class="text-fg-muted">No posts yet — check back soon.</p>
+      ) : (
+        <ul class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {posts.map((p) => (
+            <li>
+              <a
+                href={`/blog/${p.id}`}
+                class="group flex h-full flex-col overflow-hidden rounded-xl border border-ink-700/60 bg-ink-900/40 transition-colors hover:border-accent-500/60"
+              >
+                {p.data.hero && (
+                  <div class="aspect-[16/9] w-full overflow-hidden bg-ink-800">
+                    <img
+                      src={p.data.hero}
+                      alt=""
+                      width="640"
+                      height="360"
+                      loading="lazy"
+                      class="h-full w-full object-cover transition duration-500 group-hover:scale-[1.04]"
+                    />
+                  </div>
+                )}
+                <div class="flex flex-1 flex-col p-5">
+                  <time datetime={p.data.publishDate.toISOString()} class="text-xs text-fg-subtle">
+                    {formatPostDate(p.data.publishDate)}
+                  </time>
+                  <h2 class="mt-1.5 text-lg font-bold text-fg group-hover:text-accent-400">
+                    {p.data.title}
+                  </h2>
+                  <p class="mt-2 line-clamp-3 text-sm leading-relaxed text-fg-muted">
+                    {p.data.description}
+                  </p>
+                  {p.data.tags.length > 0 && (
+                    <ul class="mt-3 flex flex-wrap gap-1.5">
+                      {p.data.tags.slice(0, 3).map((t) => (
+                        <li class="rounded-full bg-ink-800 px-2.5 py-0.5 text-[11px] text-fg-subtle">
+                          {t}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              </a>
+            </li>
+          ))}
+        </ul>
+      )
+    }
+
+    <AdSlot slot="list-bottom" class="mt-10" />
+  </div>
+</BaseLayout>

@@ -40,9 +40,11 @@ topmostmovies/
 │   │   ├── movies.json
 │   │   └── .gitkeep
 │   ├── content/                # Astro content collections (config + editorial data)
-│   │   └── config.ts           # Zod schemas: movies, lists, editorial overrides
+│   │   ├── config.ts           # Zod schemas: movies, lists, blog
+│   │   └── blog/               # blog posts (Markdown; internal-link to lists + movies)
 │   ├── lib/                    # site-side helpers: ranking, list-building, slug, seo
 │   │   ├── lists.ts            # filter+rank movies → list entries
+│   │   ├── blog.ts             # blog posts + linkedLists/linkedMovies link resolution
 │   │   ├── taxonomy.ts         # dimension definitions + slug maps
 │   │   └── jsonld.ts           # JSON-LD builders (ItemList/Movie/Breadcrumb/FAQ/WebSite)
 │   ├── components/

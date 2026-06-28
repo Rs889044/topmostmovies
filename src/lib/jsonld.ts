@@ -134,6 +134,32 @@ export function collectionPage(
   };
 }
 
+export interface ArticleJsonLdInput {
+  headline: string;
+  path: string;
+  description?: string;
+  image?: string;
+  datePublished: string; // ISO
+  dateModified?: string; // ISO
+}
+
+/** BlogPosting — blog article pages. Publisher = the site (no fabricated author byline). */
+export function article(input: ArticleJsonLdInput, site: URL) {
+  const node: Record<string, unknown> = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: input.headline,
+    mainEntityOfPage: { '@type': 'WebPage', '@id': abs(input.path, site) },
+    url: abs(input.path, site),
+    datePublished: input.datePublished,
+    dateModified: input.dateModified ?? input.datePublished,
+    publisher: { '@type': 'Organization', name: SITE_NAME, url: abs('/', site) },
+  };
+  if (input.description) node.description = input.description;
+  if (input.image) node.image = input.image;
+  return node;
+}
+
 /** FAQPage — pages with an FAQ block. */
 export function faqPage(faq: { q: string; a: string }[]) {
   return {

@@ -1,0 +1,22 @@
+---
+/**
+ * /blog/<slug> — a single blog article. Static-generated from the `blog` content collection.
+ * The Markdown body is rendered into BlogPostLayout, which adds the internal-linking blocks
+ * (lists, movies, related posts) + BlogPosting/FAQ JSON-LD.
+ */
+import BlogPostLayout from '../../layouts/BlogPostLayout.astro';
+import { render } from 'astro:content';
+import { allPosts } from '../../lib/blog';
+
+export async function getStaticPaths() {
+  const posts = await allPosts();
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<BlogPostLayout post={post}>
+  <Content />
+</BlogPostLayout>

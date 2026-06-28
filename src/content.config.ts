@@ -95,4 +95,57 @@ const lists = defineCollection({
   schema: listSchema,
 });
 
-export const collections = { movies, lists };
+/* ----------------------------------------------------------------------- blog ------ */
+// Original editorial articles targeting hot/trending keyword combos (best / top /
+// greatest / most-watched × genre × language/country × decade × studio, plus actor &
+// regional pieces). Each post hand-internal-links to our list pages and movie pages —
+// pushing crawl depth + link equity into the long-tail lists. See docs/SEO.md.
+
+// Dimensions a blog post can link to: the six list DIMENSIONS, plus studio/theme (which
+// also have list pages) and 'combo' (a /best/<value> long-tail page).
+export const BLOG_LINK_DIMENSIONS = [...DIMENSIONS, 'studio', 'theme', 'combo'] as const;
+
+// A typed reference to one of our generated pages. dimension+value → a path:
+//   { dimension: 'language', value: 'korean' } → /language/korean
+//   { dimension: 'combo',    value: 'korean-thriller' } → /best/korean-thriller
+const blogListLink = z.object({
+  dimension: z.enum(BLOG_LINK_DIMENSIONS),
+  value: z.string(),
+  /** Optional override for the link text; otherwise derived from the taxonomy name. */
+  label: z.string().optional(),
+});
+
+const blogSchema = z.object({
+  title: z.string(),
+  // Meta description / social summary. Also the listing-card excerpt. ≤ ~160 chars ideal.
+  description: z.string().max(200),
+  // Publication + last-updated dates (ISO). publishDate drives ordering + Article schema;
+  // updatedDate (when set) surfaces freshness to Google.
+  publishDate: z.coerce.date(),
+  updatedDate: z.coerce.date().optional(),
+  // Hero image: a TMDb backdrop URL (attribution already in the footer) or a local asset.
+  hero: z.string().optional(),
+  heroAlt: z.string().optional(),
+  // Free-text topical tags shown on the post + used for "related posts".
+  tags: z.array(z.string()).default([]),
+  // Curated internal links surfaced as a prominent "Explore these lists" block.
+  linkedLists: z.array(blogListLink).default([]),
+  // Movie slugs to surface as cards in a "Movies mentioned" block (must exist in catalog).
+  linkedMovies: z.array(reference('movies')).default([]),
+  // Optional FAQ → FAQPage schema (People-Also-Ask capture), same shape as lists.
+  faq: z.array(z.object({ q: z.string(), a: z.string() })).default([]),
+  // Hide from index/sitemap without deleting (e.g. work-in-progress).
+  draft: z.boolean().default(false),
+});
+
+const blog = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/blog' }),
+  schema: blogSchema,
+});
+
+// Derive types from the generated collection entry (not z.infer — astro:content re-exports
+// `z` as a value only, so a `z.infer<>` namespace reference fails to type-check; see movies).
+export type BlogPostData = import('astro:content').CollectionEntry<'blog'>['data'];
+export type BlogListLink = BlogPostData['linkedLists'][number];
+
+export const collections = { movies, lists, blog };

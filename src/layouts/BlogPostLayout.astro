@@ -1,0 +1,236 @@
+---
+/**
+ * BlogPostLayout.astro — a single blog article. Renders breadcrumbs, hero, title + meta, the
+ * Markdown body (scoped prose styles, no Typography plugin), then the internal-linking blocks
+ * that give the blog its SEO value: "Explore these lists" (linkedLists), "Movies mentioned"
+ * (linkedMovies as cards), an optional FAQ, and "Keep reading" (related posts).
+ * Wires BlogPosting + BreadcrumbList (+ FAQPage) JSON-LD. See docs/SEO.md.
+ */
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import MovieCard from '../components/MovieCard.astro';
+import Faq from '../components/Faq.astro';
+import AdSlot from '../components/AdSlot.astro';
+import type { BlogPost } from '../lib/blog';
+import { listLinkPath, listLinkLabel, relatedPosts, formatPostDate } from '../lib/blog';
+import { movieBySlug, heroBackdrop, type MovieData } from '../lib/movies';
+import { breadcrumbList, article, faqPage, type Crumb } from '../lib/jsonld';
+
+export interface Props {
+  post: BlogPost;
+}
+
+const { post } = Astro.props;
+const { data } = post;
+const site = Astro.site ?? new URL('https://topmostmovies.com');
+const path = `/blog/${post.id}`;
+
+// Resolve linkedMovies (references → slugs) to movie data for the "Movies mentioned" cards.
+const bySlug = await movieBySlug();
+const mentioned: MovieData[] = data.linkedMovies
+  .map((ref) => bySlug.get(typeof ref === 'string' ? ref : ref.id))
+  .filter((m): m is MovieData => Boolean(m));
+
+const related = await relatedPosts(post);
+
+const crumbs: Crumb[] = [
+  { name: 'Home', path: '/' },
+  { name: 'Blog', path: '/blog' },
+  { name: data.title, path },
+];
+
+const jsonLd: Record<string, unknown>[] = [
+  breadcrumbList(crumbs, site),
+  article(
+    {
+      headline: data.title,
+      path,
+      description: data.description,
+      image: data.hero,
+      datePublished: data.publishDate.toISOString(),
+      dateModified: data.updatedDate?.toISOString(),
+    },
+    site,
+  ),
+];
+if (data.faq.length) jsonLd.push(faqPage(data.faq));
+
+const seo = {
+  title: `${data.title} — topmostmovies.com`,
+  description: data.description,
+  ogType: 'article' as const,
+  image: data.hero ?? mentioned[0]?.backdropUrl ?? mentioned[0]?.posterUrl,
+  jsonLd,
+};
+
+const heroImg = heroBackdrop(data.hero) ?? data.hero;
+---
+
+<BaseLayout seo={seo}>
+  <section class="relative isolate overflow-hidden border-b border-ink-700/60">
+    {
+      heroImg && (
+        <div class="absolute inset-0 -z-10" aria-hidden="true">
+          <img
+            src={heroImg}
+            alt=""
+            width="780"
+            height="439"
+            class="h-full w-full object-cover object-top opacity-25"
+            loading="eager"
+            fetchpriority="high"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/85 to-ink-950/50" />
+        </div>
+      )
+    }
+    <div class="container-page py-10 sm:py-14">
+      <Breadcrumbs crumbs={crumbs.slice(0, 2)} />
+      <h1 class="mt-4 max-w-3xl text-3xl font-extrabold tracking-tight sm:text-5xl">
+        {data.title}
+      </h1>
+      <p class="mt-4 max-w-2xl text-base leading-relaxed text-fg-muted sm:text-lg">
+        {data.description}
+      </p>
+      <p class="mt-4 flex flex-wrap items-center gap-x-2 text-sm text-fg-subtle">
+        <time datetime={data.publishDate.toISOString()}>{formatPostDate(data.publishDate)}</time>
+        {
+          data.updatedDate && (
+            <>
+              <span aria-hidden="true">·</span>
+              <span>Updated {formatPostDate(data.updatedDate)}</span>
+            </>
+          )
+        }
+      </p>
+    </div>
+  </section>
+
+  <div class="container-page py-8">
+    <AdSlot slot="list-top" class="mb-8" />
+
+    {/* Markdown body — scoped prose styling (no Typography plugin). */}
+    <article class="post-prose max-w-2xl text-fg-muted">
+      <slot />
+    </article>
+
+    {/* Internal-linking block #1 — the curated "Top 10 …" lists this article is about. */}
+    {
+      data.linkedLists.length > 0 && (
+        <nav aria-labelledby="lists-heading" class="mt-12 max-w-2xl">
+          <h2 id="lists-heading" class="mb-4 text-2xl font-bold">Explore these lists</h2>
+          <ul class="flex flex-wrap gap-2">
+            {data.linkedLists.map((l) => (
+              <li>
+                <a
+                  href={listLinkPath(l)}
+                  class="inline-flex items-center rounded-full border border-ink-600 bg-ink-800 px-3.5 py-1.5 text-sm text-fg-muted transition-colors hover:border-accent-500/60 hover:text-fg"
+                >
+                  {listLinkLabel(l)}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      )
+    }
+
+    {/* Internal-linking block #2 — movies named in the article, as poster cards. */}
+    {
+      mentioned.length > 0 && (
+        <section aria-labelledby="mentioned-heading" class="mt-12">
+          <h2 id="mentioned-heading" class="mb-4 text-2xl font-bold">Movies mentioned</h2>
+          <ol class="grid grid-cols-2 gap-x-4 gap-y-7 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
+            {mentioned.map((movie) => (
+              <li>
+                <MovieCard movie={movie} />
+              </li>
+            ))}
+          </ol>
+        </section>
+      )
+    }
+
+    {data.faq.length > 0 && <Faq items={data.faq} />}
+
+    {/* Internal-linking block #3 — related posts (blog-to-blog crawl cluster). */}
+    {
+      related.length > 0 && (
+        <nav aria-labelledby="keep-reading" class="mt-12 max-w-2xl">
+          <h2 id="keep-reading" class="mb-4 text-2xl font-bold">Keep reading</h2>
+          <ul class="space-y-3">
+            {related.map((p) => (
+              <li>
+                <a
+                  href={`/blog/${p.id}`}
+                  class="block rounded-xl border border-ink-700/60 bg-ink-900/40 p-4 transition-colors hover:border-accent-500/60"
+                >
+                  <span class="font-semibold text-fg">{p.data.title}</span>
+                  <span class="mt-1 block text-sm text-fg-muted">{p.data.description}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      )
+    }
+
+    <AdSlot slot="list-bottom" class="mt-10" />
+  </div>
+</BaseLayout>
+
+<style>
+  /* Scoped prose styles for Markdown body content (no Tailwind Typography plugin). */
+  .post-prose :global(h2) {
+    margin-top: 2.25rem;
+    margin-bottom: 0.75rem;
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--color-fg);
+  }
+  .post-prose :global(h3) {
+    margin-top: 1.75rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-fg);
+  }
+  .post-prose :global(p) {
+    margin-top: 0.9rem;
+    line-height: 1.75;
+  }
+  .post-prose :global(ul),
+  .post-prose :global(ol) {
+    margin-top: 0.9rem;
+    padding-left: 1.4rem;
+    line-height: 1.75;
+  }
+  .post-prose :global(ul) {
+    list-style: disc;
+  }
+  .post-prose :global(ol) {
+    list-style: decimal;
+  }
+  .post-prose :global(li) {
+    margin-top: 0.35rem;
+  }
+  .post-prose :global(a) {
+    color: var(--color-accent-400);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .post-prose :global(a:hover) {
+    color: var(--color-accent-300);
+  }
+  .post-prose :global(strong) {
+    color: var(--color-fg);
+    font-weight: 700;
+  }
+  .post-prose :global(blockquote) {
+    margin-top: 1.1rem;
+    border-left: 3px solid var(--color-accent-500);
+    padding-left: 1rem;
+    font-style: italic;
+    color: var(--color-fg-subtle);
+  }
+</style>

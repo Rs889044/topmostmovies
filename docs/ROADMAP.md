@@ -252,3 +252,12 @@ domain + accounts.
   488 original metadata blurbs, no thin pages); full **dark cinematic redesign** of every
   component/layout (verified with screenshots). 615 pages; check/build/validate-seo all
   green. **Next: Phase 6 (AdSense & legal).**
+- **2026-06-28** — **Blog system added** (user request: keyword-rich editorial that
+  internal-links into lists/movies). New `blog` content collection (Markdown +
+  `linkedLists`/`linkedMovies` frontmatter), `/blog` index + `/blog/[slug]`,
+  `BlogPostLayout` with three internal-linking blocks ("Explore these lists", "Movies
+  mentioned", "Keep reading"), `BlogPosting` JSON-LD (`lib/jsonld.article`), nav + footer
+  links, sitemap inclusion. Helpers in `lib/blog.ts`. Two sample posts (Korean
+  thriller/romance). Authors add posts by dropping a `.md` file. 748 pages;
+  check/build/validate-seo all green. Also fixed combo-list "Explore more" counts (was
+  hardcoded 0).

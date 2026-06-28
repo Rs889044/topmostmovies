@@ -91,6 +91,10 @@ npm run validate-seo # post-build SEO/JSON-LD validation over dist/ (scripts/)
   `<Breadcrumbs>`. JSON-LD per page type (see [docs/SEO.md](docs/SEO.md)).
 - Movie data validated at build time via content collections + Zod
   (see [docs/DATA-MODEL.md](docs/DATA-MODEL.md)).
+- **Blog:** original editorial in `src/content/blog/*.md` (`blog` collection) → `/blog` +
+  `/blog/[slug]`. Posts internal-link into lists/movies via `linkedLists` + `linkedMovies`
+  frontmatter (resolved by `src/lib/blog.ts`); `BlogPostLayout` adds those link blocks +
+  `BlogPosting` JSON-LD. Add a post by dropping a `.md` file — no script needed.
 - Small, reviewable commits. Push to GitHub regularly. Ask before any new dependency,
   major architectural change, or deviation from the data-source rules.
 
