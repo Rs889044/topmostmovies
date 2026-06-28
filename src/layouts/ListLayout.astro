@@ -15,6 +15,7 @@ import { allMovies, heroBackdrop } from '../lib/movies';
 import { isMember, relatedLists, combosFor, liveValueSet } from '../lib/lists';
 import { breadcrumbList, itemList, faqPage, type Crumb } from '../lib/jsonld';
 import type { Dimension } from '../lib/taxonomy';
+import { autoFaq } from '../lib/auto-faq';
 
 export interface Props {
   list: RankedList;
@@ -25,8 +26,26 @@ export interface Props {
   faq?: { q: string; a: string }[];
 }
 
-const { list, dimensionLabel, intro, perMovieBlurb = {}, faq = [] } = Astro.props;
+const { list, dimensionLabel, intro, perMovieBlurb = {}, faq: editorialFaq = [] } = Astro.props;
 const site = Astro.site ?? new URL('https://topmostmovies.com');
+
+// Use the hand-written FAQ when present; otherwise auto-generate one from this list's real
+// ranked movies (gives every list a FAQ block + FAQPage schema for "People Also Ask").
+// Build natural singular/plural phrases per dimension (mirrors how people search).
+let singular: string, plural: string;
+if (list.dimension === 'language') {
+  singular = `${list.name} movie`; plural = `${list.name} movies`;
+} else if (list.dimension === 'country') {
+  singular = `movie from ${list.name}`; plural = `movies from ${list.name}`;
+} else if (list.dimension === 'year') {
+  singular = `movie of ${list.name}`; plural = `movies of ${list.name}`;
+} else {
+  // genre / studio / theme / industry / decade
+  singular = `${list.name} movie`; plural = `${list.name} movies`;
+}
+const faq = editorialFaq.length
+  ? editorialFaq
+  : autoFaq(list.dimension, singular, plural, list.movies);
 
 // Related lists for internal linking (computed from the full movie set + this list's members).
 const everyMovie = await allMovies();
@@ -68,8 +87,15 @@ const description =
   intro?.slice(0, 160) ??
   `${list.title}: our ranked picks with ratings and age/parental info.`;
 
+// Year in the META title (not the visible h1) adds freshness + click-through in search.
+// Skip for year/decade lists (their title already has a date).
+const yearSuffix =
+  list.dimension === 'year' || list.dimension === 'decade'
+    ? ''
+    : ` (${new Date().getFullYear()})`;
+
 const seo = {
-  title: `${list.title} — topmostmovies.com`,
+  title: `${list.title}${yearSuffix} — topmostmovies.com`,
   description,
   ogType: 'article' as const,
   image: list.movies[0]?.backdropUrl ?? list.movies[0]?.posterUrl,

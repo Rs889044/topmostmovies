@@ -22,6 +22,13 @@ export default defineConfig({
       // Keep noindex pages (about/contact/privacy) out of the sitemap so Google only
       // discovers indexable content. Single source of truth: src/lib/seo.ts.
       filter: (page) => !isNoindexPath(page),
+      // Add lastmod (build date) + priority so Google knows the content is current and
+      // recrawls efficiently. (changefreq omitted — Google ignores it; lastmod is what matters.)
+      serialize(item) {
+        item.lastmod = new Date().toISOString();
+        item.priority = item.url.replace(/\/$/, '') === SITE.replace(/\/$/, '') ? 1.0 : 0.7;
+        return item;
+      },
     }),
   ],
   vite: {

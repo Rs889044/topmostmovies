@@ -171,6 +171,23 @@ export function themeSlugsFor(keywordNames: string[]): string[] {
   return [...out];
 }
 
+// Country adjectives (for combo titles: "South Korean Crime" not "South Korea Crime").
+// Keyed by our country slug; falls back to the country name when absent.
+const COUNTRY_ADJECTIVES: Record<string, string> = {
+  'south-korea': 'South Korean',
+  japan: 'Japanese',
+  india: 'Indian',
+  france: 'French',
+  spain: 'Spanish',
+  'united-states': 'American',
+  'united-kingdom': 'British',
+};
+
+/** Adjective form of a country slug ("south-korea" → "South Korean"). */
+export function countryAdjective(slug: string): string {
+  return COUNTRY_ADJECTIVES[slug] ?? nameForSlug('country', slug) ?? slug;
+}
+
 export function countryEntry(isoCode: string): TaxonomyEntry | undefined {
   return COUNTRIES[isoCode];
 }

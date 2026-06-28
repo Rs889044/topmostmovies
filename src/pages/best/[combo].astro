@@ -17,6 +17,7 @@ import { allMovies, heroBackdrop } from '../../lib/movies';
 import { enumerateCombos, buildCombo, type RelatedLink } from '../../lib/lists';
 import { breadcrumbList, itemList, faqPage, type Crumb } from '../../lib/jsonld';
 import { COMBO_EDITORIAL } from '../../lib/combo-editorial';
+import { autoFaq } from '../../lib/auto-faq';
 import type { Dimension } from '../../lib/taxonomy';
 
 export async function getStaticPaths() {
@@ -39,12 +40,14 @@ const movies = await allMovies();
 const list = buildCombo(movies, primary, primaryValue, genre);
 const top = list.movies[0];
 
-// Hand-written editorial (intro + FAQ) for flagship combos; else an original auto-intro.
+// Hand-written editorial (intro + FAQ) for flagship combos; else an original auto-intro/FAQ.
 const editorial = COMBO_EDITORIAL[`${primaryValue}-${genre}`] ?? {};
+const comboPhrase = `${list.primaryName} ${list.genreName}`; // e.g. "Korean Thriller"
 const intro =
   editorial.intro ??
-  `Looking for the best ${list.primaryName.toLowerCase()} ${list.genreName.toLowerCase()} movies? We've ranked the standouts by rating — led by ${top ? `${top.title} (${top.year})` : 'our top pick'} — so you can find your next watch fast. Every title includes its rating and honest age certification.`;
-const faq = editorial.faq ?? [];
+  `Looking for the best ${comboPhrase.toLowerCase()} movies? We've ranked the standouts by rating — led by ${top ? `${top.title} (${top.year})` : 'our top pick'} — so you can find your next watch fast. Every title includes its rating and honest age certification.`;
+const faq =
+  editorial.faq ?? autoFaq('genre', `${comboPhrase} movie`, `${comboPhrase} movies`, list.movies);
 
 const primaryBase = primary; // 'language' | 'industry' | 'decade'
 const crumbs: Crumb[] = [
@@ -68,7 +71,7 @@ const jsonLd: Record<string, unknown>[] = [
 if (faq.length) jsonLd.push(faqPage(faq));
 
 const seo = {
-  title: `${list.title} — topmostmovies.com`,
+  title: `${list.title} (${new Date().getFullYear()}) — topmostmovies.com`,
   description: intro.slice(0, 160),
   ogType: 'article' as const,
   image: top?.backdropUrl ?? top?.posterUrl,

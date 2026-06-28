@@ -7,7 +7,7 @@
 import { getCollection } from 'astro:content';
 import type { MovieData } from './movies';
 import { allMovies } from './movies';
-import { type Dimension, nameForSlug } from './taxonomy';
+import { type Dimension, nameForSlug, countryAdjective } from './taxonomy';
 
 export const DEFAULT_TOP_N = 10;
 
@@ -99,6 +99,32 @@ export function topMature(movies: MovieData[], topN = DEFAULT_TOP_N): MovieData[
     .filter((m) => isEligible(m) && m.certification && MATURE.test(m.certification.trim()))
     .sort((a, b) => defaultScore(b) - defaultScore(a))
     .slice(0, topN);
+}
+
+/**
+ * Similar movies for the "You might also like" block on a movie page. Scores other films by
+ * shared genres (weighted) + same language/decade, then by quality. Powers internal linking
+ * so Google crawls deeper and link equity flows between movie pages.
+ */
+export function relatedMovies(
+  all: MovieData[],
+  movie: MovieData,
+  topN = 6,
+): MovieData[] {
+  const genreSet = new Set(movie.genres);
+  const scored = all
+    .filter((m) => m.slug !== movie.slug && isEligible(m))
+    .map((m) => {
+      let sim = 0;
+      for (const g of m.genres) if (genreSet.has(g)) sim += 2; // shared genres weigh most
+      if (m.languages.some((l) => movie.languages.includes(l))) sim += 2;
+      if (m.decade === movie.decade) sim += 1;
+      return { m, sim };
+    })
+    .filter((x) => x.sim > 0)
+    // most similar first, then highest quality as the tiebreaker
+    .sort((a, b) => b.sim - a.sim || defaultScore(b.m) - defaultScore(a.m));
+  return scored.slice(0, topN).map((x) => x.m);
 }
 
 export interface RankedList {
@@ -305,6 +331,11 @@ const COMBO_GENRES = [
 const COMBO_LANGUAGES = ['korean', 'hindi', 'japanese', 'spanish', 'french'] as const;
 const COMBO_INDUSTRIES = ['hollywood', 'bollywood'] as const;
 const COMBO_DECADES = ['1990s', '2000s', '2010s', '2020s'] as const;
+// Country×genre ("best Japanese horror", "best South Korean crime"). Country slugs can be
+// multi-word (south-korea); parseComboSlug handles that via the source-values lookup.
+const COMBO_COUNTRIES = [
+  'south-korea', 'japan', 'india', 'france', 'spain', 'united-states', 'united-kingdom',
+] as const;
 
 /** A combo couples a primary dimension (language/industry/decade) with a genre. */
 export interface ComboRef {
@@ -331,6 +362,7 @@ const COMBO_SOURCES: { primary: Dimension; values: readonly string[] }[] = [
   { primary: 'language', values: COMBO_LANGUAGES },
   { primary: 'industry', values: COMBO_INDUSTRIES },
   { primary: 'decade', values: COMBO_DECADES },
+  { primary: 'country', values: COMBO_COUNTRIES },
 ];
 
 /** Every viable combo (≥ COMBO_MIN eligible movies) — for getStaticPaths + linking. */
@@ -346,7 +378,10 @@ export async function enumerateCombos(): Promise<ComboRef[]> {
             primary,
             primaryValue,
             genre,
-            primaryName: nameForSlug(primary, primaryValue) ?? primaryValue,
+            primaryName:
+              primary === 'country'
+                ? countryAdjective(primaryValue)
+                : nameForSlug(primary, primaryValue) ?? primaryValue,
             genreName: nameForSlug('genre', genre) ?? genre,
             count,
           });
@@ -398,17 +433,20 @@ export function buildCombo(
   const members = comboMembers(movies, primary, primaryValue, genre).sort(
     (a, b) => defaultScore(b) - defaultScore(a),
   );
-  const primaryName = nameForSlug(primary, primaryValue) ?? primaryValue;
+  // Use the country ADJECTIVE for country combos ("South Korean Crime", not "South Korea
+  // Crime"); the plain name for language/industry/decade.
+  const primaryName =
+    primary === 'country'
+      ? countryAdjective(primaryValue)
+      : nameForSlug(primary, primaryValue) ?? primaryValue;
   const genreName = nameForSlug('genre', genre) ?? genre;
-  // "Top 10 1990s Thriller Movies" / "Top 10 Korean Thriller Movies".
-  const label = primary === 'decade' ? `${primaryName} ${genreName}` : `${primaryName} ${genreName}`;
   return {
     primary,
     primaryValue,
     genre,
     primaryName,
     genreName,
-    title: `Top ${Math.min(members.length, topN)} ${label} Movies`,
+    title: `Top ${Math.min(members.length, topN)} ${primaryName} ${genreName} Movies`,
     movies: members.slice(0, topN),
     total: members.length,
   };
