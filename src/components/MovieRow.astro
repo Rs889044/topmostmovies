@@ -17,10 +17,10 @@ const { title, href, movies } = Astro.props;
 
 {
   movies.length > 0 && (
-    <section class="mt-10">
-      <div class="container-page mb-3 flex items-baseline justify-between">
+    <section class="mt-8 first:mt-10">
+      <div class="container-page mb-4 flex items-baseline justify-between">
         <h2 class="text-xl font-bold sm:text-2xl">{title}</h2>
-        <a href={href} class="text-sm font-medium text-accent-400 hover:text-accent-300">
+        <a href={href} class="shrink-0 text-sm font-medium text-accent-400 hover:text-accent-300">
           View all →
         </a>
       </div>

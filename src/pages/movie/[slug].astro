@@ -159,6 +159,22 @@ const seo = {
             )
           }
 
+          {/* Watch now — prominent button to where the film is streaming (JustWatch, live &
+              region-aware; we don't cache a stale "on Netflix" claim). */}
+          <div class="mt-5">
+            <a
+              href={`https://www.justwatch.com/us/search?q=${encodeURIComponent(movie.title)}`}
+              rel="noopener nofollow"
+              target="_blank"
+              class="inline-flex items-center gap-2 rounded-lg bg-accent-500 px-5 py-2.5 font-semibold text-ink-950 transition hover:bg-accent-400"
+            >
+              <svg viewBox="0 0 24 24" class="h-4 w-4" fill="currentColor" aria-hidden="true">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+              Watch now
+            </a>
+          </div>
+
           {/* Synopsis — ORIGINAL only (never TMDb overview verbatim). */}
           {
             movie.synopsis && (
@@ -197,23 +213,12 @@ const seo = {
             }
           </section>
 
-          {/* Where to watch — links to JustWatch (live, region-aware) rather than a stale
-              "on Netflix" claim. Streaming availability changes + varies by country, so we
-              don't cache it; we send users to the always-current source. */}
-          <section class="mt-6" aria-labelledby="watch-heading">
-            <h2 id="watch-heading" class="text-lg font-bold">Where to watch</h2>
-            <p class="mt-2 text-fg-muted">
-              Streaming options change often and vary by country. Check current availability
-              on
-              <a
-                href={`https://www.justwatch.com/us/search?q=${encodeURIComponent(movie.title)}`}
-                rel="noopener nofollow"
-                target="_blank"
-                class="text-accent-400 hover:text-accent-300"
-              >
-                JustWatch</a>.
-            </p>
-          </section>
+          {/* Honest note: the "Watch now" button (above) opens JustWatch for live,
+              region-aware availability — we don't cache a stale "on Netflix" claim. */}
+          <p class="mt-6 text-sm text-fg-subtle">
+            Streaming availability changes often and varies by country. "Watch now" opens
+            JustWatch for current options.
+          </p>
         </div>
       </article>
     </div>
