@@ -14,7 +14,7 @@ import AdSlot from '../../components/AdSlot.astro';
 import RelatedLists from '../../components/RelatedLists.astro';
 import Faq from '../../components/Faq.astro';
 import { allMovies, heroBackdrop } from '../../lib/movies';
-import { enumerateCombos, buildCombo, type RelatedLink } from '../../lib/lists';
+import { enumerateCombos, buildCombo, buildList, type RelatedLink } from '../../lib/lists';
 import { breadcrumbList, itemList, faqPage, type Crumb } from '../../lib/jsonld';
 import { COMBO_EDITORIAL } from '../../lib/combo-editorial';
 import { autoFaq } from '../../lib/auto-faq';
@@ -58,10 +58,11 @@ const crumbs: Crumb[] = [
 
 const movieItems = list.movies.map((m) => ({ name: `${m.title} (${m.year})`, path: `/movie/${m.slug}` }));
 
-// Cross-link back to the parent single-dimension lists.
+// Cross-link back to the parent single-dimension lists. Counts mirror what those list pages
+// actually show (eligible-member totals from buildList), so they never read "0".
 const related: RelatedLink[] = [
-  { dimension: primary, value: primaryValue, name: `All ${list.primaryName} movies`, path: `/${primaryBase}/${primaryValue}`, count: 0 },
-  { dimension: 'genre', value: genre, name: `All ${list.genreName} movies`, path: `/genre/${genre}`, count: 0 },
+  { dimension: primary, value: primaryValue, name: `All ${list.primaryName} movies`, path: `/${primaryBase}/${primaryValue}`, count: buildList(movies, primary, primaryValue).total },
+  { dimension: 'genre', value: genre, name: `All ${list.genreName} movies`, path: `/genre/${genre}`, count: buildList(movies, 'genre', genre).total },
 ];
 
 const jsonLd: Record<string, unknown>[] = [
